@@ -5,11 +5,10 @@
  */
 package test;
 
+import entities.Reservation;
 import utils.MyDB;
-import entities.Match;
-import java.sql.Date;
-import java.sql.Time;
 import services.MatchService;
+import services.ReservationService;
 
 /**
  *
@@ -17,11 +16,14 @@ import services.MatchService;
  */
 public class Main {
       public static void main(String[] args) {
-          MyDB db = new MyDB();
+          MyDB db = MyDB.getInstance();
           MatchService msr= new MatchService();
-          Match match = new Match();
+          ReservationService rsv = new ReservationService();
+          Reservation reservation = new Reservation();
           //Match match = new Match(Time.valueOf("16:30:00"),Date.valueOf("2020-06-06"),"sfax",200,"lien");
-          System.out.println(msr.rechercher(match));
+          //msr.ajouter(match);
+          rsv.CreateRes(reservation,3,2);
+          System.out.println("reservation added");
     }        
            
            
