@@ -18,8 +18,6 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 
-
-
 /**
  *
  * @author Ghassene
@@ -34,20 +32,18 @@ public class MatchService implements IService<Match> {
     
 
     
-    
-    public void CreateMatch(Match t, int ide1, int ide2) {
-       String req = "insert into Matchs (id_equipe1,id_equipe_2,time,date,location,nb_place_dispo,link)"
-                   +"values((Select e.Id_equipe =? from equipe e), (Select e.Id_equipe =? from equipe e), ?, ?, ?, ?, ?)";
+    @Override
+    public void Create(Match t) {
+       String req = "insert into Matchs (time,date,location,nb_place_dispo,link)"
+                   +"values(?, ?, ?, ?, ?)";
        PreparedStatement statement;
         try {
             statement = cnx2.prepareStatement(req);
-            statement.setInt(1, ide1);
-            statement.setInt(2, ide2);
-            statement.setTime(3, (Time) t.getTime());
-            statement.setDate(4, (Date) t.getDate());
-            statement.setString(5,t.getLocation());
-            statement.setInt(6,t.getNb_place_dispo());
-            statement.setString(7,t.getLink());
+            statement.setTime(1, (Time) t.getTime());
+            statement.setDate(2, (Date) t.getDate());
+            statement.setString(3,t.getLocation());
+            statement.setInt(4,t.getNb_place_dispo());
+            statement.setString(5,t.getLink());
             statement.executeUpdate();
 
             System.out.println("Match created");
@@ -58,20 +54,18 @@ public class MatchService implements IService<Match> {
                
     }
 
-    
-    public void UpdateMatch(Match t,int ide1, int ide2) {
-            String req = "UPDATE matchs SET (id_equipe_1=(Select e.Id_equipe =? from equipe e), id_equipe_2=(Select e.Id_equipe =? from equipe e), time=?, date=?, location=?, nb_place_dispo=?, link=? WHERE id_match=?)";
+    @Override
+    public void Update(Match t) {
+            String req = "UPDATE matchs SET time=?, date=?, location=?, nb_place_dispo=?, link=? WHERE id_match=?";
             PreparedStatement statement;
 
         try {
             statement = cnx2.prepareStatement(req);
-            statement.setInt(1,ide1);
-            statement.setInt(2,ide2);
-            statement.setTime(3, (Time) t.getTime());
-            statement.setDate(4, (Date) t.getDate());
-            statement.setString(5,t.getLocation());
-            statement.setInt(6,t.getNb_place_dispo());
-            statement.setString(7,t.getLink());
+            statement.setTime(1, (Time) t.getTime());
+            statement.setDate(2, (Date) t.getDate());
+            statement.setString(3,t.getLocation());
+            statement.setInt(4,t.getNb_place_dispo());
+            statement.setString(5,t.getLink());
             statement.executeUpdate();
 
             System.out.println("Match updated");
@@ -116,8 +110,6 @@ public class MatchService implements IService<Match> {
                 Match t = new Match();
                 
                 t.setId_match(rst.getInt(1));
-                t.setId_equipe_1(rst.getInt(2));
-                t.setId_equipe_2(rst.getInt(3));
                 t.setTime(rst.getTime("time"));
                 t.setDate(rst.getDate("date"));
                 t.setLocation(rst.getString("location"));
@@ -130,16 +122,5 @@ public class MatchService implements IService<Match> {
             System.out.println(ex.getMessage());
         }
         return ListMatch;
-    }
-
-    @Override
-    public void Create(Match t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Update(Match t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
+    }}
     
