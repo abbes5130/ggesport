@@ -37,7 +37,7 @@ public class MatchService implements IService<Match> {
     
     public void CreateMatch(Match t, int ide1, int ide2) {
        String req = "insert into Matchs (id_equipe1,id_equipe_2,time,date,location,nb_place_dispo,link)"
-                   +"values((Select e.Id_equipe =?), (Select e.Id_equipe =?), ?, ?, ?, ?, ?)";
+                   +"values((Select e.Id_equipe =? from equipe e), (Select e.Id_equipe =? from equipe e), ?, ?, ?, ?, ?)";
        PreparedStatement statement;
         try {
             statement = cnx2.prepareStatement(req);
