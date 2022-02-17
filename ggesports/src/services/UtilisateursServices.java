@@ -6,7 +6,7 @@
 package services;
 
 import entities.Role;
-import entities.Utilisateurs;
+import entities.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,25 +19,46 @@ import utils.MyConnexion;
  *
  * @author ridha
  */
-public class UtilisateursServices implements UserServices<Utilisateurs>{
+public class UtilisateursServices implements UserServices<Users>{
     Connection cnx;
     public UtilisateursServices() {
         cnx = MyConnexion.getInstance().getConncetion();
     }
 
     @Override
-    public void ajouter(Utilisateurs t) {
+    public void ajouter(Users t) {
         
             try {
           
-           String query="INSERT INTO utilisateurs(Nom,Prenom,Email,Password,Num_tel,Id_role) values(?,?,?,?,?,?)";
+           String query="INSERT INTO users(firstname,lastname,email,password,phone_number,id_role) values(?,?,?,?,?,?)";
                 PreparedStatement smt = cnx.prepareStatement(query);
-                smt.setString(1, t.getNom());
-                smt.setString(2, t.getPrenom());
+                smt.setString(1, t.getFirstname());
+                smt.setString(2, t.getLastname());
                 smt.setString(3, t.getEmail());
                 smt.setString(4, t.getPassword());
-                smt.setInt(5, t.getNum_tel());
+                smt.setInt(5, t.getPhone_number());
                 smt.setInt(6, t.getId_role());
+                smt.executeUpdate();
+                System.out.println("ajout avec succee");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+           
+       }
+        
+    }
+    @Override
+    public void Sign_in(Users t) {
+        
+            try {
+          
+           String query="INSERT INTO users(firstname,lastname,email,password,phone_number,id_role) values(?,?,?,?,?,3)";
+                PreparedStatement smt = cnx.prepareStatement(query);
+                smt.setString(1, t.getFirstname());
+                smt.setString(2, t.getLastname());
+                smt.setString(3, t.getEmail());
+                smt.setString(4, t.getPassword());
+                smt.setInt(5, t.getPhone_number());
+               
                 smt.executeUpdate();
                 System.out.println("ajout avec succee");
             } catch (SQLException ex) {
@@ -48,16 +69,18 @@ public class UtilisateursServices implements UserServices<Utilisateurs>{
     }
 
     @Override
-    public void modifier(Utilisateurs t) {
+    public void modifier(Users t) {
          try {
-       String query2="update utilisateurs set Nom=?, Prenom=?, Email=?, Password=?,Num_tel=? where Id_utilisateur=?";
+       String query2="update users set firstname=?, lastname=?, email=?, password=?,phone_number=? where id_user=?";
                 PreparedStatement smt = cnx.prepareStatement(query2);
                 
-                smt.setString(1, t.getNom());
-                smt.setString(2, t.getPrenom());
+                
+                smt.setString(1, t.getFirstname());
+                smt.setString(2, t.getLastname());
                 smt.setString(3, t.getEmail());
                 smt.setString(4, t.getPassword());
-                smt.setInt(5, t.getNum_tel());
+                smt.setInt(5, t.getPhone_number());
+                smt.setInt(6, t.getId_user());
                 smt.executeUpdate();
                 System.out.println("modification avec succee");
             } catch (SQLException ex) {
@@ -65,12 +88,12 @@ public class UtilisateursServices implements UserServices<Utilisateurs>{
     }}
 
     @Override
-    public void supprimer(Utilisateurs t) {
+    public void supprimer(Users t) {
         
      try {
-       String query2="delete from utilisateurs where Id_utilisateur=?";
+       String query2="delete from users where id_user=?";
                 PreparedStatement smt = cnx.prepareStatement(query2);
-                smt.setInt(1, t.getId_utilisateurs());
+                smt.setInt(1, t.getId_user());
                 smt.executeUpdate();
                 System.out.println("suppression avec succee");
             } catch (SQLException ex) {
@@ -78,19 +101,19 @@ public class UtilisateursServices implements UserServices<Utilisateurs>{
     }}
 
     @Override
-    public List<Utilisateurs> find() {
+    public List<Users> find() {
     
         ArrayList l=new ArrayList(); 
         
         try {
-       String query2="select * from utilisateurs join role on utilisateurs.Id_role=role.Id_role";
+       String query2="select * from users join role on users.id_role=role.id_role";
                 PreparedStatement smt = cnx.prepareStatement(query2);
-                Utilisateurs p;
+                Users p;
                 Role r;
                 ResultSet rs= smt.executeQuery();
                 while(rs.next()){
-                   p=new Utilisateurs(rs.getInt("Id_utilisateur"),rs.getInt("Id_role"), rs.getInt("Num_tel"),rs.getString("Nom"),rs.getString("Prenom"),rs.getString("Email"),rs.getString("Password"));
-                   r=new Role(rs.getString("nom_role"));
+                   p=new Users(rs.getInt("id_user"),rs.getInt("phone_number"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"));
+                   r=new Role(rs.getString("rolename"));
                    l.add(p);
                    l.add(r);
                 }

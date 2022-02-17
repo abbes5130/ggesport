@@ -6,7 +6,7 @@
 package services;
 
 import entities.Role;
-import entities.Utilisateurs;
+import entities.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,9 +29,9 @@ public class RoleServices implements RServices<Role>{
     public void ajouterRole(Role t) {
         try {
           
-           String query="INSERT INTO role(Nom_role) values(?)";
+           String query="INSERT INTO role(rolename) values(?)";
                 PreparedStatement smt = cnx.prepareStatement(query);
-                smt.setString(1, t.getNom_role());
+                smt.setString(1, t.getRolename());
                 smt.executeUpdate();
                 System.out.println("ajout avec succee");
             } catch (SQLException ex) {
@@ -43,11 +43,12 @@ public class RoleServices implements RServices<Role>{
     @Override
     public void modifierRole(Role t) {
         try {
-       String query2="update role set Nom_role=? where Id_role=?";
+       String query2="update role set rolename=? where id_role=?";
                 PreparedStatement smt = cnx.prepareStatement(query2);
                 
-                smt.setString(1, t.getNom_role());
                 
+                smt.setString(1, t.getRolename());
+                smt.setInt(2, t.getId_role());
                 smt.executeUpdate();
                 System.out.println("modification avec succee");
             } catch (SQLException ex) {
@@ -58,7 +59,7 @@ public class RoleServices implements RServices<Role>{
     @Override
     public void supprimerRole(Role t) {
         try {
-       String query2="delete from role where Id_role=?";
+       String query2="delete from role where id_role=?";
                 PreparedStatement smt = cnx.prepareStatement(query2);
                 smt.setInt(1, t.getId_role());
                 smt.executeUpdate();
@@ -73,12 +74,12 @@ public class RoleServices implements RServices<Role>{
         ArrayList l2=new ArrayList(); 
         
         try {
-       String query2="select * from utilisateurs";
+       String query2="select * from role";
                 PreparedStatement smt = cnx.prepareStatement(query2);
                 Role p;
                 ResultSet rs= smt.executeQuery();
                 while(rs.next()){
-                   p=new Role(rs.getInt("Id_role"), rs.getString("Nom_role"));
+                   p=new Role(rs.getInt("id_role"), rs.getString("rolename"));
                    l2.add(p);
                 }
                 System.out.println(l2);
