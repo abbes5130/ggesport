@@ -8,8 +8,13 @@ package services;
 import entities.Reservation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import utils.MyDB;
 
@@ -26,11 +31,11 @@ public class ReservationService implements IService<Reservation>{
     }
 
     
-    public void CreateRes(Reservation t, int idm, int idu) {
+    public void CreateRes(Reservation t, int idu, int idm) {
                         String req = "insert into reservation (id_utilisateur, "
                         + "id_match,nom_utilisateur, prenom_utilisateur, time, date, location) "
                         + "SELECT u.Id_utilisateur, m.id_match, u.Nom, u.Prenom, m.time, m.date, m.location "
-                        + "from utilisateurs u, matchs m where u.Id_utilisateur=4 and m.id_match=?"  ;
+                        + "from utilisateurs u, matchs m where u.Id_utilisateur=? and m.id_match=?"  ;
                 
                 PreparedStatement statement;
                 
@@ -38,7 +43,8 @@ public class ReservationService implements IService<Reservation>{
             try {
                     statement = cnx2.prepareStatement(req);
                    
-                    statement.setInt(1,t.getId_match());
+                    statement.setInt(1,idu);
+                    statement.setInt(2,idm);
              
                     statement.executeUpdate();
                     
@@ -63,17 +69,86 @@ public class ReservationService implements IService<Reservation>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+  
+    public List<Reservation> RetrieveRes() {
+            List<Reservation> ListReservation = new ArrayList<Reservation>();
+            PreparedStatement statement;
+            String req = "Select * From reservation Where Id_utilisateur =?";
+            try {
+               statement = cnx2.prepareStatement(req);
+
+                ResultSet rst;
+                rst = statement.executeQuery(req);
+                     Reservation t = new Reservation();
+                    statement.setInt(1,t.getId_utilisateur());
+                
+                while(rst.next())
+                {
+                    
+                    t.setId_ticket(rst.getInt(1));
+                    t.setId_match(rst.getInt(2));
+                    t.setId_utilisateur(rst.getInt(3));
+                    t.setNom_utilisateur(rst.getString("nom_utilisateur"));
+                    t.setPrenom_utilisateur(rst.getString("prenom_utilisateur"));
+                    t.setDate(rst.getDate("date"));
+                    t.setTime(rst.getTime("time"));
+                    t.setLocation(rst.getString("location"));
+                    
+                    ListReservation.add(t);
+                    
+                    
+                }
+                
+            } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            }
+            
+            return ListReservation;
+    }
+
+
     @Override
     public List<Reservation> Retrieve() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            List<Reservation> ListReservation = new ArrayList<Reservation>();
+            PreparedStatement statement;
+            String req = "Select * From reservation";
+            try {
+               statement = cnx2.prepareStatement(req);
+
+                ResultSet rst;
+                rst = statement.executeQuery(req);
+                     Reservation t = new Reservation();
+
+                while(rst.next())
+                {
+                    
+                    t.setId_ticket(rst.getInt(1));
+                    t.setId_match(rst.getInt(2));
+                    t.setId_utilisateur(rst.getInt(3));
+                    t.setNom_utilisateur(rst.getString("nom_utilisateur"));
+                    t.setPrenom_utilisateur(rst.getString("prenom_utilisateur"));
+                    t.setDate(rst.getDate("date"));
+                    t.setTime(rst.getTime("time"));
+                    t.setLocation(rst.getString("location"));
+                    
+                    ListReservation.add(t);
+                    
+                    
+                }
+                
+            } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            }
+            
+            return ListReservation;
+           
     }
+
 
     @Override
     public void Create(Reservation t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
     
     
     
