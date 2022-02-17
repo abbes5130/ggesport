@@ -25,9 +25,9 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(int id_match) {
+    public Reservation(int id_match, int id_utilisateur) {
         this.id_match = id_match;
-        
+        this.id_utilisateur = id_utilisateur;
     }
     
     

@@ -25,8 +25,8 @@ public class ReservationService implements IService<Reservation>{
         cnx2 = MyDB.getInstance().getCnx();
     }
 
-    @Override
-    public void Create(Reservation t) {
+    
+    public void CreateRes(Reservation t, int idm, int idu) {
                         String req = "insert into reservation (id_utilisateur, "
                         + "id_match,nom_utilisateur, prenom_utilisateur, time, date, location) "
                         + "SELECT u.Id_utilisateur, m.id_match, u.Nom, u.Prenom, m.time, m.date, m.location "
@@ -65,6 +65,11 @@ public class ReservationService implements IService<Reservation>{
 
     @Override
     public List<Reservation> Retrieve() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Create(Reservation t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
