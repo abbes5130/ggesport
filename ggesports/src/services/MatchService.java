@@ -60,7 +60,7 @@ public class MatchService implements IService<Match> {
 
     
     public void UpdateMatch(Match t,int ide1, int ide2) {
-            String req = "UPDATE matchs SET id_equipe_1=(Select e.Id_equipe =? from equipe e), id_equipe_2=(Select e.Id_equipe =? from equipe e), time=?, date=?, location=?, nb_place_dispo=?, link=? WHERE id_match=?";
+            String req = "UPDATE matchs SET (id_equipe_1=(Select e.Id_equipe =? from equipe e), id_equipe_2=(Select e.Id_equipe =? from equipe e), time=?, date=?, location=?, nb_place_dispo=?, link=? WHERE id_match=?)";
             PreparedStatement statement;
 
         try {
