@@ -23,7 +23,7 @@ public class PlayerCRUD implements IService<Player>{
    
 @Override
     public void create(Player t) {
-        String sql = "INSERT INTO player (id_player, firstname, lastname, description, player_tag, photo) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO player (id_team, firstname, lastname, description, player_tag, photo) VALUES (?, ?, ?, ?, ?, ?)";
  
 PreparedStatement statement;
         try {
@@ -82,6 +82,7 @@ statement.setString(3, t.getSurname());
 statement.setString(4,t.getDescription());
 statement.setString(5, t.getTag());
 statement.setString(6, t.getPhoto());
+statement.setInt(7, t.getId_player());
 statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);

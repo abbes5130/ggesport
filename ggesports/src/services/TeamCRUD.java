@@ -78,6 +78,7 @@ String sql = "UPDATE team SET team_name=?, logo=?, players_number=?, description
 statement.setString(2,t.getLogo());
 statement.setInt(3, t.getNb_joueur());
 statement.setString(4,t.getDescription());
+statement.setInt(5,t.getId_team());
 statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
