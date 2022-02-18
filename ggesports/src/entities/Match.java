@@ -17,29 +17,28 @@ public class Match {
     private Time time;
     private Date date;
     private String location;
-    private int nb_place_dispo;
+    private int nb_seats;
     private String link;
 
     public Match() {
     }
 
-    public Match(int id_match, Time time, Date date, String location, int nb_place_dispo, String link) {
+    public Match(Time time, Date date, String location, int nb_seats, String link) {
+        this.time = time;
+        this.date = date;
+        this.location = location;
+        this.nb_seats = nb_seats;
+        this.link = link;
+    }
+
+    public Match(int id_match, Time time, Date date, String location, int nb_seats, String link) {
         this.id_match = id_match;
         this.time = time;
         this.date = date;
         this.location = location;
-        this.nb_place_dispo = nb_place_dispo;
+        this.nb_seats = nb_seats;
         this.link = link;
     }
-
-    public Match(Time time, Date date, String location, int nb_place_dispo, String link) {
-        this.time = time;
-        this.date = date;
-        this.location = location;
-        this.nb_place_dispo = nb_place_dispo;
-        this.link = link;
-    }
-    
 
     public int getId_match() {
         return id_match;
@@ -73,12 +72,12 @@ public class Match {
         this.location = location;
     }
 
-    public int getNb_place_dispo() {
-        return nb_place_dispo;
+    public int getNb_seats() {
+        return nb_seats;
     }
 
-    public void setNb_place_dispo(int nb_place_dispo) {
-        this.nb_place_dispo = nb_place_dispo;
+    public void setNb_seats(int nb_seats) {
+        this.nb_seats = nb_seats;
     }
 
     public String getLink() {
@@ -91,8 +90,10 @@ public class Match {
 
     @Override
     public String toString() {
-        return "Match{" + "id_match=" + id_match + ", time=" + time + ", date=" + date + ", location=" + location + ", nb_place_dispo=" + nb_place_dispo + ", link=" + link + '}';
+        return "Match{" + "id_match=" + id_match + ", time=" + time + ", date=" + date + ", location=" + location + ", nb_seats=" + nb_seats + ", link=" + link + '}';
     }
+
+    
     
     
     

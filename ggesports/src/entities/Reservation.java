@@ -15,9 +15,9 @@ import java.sql.Time;
 public class Reservation {
     private int id_ticket;
     private int id_match;
-    private int id_utilisateur;
-    private String nom_utilisateur;
-    private String prenom_utilisateur;
+    private int id_user;
+    private String firstname;
+    private String lastname;
     private Date date;
     private Time time;
     private String location;
@@ -25,29 +25,40 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(int id_match, int id_utilisateur) {
+    public Reservation(int id_ticket, int id_match) {
+        this.id_ticket = id_ticket;
         this.id_match = id_match;
-        this.id_utilisateur = id_utilisateur;
+    }
+
+    public Reservation(int id_ticket) {
+        this.id_ticket = id_ticket;
     }
     
+
+    public Reservation(int id_ticket, int id_match, int id_user) {
+        this.id_ticket = id_ticket;
+        this.id_match = id_match;
+        this.id_user = id_user;
+    }
     
 
-    public Reservation(int id_match, int id_utilisateur, String nom_utilisateur, String prenom_utilisateur, Date date, Time time, String location) {
+    public Reservation(int id_match, int id_user, String firstname, String lastname, Date date, Time time, String location) {
         this.id_match = id_match;
-        this.id_utilisateur = id_utilisateur;
-        this.nom_utilisateur = nom_utilisateur;
-        this.prenom_utilisateur = prenom_utilisateur;
+        this.id_user = id_user;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.date = date;
         this.time = time;
         this.location = location;
     }
+    
 
-    public Reservation(int id_ticket, int id_match, int id_utilisateur, String nom_utilisateur, String prenom_utilisateur, Date date, Time time, String location) {
+    public Reservation(int id_ticket, int id_match, int id_user, String firstname, String lastname, Date date, Time time, String location) {
         this.id_ticket = id_ticket;
         this.id_match = id_match;
-        this.id_utilisateur = id_utilisateur;
-        this.nom_utilisateur = nom_utilisateur;
-        this.prenom_utilisateur = prenom_utilisateur;
+        this.id_user = id_user;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.date = date;
         this.time = time;
         this.location = location;
@@ -69,28 +80,28 @@ public class Reservation {
         this.id_match = id_match;
     }
 
-    public int getId_utilisateur() {
-        return id_utilisateur;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setId_utilisateur(int id_utilisateur) {
-        this.id_utilisateur = id_utilisateur;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
-    public String getNom_utilisateur() {
-        return nom_utilisateur;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setNom_utilisateur(String nom_utilisateur) {
-        this.nom_utilisateur = nom_utilisateur;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getPrenom_utilisateur() {
-        return prenom_utilisateur;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setPrenom_utilisateur(String prenom_utilisateur) {
-        this.prenom_utilisateur = prenom_utilisateur;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public Date getDate() {
@@ -119,8 +130,9 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservation{" + "id_ticket=" + id_ticket + ", id_match=" + id_match + ", id_utilisateur=" + id_utilisateur + ", nom_utilisateur=" + nom_utilisateur + ", prenom_utilisateur=" + prenom_utilisateur + ", date=" + date + ", time=" + time + ", location=" + location + '}';
+        return "Reservation{" + "id_ticket=" + id_ticket + ", id_match=" + id_match + ", id_user=" + id_user + ", firstname=" + firstname + ", lastname=" + lastname + ", date=" + date + ", time=" + time + ", location=" + location + '}';
     }
+
     
     
     

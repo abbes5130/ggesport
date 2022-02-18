@@ -24,61 +24,54 @@ import utils.MyDB;
  *
  * @author DeadlyDaggerS
  */
-public class ReservationService implements IService<Reservation>{
-    
-    
-        Connection cnx2;
+public class ReservationService implements IService<Reservation> {
+
+    Connection cnx2;
+
     public ReservationService() {
         cnx2 = MyDB.getInstance().getCnx();
     }
 
-    
-    public void CreateRes(Reservation t, int idu, int idm) {
-                        String req = "insert into reservation (id_utilisateur, "
-                        + "id_match,nom_utilisateur, prenom_utilisateur, time, date, location) "
-                        + "SELECT u.Id_utilisateur, m.id_match, u.Nom, u.Prenom, m.time, m.date, m.location "
-                        + "from utilisateurs u, matchs m where u.Id_utilisateur=? and m.id_match=?" ;
-                
-                PreparedStatement statement;
-                
+    public void CreateRes(Reservation reservation, int user_id, int match_id) {
+        String req = "insert into reservation (id_user, "
+                + "id_match,firstname, lastname, time, date, location) "
+                + "SELECT u.id_user, m.id_match, u.firstname, u.lastname, m.time, m.date, m.location "
+                + "from users u, matches m where u.id_user=? and m.id_match=?";
 
-            try {
-                    statement = cnx2.prepareStatement(req);
-                   
-                    statement.setInt(1,idu);
-                    statement.setInt(2,idm);
-             
-                    statement.executeUpdate();
-                    
-                    System.out.println("reservation added");
+        PreparedStatement statement;
 
-                
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-    
-            }
-      
-       
-    }
-
-    
-    public void UpdateRes(Reservation t,int idu, int idm) {
-                    String req = "UPDATE reservation SET (id_utilisateur, "
-                        + "id_match,nom_utilisateur, prenom_utilisateur, time, date, location) "
-                        + "SELECT u.Id_utilisateur, m.id_match, u.Nom, u.Prenom, m.time, m.date, m.location "
-                        + "from utilisateurs u, matchs m where u.Id_utilisateur=? and m.id_match=?" ;
-                    
-            PreparedStatement statement;
         try {
             statement = cnx2.prepareStatement(req);
-            statement.setInt(1,idu);
-            statement.setInt(2,idm);
-            statement.setString(3, t.getNom_utilisateur());
-            statement.setString(4, t.getPrenom_utilisateur());
-            statement.setTime(5, (Time) t.getTime());
-            statement.setDate(6, (Date) t.getDate());
-            statement.setString(7,t.getLocation());
 
+            statement.setInt(1, user_id);
+            statement.setInt(2, match_id);
+
+            statement.executeUpdate();
+
+            System.out.println("reservation added");
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+    }
+
+    public void UpdateRes(Reservation reservation, int user_id, int match_id) {
+
+        String req = "UPDATE reservation r JOIN matches m JOIN users u "
+                + "SET r.id_match=m.id_match, r.id_user=u.id_user, r.firstname=u.firstname, "
+                + "r.lastname=u.lastname, r.date=m.date, r.time=m.time, r.location=m.location "
+                + "WHERE r.id_ticket =? AND m.id_match=? AND u.id_user =?";
+        
+
+        PreparedStatement statement;
+        try {
+            statement = cnx2.prepareStatement(req);
+            statement.setInt(1, reservation.getId_ticket());
+            statement.setInt(2, match_id);
+            statement.setInt(3, user_id);
+            System.out.println(statement);
             statement.executeUpdate();
 
             System.out.println("Match updated");
@@ -86,18 +79,17 @@ public class ReservationService implements IService<Reservation>{
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
-        
+
     }
 
     @Override
     public void Delete(Reservation t) {
-        
-            String req = "DELETE FROM matchs WHERE id_ticket=?";
-            PreparedStatement statement;
+
+        String req = "DELETE FROM matches WHERE id_ticket=?";
+        PreparedStatement statement;
         try {
             statement = cnx2.prepareStatement(req);
-            statement.setInt(1,t.getId_ticket());
+            statement.setInt(1, t.getId_ticket());
             statement.executeUpdate();
 
             System.out.println("Reservation deleted");
@@ -105,84 +97,77 @@ public class ReservationService implements IService<Reservation>{
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-            
+
     }
 
-  
     public List<Reservation> RetrieveRes() {
-            List<Reservation> ListReservation = new ArrayList<Reservation>();
-            PreparedStatement statement;
-            String req = "Select * From reservation Where Id_utilisateur =?";
-            try {
-               statement = cnx2.prepareStatement(req);
+        List<Reservation> ListReservation = new ArrayList<Reservation>();
+        PreparedStatement statement;
+        String req = "Select * From reservation Where id_user =?";
+        try {
+            statement = cnx2.prepareStatement(req);
 
-                ResultSet rst;
-                rst = statement.executeQuery(req);
-                     Reservation t = new Reservation();
-                    statement.setInt(1,t.getId_utilisateur());
-                
-                while(rst.next())
-                {
-                    
-                    t.setId_ticket(rst.getInt(1));
-                    t.setId_match(rst.getInt(2));
-                    t.setId_utilisateur(rst.getInt(3));
-                    t.setNom_utilisateur(rst.getString("nom_utilisateur"));
-                    t.setPrenom_utilisateur(rst.getString("prenom_utilisateur"));
-                    t.setDate(rst.getDate("date"));
-                    t.setTime(rst.getTime("time"));
-                    t.setLocation(rst.getString("location"));
-                    
-                    ListReservation.add(t);
-                    
-                    
-                }
-                
-            } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            ResultSet rst;
+            rst = statement.executeQuery(req);
+            Reservation t = new Reservation();
+            statement.setInt(1, t.getId_user());
+
+            while (rst.next()) {
+
+                t.setId_ticket(rst.getInt(1));
+                t.setId_match(rst.getInt(2));
+                t.setId_user(rst.getInt(3));
+                t.setFirstname(rst.getString("firstname"));
+                t.setLastname(rst.getString("lastname"));
+                t.setDate(rst.getDate("date"));
+                t.setTime(rst.getTime("time"));
+                t.setLocation(rst.getString("location"));
+
+                ListReservation.add(t);
+
             }
-            
-            return ListReservation;
-    }
 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return ListReservation;
+    }
 
     @Override
     public List<Reservation> Retrieve() {
-            List<Reservation> ListReservation = new ArrayList<Reservation>();
-            PreparedStatement statement;
-            String req = "Select * From reservation";
-            try {
-               statement = cnx2.prepareStatement(req);
+        List<Reservation> ListReservation = new ArrayList<Reservation>();
+        PreparedStatement statement;
+        String req = "Select * From reservation";
+        try {
+            statement = cnx2.prepareStatement(req);
 
-                ResultSet rst;
-                rst = statement.executeQuery(req);
-                     Reservation t = new Reservation();
+            ResultSet rst;
+            rst = statement.executeQuery(req);
+            Reservation t = new Reservation();
 
-                while(rst.next())
-                {
-                    
-                    t.setId_ticket(rst.getInt(1));
-                    t.setId_match(rst.getInt(2));
-                    t.setId_utilisateur(rst.getInt(3));
-                    t.setNom_utilisateur(rst.getString("nom_utilisateur"));
-                    t.setPrenom_utilisateur(rst.getString("prenom_utilisateur"));
-                    t.setDate(rst.getDate("date"));
-                    t.setTime(rst.getTime("time"));
-                    t.setLocation(rst.getString("location"));
-                    
-                    ListReservation.add(t);
-                    
-                    
-                }
-                
-            } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            while (rst.next()) {
+
+                t.setId_ticket(rst.getInt(1));
+                t.setId_match(rst.getInt(2));
+                t.setId_user(rst.getInt(3));
+                t.setFirstname(rst.getString("firstname"));
+                t.setLastname(rst.getString("lastname"));
+                t.setDate(rst.getDate("date"));
+                t.setTime(rst.getTime("time"));
+                t.setLocation(rst.getString("location"));
+
+                ListReservation.add(t);
+
             }
-            
-            return ListReservation;
-           
-    }
 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return ListReservation;
+
+    }
 
     @Override
     public void Create(Reservation t) {
@@ -193,7 +178,5 @@ public class ReservationService implements IService<Reservation>{
     public void Update(Reservation t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
 }
