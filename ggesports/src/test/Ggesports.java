@@ -26,6 +26,7 @@ public class Ggesports {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         // TODO code application logic here
         db test = new db();
         GameCRUD gcr = new GameCRUD();
