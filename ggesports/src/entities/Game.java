@@ -8,7 +8,6 @@ package entities;
 /**
  *
  * @author mohamedabbes
- *
  */
 public class Game {
     int id_game;

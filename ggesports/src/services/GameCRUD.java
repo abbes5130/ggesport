@@ -5,7 +5,9 @@
  */
 package services;
 
+
 import utils.db;
+
 import entities.Game;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -52,7 +54,9 @@ statement.setString(2,t.getLogo());
     
         PreparedStatement statement;
         try {
-            statement =  new db().getCnx().prepareStatement(sql);
+
+            statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
+
 statement.setInt(1,t);
       // execute the preparedstatement
       statement.executeUpdate();

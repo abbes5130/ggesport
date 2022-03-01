@@ -5,7 +5,9 @@
  */
 package services;
 
+
 import utils.db;
+
 import entities.Player;
 import entities.Team;
 import java.sql.PreparedStatement;
@@ -23,7 +25,9 @@ public class PlayerCRUD implements IService<Player>{
    
 @Override
     public void create(Player t) {
+
         String sql = "INSERT INTO player (id_team, firstname, lastname, description, player_tag, photo) VALUES (?, ?, ?, ?, ?, ?)";
+
  
 PreparedStatement statement;
         try {
@@ -70,7 +74,9 @@ statement.setInt(1,t);
     }
     @Override
     public void update(Player t) {
-String sql = "UPDATE player SET id_player=?, firstname=?, lastname=?, description=?, player_tag=?, photo=? WHERE id_player=?";
+
+String sql = "UPDATE player SET id_team=?, firstname=?, lastname=?, description=?, player_tag=?, photo=? WHERE id_player=?";
+
          PreparedStatement statement;
 
         try {
@@ -82,7 +88,9 @@ statement.setString(3, t.getSurname());
 statement.setString(4,t.getDescription());
 statement.setString(5, t.getTag());
 statement.setString(6, t.getPhoto());
+
 statement.setInt(7, t.getId_player());
+
 statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
