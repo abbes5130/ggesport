@@ -1,30 +1,39 @@
 
 package GUI;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
 public class TestFxml extends Application {
     
+   
+    private Stage primaryStage;
+    private AnchorPane mainLayout ;
     @Override
-    public void start(Stage primaryStage) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));     
-            Scene scene = new Scene(root, 1920, 1080);
-            primaryStage.setTitle("GGesport");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    public void start(Stage primaryStage) throws IOException {
+    this.primaryStage = primaryStage;
+    this.primaryStage.setTitle("GGEsports");
+    showMainView();
+        
         
     }
 
-
+private void showMainView() throws IOException {
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource("main.fxml"));
+    mainLayout = loader.load();
+    Scene scene = new Scene(mainLayout);
+    primaryStage.setScene(scene);
+    primaryStage.show();
+    
+}
     public static void main(String[] args) {
         launch(args);
     }
