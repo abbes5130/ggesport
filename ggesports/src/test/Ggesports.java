@@ -27,17 +27,18 @@ public class Ggesports {
         db test = new db();
         GameCRUD gcr = new GameCRUD();
         Game g1 = new Game(2,"Valorant","7");
-       gcr.create(g1);
+       //gcr.create(g1);
        // gcr.delete(1);
-      gcr.update(g1);
+      //gcr.update(g1);
         gcr.Retrieve();
         TeamCRUD tcr = new TeamCRUD();
-        Team t1 = new Team("Cloud9","https", 11, "equipe tres competenet depuis 2009");
-        tcr.create(t1);
+        Team t1 = new Team(1,"Tec9","https", 11, "equipe tres competant depuis 2009");
+        //tcr.create(t1);
+        //tcr.update(t1);
         tcr.Retrieve();
         PlayerCRUD pcr = new PlayerCRUD();
         Player p1 = new Player(2,"abbes","mohamed","h","sav0n","https");
-        pcr.create(p1);
+        //pcr.create(p1);
         pcr.Retrieve();
     }
     

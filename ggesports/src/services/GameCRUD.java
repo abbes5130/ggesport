@@ -52,7 +52,7 @@ statement.setString(2,t.getLogo());
     
         PreparedStatement statement;
         try {
-            statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
+            statement =  new db().getCnx().prepareStatement(sql);
 statement.setInt(1,t);
       // execute the preparedstatement
       statement.executeUpdate();
