@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.MyConnexion;
 
 /**
@@ -71,7 +73,8 @@ public class RoleServices implements RServices<Role>{
 
     @Override
     public List<Role> findRole() {
-        ArrayList l2=new ArrayList(); 
+         ObservableList<Role> List = FXCollections.observableArrayList();
+
         
         try {
        String query2="select * from role";
@@ -80,14 +83,14 @@ public class RoleServices implements RServices<Role>{
                 ResultSet rs= smt.executeQuery();
                 while(rs.next()){
                    p=new Role(rs.getInt("id_role"), rs.getString("rolename"));
-                   l2.add(p);
+                   List.add(p);
                 }
-                System.out.println(l2);
+                System.out.println(List);
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
     }
 
-        return l2;
+        return List;
     }
     
 }

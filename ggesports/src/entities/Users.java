@@ -12,8 +12,14 @@ package entities;
 public class Users {
     private int id_user,phone_number,id_role;
     private String firstname,lastname,email,password;
-
+    public static Users current_user;
+    public static Users findpass;
+    public Role role;
     public Users() {
+        
+    }
+    public Users(String password){
+        this.password = password;
     }
 
     public Users(int phone_number, int id_role, String firstname, String lastname, String email, String password) {
@@ -25,20 +31,20 @@ public class Users {
         this.password = password;
     }
 
-    public Users(int id_user, int phone_number, String firstname, String lastname, String email) {
-        this.id_user = id_user;
-        this.phone_number = phone_number;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-    }
-
-    public Users(int phone_number, String firstname, String lastname, String email, String password) {
+    public Users( int phone_number, String firstname, String lastname, String email,String password) {
+        
         this.phone_number = phone_number;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        
+    }
+
+    public Users(String email, String password) {
+        this.email = email;
+        this.password = password;
+        
     }
 
     public Users(int id_user, int phone_number, int id_role, String firstname, String lastname, String email, String password) {
@@ -109,7 +115,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" + "id_user=" + id_user + ", phone_number=" + phone_number + ", id_role=" + id_role + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", password=" + password + '}';
+        return "Users{" + "id_user=" + id_user + ", phone_number=" + phone_number + ", id_role=" + id_role + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", password=" + password + ", role="+role.getRolename()+"}";
     }
 
    
