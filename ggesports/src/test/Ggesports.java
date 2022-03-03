@@ -18,12 +18,14 @@ public class Ggesports {
 
 
     public static void main(String[] args) {
+
         MyDB db = MyDB.getInstance();
         Match match = new Match();
         Match_Team_Service mts = new Match_Team_Service();
         
         mts.Update(3,2,1);
         System.out.println("reservation added");
+
     }
 
     /**
