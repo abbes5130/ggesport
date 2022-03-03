@@ -34,7 +34,7 @@ public class MatchService implements IService<Match> {
     
     @Override
     public void Create(Match t) {
-       String req = "insert into Matchs (time,date,location,nb_place_dispo,link)"
+       String req = "insert into matches (time,date,location,nb_seats,link)"
                    +"values(?, ?, ?, ?, ?)";
        PreparedStatement statement;
         try {
@@ -42,7 +42,7 @@ public class MatchService implements IService<Match> {
             statement.setTime(1, (Time) t.getTime());
             statement.setDate(2, (Date) t.getDate());
             statement.setString(3,t.getLocation());
-            statement.setInt(4,t.getNb_place_dispo());
+            statement.setInt(4,t.getNb_seats());
             statement.setString(5,t.getLink());
             statement.executeUpdate();
 
@@ -56,7 +56,7 @@ public class MatchService implements IService<Match> {
 
     @Override
     public void Update(Match t) {
-            String req = "UPDATE matchs SET time=?, date=?, location=?, nb_place_dispo=?, link=? WHERE id_match=?";
+            String req = "UPDATE matches SET time=?, date=?, location=?, nb_seats=?, link=? WHERE id_match=?";
             PreparedStatement statement;
 
         try {
@@ -64,7 +64,7 @@ public class MatchService implements IService<Match> {
             statement.setTime(1, (Time) t.getTime());
             statement.setDate(2, (Date) t.getDate());
             statement.setString(3,t.getLocation());
-            statement.setInt(4,t.getNb_place_dispo());
+            statement.setInt(4,t.getNb_seats());
             statement.setString(5,t.getLink());
             statement.executeUpdate();
 
@@ -78,7 +78,7 @@ public class MatchService implements IService<Match> {
     @Override
     public void Delete(Match t) {
         
-            String req = "DELETE FROM matchs WHERE id_match=?";
+            String req = "DELETE FROM matches WHERE id_match=?";
             PreparedStatement statement;
 
         try {
@@ -101,7 +101,7 @@ public class MatchService implements IService<Match> {
         try {
             Statement statement;
             statement = cnx2.createStatement();
-            String req = "Select * From Matchs";
+            String req = "Select * From matches";
             ResultSet rst;
             rst= statement.executeQuery(req);
             
@@ -113,7 +113,7 @@ public class MatchService implements IService<Match> {
                 t.setTime(rst.getTime("time"));
                 t.setDate(rst.getDate("date"));
                 t.setLocation(rst.getString("location"));
-                t.setNb_place_dispo(rst.getInt("nb_place_dispo"));
+                t.setNb_seats(rst.getInt("nb_seats"));
                 t.setLink(rst.getString("link"));
                 ListMatch.add(t);
                 

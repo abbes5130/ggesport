@@ -6,7 +6,6 @@
 package test;
 
 import entities.Match;
-
 import utils.MyDB;
 
 import services.Match_Team_Service;
@@ -17,6 +16,7 @@ import services.Match_Team_Service;
  */
 public class Main {
 
+
     public static void main(String[] args) {
         MyDB db = MyDB.getInstance();
         Match match = new Match();
@@ -26,4 +26,11 @@ public class Main {
         System.out.println("reservation added");
     }
 
+    /**
+     *
+     * @param args
+     */
+
+    
+    
 }
