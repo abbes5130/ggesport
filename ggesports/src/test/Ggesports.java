@@ -14,7 +14,7 @@ import services.Match_Team_Service;
  *
  * @author Ghassene
  */
-public class Main {
+public class Ggesports {
 
 
     public static void main(String[] args) {
