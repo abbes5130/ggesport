@@ -5,28 +5,25 @@
  */
 package test;
 
-import entities.Reservation;
+import entities.Match;
+
 import utils.MyDB;
-import services.MatchService;
-import services.ReservationService;
+
+import services.Match_Team_Service;
 
 /**
  *
  * @author Ghassene
  */
 public class Main {
-      public static void main(String[] args) {
-          MyDB db = MyDB.getInstance();
-          MatchService msr= new MatchService();
-          ReservationService rsv = new ReservationService();
-          Reservation reservation = new Reservation();
-          //Match match = new Match(Time.valueOf("16:30:00"),Date.valueOf("2020-06-06"),"sfax",200,"lien");
-          //msr.ajouter(match);
-          rsv.CreateRes(reservation,3,2);
-          System.out.println("reservation added");
-    }        
-           
-           
-    
-    
+
+    public static void main(String[] args) {
+        MyDB db = MyDB.getInstance();
+        Match match = new Match();
+        Match_Team_Service mts = new Match_Team_Service();
+        
+        mts.Update(3,2,1);
+        System.out.println("reservation added");
+    }
+
 }
