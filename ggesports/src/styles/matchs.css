@@ -2,3 +2,12 @@
  * Empty Stylesheet file.
  */
 
+.text-field {
+    -fx-text-fill : white;
+
+}
+
+.comboBox 
+ {
+    -fx-text-fill: white; 
+ }

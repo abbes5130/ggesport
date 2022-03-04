@@ -32,13 +32,12 @@ public class MatchService implements IService<Match> {
     
 
     
-    @Override
-    public void Create(Match t) {
-       String req = "insert into matches (time,date,location,nb_seats,link)"
+    public int CreateMatch(Match t) {
+       String req = "insert into matchs (time,date,location,nb_place_dispo,link)"
                    +"values(?, ?, ?, ?, ?)";
        PreparedStatement statement;
         try {
-            statement = cnx2.prepareStatement(req);
+            statement = cnx2.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
             statement.setTime(1, (Time) t.getTime());
             statement.setDate(2, (Date) t.getDate());
             statement.setString(3,t.getLocation());
@@ -47,11 +46,16 @@ public class MatchService implements IService<Match> {
             statement.executeUpdate();
 
             System.out.println("Match created");
+            ResultSet rs = statement.getGeneratedKeys();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
                     
         }
-               
+        return -1;
     }
 
     @Override
@@ -101,7 +105,7 @@ public class MatchService implements IService<Match> {
         try {
             Statement statement;
             statement = cnx2.createStatement();
-            String req = "Select * From matches";
+            String req = "Select * From matchs";
             ResultSet rst;
             rst= statement.executeQuery(req);
             
@@ -113,7 +117,7 @@ public class MatchService implements IService<Match> {
                 t.setTime(rst.getTime("time"));
                 t.setDate(rst.getDate("date"));
                 t.setLocation(rst.getString("location"));
-                t.setNb_seats(rst.getInt("nb_seats"));
+                t.setNb_seats(rst.getInt("nb_place_dispo"));
                 t.setLink(rst.getString("link"));
                 ListMatch.add(t);
                 
@@ -122,5 +126,11 @@ public class MatchService implements IService<Match> {
             System.out.println(ex.getMessage());
         }
         return ListMatch;
-    }}
+    }
+
+    @Override
+    public void Create(Match t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
     

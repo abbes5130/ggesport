@@ -7,7 +7,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="ap" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="980.0" style="-fx-background-color: #2B323C; -fx-background-radius: 37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddMatchController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="980.0" style="-fx-background-color: #2B323C; -fx-background-radius: 37;" xmlns="http://javafx.com/javafx/8"
+ xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="GUI.AddMatchController"
+
+ >
    <children>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="980.0">
          <children>
@@ -30,7 +34,7 @@
                            <graphic>
                               <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/Clear%20Circle.png" />
+                                    <Image url="@../images/Clear_Circle.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -65,11 +69,11 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="teamHome" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;" styleClass="comboBox" stylesheets="@../styles/matchs.css">
+                        <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;">
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
-                        </ComboBox>
+                        </ChoiceBox>
                      </children>
                   </VBox>
                   <VBox prefHeight="139.0" prefWidth="408.0" GridPane.rowIndex="1">
@@ -82,11 +86,11 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ComboBox fx:id="teamAway" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;" stylesheets="@../styles/matchs.css">
+                        <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;">
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
-                        </ComboBox>
+                        </ChoiceBox>
                      </children>
                   </VBox>
                   <VBox prefHeight="93.0" prefWidth="550.0" GridPane.rowIndex="2">
@@ -99,11 +103,11 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ComboBox fx:id="gameSelected" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;" stylesheets="@../styles/matchs.css">
+                        <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;">
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
-                        </ComboBox>
+                        </ChoiceBox>
                      </children>
                   </VBox>
                   <VBox prefHeight="93.0" prefWidth="550.0" GridPane.rowIndex="3">
@@ -116,7 +120,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="time" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="--:--" style="-fx-background-color: #242933;" stylesheets="@../styles/matchs.css">
+                        <TextField alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="--:--" style="-fx-background-color: #242933;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -139,7 +143,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="location" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Location" style="-fx-background-color: #242933;">
+                        <TextField alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Location" style="-fx-background-color: #242933;">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -162,7 +166,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="price" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Price" style="-fx-background-color: #242933;">
+                        <TextField alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Price" style="-fx-background-color: #242933;">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -185,7 +189,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="link" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Link" style="-fx-background-color: #242933;">
+                        <TextField alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Link" style="-fx-background-color: #242933;">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -210,7 +214,7 @@
                                     <Insets left="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <DatePicker fx:id="date" prefHeight="50.0" prefWidth="319.0" style="-fx-color: #242933; -fx-background-color: #242933; -fx-background: #242933;">
+                              <DatePicker prefHeight="50.0" prefWidth="319.0" style="-fx-color: #242933; -fx-background-color: #242933; -fx-background: #242933;">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -219,7 +223,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onAction="#addNewMatch" prefHeight="54.0" prefWidth="320.0" style="-fx-background-color: #A80051;" text="Add" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="320.0" style="-fx-background-color: #A80051;" text="Add" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
