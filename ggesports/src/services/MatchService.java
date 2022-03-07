@@ -33,8 +33,8 @@ public class MatchService implements IService<Match> {
 
     
     public int CreateMatch(Match t) {
-       String req = "insert into matchs (time,date,location,nb_place_dispo,link)"
-                   +"values(?, ?, ?, ?, ?)";
+       String req = "insert into matchs (time,date,location,nb_place_dispo,price,link)"
+                   +"values(?, ?, ?, ?, ?, ?)";
        PreparedStatement statement;
         try {
             statement = cnx2.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
@@ -42,7 +42,8 @@ public class MatchService implements IService<Match> {
             statement.setDate(2, (Date) t.getDate());
             statement.setString(3,t.getLocation());
             statement.setInt(4,t.getNb_seats());
-            statement.setString(5,t.getLink());
+            statement.setInt(5,t.getPrice());
+            statement.setString(6,t.getLink());
             statement.executeUpdate();
 
             System.out.println("Match created");
@@ -69,7 +70,8 @@ public class MatchService implements IService<Match> {
             statement.setDate(2, (Date) t.getDate());
             statement.setString(3,t.getLocation());
             statement.setInt(4,t.getNb_seats());
-            statement.setString(5,t.getLink());
+            statement.setInt(5,t.getPrice());
+            statement.setString(6,t.getLink());
             statement.executeUpdate();
 
             System.out.println("Match updated");
@@ -118,6 +120,7 @@ public class MatchService implements IService<Match> {
                 t.setDate(rst.getDate("date"));
                 t.setLocation(rst.getString("location"));
                 t.setNb_seats(rst.getInt("nb_place_dispo"));
+                t.setNb_seats(rst.getInt("price"));
                 t.setLink(rst.getString("link"));
                 ListMatch.add(t);
                 

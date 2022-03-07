@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import services.MatchService;
@@ -29,6 +30,9 @@ public class MatchsController implements Initializable {
 
     @FXML
     VBox vBox;
+    
+    @FXML
+    Pane pane;
 
     /**
      * Initializes the controller class.
@@ -42,10 +46,15 @@ public class MatchsController implements Initializable {
         for (Match matche : matches) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("MatchComponent.fxml"));
-                HBox root = (HBox) loader.load();
+                Pane root = (Pane) loader.load();
                 MatchComponentController ctrl = loader.getController();
+                System.out.println("ctrl loaded");
                 ctrl.matchTime.setText(matche.getTime().toString());
-                vBox.getChildren().add(root);
+                System.out.println("time set");
+                ctrl.matchDate.setText(matche.getDate().toString());
+                System.out.println("date set");
+                vBox.getChildren().add(root);  
+                
 
             } catch (Exception e) {
                 e.printStackTrace();

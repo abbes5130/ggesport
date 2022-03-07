@@ -69,7 +69,7 @@ public class AddMatchController implements Initializable {
     @FXML
     private ComboBox teamHome;
     @FXML
-    private ComboBox gameSelected;
+    private TextField SeatsNumber;
     @FXML
     private TextField time;
     @FXML
@@ -80,6 +80,8 @@ public class AddMatchController implements Initializable {
     private TextField link;
     @FXML
     private DatePicker date;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -104,8 +106,6 @@ public class AddMatchController implements Initializable {
         teamHome.setItems(FXCollections.observableArrayList(teams));
         teamHome.getSelectionModel().selectFirst();
 
-        gameSelected.setItems(FXCollections.observableArrayList(games));
-        gameSelected.getSelectionModel().selectFirst();
 
         // TODO
     }
@@ -126,12 +126,24 @@ public class AddMatchController implements Initializable {
         System.out.println(gettedDatePickerDate);
         System.out.println("Location is");
         System.out.println(location.getText());
-        System.out.println("Link is");
-        System.out.println(link.getText());
+                
+        
         System.out.println("nb seat is");
-        System.out.println(0);
+         System.out.println(SeatsNumber.getText());
+         String Seats = SeatsNumber.getText();
+         int seatsNumber = Integer.parseInt(Seats);
+         
+         
+         System.out.println("price is");
+         System.out.println(price.getText());
+         String prices = price.getText();
+         int gamePrice = Integer.parseInt(prices);
+         System.out.println("Link is");
+         System.out.println(link.getText());
 
-        Match match = new Match(Time.valueOf(time.getText()), gettedDatePickerDate, location.getText(), 0, link.getText());
+         
+
+        Match match = new Match(Time.valueOf(time.getText()), gettedDatePickerDate, location.getText(), seatsNumber, gamePrice, link.getText());
         int createdMatchId = matchService.CreateMatch(match);
         if (createdMatchId == -1) {
             System.out.println("Could not find match");

@@ -18,25 +18,28 @@ public class Match {
     private Date date;
     private String location;
     private int nb_seats;
+    private int price;
     private String link;
 
     public Match() {
     }
 
-    public Match(Time time, Date date, String location, int nb_seats, String link) {
+    public Match(Time time, Date date, String location, int nb_seats,int price, String link) {
         this.time = time;
         this.date = date;
         this.location = location;
         this.nb_seats = nb_seats;
+        this.price = price;
         this.link = link;
     }
 
-    public Match(int id_match, Time time, Date date, String location, int nb_seats, String link) {
+    public Match(int id_match, Time time, Date date, String location, int nb_seats,int price, String link) {
         this.id_match = id_match;
         this.time = time;
         this.date = date;
         this.location = location;
         this.nb_seats = nb_seats;
+        this.price = price;
         this.link = link;
     }
 
@@ -79,6 +82,15 @@ public class Match {
     public void setNb_seats(int nb_seats) {
         this.nb_seats = nb_seats;
     }
+    
+        public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
 
     public String getLink() {
         return link;
@@ -90,7 +102,7 @@ public class Match {
 
     @Override
     public String toString() {
-        return "Match{" + "id_match=" + id_match + ", time=" + time + ", date=" + date + ", location=" + location + ", nb_seats=" + nb_seats + ", link=" + link + '}';
+        return "Match{" + "id_match=" + id_match + ", time=" + time + ", date=" + date + ", location=" + location + ", nb_seats=" + nb_seats +", price=" + price + ", link=" + link + '}';
     }
 
     

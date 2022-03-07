@@ -82,7 +82,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ComboBox fx:id="teamAway" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;" stylesheets="@../styles/matchs.css">
+                        <ComboBox fx:id="teamAway" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;" styleClass="comboBox" stylesheets="@../styles/matchs.css">
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
@@ -91,7 +91,7 @@
                   </VBox>
                   <VBox prefHeight="93.0" prefWidth="550.0" GridPane.rowIndex="2">
                      <children>
-                        <Label text="Game Selected" textFill="WHITE">
+                        <Label text="Number of Seats" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -99,11 +99,17 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ComboBox fx:id="gameSelected" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="56.0" prefWidth="340.0" style="-fx-background-color: #242933; -fx-border-color: #7A7A7A;" stylesheets="@../styles/matchs.css">
+                        <TextField fx:id="SeatsNumber" alignment="CENTER" prefHeight="50.0" prefWidth="354.0" promptText="Number of Seats" style="-fx-background-color: #242933;" styleClass="textField" stylesheets="@../styles/matchs.css">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                            <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="100.0" top="20.0" />
                            </VBox.margin>
-                        </ComboBox>
+                        </TextField>
                      </children>
                   </VBox>
                   <VBox prefHeight="93.0" prefWidth="550.0" GridPane.rowIndex="3">
@@ -116,7 +122,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="time" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="--:--" style="-fx-background-color: #242933;" stylesheets="@../styles/matchs.css">
+                        <TextField fx:id="time" alignment="CENTER" prefHeight="50.0" prefWidth="342.0" promptText="--:--" style="-fx-background-color: #242933;" styleClass="textField" stylesheets="@../styles/matchs.css">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -124,7 +130,7 @@
                               <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="130.0" top="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="100.0" top="20.0" />
                            </VBox.margin>
                         </TextField>
                      </children>
@@ -139,7 +145,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="location" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Location" style="-fx-background-color: #242933;">
+                        <TextField fx:id="location" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Location" style="-fx-background-color: #242933;" styleClass="textField" stylesheets="@../styles/matchs.css">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -162,7 +168,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="price" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Price" style="-fx-background-color: #242933;">
+                        <TextField fx:id="price" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Price" style="-fx-background-color: #242933;" styleClass="textField" stylesheets="@../styles/matchs.css">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -185,7 +191,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="link" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Link" style="-fx-background-color: #242933;">
+                        <TextField fx:id="link" alignment="CENTER" prefHeight="56.0" prefWidth="340.0" promptText="Link" style="-fx-background-color: #242933;" styleClass="textField" stylesheets="@../styles/matchs.css">
                            <font>
                               <Font size="15.0" />
                            </font>

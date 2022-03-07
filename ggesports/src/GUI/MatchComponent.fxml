@@ -9,41 +9,64 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="66.0" prefWidth="1188.0" style="-fx-background-color: #2B323C; -fx-background-radius: 14;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MatchComponentController">
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MatchComponentController">
    <children>
-      <ImageView fx:id="AwayImage" fitHeight="39.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
-         <HBox.margin>
-            <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
-         </HBox.margin>
-      </ImageView>
-      <Label fx:id="AwayTeam" prefHeight="20.0" prefWidth="113.0" text="&quot;&quot;" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <HBox.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </HBox.margin>
-      </Label>
-      <Label fx:id="matchTime" prefHeight="20.0" prefWidth="53.0" text="&quot;&quot;" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <HBox.margin>
-            <Insets bottom="20.0" left="250.0" right="20.0" top="20.0" />
-         </HBox.margin>
-      </Label>
-      <Label fx:id="HomeTeam" text="&quot;&quot;" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <HBox.margin>
-            <Insets bottom="20.0" left="250.0" right="20.0" top="20.0" />
-         </HBox.margin>
-      </Label>
-      <ImageView fx:id="HomeImage" fitHeight="39.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
-         <HBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </HBox.margin>
-      </ImageView>
+      <VBox layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+         <children>
+            <Label fx:id="matchDate" text="&quot;&quot;">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="1184.0" style="-fx-background-color: #2B323C; -fx-background-radius: 14;">
+               <children>
+                  <ImageView fx:id="AwayImage" fitHeight="39.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="AwayTeam" text="&quot;&quot;" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="matchTime" text="&quot;&quot;" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="250.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="HomeTeam" text="&quot;&quot;" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="250.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fx:id="HomeImage" fitHeight="39.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </VBox>
    </children>
-</HBox>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</Pane>

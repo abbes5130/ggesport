@@ -21,6 +21,7 @@ public class MatchComponentController implements Initializable {
     @FXML Label AwayTeam;
     @FXML Label AwayHome;
     @FXML Label matchTime;
+    @FXML Label matchDate;
     /**
      * Initializes the controller class.
      */

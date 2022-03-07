@@ -23,7 +23,7 @@ public class TestFxml extends Application {
             Parent root = FXMLLoader.load(resource);
                                 System.out.println("Load finished");
 
-            Scene scene = new Scene(root , 1920 ,1080);
+            Scene scene = new Scene(root , 800 ,600);
             primaryStage.setScene(scene);
             primaryStage.show();
         
