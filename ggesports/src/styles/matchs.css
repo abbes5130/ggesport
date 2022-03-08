@@ -12,3 +12,8 @@
  .comboBox{
  -fx-fill: white;
  }
+ 
+ .textFieldHbox
+ {
+    -fx-text-fill: #A80051; 
+ }

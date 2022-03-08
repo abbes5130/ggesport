@@ -7,8 +7,13 @@ package GUI;
 
 import entities.Match;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -21,8 +26,41 @@ import services.MatchService;
 import services.Match_Team_Service;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import utils.MyDB;
 
 class Team {
+
+    public static List<Team> Retrieve() {
+        List<Team> ListTeam = new ArrayList<Team>();
+        Connection cnx2;
+
+        cnx2 = MyDB.getInstance().getCnx();
+
+        try {
+            Statement statement;
+            statement = cnx2.createStatement();
+            String req = "SELECT id_equipe,nom FROM `equipe`";
+            ResultSet rst;
+            rst = statement.executeQuery(req);
+
+            while (rst.next()) {
+                Team t = new Team();
+
+                t.id = rst.getInt(1);
+                t.team = rst.getString(2);
+
+                ListTeam.add(t);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return ListTeam;
+    }
+
+
+    public Team() {
+    }
 
     String team;
     int id;
@@ -38,21 +76,6 @@ class Team {
     }
 }
 
-class Game {
-
-    String game;
-    int id;
-
-    Game(int id, String game) {
-        this.id = id;
-        this.game = game;
-    }
-
-    @Override
-    public String toString() {
-        return game;
-    }
-}
 
 /**
  * FXML Controller class
@@ -80,8 +103,6 @@ public class AddMatchController implements Initializable {
     private TextField link;
     @FXML
     private DatePicker date;
-    
-    
 
     /**
      * Initializes the controller class.
@@ -89,15 +110,7 @@ public class AddMatchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // get list of teams 
-        ArrayList<Team> teams = new ArrayList<>();
-
-        teams.add(new Team(1, "Navi"));
-        teams.add(new Team(2, "SKT"));
-
-        // get list of games
-        ArrayList<Game> games = new ArrayList<>();
-        games.add(new Game(1, "CSGO"));
-        games.add(new Game(2, "Fortnite"));
+        List<Team> teams = Team.Retrieve();
 
         // populate choice boxes
         teamAway.setItems(FXCollections.observableArrayList(teams));
@@ -105,7 +118,6 @@ public class AddMatchController implements Initializable {
 
         teamHome.setItems(FXCollections.observableArrayList(teams));
         teamHome.getSelectionModel().selectFirst();
-
 
         // TODO
     }
@@ -126,22 +138,18 @@ public class AddMatchController implements Initializable {
         System.out.println(gettedDatePickerDate);
         System.out.println("Location is");
         System.out.println(location.getText());
-                
-        
-        System.out.println("nb seat is");
-         System.out.println(SeatsNumber.getText());
-         String Seats = SeatsNumber.getText();
-         int seatsNumber = Integer.parseInt(Seats);
-         
-         
-         System.out.println("price is");
-         System.out.println(price.getText());
-         String prices = price.getText();
-         int gamePrice = Integer.parseInt(prices);
-         System.out.println("Link is");
-         System.out.println(link.getText());
 
-         
+        System.out.println("nb seat is");
+        System.out.println(SeatsNumber.getText());
+        String Seats = SeatsNumber.getText();
+        int seatsNumber = Integer.parseInt(Seats);
+
+        System.out.println("price is");
+        System.out.println(price.getText());
+        String prices = price.getText();
+        int gamePrice = Integer.parseInt(prices);
+        System.out.println("Link is");
+        System.out.println(link.getText());
 
         Match match = new Match(Time.valueOf(time.getText()), gettedDatePickerDate, location.getText(), seatsNumber, gamePrice, link.getText());
         int createdMatchId = matchService.CreateMatch(match);

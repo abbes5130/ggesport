@@ -63,6 +63,26 @@ public class Match_Team_Service implements IService<Match_Team> {
         }
 
     }
+    
+    
+       public void DeleteMatchTeam(int id_match) {
+        
+    String req = "DELETE FROM match_equipe WHERE id_match=?";
+            PreparedStatement statement;
+            
+     try {
+            statement = cnx2.prepareStatement(req);
+            statement.setInt(1,id_match);
+            statement.executeUpdate();
+
+            System.out.println("Match deleted");
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+    
 
     
         public void Update(int id_match_team,int id_match, int id_team) 
