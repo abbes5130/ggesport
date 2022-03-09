@@ -65,7 +65,7 @@
             </HBox>
             <HBox prefHeight="762.0" prefWidth="1503.0">
                <children>
-                  <VBox prefHeight="741.0" prefWidth="460.0">
+                  <VBox prefHeight="722.0" prefWidth="729.0">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
@@ -211,7 +211,7 @@
                                     <Insets left="15.0" right="15.0" top="15.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="76.0" prefWidth="460.0" style="-fx-background-color: #a80051; -fx-background-radius: 10;" text="Book a Ticket" textFill="WHITE" GridPane.rowIndex="5">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#BookTicket" prefHeight="76.0" prefWidth="460.0" style="-fx-background-color: #a80051; -fx-background-radius: 10;" text="Book a Ticket" textFill="WHITE" GridPane.rowIndex="5">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -223,29 +223,6 @@
                         </GridPane>
                      </children>
                   </VBox>
-                  <StackPane prefHeight="762.0" prefWidth="980.0">
-                     <children>
-                        <VBox prefHeight="660.0" prefWidth="745.0" style="-fx-background-color: #7A7A7A; -fx-opacity: 17%; -fx-background-radius: 20;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label alignment="TOP_LEFT" style="-fx-text-fill: #a80051;" text="Player Included" textFill="#a80051">
-                                 <font>
-                                    <Font name="System Bold" size="24.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                           <StackPane.margin>
-                              <Insets />
-                           </StackPane.margin>
-                        </VBox>
-                     </children>
-                     <HBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
-                     </HBox.margin>
-                  </StackPane>
                </children>
             </HBox>
          </children>

@@ -21,11 +21,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import services.MatchService;
 import services.Match_Team_Service;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import utils.MyDB;
 
 class Team {
@@ -58,7 +61,6 @@ class Team {
         return ListTeam;
     }
 
-
     public Team() {
     }
 
@@ -75,7 +77,6 @@ class Team {
         return team;
     }
 }
-
 
 /**
  * FXML Controller class
@@ -104,6 +105,19 @@ public class AddMatchController implements Initializable {
     @FXML
     private DatePicker date;
 
+    @FXML
+    private Label errNbSeats;
+    @FXML
+    private Label errLocation;
+    @FXML
+    private Label errPrice;
+    @FXML
+    private Label errLink;
+    private boolean verificationNbSeats;
+    private boolean verificationLocation;
+    private boolean verificationPrice;
+    private boolean verificationLink;
+
     /**
      * Initializes the controller class.
      */
@@ -124,32 +138,21 @@ public class AddMatchController implements Initializable {
 
     @FXML
     private void addNewMatch(ActionEvent e) {
+
         System.out.println("c addNewMatch");
 
         MatchService matchService = new MatchService();
         Match_Team_Service matchTeam = new Match_Team_Service();
-        System.out.println("b addNewMatch");
+        
 
         java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(date.getValue());
-        System.out.println("Time is");
-        System.out.println(time.getText());
-        System.out.println(Time.valueOf(time.getText()));
-        System.out.println("Date is");
-        System.out.println(gettedDatePickerDate);
-        System.out.println("Location is");
-        System.out.println(location.getText());
 
-        System.out.println("nb seat is");
-        System.out.println(SeatsNumber.getText());
         String Seats = SeatsNumber.getText();
         int seatsNumber = Integer.parseInt(Seats);
 
-        System.out.println("price is");
-        System.out.println(price.getText());
         String prices = price.getText();
         int gamePrice = Integer.parseInt(prices);
-        System.out.println("Link is");
-        System.out.println(link.getText());
+
 
         Match match = new Match(Time.valueOf(time.getText()), gettedDatePickerDate, location.getText(), seatsNumber, gamePrice, link.getText());
         int createdMatchId = matchService.CreateMatch(match);
@@ -160,12 +163,107 @@ public class AddMatchController implements Initializable {
         Team selectedAwayTeam = (Team) teamAway.getSelectionModel().getSelectedItem();
         Team selectedHomeTeam = (Team) teamHome.getSelectionModel().getSelectedItem();
 
-        // Game selecteGame = (Game) gameSelected.getSelectionModel().getSelectedItem();
-        matchTeam.Create(createdMatchId, selectedAwayTeam.id);
-        matchTeam.Create(createdMatchId, selectedHomeTeam.id);
-        System.out.println("Match created succesfully " + createdMatchId);
-        Stage stage = (Stage) ap.getScene().getWindow();
-        // do what you have to do
-        stage.close();
+        
+            matchTeam.Create(createdMatchId, selectedAwayTeam.id);
+            matchTeam.Create(createdMatchId, selectedHomeTeam.id);
+            System.out.println("Match created succesfully " + createdMatchId);
+            Stage stage = (Stage) ap.getScene().getWindow();
+            // do what you have to do
+            stage.close();
+        
+
     }
+
+    @FXML
+    private boolean verificationNbSeats(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < SeatsNumber.getText().trim().length(); i++) {
+            char ch = SeatsNumber.getText().charAt(i);
+            if (!Character.isDigit(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && SeatsNumber.getText().trim().length() >= 1) {
+            errNbSeats.setText("");
+
+            verificationNbSeats = true;
+        } else {
+            errNbSeats.setText("Il faut entrer un nombre");
+            verificationNbSeats = false;
+
+        }
+        return verificationNbSeats;
+    }
+
+    @FXML
+    private boolean verificationLocation(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < location.getText().trim().length(); i++) {
+            char ch = location.getText().charAt(i);
+            if (!Character.isLetter(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && location.getText().trim().length() >= 3) {
+            errLocation.setText("");
+
+            verificationLocation = true;
+        } else {
+            errLocation.setText("Il faut au moins 3 caracteres");
+            verificationLocation = false;
+
+        }
+        return verificationLocation;
+    }
+    
+        @FXML
+    private boolean verificationPrice(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < price.getText().trim().length(); i++) {
+            char ch = price.getText().charAt(i);
+            if (!Character.isDigit(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && price.getText().trim().length() >= 1) {
+            errPrice.setText("");
+
+            verificationPrice = true;
+        } else {
+            errPrice.setText("Il faut entrer un nombre");
+            verificationPrice = false;
+
+        }
+        return verificationPrice;
+    }
+   
+        @FXML
+    private boolean verificationLink(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < link.getText().trim().length(); i++) {
+            char ch = link.getText().charAt(i);
+            if (!Character.isLetter(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && link.getText().trim().length() >= 3) {
+            errLink.setText("");
+
+            verificationLink = true;
+        } else {
+            errLink.setText("Il faut au moins 3 caracteres");
+            verificationLink = false;
+
+        }
+        return verificationLink;
+    }
+
 }

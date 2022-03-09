@@ -16,7 +16,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import services.MatchService;
@@ -64,6 +66,19 @@ public class UpdateMatchController implements Initializable {
     private TextField link;
     @FXML
     private DatePicker date;
+    
+    @FXML
+    private Label errNbSeats;
+    @FXML
+    private Label errLocation;
+    @FXML
+    private Label errPrice;
+    @FXML
+    private Label errLink;
+    private boolean verificationNbSeats;
+    private boolean verificationLocation;
+    private boolean verificationPrice;
+    private boolean verificationLink;
 
     /**
      * Initializes the controller class.
@@ -116,10 +131,100 @@ public class UpdateMatchController implements Initializable {
         System.out.println("Match updated succesfully ");
         Stage stage = (Stage) ap.getScene().getWindow();
         // do what you have to do
-        //stage.close();
+        stage.close();
     }
     
+       @FXML
+    private boolean verificationNbSeats(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < SeatsNumber.getText().trim().length(); i++) {
+            char ch = SeatsNumber.getText().charAt(i);
+            if (!Character.isDigit(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && SeatsNumber.getText().trim().length() >= 1) {
+            errNbSeats.setText("");
+
+            verificationNbSeats = true;
+        } else {
+            errNbSeats.setText("Il faut entrer un nombre");
+            verificationNbSeats = false;
+
+        }
+        return verificationNbSeats;
+    }
+
+    @FXML
+    private boolean verificationLocation(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < location.getText().trim().length(); i++) {
+            char ch = location.getText().charAt(i);
+            if (!Character.isLetter(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && location.getText().trim().length() >= 3) {
+            errLocation.setText("");
+
+            verificationLocation = true;
+        } else {
+            errLocation.setText("Il faut au moins 3 caracteres");
+            verificationLocation = false;
+
+        }
+        return verificationLocation;
+    }
     
+        @FXML
+    private boolean verificationPrice(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < price.getText().trim().length(); i++) {
+            char ch = price.getText().charAt(i);
+            if (!Character.isDigit(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && price.getText().trim().length() >= 1) {
+            errPrice.setText("");
+
+            verificationPrice = true;
+        } else {
+            errPrice.setText("Il faut entrer un nombre");
+            verificationPrice = false;
+
+        }
+        return verificationPrice;
+    }
+   
+        @FXML
+    private boolean verificationLink(KeyEvent event) {
+
+        int nbNonChar = 0;
+        for (int i = 1; i < link.getText().trim().length(); i++) {
+            char ch = link.getText().charAt(i);
+            if (!Character.isLetter(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && link.getText().trim().length() >= 3) {
+            errLink.setText("");
+
+            verificationLink = true;
+        } else {
+            errLink.setText("Il faut au moins 3 caracteres");
+            verificationLink = false;
+
+        }
+        return verificationLink;
+    }
     
 
 }

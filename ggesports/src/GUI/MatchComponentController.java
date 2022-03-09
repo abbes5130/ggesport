@@ -90,6 +90,10 @@ public class MatchComponentController implements Initializable {
             ctrl.HomeImage.setImage(HomeImage.getImage());
             ctrl.AwayImage.setImage(AwayImage.getImage());
             ctrl.loadDetails(matchId);
+            ctrl.getIdmatch(matchId);
+            
+            System.out.println(scrollpane);
+            System.out.println(root);
             scrollpane.setContent(root);
 
         } catch (Exception ex) {

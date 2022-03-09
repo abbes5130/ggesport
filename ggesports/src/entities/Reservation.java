@@ -16,52 +16,19 @@ public class Reservation {
     private int id_ticket;
     private int id_match;
     private int id_user;
-    private String firstname;
-    private String lastname;
-    private Date date;
-    private Time time;
-    private String location;
 
     public Reservation() {
     }
 
-    public Reservation(int id_ticket, int id_match) {
-        this.id_ticket = id_ticket;
+    public Reservation(int id_match, int id_user) {
         this.id_match = id_match;
+        this.id_user = id_user;
     }
-
-    public Reservation(int id_ticket) {
-        this.id_ticket = id_ticket;
-    }
-    
 
     public Reservation(int id_ticket, int id_match, int id_user) {
         this.id_ticket = id_ticket;
         this.id_match = id_match;
         this.id_user = id_user;
-    }
-    
-
-    public Reservation(int id_match, int id_user, String firstname, String lastname, Date date, Time time, String location) {
-        this.id_match = id_match;
-        this.id_user = id_user;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.date = date;
-        this.time = time;
-        this.location = location;
-    }
-    
-
-    public Reservation(int id_ticket, int id_match, int id_user, String firstname, String lastname, Date date, Time time, String location) {
-        this.id_ticket = id_ticket;
-        this.id_match = id_match;
-        this.id_user = id_user;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.date = date;
-        this.time = time;
-        this.location = location;
     }
 
     public int getId_ticket() {
@@ -88,53 +55,13 @@ public class Reservation {
         this.id_user = id_user;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     @Override
     public String toString() {
-        return "Reservation{" + "id_ticket=" + id_ticket + ", id_match=" + id_match + ", id_user=" + id_user + ", firstname=" + firstname + ", lastname=" + lastname + ", date=" + date + ", time=" + time + ", location=" + location + '}';
+        return "Reservation{" + "id_ticket=" + id_ticket + ", id_match=" + id_match + ", id_user=" + id_user + '}';
     }
 
-    
-    
+
+ 
     
     
     

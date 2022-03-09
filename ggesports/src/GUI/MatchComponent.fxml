@@ -25,7 +25,7 @@
                <children>
                   <HBox onMouseClicked="#MatchDetails">
                      <children>
-                        <ImageView fx:id="AwayImage" fitHeight="39.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="AwayImage" fitHeight="39.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
                            </HBox.margin>

@@ -32,11 +32,11 @@ public class ReservationService implements IService<Reservation> {
         cnx2 = MyDB.getInstance().getCnx();
     }
 
-    public void CreateRes(Reservation reservation, int user_id, int match_id) {
+    public void CreateRes(int user_id, int match_id) {
         String req = "insert into reservation (id_user, "
-                + "id_match,firstname, lastname, time, date, location) "
-                + "SELECT u.id_user, m.id_match, u.firstname, u.lastname, m.time, m.date, m.location "
-                + "from users u, matches m where u.id_user=? and m.id_match=?";
+                + "id_match) "
+                + "SELECT u.id_user, m.id_match"
+                + "from users u, matchs m where u.id_user=? and m.id_match=?";
 
         PreparedStatement statement;
 
@@ -57,7 +57,7 @@ public class ReservationService implements IService<Reservation> {
 
     }
 
-    public void UpdateRes(Reservation reservation, int user_id, int match_id) {
+    /*public void UpdateRes(Reservation reservation, int user_id, int match_id) {
 
         String req = "UPDATE reservation r JOIN matches m JOIN users u "
                 + "SET r.id_match=m.id_match, r.id_user=u.id_user, r.firstname=u.firstname, "
@@ -80,7 +80,7 @@ public class ReservationService implements IService<Reservation> {
             System.out.println(ex.getMessage());
         }
 
-    }
+    }*/
 
     @Override
     public void Delete(Reservation t) {
@@ -117,11 +117,7 @@ public class ReservationService implements IService<Reservation> {
                 t.setId_ticket(rst.getInt(1));
                 t.setId_match(rst.getInt(2));
                 t.setId_user(rst.getInt(3));
-                t.setFirstname(rst.getString("firstname"));
-                t.setLastname(rst.getString("lastname"));
-                t.setDate(rst.getDate("date"));
-                t.setTime(rst.getTime("time"));
-                t.setLocation(rst.getString("location"));
+
 
                 ListReservation.add(t);
 
@@ -151,11 +147,7 @@ public class ReservationService implements IService<Reservation> {
                 t.setId_ticket(rst.getInt(1));
                 t.setId_match(rst.getInt(2));
                 t.setId_user(rst.getInt(3));
-                t.setFirstname(rst.getString("firstname"));
-                t.setLastname(rst.getString("lastname"));
-                t.setDate(rst.getDate("date"));
-                t.setTime(rst.getTime("time"));
-                t.setLocation(rst.getString("location"));
+
 
                 ListReservation.add(t);
 

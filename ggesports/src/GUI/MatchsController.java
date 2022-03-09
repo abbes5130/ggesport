@@ -46,7 +46,6 @@ public class MatchsController implements Initializable {
 
     public void setScrollpane(ScrollPane scrollpane) {
         System.out.println("SEetting scroll pane to");
-        System.out.println(scrollpane);
         for (MatchComponentController controller : controllers) {
             controller.setScrollpane(scrollpane);
         }
@@ -67,9 +66,6 @@ public class MatchsController implements Initializable {
             try {
                 String imgFile1 = new File(result1.getLogo_equipe()).toURI().toString();
                 String imgFile2 = new File(result2.getLogo_equipe()).toURI().toString();
-                String imgUpdate = new File(editURL).toURI().toString();
-                String imgDelete = new File(deleteURL).toURI().toString();
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("MatchComponent.fxml"));
                 Pane root = (Pane) loader.load();
                 MatchComponentController ctrl = loader.getController();
