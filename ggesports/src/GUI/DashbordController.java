@@ -79,7 +79,8 @@ public class DashbordController implements Initializable {
     }
 
     @FXML
-    private void Stats_page(ActionEvent event) {
+    private void Stats_page(ActionEvent event) throws IOException {
+        LoadPage("Statistique");
     }
     private void LoadPage(String page) throws IOException{
         Parent root = null;

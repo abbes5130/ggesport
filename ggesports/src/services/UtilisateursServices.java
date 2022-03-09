@@ -55,7 +55,7 @@ public class UtilisateursServices implements UserServices<Users>{
         
             try {
           
-           String query="INSERT INTO users(firstname,lastname,email,password,phone_number,id_role) values(?,?,?,?,?,?)";
+           String query="INSERT INTO users(firstname,lastname,email,password,phone_number,id_role,check_account) values(?,?,?,?,?,?,'Not_Blocked')";
                 PreparedStatement smt = cnx.prepareStatement(query);
                 smt.setString(1, t.getFirstname());
                 smt.setString(2, t.getLastname());
@@ -78,7 +78,7 @@ public class UtilisateursServices implements UserServices<Users>{
         
             try {
                 
-           String query="INSERT INTO users(firstname,lastname,email,password,phone_number,id_role) values(?,?,?,?,?,3)";
+           String query="INSERT INTO users(firstname,lastname,email,password,phone_number,id_role,check_account) values(?,?,?,?,?,3,'Not_Blocked')";
                 PreparedStatement smt = cnx.prepareStatement(query);
                 smt.setString(1, t.getFirstname());
                 smt.setString(2, t.getLastname());
@@ -143,7 +143,7 @@ public class UtilisateursServices implements UserServices<Users>{
                
                 ResultSet rs= smt.executeQuery();
                 while(rs.next()){
-                   p=new Users(rs.getInt("id_user"),rs.getInt("phone_number"),rs.getInt("id_role"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"),rs.getString("password"));
+                   p=new Users(rs.getInt("id_user"),rs.getInt("phone_number"),rs.getInt("id_role"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"),rs.getString("password"),rs.getString("check_account"));
                    r=new Role(rs.getString("rolename"));
                   // p.current_user=p;
                   p.role = r;
@@ -214,85 +214,45 @@ private static Key generateKey() throws Exception {
     Key key = new SecretKeySpec(keyValue, ALGORITHM);
     return key;
 }
-public String findMDP () throws SQLException {
+public void blocker (Users t) {
     
-       UtilisateursServices hr = new UtilisateursServices();
-        
-       
-        Users r = new Users();
-           Role a = new Role();
-        
-
-        
-
-            String sql = "SELECT * FROM users where email=?";
-            
-                PreparedStatement preparedStatement = cnx.prepareStatement(sql);
-                
-                
-
-                ResultSet rs = preparedStatement.executeQuery();
-
-                //System.out.println(passdecrypted+" "+passdb);
-                if (rs.next()) {
-
-                    Users p = new Users(rs.getInt("id_user"), rs.getInt("phone_number"), rs.getInt("id_role"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"), rs.getString("password"));
-                    Users.findpass=p;
-                   
-                    
-    
-}
-             return Users.findpass.getPassword();   
-}
-
-public static void Sendmail(String recepient) throws Exception{
-        
-        System.out.println("prepare sending");
-        
-        Properties props = new Properties();
-        
-        props.put("mail.smtp.ssl.trust", "*");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.starttls.enable", "true");
-        
-        String MyAccountEmail ="espritggesport@gmail.com";
-        String password = "GGesport1";
-        
-        Session session = Session.getDefaultInstance(props, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(MyAccountEmail, password);
-            }
-            
-
-            
-        });
-        Message message = prepareMessage(session,MyAccountEmail,recepient);
-        Transport.send(message);
-        System.out.println("mail sent");
-        
+    try {
+       String query2="update users set check_account= 'Blocked' where id_user=?";
+                PreparedStatement smt = cnx.prepareStatement(query2);
+                smt.setInt(1, t.getId_user());
+                smt.executeUpdate();
+                System.out.println("Blockage avec succee");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
     } 
+       
+}
+public void deblocker (Users t) {
     
-    private static Message prepareMessage(Session session , String MyAccountEmail,String recepient) {
-       try {
-           String a ="rrrrrr";
-           Users p = new Users();
-           UtilisateursServices su = new UtilisateursServices();
-        Message message = new MimeMessage(session);
-         message.setFrom(new InternetAddress(MyAccountEmail));
-         message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-         message.setSubject("Password Forgotten");
-         message.setText(a);
-         return message;
-         
-         
-         
-         
-        } catch (MessagingException ex) {
-            Logger.getLogger(UtilisateursServices.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+    try {
+       String query2="update users set check_account= 'Not_Blocked' where id_user=?";
+                PreparedStatement smt = cnx.prepareStatement(query2);
+                smt.setInt(1, t.getId_user());
+                smt.executeUpdate();
+                System.out.println("Deblockage avec succee");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+    } 
+       
+}
+public long calculStat() {
+
+        List<Users> vehicule = find();
+        return vehicule.stream().filter(b -> b.role.getRolename().equals("Administrateur")).count();
+    }
+public long calculStat1() {
+
+        List<Users> vehicule = find();
+        return vehicule.stream().filter(b -> b.role.getRolename().equals("Responsables")).count();
+    }
+public long calculStat2() {
+
+        List<Users> vehicule = find();
+        return vehicule.stream().filter(b -> b.role.getRolename().equals("Membre")).count();
     }
 }

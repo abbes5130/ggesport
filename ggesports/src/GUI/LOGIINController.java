@@ -95,7 +95,7 @@ UtilisateursServices hr = new UtilisateursServices();
                 //System.out.println(passdecrypted+" "+passdb);
                 if (rs.next()) {
 
-                    Users p = new Users(rs.getInt("id_user"), rs.getInt("phone_number"), rs.getInt("id_role"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"), rs.getString("password"));
+                    Users p = new Users(rs.getInt("id_user"), rs.getInt("phone_number"), rs.getInt("id_role"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"), rs.getString("password"),rs.getString("check_account"));
                     a=new Role(rs.getString("rolename"));
                     p.role=a;
                     Users.current_user = p;
@@ -103,9 +103,17 @@ UtilisateursServices hr = new UtilisateursServices();
                     /*String passdb = Users.current_user.getPassword();
                     String passdecrypted = hr.decrypt(passdb);
                     System.out.println(Users.current_user.getEmail());*/
-                    if (Users.current_user.role.getRolename().equals("Administrateur") || Users.current_user.role.getRolename().equals("Responsables") ) {
-
-                        JOptionPane.showMessageDialog(null, "login");
+                    if (Users.current_user.role.getRolename().equals("Administrateur")&& Users.current_user.getCheck_account().equals("Not_Blocked") || Users.current_user.role.getRolename().equals("Responsables")&& Users.current_user.getCheck_account().equals("Not_Blocked") ) {
+                         JOptionPane.showMessageDialog(null, "login");
+                        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));  
+                        Stage stage = new Stage();
+            Scene scene = new Scene(root, 1920, 1080);
+            stage.setTitle("GGesport");
+            stage.setScene(scene);
+            stage.show();
+                        
+                    } else if(Users.current_user.role.getRolename().equals("Membre") && Users.current_user.getCheck_account().equals("Not_Blocked")){
+                     JOptionPane.showMessageDialog(null, "login");
 
                         Stage primaryStage = new Stage();
                         Parent root = FXMLLoader.load(getClass().getResource("Dashbord.fxml"));
@@ -114,17 +122,12 @@ UtilisateursServices hr = new UtilisateursServices();
                         Scene scene = new Scene(root);
 
                         primaryStage.setScene(scene);
-                        primaryStage.show();
-                    } else {
-                        /*Stage krrr = new Stage();
-                        Parent root = FXMLLoader.load(getClass().getResource("FXML2.fxml"));
-
-                        Scene scene = new Scene(root);
-
-                        krrr.setScene(scene);
-                        krrr.show();*/
-                    }
-
+                        primaryStage.show();  
+                }
+                    else if(Users.current_user.getCheck_account().equals("Blocked")){
+                        JOptionPane.showMessageDialog(null, "votre Compte est blocker contacter un administrateur");
+                    
+                } 
                 } else {
 
                     JOptionPane.showMessageDialog(null, "entrez des données valides");
@@ -137,7 +140,11 @@ UtilisateursServices hr = new UtilisateursServices();
                 Logger.getLogger(LOGIINController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        Parent root = FXMLLoader.load(getClass().getResource("LOGIIN.fxml"));
 
+                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.close();
     }
     private Stage stage;
     private Scene scene;

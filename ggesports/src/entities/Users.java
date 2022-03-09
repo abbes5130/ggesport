@@ -11,7 +11,7 @@ package entities;
  */
 public class Users {
     private int id_user,phone_number,id_role;
-    private String firstname,lastname,email,password;
+    private String firstname,lastname,email,password,check_account;
     public static Users current_user;
     public static Users findpass;
     public Role role;
@@ -47,7 +47,7 @@ public class Users {
         
     }
 
-    public Users(int id_user, int phone_number, int id_role, String firstname, String lastname, String email, String password) {
+    public Users(int id_user, int phone_number, int id_role, String firstname, String lastname, String email, String password,String check_account) {
         this.id_user = id_user;
         this.phone_number = phone_number;
         this.id_role = id_role;
@@ -55,6 +55,7 @@ public class Users {
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.check_account = check_account;
     }
 
     public int getId_user() {
@@ -84,6 +85,9 @@ public class Users {
     public String getPassword() {
         return password;
     }
+    public String getCheck_account(){
+        return check_account;
+    }
 
     public void setId_user(int id_user) {
         this.id_user = id_user;
@@ -112,10 +116,13 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
+     public void setCheck_account(String check_account){
+        this.check_account = check_account;
+    }
 
     @Override
     public String toString() {
-        return "Users{" + "id_user=" + id_user + ", phone_number=" + phone_number + ", id_role=" + id_role + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", password=" + password + ", role="+role.getRolename()+"}";
+        return "Users{" + "id_user=" + id_user + ", phone_number=" + phone_number + ", id_role=" + id_role + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", password=" + password +",status="+check_account+  ", role="+role.getRolename()+"}";
     }
 
    

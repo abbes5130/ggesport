@@ -9,6 +9,8 @@ import entities.Users;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +24,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.UtilisateursServices;
@@ -32,77 +33,80 @@ import services.UtilisateursServices;
  *
  * @author ridha
  */
-public class SignController implements Initializable {
+public class SettingsController implements Initializable {
 
     @FXML
-    private TextField tfFirstname;
+    private TextField tfnom;
     @FXML
-    private TextField tfnum;
+    private TextField tfprenom;
     @FXML
     private TextField tfemail;
     @FXML
-    private TextField tfpass;
+    private Button btnupdate;
     @FXML
-    private TextField tflastname;
-    @FXML
-    private Button btnsignin;
-    @FXML
-    private Label lablogin;
+    private PasswordField tfpass;
     @FXML
     private Label errnom;
     @FXML
     private Label errprenom;
     @FXML
-    private Label erremail;
-    @FXML
     private Label errpass;
+    @FXML
+    private Label errmail;
+    @FXML
+    private TextField tfid;
+    @FXML
+    private Label labnom;
+    @FXML
+    private Label labprenom;
     private boolean verificationUserPrenom;
     private boolean verificationUsernom;
     private boolean verificationUserEmail;
     private boolean verificationUserpasword ;
     private boolean verificationUsernum;
+ private Stage stage;
+       private Scene scene;
+       private Parent root;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-       private Stage stage;
-       private Scene scene;
-       private Parent root;
-    @FXML
-    private void login(MouseEvent event) throws IOException {
+        UtilisateursServices hr = new UtilisateursServices();
+        String a = Integer.toString(Users.current_user.getId_user());
+        tfid.setText(a);
+        tfnom.setText(Users.current_user.getFirstname());
+        tfprenom.setText(Users.current_user.getLastname());
+        tfemail.setText(Users.current_user.getEmail());
+        String pass = Users.current_user.getPassword();
         
-                        Parent root = FXMLLoader.load(getClass().getResource("LOGIIN.fxml"));
-
-                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                        
-}
-
-    
-
-    @FXML
-    private void exit(MouseEvent event) {
-        System.exit(0);
-    }
-
-    @FXML
-    private void register(ActionEvent event) {
-        if(tfnum.getText().isEmpty()||tfFirstname.getText().isEmpty()||tflastname.getText().isEmpty()||tfemail.getText().isEmpty()||tfpass.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "entrez vos données");
+        try {
+            tfpass.setText(hr.decrypt(pass));
+        } catch (Exception ex) {
+            Logger.getLogger(SettingsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else{
+        labnom.setText(Users.current_user.getFirstname());
+        labprenom.setText(Users.current_user.getLastname());
+    }    
+
+    @FXML
+    private void modif(ActionEvent event) throws IOException {
+        labnom.setText(Users.current_user.getFirstname());
+        labprenom.setText(Users.current_user.getLastname());
         Users r = new Users();
-            UtilisateursServices su= new UtilisateursServices() ;
-            int i = Integer.parseInt(tfnum.getText());
-            //int j = Integer.parseInt(tfRole.getText());
-            
-            if (verificationUsernom != true ){
+        UtilisateursServices tc = new UtilisateursServices();
+            Users u = new Users();
+            int id = Integer.parseInt(tfid.getText());
+            u.setId_user(id);
+            u.setFirstname(tfnom.getText());
+            u.setLastname(tfprenom.getText());
+            u.setEmail(tfemail.getText());
+            u.setPassword(tfpass.getText());
+           // u.getId_role(tfRole.getText());
+            /*int i =Integer.parseInt(tfNumero.getText());
+            u.setPhone_number(i);*/
+             if (verificationUsernom != true ){
             JOptionPane.showMessageDialog(null, "entrez des parametres valides");
             }
             else if(verificationUserPrenom != true){
@@ -114,23 +118,33 @@ public class SignController implements Initializable {
                else if(verificationUserpasword != true){
               JOptionPane.showMessageDialog(null, "entrez des parametres valides");  
             }
+            tc.modifier(u);
+            JOptionPane.showMessageDialog(null, "Redirection Login");
+            JOptionPane.showMessageDialog(null, "login");
+                        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));  
+                        Stage stage = new Stage();
+                        stage.close();
             
-            else{Users u = new Users(i,tfFirstname.getText(),tflastname.getText(),tfemail.getText(),tfpass.getText());
-            su.Sign_in(u);
-    }}
+        Parent roote = FXMLLoader.load(getClass().getResource("LOGIIN.fxml"));
+
+                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        scene = new Scene(roote);
+                        stage.setScene(scene);
+                        stage.show();
+                        
     }
     @FXML
     private boolean testnom(KeyEvent event) {
         
          int nbNonChar = 0;
-            for (int i = 1; i < tfFirstname.getText().trim().length(); i++) {
-                char ch = tfFirstname.getText().charAt(i);
+            for (int i = 1; i < tfnom.getText().trim().length(); i++) {
+                char ch = tfnom.getText().charAt(i);
                 if (!Character.isLetter(ch)) {
                     nbNonChar++;
                 }
             }
 
-            if (nbNonChar == 0 && tfFirstname.getText().trim().length() >=3) {
+            if (nbNonChar == 0 && tfnom.getText().trim().length() >=3) {
             errnom.setText("Nom valide");
             
              verificationUsernom = true;
@@ -156,12 +170,12 @@ public class SignController implements Initializable {
 
         if (pat.matcher(tfemail.getText()).matches() == false) {
              verificationUserEmail = false;
-            erremail.setText("Veuillez verifier la forme ***@**.**");
+            errmail.setText("Veuillez verifier la forme ***@**.**");
             
 //            
 
         } else {
-             erremail.setText("Mail valide");
+             errmail.setText("Mail valide");
              verificationUserEmail = true;
         }
         return verificationUserEmail;
@@ -187,14 +201,14 @@ public class SignController implements Initializable {
     @FXML
     private boolean testprenom(KeyEvent event) {
         int nbNonChar = 0;
-            for (int i = 1; i < tflastname.getText().trim().length(); i++) {
-                char ch = tflastname.getText().charAt(i);
+            for (int i = 1; i < tfprenom.getText().trim().length(); i++) {
+                char ch = tfprenom.getText().charAt(i);
                 if (!Character.isLetter(ch)) {
                     nbNonChar++;
                 }
             }
 
-            if (nbNonChar == 0 && tflastname.getText().trim().length() >=3) {
+            if (nbNonChar == 0 && tfprenom.getText().trim().length() >=3) {
             errprenom.setText("Prenom valide");
             
           verificationUserPrenom = true;
@@ -205,6 +219,4 @@ public class SignController implements Initializable {
             }
             return verificationUserPrenom;
     }
-    }
-   
-    
+}

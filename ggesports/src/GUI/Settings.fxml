@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="1051.0" style="-fx-background-color: #2C313C;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SettingsController">
+   <children>
+      <ImageView fitHeight="173.0" fitWidth="173.0" layoutX="253.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Group%201.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="222.0" layoutY="303.0" prefHeight="297.0" prefWidth="411.0" style="-fx-background-color: #1B1F25; -fx-background-radius: 55.5px;">
+         <children>
+            <TextField fx:id="tfnom" layoutX="130.0" layoutY="27.0" onKeyReleased="#testnom" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #2C313C; -fx-border-color: #7A7A7A; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: white;" />
+            <TextField fx:id="tfprenom" layoutX="130.0" layoutY="88.0" onKeyReleased="#testprenom" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #2C313C; -fx-border-color: #7A7A7A; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: white;" />
+            <TextField fx:id="tfemail" layoutX="129.0" layoutY="150.0" onKeyReleased="#testmail" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #2C313C; -fx-border-color: #7A7A7A; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: white;" />
+            <Button fx:id="btnupdate" layoutX="256.0" layoutY="263.0" mnemonicParsing="false" onAction="#modif" prefHeight="25.0" prefWidth="108.0" styleClass="buttonsign" stylesheets="@../styles/fxml1.css" text="UPDATE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="60.0" layoutY="31.0" text="Nom" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="92.0" text="Prenom" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="154.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="213.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="tfpass" layoutX="131.0" layoutY="210.0" onKeyReleased="#testpassword" prefHeight="25.0" prefWidth="234.0" style="-fx-background-color: #2C313C; -fx-border-color: #7A7A7A; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: white;" />
+            <Label fx:id="errnom" layoutX="232.0" layoutY="59.0" textFill="WHITE" />
+            <Label fx:id="errprenom" layoutX="234.0" layoutY="123.0" textFill="WHITE" />
+            <Label fx:id="errpass" layoutX="156.0" layoutY="243.0" prefHeight="17.0" prefWidth="189.0" textFill="WHITE" />
+            <Label fx:id="errmail" layoutX="152.0" layoutY="185.0" prefHeight="17.0" prefWidth="189.0" textFill="WHITE" />
+            <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="337.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/User%20Circle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="337.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/User%20Circle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="338.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Email.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="339.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Lock%201.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="80.0" layoutY="26.0" text="My Settings :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfid" layoutX="80.0" layoutY="232.0" visible="false" />
+      <Label layoutX="471.0" layoutY="155.0" text="Welcome" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="labnom" layoutX="471.0" layoutY="180.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="labprenom" layoutX="471.0" layoutY="202.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="471.0" layoutY="236.0" text="Please enter your informations" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -166,7 +166,7 @@ public class MailController implements Initializable {
                 
                 while(rs.next()) {
 
-                    Users p = new Users(rs.getInt("id_user"), rs.getInt("phone_number"), rs.getInt("id_role"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"), rs.getString("password"));
+                    Users p = new Users(rs.getInt("id_user"), rs.getInt("phone_number"), rs.getInt("id_role"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("email"), rs.getString("password"),rs.getString("check_account"));
                     Users.findpass=p;
                     
                     Sendmail(email);
