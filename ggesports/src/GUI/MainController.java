@@ -1,5 +1,5 @@
 
-package GUI;
+package gui;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,31 +28,32 @@ public class MainController implements Initializable {
     
     @FXML
     public void home(ActionEvent actionEvent)throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("homePage.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/GUI/homePage.fxml"));
         scrollpane.setContent(fxml);
     }
 
     @FXML
     private void teams(ActionEvent event) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("teams.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/GUI/teams.fxml"));
         scrollpane.setContent(fxml);
     }
 
     @FXML
     private void matchs(ActionEvent event) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("matchs.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/GUI/matchs.fxml"));
         scrollpane.setContent(fxml);
     }
 
     @FXML
     private void news(ActionEvent event) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("news.fxml"));
+        Parent fxml;
+        fxml = FXMLLoader.load(getClass().getResource("/GUI/listnews.fxml"));
         scrollpane.setContent(fxml);
     }
 
     @FXML
     private void store(ActionEvent event) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("store.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/GUI/store.fxml"));
         scrollpane.setContent(fxml);
     }
 }
