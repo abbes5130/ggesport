@@ -152,10 +152,13 @@ public class ProductCRUD implements IService<Product>{
     public List<Product> searchProducts(String s){
         List<Product> AllProducts = new ArrayList<Product>();
         try{
-            String RQ= "SELECT * FROM product p join category c on p.category==c.id_category where product_name like '%"+s+"%' or description like '%"+s+"%' or mark like '%"+s+"%' or category_name like '%"+s+"%";
-            Statement st= cnx.createStatement();
-            ResultSet rs = st.executeQuery(RQ);
-            
+            String RQ= "SELECT * FROM product p join category c on p.category=c.id_category where p.product_name LIKE CONCAT( '%',?,'%') or p.description LIKE CONCAT( '%',?,'%') or p.mark LIKE CONCAT( '%',?,'%') or c.category_name LIKE CONCAT( '%',?,'%')";
+            PreparedStatement pst = cnx.prepareStatement(RQ);
+            pst.setString(1, s);
+            pst.setString(2, s);
+            pst.setString(3, s);
+            pst.setString(4, s);
+            ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 int categoryId=rs.getInt("category");
                 String categoryName=ccrud.getCategoryNameById(categoryId);
@@ -184,10 +187,43 @@ public class ProductCRUD implements IService<Product>{
     public List<Product> getProductsByCategory(String s){
         List<Product> AllProducts = new ArrayList<Product>();
         try{
-            String RQ= "SELECT * FROM product p join category c on p.category==c.id_category where c.category_name==s";
-            Statement st= cnx.createStatement();
-            ResultSet rs = st.executeQuery(RQ);
+            String RQ= "SELECT * FROM product p join category c on p.category=c.id_category where c.category_name=?";
+            PreparedStatement pst = cnx.prepareStatement(RQ);
+            pst.setString(1, s);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                Product p = new Product();
+                int categoryId=rs.getInt("category");
+                String categoryName=ccrud.getCategoryNameById(categoryId);
+                p.setId(rs.getInt("id_product"));
+                p.setName(rs.getString("product_name"));
+                p.setPrice(rs.getFloat("product_price"));
+                p.setAvailable(rs.getBoolean("disponibility"));
+                p.setBrand(rs.getString("mark"));
+                p.setImage(rs.getString("image"));
+                p.setColor(rs.getString("color"));
+                p.setDescription(rs.getString("description"));
+                p.setDiscount(rs.getInt("discount"));
+                p.setCategorie(categoryName);
+                p.setQuantite_stock(rs.getInt("stock_quantity"));
+                AllProducts.add(p);
+            }
+            System.out.println("All Products extracted successfully");
             
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        return AllProducts;
+    }
+    
+    public List<Product> getProductsByPrice(float min, float max){
+        List<Product> AllProducts = new ArrayList<Product>();
+        try{
+            String RQ= "SELECT * FROM product WHERE product_price >= ? and product_price <= ?";
+            PreparedStatement pst = cnx.prepareStatement(RQ);
+            pst.setFloat(1, min);
+            pst.setFloat(2, max);
+            ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 Product p = new Product();
                 int categoryId=rs.getInt("category");

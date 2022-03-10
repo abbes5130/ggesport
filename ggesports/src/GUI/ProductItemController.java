@@ -56,7 +56,7 @@ public class ProductItemController implements Initializable {
     public void setValues(Product p){
         productNameLabel.setText(p.getName());
         productDescriptionLabel.setText(p.getDescription());
-        productPriceLabel.setText(Float.toString(p.getPrice()));
+        productPriceLabel.setText(Float.toString(p.getPrice())+" DT");
         productIdLabel.setText(String.valueOf(p.getId()));
         //System.out.println(p.getImage());
         

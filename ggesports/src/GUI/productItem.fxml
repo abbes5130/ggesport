@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="514.0" prefWidth="369.0" style="-fx-background-color: #1D222C; -fx-background-radius: 20;" styleClass="imgBox" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProductItemController">
+<VBox maxWidth="370.0" minWidth="370.0" prefWidth="370.0" style="-fx-background-color: #1D222C; -fx-background-radius: 20;" styleClass="imgBox" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProductItemController">
    <children>
       <ImageView fx:id="productImage" fitHeight="300.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" scaleZ="0.0">
          <VBox.margin>
@@ -18,7 +18,7 @@
             <Image url="@../images/t_shirt.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="productNameLabel" text="ESL Tshirt " textFill="WHITE">
+      <Label fx:id="productNameLabel" minWidth="124.0" prefHeight="27.0" prefWidth="124.0" text="ESL Tshirt " textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -26,7 +26,7 @@
             <Insets bottom="20.0" left="30.0" right="20.0" top="20.0" />
          </VBox.margin>
       </Label>
-      <Label fx:id="productDescriptionLabel" layoutX="10.0" layoutY="310.0" prefHeight="11.0" prefWidth="339.0" text="Tshirt made with love to the fans of ESL Championships" textFill="WHITE">
+      <Label fx:id="productDescriptionLabel" layoutX="10.0" layoutY="310.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="11.0" prefWidth="339.0" text="Tshirt made with love to the fans of ESL Championships" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

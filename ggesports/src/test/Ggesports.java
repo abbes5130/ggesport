@@ -5,6 +5,8 @@ import entities.Category;
 import entities.Order;
 import entities.Product;
 import entities.ProductOrder;
+import java.util.ArrayList;
+import java.util.List;
 import services.CategoryCRUD;
 import services.OrderCRUD;
 import services.ProductCRUD;
@@ -40,7 +42,13 @@ public class Ggesports {
 //          
 //          Product p = new Product("capuche", 130.990f, "blue CSGO capuche ", "blue", "CSGO",20,true, 1, 100);
 //          Product p1= new Product(3,"capuche", 130.990f, "blue CSGO capuche ", "blue", "CSGO",20,true, 1, 100);
-//          ProductCRUD prd= new ProductCRUD();
+            Product p= new Product();
+          ProductCRUD prd= new ProductCRUD();
+          List<Product> resultat=new ArrayList();
+          resultat=prd.getProductsByPrice(60, 120);
+          System.out.println(resultat);
+          
+          
 //          Product p= prd.getProductById(1);
 //          System.out.println(p);
 //          prd.add(p);

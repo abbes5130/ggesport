@@ -371,7 +371,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="1699.0" style="-fx-background-color: #242933;">
                            <children>
-                              <Button fx:id="F_tshirtBtn" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#getTshirtsOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="TShirt">
+                              <Button fx:id="F_tshirtsBtn" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#getTshirtsOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="TShirts">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -403,7 +403,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="F_HardwareBtn" alignment="CENTER" layoutX="430.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#getHardwaresOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" stylesheets="@../styles/store.css" text="Hardware">
+                              <Button fx:id="F_HardwaresBtn" alignment="CENTER" layoutX="430.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#getHardwaresOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" stylesheets="@../styles/store.css" text="Hardwares">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -418,8 +418,8 @@
                               <Pane prefHeight="95.0" prefWidth="398.0">
                                  <children>
                                     <Label layoutX="19.0" layoutY="37.0" style="-fx-text-fill: #ffffff;" text="Price range" />
-                                    <JFXSlider layoutX="119.0" layoutY="41.0" stylesheets="@../styles/store.css" />
-                                    <JFXSlider layoutX="250.0" layoutY="41.0" stylesheets="@../styles/store.css" />
+                                    <JFXSlider fx:id="F_minPrice" blockIncrement="0.0" layoutX="119.0" layoutY="41.0" majorTickUnit="15.0" max="500.0" onMouseReleased="#getMinPrice" stylesheets="@../styles/store.css" />
+                                    <JFXSlider fx:id="F_maxPrice" blockIncrement="0.0" layoutX="251.0" layoutY="41.0" majorTickUnit="15.0" max="1000.0" min="500.0" stylesheets="@../styles/store.css" value="500.0" />
                                  </children>
                                  <HBox.margin>
                                     <Insets left="600.0" />
@@ -427,7 +427,7 @@
                               </Pane>
                            </children>
                         </HBox>
-                        <ScrollPane fx:id="scrollpane" layoutX="7.0" layoutY="215.0" prefHeight="467.0" prefWidth="1734.0" style="-fx-background: #242933;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="215.0">
+                        <ScrollPane fx:id="scrollpane" layoutX="7.0" layoutY="215.0" prefHeight="467.0" prefWidth="1734.0" style="-fx-background: #242933;" stylesheets="@../styles/store.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="215.0">
                            <content>
                               <GridPane fx:id="gridpane" prefHeight="25.0" prefWidth="822.0" stylesheets="@../styles/store.css">
                                 <columnConstraints>

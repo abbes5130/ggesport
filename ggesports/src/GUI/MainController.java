@@ -1,6 +1,7 @@
 
 package GUI;
 
+import com.jfoenix.controls.JFXSlider;
 import entities.Product;
 import java.io.File;
 import java.io.IOException;
@@ -36,11 +37,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import services.ProductCRUD;
 import java.util.regex.*;
+import javafx.scene.input.DragEvent;
 import javafx.stage.FileChooser;
 
 
 public class MainController implements Initializable {
-
+    
     private int col;
     private int row;
     final FileChooser fc = new FileChooser();
@@ -51,6 +53,7 @@ public class MainController implements Initializable {
     ObservableList<Product> observableProducts= FXCollections.observableList(productList);
 
     
+    @FXML
     private ScrollPane scrollpane;
     @FXML
     private GridPane gridpane;
@@ -115,15 +118,11 @@ public class MainController implements Initializable {
     @FXML
     private Button L_addProductBtn;
     @FXML
-    private Button F_tshirtBtn;
-    @FXML
     private Button F_sweatshirtsBtn;
     @FXML
     private Button F_pantsBtn;
     @FXML
     private Button F_accessoriesBtn;
-    @FXML
-    private Button F_HardwareBtn;
     @FXML
     private TextField searchField;
     @FXML
@@ -144,8 +143,16 @@ public class MainController implements Initializable {
     private Label A_filePath;
     @FXML
     private AnchorPane productListScene;
+    @FXML
+    private Button F_tshirtsBtn;
+    @FXML
+    private Button F_HardwaresBtn;
+    @FXML
+    private JFXSlider F_minPrice;
+    @FXML
+    private JFXSlider F_maxPrice;
     
-
+    
     
     
     @Override
@@ -184,22 +191,11 @@ public class MainController implements Initializable {
     }
     
         
-    
-    @FXML
-    private void store(ActionEvent event) throws IOException{
-        productListScene.setManaged(true);
-        productListScene.setVisible(true);
-        updateProductScene.setManaged(false);
-        updateProductScene.setVisible(false);
-        addProductScene.setManaged(false);
-        addProductScene.setVisible(false);
-        productDetailsScene.setManaged(false);
-        productDetailsScene.setVisible(false);
-        
+    private void populateGridpane(ObservableList<Product> observablelst){
         col=0;
         row=0;
-        
-        observableProducts.forEach((p)->{
+        gridpane.getChildren().removeAll(gridpane.getChildren());
+        observablelst.forEach((p)->{
             try {
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("productItem.fxml"));
@@ -222,6 +218,20 @@ public class MainController implements Initializable {
         });
         
         scrollpane.setContent(gridpane);
+    }
+    
+    @FXML
+    private void store(ActionEvent event) throws IOException{
+        productListScene.setManaged(true);
+        productListScene.setVisible(true);
+        updateProductScene.setManaged(false);
+        updateProductScene.setVisible(false);
+        addProductScene.setManaged(false);
+        addProductScene.setVisible(false);
+        productDetailsScene.setManaged(false);
+        productDetailsScene.setVisible(false);
+        populateGridpane(observableProducts);
+        
     }
     
 
@@ -264,22 +274,37 @@ public class MainController implements Initializable {
 
     @FXML
     private void getTshirtsOnclick(MouseEvent event) {
+        List<Product> TshirtsList=pcrud.getProductsByCategory("TShirts");
+        ObservableList observableTshirts= FXCollections.observableList(TshirtsList);
+        populateGridpane(observableTshirts);
     }
 
     @FXML
     private void getSweatshirtsOnclick(MouseEvent event) {
+        List<Product> SweatshirtsList=pcrud.getProductsByCategory("Sweatshirts");
+        ObservableList observableTshirts= FXCollections.observableList(SweatshirtsList);
+        populateGridpane(observableTshirts);
     }
 
     @FXML
     private void getPantsOnclick(MouseEvent event) {
+        List<Product> PantssList=pcrud.getProductsByCategory("Pants");
+        ObservableList observableTshirts= FXCollections.observableList(PantssList);
+        populateGridpane(observableTshirts);
     }
 
     @FXML
     private void getAccessoriesOnclick(MouseEvent event) {
+        List<Product> AccessoriesList=pcrud.getProductsByCategory("Accessories");
+        ObservableList observableTshirts= FXCollections.observableList(AccessoriesList);
+        populateGridpane(observableTshirts);
     }
 
     @FXML
     private void getHardwaresOnclick(MouseEvent event) {
+        List<Product> HardwaresList=pcrud.getProductsByCategory("Hardwares");
+        ObservableList observableTshirts= FXCollections.observableList(HardwaresList);
+        populateGridpane(observableTshirts);
     }
 
     @FXML
@@ -496,9 +521,18 @@ public class MainController implements Initializable {
 
     @FXML
     private void searchOnKeyReleased(KeyEvent event) {
-        
-        
-        
+        List<Product> productSearchList=pcrud.searchProducts(searchField.getText());
+        ObservableList observableSearchProducts= FXCollections.observableList(productSearchList);
+        populateGridpane(observableSearchProducts);
+    }
+
+    @FXML
+    private void getMinPrice(MouseEvent event) {
+        double minPrice= F_minPrice.getValue();
+        double maxPrice= F_maxPrice.getValue();
+        List<Product> listMinMax= pcrud.getProductsByPrice((float)minPrice, (float)maxPrice);
+        ObservableList observableMinMax= FXCollections.observableList(listMinMax);
+        populateGridpane(observableMinMax);
     }
     
 }
