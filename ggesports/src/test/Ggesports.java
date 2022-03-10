@@ -5,23 +5,34 @@
  */
 package test;
 
-import services.UtilisateursServices;
+import entities.Match;
+import utils.MyDB;
+
+import services.Match_Team_Service;
 
 /**
  *
- * @author abbes
+ * @author Ghassene
  */
 public class Ggesports {
 
 
-    /**
-     * @param args the command line arguments
-     */
-   /* public static void main(String[] args) throws Exception {
-        UtilisateursServices su = new UtilisateursServices();
-        System.out.println(su.decrypt("hVD7327Y5N1dY5+lCehS8MPsdBG1MCTgCdCW3m9ezdc=")); 
-       
-    }*/
-   
+    public static void main(String[] args) {
 
+        MyDB db = MyDB.getInstance();
+        Match match = new Match();
+        Match_Team_Service mts = new Match_Team_Service();
+        
+        mts.Update(3,2,1);
+        System.out.println("reservation added");
+
+    }
+
+    /**
+     *
+     * @param args
+     */
+
+    
+    
 }

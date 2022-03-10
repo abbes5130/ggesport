@@ -116,7 +116,8 @@ UtilisateursServices hr = new UtilisateursServices();
                      JOptionPane.showMessageDialog(null, "login");
 
                         Stage primaryStage = new Stage();
-                        Parent root = FXMLLoader.load(getClass().getResource("Dashbord.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+                        System.out.println(root);
                         primaryStage.initStyle(StageStyle.UNDECORATED);
                        
                         Scene scene = new Scene(root);
