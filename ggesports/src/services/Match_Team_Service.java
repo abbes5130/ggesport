@@ -28,7 +28,7 @@ public class Match_Team_Service implements IService<Match_Team> {
     }
 
     public void Create(int match_id, int team_id) {
-        String req = "insert into match_equipe (id_match,id_equipe)"
+        String req = "insert into match_team (id_match,id_team)"
                 + "values(?,?)";
         PreparedStatement statement;
 
@@ -48,7 +48,7 @@ public class Match_Team_Service implements IService<Match_Team> {
     
     public void Delete(int id_match_team) {
         
-    String req = "DELETE FROM match_equipe WHERE id_match_equipe=?";
+    String req = "DELETE FROM match_team WHERE id_match_team=?";
             PreparedStatement statement;
             
      try {
@@ -67,7 +67,7 @@ public class Match_Team_Service implements IService<Match_Team> {
     
        public void DeleteMatchTeam(int id_match) {
         
-    String req = "DELETE FROM match_equipe WHERE id_match=?";
+    String req = "DELETE FROM match_team WHERE id_match=?";
             PreparedStatement statement;
             
      try {
@@ -87,7 +87,7 @@ public class Match_Team_Service implements IService<Match_Team> {
     
         public void Update(int id_match_team,int id_match, int id_team) 
         {
-            String req = "UPDATE match_equipe SET id_match=?, id_equipe =? WHERE id_match_equipe = ?";
+            String req = "UPDATE match_team SET id_match=?, id_team =? WHERE id_match_team = ?";
             PreparedStatement statement;
             
             try {
