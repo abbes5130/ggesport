@@ -14,30 +14,20 @@ import utils.MyConnection;
 public class ProductCRUD implements IService<Product>{
     
     Connection cnx;
+    CategoryCRUD ccrud= new CategoryCRUD();
     
     public ProductCRUD(){
         cnx = MyConnection.getInstance().getCnx();
     }
     
-    public void addProduct(){
-        try{
-            String requete = "INSERT INTO product (product_name, product_price, description, color, mark, discount, disponibility, category, stock_quantity)"
-            + "VALUES ('capuche',69.990,'green capuche ','green', 'csgo', 10, true, 1, 5)";
-            Statement st = cnx.createStatement();
-            st.executeUpdate(requete);
-            System.out.println("Produit ajouté avec succès");
-        }catch(SQLException ex){
-            System.err.println(ex.getMessage());
-        }
-        
-    }
-    
+
 
     @Override
     public void add(Product p) {
+        int idCategory=ccrud.getIdCategoryByName(p.getCategorie());
         try{
-            String requete2 = "INSERT INTO product (product_name, product_price, description, color, mark, discount, disponibility, category, stock_quantity)"
-            + "VALUES (?,?,?,?,?,?,?,?,?)";
+            String requete2 = "INSERT INTO product (product_name, product_price, description, color, mark, discount, disponibility, category, stock_quantity, image)"
+            + "VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1, p.getName());
             pst.setFloat(2, p.getPrice());
@@ -46,8 +36,9 @@ public class ProductCRUD implements IService<Product>{
             pst.setString(5, p.getBrand());
             pst.setInt(6, p.getDiscount());
             pst.setBoolean(7, p.getAvailable());
-            pst.setInt(8, p.getCategorie());
+            pst.setInt(8, idCategory);
             pst.setInt(9, p.getQuantite_stock());
+            pst.setString(10, p.getImage());
             
             pst.executeUpdate();
             System.out.println("Produit ajouté avec succès");
@@ -74,8 +65,9 @@ public class ProductCRUD implements IService<Product>{
 
     @Override
     public void update(Product p) {
+        int idCategory=ccrud.getIdCategoryByName(p.getCategorie());
         try{
-            String requete3 = "update product set product_name=?, product_price=?, description=?, color=?, mark=?, discount=?, disponibility=?, category=?, stock_quantity=? where id_product=?";
+            String requete3 = "update product set product_name=?, product_price=?, description=?, color=?, mark=?, discount=?, disponibility=?, category=?, stock_quantity=?,image=?, where id_product=?";
             PreparedStatement pst = cnx.prepareStatement(requete3);
             pst.setString(1, p.getName());
             pst.setFloat(2, p.getPrice());
@@ -84,9 +76,10 @@ public class ProductCRUD implements IService<Product>{
             pst.setString(5, p.getBrand());
             pst.setInt(6, p.getDiscount());
             pst.setBoolean(7, p.getAvailable());
-            pst.setInt(8, p.getCategorie());
+            pst.setInt(8, idCategory);
             pst.setInt(9, p.getQuantite_stock());
-            pst.setInt(10, p.getId());
+            pst.setString(10, p.getImage());
+            pst.setInt(11, p.getId());
             
             pst.executeUpdate();
             System.out.println("Produit modifié avec succès");
@@ -103,18 +96,19 @@ public class ProductCRUD implements IService<Product>{
             String requete5= "SELECT * FROM product";
             Statement st= cnx.createStatement();
             ResultSet rs = st.executeQuery(requete5);
-            Product p = new Product();
-
+            
             while(rs.next()){
+                Product p = new Product();
                 p.setId(rs.getInt("id_product"));
                 p.setName(rs.getString("product_name"));
                 p.setPrice(rs.getFloat("product_price"));
                 p.setAvailable(rs.getBoolean("disponibility"));
                 p.setBrand(rs.getString("mark"));
+                p.setImage(rs.getString("image"));
                 p.setColor(rs.getString("color"));
                 p.setDescription(rs.getString("description"));
                 p.setDiscount(rs.getInt("discount"));
-                p.setCategorie(rs.getInt("category"));
+                p.setCategorie(rs.getString("category"));
                 p.setQuantite_stock(rs.getInt("stock_quantity"));
                 AllProducts.add(p);
             }
@@ -126,6 +120,98 @@ public class ProductCRUD implements IService<Product>{
         return AllProducts;
     }
 
+    public Product getProductById(int id){
+        Product p = new Product();
+        try{
+            String rq= "SELECT * FROM product where id_product=?";
+            PreparedStatement pst = cnx.prepareStatement(rq);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                int categoryId=rs.getInt("category");
+                String categoryName=ccrud.getCategoryNameById(categoryId);
+                p.setId(rs.getInt("id_product"));
+                p.setName(rs.getString("product_name"));
+                p.setPrice(rs.getFloat("product_price"));
+                p.setAvailable(rs.getBoolean("disponibility"));
+                p.setImage(rs.getString("image"));
+                p.setBrand(rs.getString("mark"));
+                p.setColor(rs.getString("color"));
+                p.setDescription(rs.getString("description"));
+                p.setDiscount(rs.getInt("discount"));
+                p.setCategorie(categoryName);
+                p.setQuantite_stock(rs.getInt("stock_quantity"));
+            }
+            
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        return p;
+    }
+    
+    public List<Product> searchProducts(String s){
+        List<Product> AllProducts = new ArrayList<Product>();
+        try{
+            String RQ= "SELECT * FROM product p join category c on p.category==c.id_category where product_name like '%"+s+"%' or description like '%"+s+"%' or mark like '%"+s+"%' or category_name like '%"+s+"%";
+            Statement st= cnx.createStatement();
+            ResultSet rs = st.executeQuery(RQ);
+            
+            while(rs.next()){
+                int categoryId=rs.getInt("category");
+                String categoryName=ccrud.getCategoryNameById(categoryId);
+                Product p = new Product();
+                p.setId(rs.getInt("id_product"));
+                p.setName(rs.getString("product_name"));
+                p.setPrice(rs.getFloat("product_price"));
+                p.setAvailable(rs.getBoolean("disponibility"));
+                p.setImage(rs.getString("image"));
+                p.setBrand(rs.getString("mark"));
+                p.setColor(rs.getString("color"));
+                p.setDescription(rs.getString("description"));
+                p.setDiscount(rs.getInt("discount"));
+                p.setCategorie(categoryName);
+                p.setQuantite_stock(rs.getInt("stock_quantity"));
+                AllProducts.add(p);
+            }
+            System.out.println("All Products extracted successfully");
+            
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        return AllProducts;
+    }
+    
+    public List<Product> getProductsByCategory(String s){
+        List<Product> AllProducts = new ArrayList<Product>();
+        try{
+            String RQ= "SELECT * FROM product p join category c on p.category==c.id_category where c.category_name==s";
+            Statement st= cnx.createStatement();
+            ResultSet rs = st.executeQuery(RQ);
+            
+            while(rs.next()){
+                Product p = new Product();
+                int categoryId=rs.getInt("category");
+                String categoryName=ccrud.getCategoryNameById(categoryId);
+                p.setId(rs.getInt("id_product"));
+                p.setName(rs.getString("product_name"));
+                p.setPrice(rs.getFloat("product_price"));
+                p.setAvailable(rs.getBoolean("disponibility"));
+                p.setBrand(rs.getString("mark"));
+                p.setImage(rs.getString("image"));
+                p.setColor(rs.getString("color"));
+                p.setDescription(rs.getString("description"));
+                p.setDiscount(rs.getInt("discount"));
+                p.setCategorie(categoryName);
+                p.setQuantite_stock(rs.getInt("stock_quantity"));
+                AllProducts.add(p);
+            }
+            System.out.println("All Products extracted successfully");
+            
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        return AllProducts;
+    }
 
 
 }

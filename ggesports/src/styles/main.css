@@ -24,10 +24,19 @@
 }
 
 .navbar_item{
+    -fx-border-width: 0;
+    -fx-border-color: #242933;
     -fx-background-color: #242933;
 }
 .navbar_item:hover{
-   -fx-background-color: #FF0078;   
+    -fx-border-width: 0 4 0 0;
+    -fx-border-color: #FF0078;
+}
+
+.navbar_item:focused, .navbar_item:active{
+    -fx-border-width: 0 4 0 0;
+    -fx-border-color: #FF0078;
+    -fx-background-color: #FF0078;   
 }
 
 .search{

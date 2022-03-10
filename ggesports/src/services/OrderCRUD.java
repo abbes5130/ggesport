@@ -23,7 +23,7 @@ public class OrderCRUD implements IService<Order>{
     @Override
     public void add(Order o) {
         try{
-            String RQ = "INSERT INTO order1 (id_user, date, time, state)"
+            String RQ = "INSERT INTO orders (id_user, order_date, order_time, state)"
             + "VALUES (?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(RQ);
     

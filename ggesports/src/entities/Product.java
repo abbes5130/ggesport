@@ -3,12 +3,27 @@ package entities;
 
 
 public class Product {
-    private int id, discount, categorie, quantite_stock;
+    private int id, discount, quantite_stock;
     private float price;
-    private String name, color, brand, description;
+    private String name, color, brand, description, image, categorie;
     private Boolean available;
 
-    public Product(int id, String name, float price,  String description, String color, String brand, int discount,  Boolean available, int categorie, int quantite_stock) {
+    public Product(String name, float price,  String description, String color, String brand, int discount,  Boolean available, String categorie, int quantite_stock, String image) {
+        this.discount = discount;
+        this.quantite_stock = quantite_stock;
+        this.price = price;
+        this.name = name;
+        this.color = color;
+        this.brand = brand;
+        this.description = description;
+        this.image = image;
+        this.categorie = categorie;
+        this.available = available;
+    }
+    
+    
+
+    public Product(int id, String name, float price,  String description, String color, String brand, int discount,  Boolean available, String categorie, int quantite_stock) {
         this.id = id;
         this.discount = discount;
         this.categorie = categorie;
@@ -23,7 +38,7 @@ public class Product {
 
     
     
-    public Product(String name, float price,  String description, String color, String brand, int discount,  Boolean available, int categorie, int quantite_stock) {
+    public Product(String name, float price,  String description, String color, String brand, int discount,  Boolean available, String categorie, int quantite_stock) {
         this.discount = discount;
         this.categorie= categorie;
         this.quantite_stock= quantite_stock;
@@ -33,6 +48,15 @@ public class Product {
         this.brand = brand;
         this.description = description;
         this.available = available;
+    }
+    
+    public Product(String name, float price,  String description, String color, String brand, int quantite_stock) {
+        this.quantite_stock= quantite_stock;
+        this.price = price;
+        this.name = name;
+        this.color = color;
+        this.brand = brand;
+        this.description = description;
     }
 
     public Product() {}     
@@ -101,11 +125,11 @@ public class Product {
         this.available = available;
     }
 
-    public int getCategorie() {
+    public String getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(int categorie) {
+    public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
 
@@ -115,6 +139,15 @@ public class Product {
 
     public void setQuantite_stock(int quantite_stock) {
         this.quantite_stock = quantite_stock;
+    }
+    
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="514.0" prefWidth="369.0" style="-fx-background-color: #1D222C; -fx-background-radius: 20;" styleClass="imgBox" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProductItemController">
+   <children>
+      <ImageView fx:id="productImage" fitHeight="300.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" scaleZ="0.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <image>
+            <Image url="@../images/t_shirt.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="productNameLabel" text="ESL Tshirt " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="20.0" left="30.0" right="20.0" top="20.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="productDescriptionLabel" layoutX="10.0" layoutY="310.0" prefHeight="11.0" prefWidth="339.0" text="Tshirt made with love to the fans of ESL Championships" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="productPriceLabel" text="150" textFill="#ff0078">
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="30.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="viewDetailsLabel" layoutX="10.0" layoutY="545.0" onMouseClicked="#ViewDetailsOnclick" text="view Item" textFill="WHITE">
+         <VBox.margin>
+            <Insets bottom="10.0" left="30.0" right="10.0" top="20.0" />
+         </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="productIdLabel" prefHeight="21.0" prefWidth="0.0" visible="false" />
+   </children>
+</VBox>
