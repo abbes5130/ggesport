@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author USER
  */
-public class commentaire {
+public class Commentaire {
 
 /**
  *
@@ -19,34 +19,43 @@ public class commentaire {
  */
     private int id_commentaire	;
      private int id_actualite;
-      private int id_utilisateur;
     private String texte;
-    private Date date_commentaire;
+   private Date date_commentaire;
+    private String created_at;
 
-    public commentaire(int id_commentaire, int id_actualite,int id_utilisateur,String texte,Date date_commentaire) {
+    public Commentaire(int id_commentaire, int id_actualite,String texte,Date date_commentaire) {
         this.id_commentaire = id_commentaire;
                 this.id_actualite = id_actualite;
-        this.id_utilisateur = id_utilisateur;
-
         this.texte = texte;
         
       this.date_commentaire = date_commentaire;    
     }  
 
-    public commentaire(int id_commentaire) {
+    public Commentaire(int id_commentaire) {
         this.id_commentaire = id_commentaire;
     }
 
-    public commentaire(int id_actualite,int id_utilisateur,String texte,Date date_commentaire) {
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public Commentaire(int id_actualite,String texte,Date date_commentaire) {
            this.id_actualite = id_actualite;
-        this.id_utilisateur = id_utilisateur;
         
          this.date_commentaire = date_commentaire;    
 
         this.texte = texte;
     }
+    public Commentaire(int id_actualite, String texte) {
+        this.id_actualite = id_actualite;
+        this.texte = texte;
+    }
 
-    public commentaire() {
+    public Commentaire() {
     }
 
     public int getId_commentaire() {
@@ -65,13 +74,8 @@ public class commentaire {
         this.id_actualite = id_actualite;
     }
 
-    public int getId_utilisateur() {
-        return id_utilisateur;
-    }
 
-    public void setId_utilisateur(int id_utilisateur) {
-        this.id_utilisateur = id_utilisateur;
-    }
+ 
 
     public String getTexte() {
         return texte;
@@ -89,6 +93,7 @@ public class commentaire {
         this.date_commentaire = date_commentaire;
     }
 
+   
     
 
    
@@ -103,7 +108,7 @@ public class commentaire {
 
     @Override
     public String toString() {
-        return "commentaire{" + "id_commentaire=" + id_commentaire + ", id_actualite=" + id_actualite + ", id_utilisateur=" + id_utilisateur + ", texte=" + texte + ", date_commentaire=" + date_commentaire + '}';
+        return "commentaire{" + "id_commentaire=" + id_commentaire + ", id_actualite=" + id_actualite + ", texte=" + texte + ", date_commentaire=" + date_commentaire + '}';
     }
 
    

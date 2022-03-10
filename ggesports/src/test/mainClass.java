@@ -6,7 +6,7 @@
 package test;
 
 import entities.actualité;
-import entities.commentaire;
+import entities.Commentaire;
 import java.sql.Date;
 import services.actualiteCRUD;
 import services.commentaireCRUD;

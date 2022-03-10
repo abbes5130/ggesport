@@ -5,7 +5,9 @@
  */
 package entities;
 
+import java.awt.Image;
 import java.sql.Date;
+import javafx.scene.control.DatePicker;
 
 /**
  *
@@ -33,6 +35,18 @@ public class actualité {
         this.id = id;
     }
 
+    public actualité(String Titre) {
+        this.Titre = Titre;
+    }
+
+    public actualité(int id, String description, Date date_creation) {
+        this.id = id;
+        this.description = description;
+        this.date_creation = date_creation;
+    }
+    
+    
+
     public actualité(String Titre, String img_bg, String img, String description, Date date_creation) {
         this.Titre = Titre;
         this.img_bg = img_bg;
@@ -40,6 +54,16 @@ public class actualité {
         this.description = description;
         this.date_creation = date_creation;
     }
+
+    public actualité(int id, String Titre, String img, String description, Date date_creation) {
+        this.id = id;
+        this.Titre = Titre;
+        this.img = img;
+        this.description = description;
+        this.date_creation = date_creation;
+    }
+
+ 
 
     public String getImg_bg() {
         return img_bg;
@@ -49,12 +73,13 @@ public class actualité {
         this.img_bg = img_bg;
     }
 
-    public String getImg() {
-        return img;
-    }
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getImg() {
+        return img;
     }
 
     public actualité() {
@@ -76,6 +101,8 @@ public class actualité {
         this.Titre = Titre;
     }
 
+  
+
     public String getDescription() {
         return description;
     }
@@ -95,6 +122,9 @@ public class actualité {
     @Override
     public String toString() {
         return "actualite{" + "id=" + id + ", Titre=" + Titre + ", img_bg=" + img_bg + ", img=" + img + ", description=" + description + ", date_creation=" + date_creation + '}';
+    }
+
+    public void setDate_creation(DatePicker date_creation) {
     }
 
     
