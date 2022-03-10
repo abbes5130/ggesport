@@ -5,6 +5,9 @@
  */
 package services;
 
+import entities.Team;
+import java.util.List;
+
 /**
  *
  * @author mohamedabbes
@@ -13,5 +16,5 @@ public interface IService<T> {
     public void create(T t);
     public void delete(int t);
     public void update(T t);
-   String Retrieve();
+   public List<?> Retrieve();
 }

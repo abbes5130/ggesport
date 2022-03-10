@@ -17,7 +17,7 @@ public class db {
     public String url = "jdbc:mysql://localhost:3306/ggesportt";
     public String username = "root";
     public String pwd = "root";
-    Connection cnx;
+   static Connection  cnx;
     public static db instance;
     
     public db(){
@@ -29,9 +29,9 @@ public class db {
     System.out.println("error in connecting to db");
     }
     }
-    public Connection getCnx(){
-    return cnx;
-    }
+   public static Connection getCnx(){
+   return cnx;
+   }
     public static db getInstance(){
     if(instance == null)
     {

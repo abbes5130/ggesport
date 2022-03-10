@@ -14,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -99,34 +101,60 @@ statement.executeUpdate();
     }
 
     @Override
-    public String Retrieve() {
+   public  List<Player> Retrieve() {
 String sql = "SELECT * FROM player";
- 
+  List<Player> listPlayer = new ArrayList<Player>();
 Statement statement;
         try {
             statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
             ResultSet result = statement.executeQuery(sql);
 
-int count = 0;
  
 while (result.next()){
-     int id_player = result.getInt(1) ;
-    int id_team = result.getInt(2);
-    String name = result.getString(3);
-    String surname = result.getString(4);
-    String description = result.getString(5);
-    String tag = result.getString(6);
-    String photo = result.getString(7);
-    String output = "Player #%d: %s - %s - %s - %s - %s - %s - %s";
-    System.out.println(String.format(output, ++count, id_player, id_team, name, surname, description, tag, photo));
+    Player p = new Player();
+    p.setId_player(result.getInt(1)) ;
+    p.setId_team(result.getInt(2));
+    p.setName(result.getString(3));
+    p.setSurname(result.getString(4));
+    p.setDescription(result.getString(5));
+    p.setTag(result.getString(6));
+    p.setPhoto(result.getString(7));
     
+    listPlayer.add(p);
     
 }
         } catch (SQLException ex) {
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "d";
+        return listPlayer;
     }    
 
+    public  List<Player> RetrieveById(int idp) {
+String sql = "SELECT * FROM player WHERE id_team = "+ idp;
+  List<Player> listPlayer = new ArrayList<Player>();
+Statement statement;
+        try {
+            statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
+            ResultSet result = statement.executeQuery(sql);
+
+ 
+while (result.next()){
+    Player p = new Player();
+    p.setId_player(result.getInt(1)) ;
+    p.setId_team(result.getInt(2));
+    p.setName(result.getString(3));
+    p.setSurname(result.getString(4));
+    p.setDescription(result.getString(5));
+    p.setTag(result.getString(6));
+    p.setPhoto(result.getString(7));
     
+    listPlayer.add(p);
+    
+}
+        } catch (SQLException ex) {
+            Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listPlayer;
+    }    
+
 }

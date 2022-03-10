@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,6 +42,7 @@ statement.setString(4,t.getDescription());
         } catch (SQLException ex) {
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
       
        
           
@@ -90,34 +93,31 @@ statement.executeUpdate();
     }
 
     @Override
-    public String Retrieve() {
+    public  List<Team> Retrieve() {
 String sql = "SELECT * FROM team";
- 
+ List<Team> listTeam = new ArrayList<Team>();
 Statement statement;
         try {
             statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
             ResultSet result = statement.executeQuery(sql);
 
-int count = 0;
- 
-while (result.next()){
-    int id_equipe = result.getInt(1);
-    String nom_equipe = result.getString(2);
-    String logo = result.getString(3);
-    int nb_joueur = result.getInt(4);
-    String description = result.getString(5);
-    
 
  
-    String output = "Team #%d: %s - %s - %s - %s - %s";
-    System.out.println(String.format(output, ++count, id_equipe, nom_equipe, logo, nb_joueur, description));
-    
+while (result.next()){
+    Team t = new Team();
+    t.setId_team( result.getInt("id_team"));
+    t.setName(result.getString("team_name"));
+    t.setLogo(result.getString("logo"));
+    t.setNb_joueur(result.getInt("players_number"));
+    t.setDescription(result.getString("description"));
+
+    listTeam.add(t);
     
 }
         } catch (SQLException ex) {
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "d";
+        return listTeam;
     }    
 
 

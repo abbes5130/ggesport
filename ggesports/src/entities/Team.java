@@ -11,25 +11,25 @@ package entities;
  */
 public class Team {
     int id_team;
-String name;
+String team_name;
 String logo;
-int nb_joueur;
+int players_number;
 String description;
 
     public void setId_team(int id_team) {
         this.id_team = id_team;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String team_name) {
+        this.team_name = team_name;
     }
 
     public void setLogo(String logo) {
         this.logo = logo;
     }
 
-    public void setNb_joueur(int nb_joueur) {
-        this.nb_joueur = nb_joueur;
+    public void setNb_joueur(int players_number) {
+        this.players_number = players_number;
     }
 
     public void setDescription(String description) {
@@ -41,7 +41,7 @@ String description;
     }
 
     public String getName() {
-        return name;
+        return team_name;
     }
 
     public String getLogo() {
@@ -49,7 +49,7 @@ String description;
     }
 
     public int getNb_joueur() {
-        return nb_joueur;
+        return players_number;
     }
 
     public String getDescription() {
@@ -60,18 +60,12 @@ String description;
         
     }
 
-    public Team(String name, String logo, int nb_joueur, String description) {
-        this.name = name;
-        this.logo = logo;
-        this.nb_joueur = nb_joueur;
-        this.description = description;
-    }
 
-    public Team(int id_team, String name, String logo, int nb_joueur, String description) {
+    public Team(int id_team, String team_name, String logo, int players_number, String description) {
         this.id_team = id_team;
-        this.name = name;
+        this.team_name = team_name;
         this.logo = logo;
-        this.nb_joueur = nb_joueur;
+        this.players_number = players_number;
         this.description = description;
     }
 

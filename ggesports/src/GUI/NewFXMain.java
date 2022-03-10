@@ -6,7 +6,6 @@
 package GUI;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -20,22 +19,19 @@ import javafx.stage.Stage;
  *
  * @author mohamedabbes
  */
-public class Mymain extends Application {
-  @Override
-    public void start(Stage primaryStage) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));     
-            Scene scene = new Scene(root, 1920, 1080);
-            primaryStage.setTitle("GGesport");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        
+public class NewFXMain extends Application {
+    
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+      Parent root = FXMLLoader.load(getClass().getResource("TeamView.fxml"));
+      Scene scene = new Scene(root);
+      primaryStage.setScene(scene);
+      primaryStage.show();
     }
 
-
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

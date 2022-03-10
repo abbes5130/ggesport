@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 
 
 
@@ -34,8 +35,11 @@ public class MainController implements Initializable {
 
     @FXML
     private void teams(ActionEvent event) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("teams.fxml"));
-        scrollpane.setContent(fxml);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeamView.fxml"));
+        Pane root = (Pane) loader.load();
+        TeamViewController tl = loader.getController();
+        tl.setScrollpane(scrollpane);
+        scrollpane.setContent(root);
     }
 
     @FXML

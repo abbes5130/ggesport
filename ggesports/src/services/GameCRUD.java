@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -85,30 +87,28 @@ statement.executeUpdate();
     }
 
     @Override
-    public String Retrieve() {
+   public  List<Game> Retrieve() {
 String sql = "SELECT * FROM game";
- 
+ List<Game> listGame = new ArrayList<Game>();
 Statement statement;
         try {
             statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
             ResultSet result = statement.executeQuery(sql);
 
-int count = 0;
  
 while (result.next()){
-    int id_game = result.getInt(1);
-    String game_name = result.getString(2);
-    String logo = result.getString(3);
+    Game g = new Game();
+    g.setId_game(result.getInt(1));
+    g.setGame_name(result.getString(2));
+    g.setLogo(result.getString(3));
 
- 
-    String output = "Game #%d: %s - %s - %s";
-    System.out.println(String.format(output, ++count, id_game, game_name, logo));
+ listGame.add(g);
     
     
 }
         } catch (SQLException ex) {
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "d";
+        return listGame;
     }}
     

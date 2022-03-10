@@ -2,11 +2,14 @@
 package GUI;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -36,6 +39,9 @@ private void showMainView() throws IOException {
 }
     public static void main(String[] args) {
         launch(args);
+            
+     
     }
+    
     
 }

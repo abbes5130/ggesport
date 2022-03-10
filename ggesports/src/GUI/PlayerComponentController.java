@@ -7,14 +7,25 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
  *
  * @author mohamedabbes
  */
-public class TtController implements Initializable {
+public class PlayerComponentController implements Initializable {
+
+    @FXML
+     Text first_name;
+    @FXML
+    public Text tag_name;
+    @FXML
+    public Text last_name;
+    @FXML
+    public Text desc_id;
 
     /**
      * Initializes the controller class.
