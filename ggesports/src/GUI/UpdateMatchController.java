@@ -125,7 +125,7 @@ public class UpdateMatchController implements Initializable {
         Team selectedAwayTeam = (Team) teamAway.getSelectionModel().getSelectedItem();
         Team selectedHomeTeam = (Team) teamHome.getSelectionModel().getSelectedItem();
 
-        // Game selecteGame = (Game) gameSelected.getSelectionModel().getSelectedItem();
+       
         matchTeam.Create(match.getId_match(), selectedAwayTeam.id);
         matchTeam.Create(match.getId_match(), selectedHomeTeam.id);
         System.out.println("Match updated succesfully ");

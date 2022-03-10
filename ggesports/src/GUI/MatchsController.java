@@ -32,11 +32,7 @@ import services.MatchService;
  * @author Firas
  */
 public class MatchsController implements Initializable {
-    
-    
-    String editURL = "C:\\Users\\DeadlyDaggerS\\Desktop\\GGesports\\assets\\Edit1.png";
-    String deleteURL = "C:\\Users\\DeadlyDaggerS\\Desktop\\GGesports\\assets\\Delete2.png";
-    
+
     @FXML
     VBox vBox;
 
