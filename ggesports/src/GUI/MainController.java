@@ -1,39 +1,58 @@
+<<<<<<< HEAD
 
 package gui;
+=======
+package GUI;
+>>>>>>> origin/mergee_team
 
+import entities.Users;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 
 public class MainController implements Initializable {
 
-    
     @FXML
     private ScrollPane scrollpane;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-
-    }    
-    
     @FXML
+<<<<<<< HEAD
     public void home(ActionEvent actionEvent)throws IOException{
         Parent fxml = FXMLLoader.load(getClass().getResource("/GUI/homePage.fxml"));
+=======
+    private Label lbluser;
+    @FXML
+    private Label lblrole;
+    @FXML
+    private ImageView setting;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+lbluser.setText(Users.current_user.getLastname());
+lblrole.setText(Users.current_user.role.getRolename());
+    }
+
+    @FXML
+    public void home(ActionEvent actionEvent) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("homePage.fxml"));
+>>>>>>> origin/mergee_team
         scrollpane.setContent(fxml);
     }
 
     @FXML
+
     private void teams(ActionEvent event) throws IOException{
+<<<<<<< HEAD
         Parent fxml = FXMLLoader.load(getClass().getResource("/GUI/teams.fxml"));
         scrollpane.setContent(fxml);
     }
@@ -48,12 +67,47 @@ public class MainController implements Initializable {
     private void news(ActionEvent event) throws IOException{
         Parent fxml;
         fxml = FXMLLoader.load(getClass().getResource("/GUI/listnews.fxml"));
+=======
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeamView.fxml"));
+        Pane root = (Pane) loader.load();
+        TeamViewController tl = loader.getController();
+        tl.setScrollpane(scrollpane);
+        scrollpane.setContent(root);
+
+    }
+
+    @FXML
+    private void matchs(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("matchs.fxml"));
+        Pane root = (Pane) loader.load();
+        MatchsController ctrl = loader.getController();
+       ctrl.setScrollpane(scrollpane);
+        
+        scrollpane.setContent(root);
+    }
+
+    @FXML
+    private void news(ActionEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("news.fxml"));
+>>>>>>> origin/mergee_team
         scrollpane.setContent(fxml);
     }
 
     @FXML
+<<<<<<< HEAD
     private void store(ActionEvent event) throws IOException{
         Parent fxml = FXMLLoader.load(getClass().getResource("/GUI/store.fxml"));
+=======
+    private void store(ActionEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("store.fxml"));
+>>>>>>> origin/mergee_team
+        scrollpane.setContent(fxml);
+    }
+
+    @FXML
+    private void setting(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         scrollpane.setContent(fxml);
     }
 }

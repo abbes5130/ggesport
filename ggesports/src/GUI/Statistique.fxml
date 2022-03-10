@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="1051.0" style="-fx-background-color: #2C313C;" stylesheets="@../styles/pie.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatistiqueController">
+   <children>
+      <PieChart fx:id="piechart" layoutX="233.0" layoutY="76.0" prefHeight="472.0" prefWidth="586.0" style="-fx-background-color: #2C313C; -fx-fill: white;" />
+   </children>
+</AnchorPane>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+=======
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+>>>>>>> origin/mergee_team
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +24,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainController">
+=======
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #242933;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
+>>>>>>> origin/mergee_team
    <children>
       <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="639.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -29,7 +42,7 @@
                         <Insets left="35.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </ImageView>
                   <Pane HBox.hgrow="ALWAYS" />
@@ -53,7 +66,7 @@
                               <Image url="@../images/Bell.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              
                            </cursor>
                         </ImageView>
                         <Label layoutX="13.0" layoutY="25.0" style="-fx-background-color: red; -fx-text-fill: #ffffff; -fx-label-padding: 3; -fx-background-radius: 100;" text="10">
@@ -74,10 +87,10 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="setting" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#setting" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Avatar%20Background_1.png" />
                      </image>
@@ -85,13 +98,18 @@
                         <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                     
                      </cursor>
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="200.0">
                      <children>
+<<<<<<< HEAD
                         <Label prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" textFill="WHITE" />
                         <Label style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" textFill="WHITE" />
+=======
+                        <Label fx:id="lbluser" prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" />
+                        <Label fx:id="lblrole" style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" />
+>>>>>>> origin/mergee_team
                      </children>
                      <HBox.margin>
                         <Insets right="20.0" />
@@ -112,7 +130,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </Button>
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#teams" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
@@ -124,7 +142,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </Button>
                   <Button layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#matchs" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
@@ -136,7 +154,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </Button>
                   <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#news" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
@@ -148,7 +166,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        
                      </cursor>
                   </Button>
                   <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#store" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
@@ -160,7 +178,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        
                      </cursor>
                   </Button>
                </children>

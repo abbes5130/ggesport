@@ -2,6 +2,18 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
 
-}
+
+.textField
+ {
+    -fx-text-fill: white; 
+ }
+ 
+ .comboBox{
+ -fx-fill: white;
+ }
+ 
+ .textFieldHbox
+ {
+    -fx-text-fill: #A80051; 
+ }
