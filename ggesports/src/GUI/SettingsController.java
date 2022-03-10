@@ -121,7 +121,7 @@ public class SettingsController implements Initializable {
             tc.modifier(u);
             JOptionPane.showMessageDialog(null, "Redirection Login");
             JOptionPane.showMessageDialog(null, "login");
-                        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));  
+                        Parent root = FXMLLoader.load(getClass().getResource("DashAdmin.fxml"));  
                         Stage stage = new Stage();
                         stage.close();
             

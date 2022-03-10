@@ -18,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 
 
 
-public class MainController implements Initializable {
+public class DashAdminController implements Initializable {
 
     
     @FXML
