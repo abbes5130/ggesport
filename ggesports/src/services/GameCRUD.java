@@ -110,5 +110,21 @@ while (result.next()){
             Logger.getLogger(GameCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listGame;
-    }}
+    }
+
+    @Override
+    public void Create(Game t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Delete(Game t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Update(Game t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
     
