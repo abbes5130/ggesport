@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -14,13 +22,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" 
-            style="-fx-background-color: #242933;" 
-            stylesheets="@../styles/main.css" 
-            xmlns="http://javafx.com/javafx/8.0.171" 
-            xmlns:fx="http://javafx.com/fxml/1" 
-            fx:controller="GUI.MainController"
->
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #242933;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DashAdminController">
    <children>
       <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="639.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -82,7 +84,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="35.0" onMouseClicked="#settings" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Avatar%20Background.png" />
                      </image>
@@ -95,8 +97,8 @@
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="200.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" />
-                        <Label style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" />
+                        <Label fx:id="lblnomprenom" prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" />
+                        <Label fx:id="lblrole" style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" />
                      </children>
                      <HBox.margin>
                         <Insets right="20.0" />
@@ -108,11 +110,11 @@
          <left>
             <VBox prefHeight="547.0" prefWidth="145.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#home" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button mnemonicParsing="false" onAction="#user" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/home_logo.png" />
+                              <Image url="@../images/User.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -120,11 +122,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#teams" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#role" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/User%20Group.png" />
+                              <Image url="@../images/List%20Clipboard.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -132,11 +134,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#matchs" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#stats" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/Calendar.png" />
+                              <Image url="@../images/Graph.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -144,30 +146,10 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#news" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/Internet.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#store" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/Shopping%20Bags.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+                  
+                   
+                 
+                     
                </children>
                <BorderPane.margin>
                   <Insets top="60.0" />

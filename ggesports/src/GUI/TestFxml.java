@@ -10,9 +10,9 @@ import javafx.stage.Stage;
 
 public class TestFxml extends Application {
     
-    @Override
-    public void start(Stage primaryStage) {
-        try{
+   @Override
+     public void start(Stage primaryStage) {
+        /*try{
             Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));     
             Scene scene = new Scene(root, 1920, 1080);
             primaryStage.setTitle("GGesport");
@@ -21,7 +21,7 @@ public class TestFxml extends Application {
         }catch(Exception e){
             e.printStackTrace();
         }
-        
+        */
     }
 
 

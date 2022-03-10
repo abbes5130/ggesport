@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="1051.0" style="-fx-background-color: #2C313C;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RolesPageController">
+   <children>
+      <Pane layoutX="53.0" layoutY="364.0" prefHeight="257.0" prefWidth="744.0" style="-fx-background-color: #1B1F25; -fx-background-radius: 55.5px;">
+         <children>
+            <Button fx:id="brnModifier" layoutX="300.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleButtonActionmodifier" prefHeight="27.0" prefWidth="163.0" styleClass="buttonsign" stylesheets="@../styles/fxml1.css" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tfID" editable="false" visible="false" />
+            <TextField fx:id="tfRole" layoutX="287.0" layoutY="85.0" prefHeight="27.0" prefWidth="210.0" promptText="Role" style="-fx-background-color: #2C313C; -fx-border-color: #7A7A7A; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: white;" />
+            <Button fx:id="btnSupprimer" layoutX="528.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleButtonActionsupprimer" prefHeight="27.0" prefWidth="163.0" styleClass="buttonsign" stylesheets="@../styles/fxml1.css" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAjouter" layoutX="74.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleButtonActionajouter" prefHeight="27.0" prefWidth="163.0" styleClass="buttonsign" stylesheets="@../styles/fxml1.css" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="215.0" layoutY="89.0" text="Role" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="20.0" fitWidth="19.0" layoutX="470.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/List%20Clipboard.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="56.0" layoutY="6.0" prefHeight="350.0" prefWidth="738.0" style="-fx-background-color: #1B1F25; -fx-background-radius: 20px;">
+         <children>
+            <TableView fx:id="tvRole" layoutX="23.0" layoutY="42.0" onMouseClicked="#selectdl" prefHeight="286.0" prefWidth="696.0" stylesheets="@../styles/fxml_1.css">
+              <columns>
+                <TableColumn fx:id="colid" prefWidth="327.0" text="ID_role" />
+                  <TableColumn fx:id="colnom" minWidth="0.0" prefWidth="368.0" text="Nom-role" />
+              </columns>
+            </TableView>
+            <Text fill="WHITE" layoutX="32.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Roles :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

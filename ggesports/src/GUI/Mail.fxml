@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MailController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="351.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="500.0" fitWidth="394.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/eslcologne%201.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="-0.73" contrast="0.12" saturation="0.91" />
+               </effect>
+            </ImageView>
+            <Text fill="WHITE" layoutX="62.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discover The World of Esports in One Place." textAlignment="CENTER" wrappingWidth="229.22900390625">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="303.0" fitWidth="364.0" layoutX="24.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/2-removebg-preview_1.png" />
+               </image></ImageView>
+            <Button layoutX="79.0" layoutY="427.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-radius: 33.5px; -fx-background-color: #171717;" text="Visite Our WEB Site" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="392.0" style="-fx-background-color: #2C313C;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnlogin" layoutX="33.0" layoutY="339.0" mnemonicParsing="false" onAction="#send" prefHeight="27.0" prefWidth="277.0" styleClass="buttonsign" stylesheets="@../styles/fxml1.css" text="Send" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="45.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in to your dashboard" textAlignment="CENTER" wrappingWidth="252.34375">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#8d8989" layoutX="42.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back type your credentials to log in into your dashboard" textAlignment="CENTER" wrappingWidth="258.12646484375">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="122.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Label fx:id="labsignup" layoutX="194.0" layoutY="408.0" onMouseClicked="#signup" text="Login" textFill="#a80051">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="17.0" layoutX="317.0" layoutY="10.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Clear%20Circle.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labforgot" layoutX="122.0" layoutY="304.0" prefHeight="17.0" prefWidth="104.0" text="Enter Your Email" textAlignment="JUSTIFY" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfmail" layoutX="60.0" layoutY="246.0" prefHeight="27.0" prefWidth="242.0" promptText="Email" style="-fx-background-color: #1B1F25; -fx-border-color: #A80051; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: white;" />
+            <ImageView fitHeight="19.0" fitWidth="19.0" layoutX="31.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Email.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+   </center>
+</BorderPane>
