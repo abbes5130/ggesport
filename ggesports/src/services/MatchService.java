@@ -146,7 +146,7 @@ public class MatchService implements IService<Match> {
                 try {
             Statement statement;
             statement = cnx2.createStatement();
-            String req= "SELECT matchs.id_match, matchs.time, matchs.date,equipe.nom,equipe.logo from matchs, equipe JOIN match_equipe WHERE matchs.id_match = match_equipe.id_match AND equipe.id_equipe = match_equipe.id_equipe ORDER BY matchs.date, matchs.time, `matchs`.`id_match` ASC;";
+            String req= "SELECT matchs.id_match, matchs.time, matchs.date,team.team_name,team.logo from matchs, team JOIN match_team WHERE matchs.id_match = match_team.id_match AND team.id_team = match_team.id_team ORDER BY matchs.date, matchs.time, `matchs`.`id_match` ASC;";
             ResultSet rst;
             rst= statement.executeQuery(req);
             
@@ -156,7 +156,7 @@ public class MatchService implements IService<Match> {
                         rst.getInt("id_match"),
                         rst.getTime("time"),
                         rst.getDate("date"),
-                        rst.getString("nom"),
+                        rst.getString("team_name"),
                         rst.getString("logo")
                 );
                 

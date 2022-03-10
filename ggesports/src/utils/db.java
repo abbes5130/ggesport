@@ -14,9 +14,9 @@ import java.sql.SQLException;
  * @author mohamedabbes
  */
 public class db {
-    public String url = "jdbc:mysql://localhost:3306/ggesportt";
+    public String url = "jdbc:mysql://localhost:3306/ggesport";
     public String username = "root";
-    public String pwd = "root";
+    public String pwd = "";
    static Connection  cnx;
     public static db instance;
     

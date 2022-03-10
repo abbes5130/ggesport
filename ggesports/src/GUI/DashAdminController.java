@@ -56,7 +56,7 @@ public class DashAdminController implements Initializable {
 
     @FXML
     private void settings(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("Settings.fxml"));
-        scrollpane.setContent(fxml);
+        /*Parent fxml = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+        scrollpane.setContent(fxml);*/
     }
 }

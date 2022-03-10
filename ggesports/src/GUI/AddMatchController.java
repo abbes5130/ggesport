@@ -42,7 +42,7 @@ class Team {
         try {
             Statement statement;
             statement = cnx2.createStatement();
-            String req = "SELECT id_equipe,nom FROM `equipe`";
+            String req = "SELECT id_team,team_name FROM `team`";
             ResultSet rst;
             rst = statement.executeQuery(req);
 

@@ -60,8 +60,8 @@ public class MatchsController implements Initializable {
             MatchResultWithTeam result1 = matchesWithTeam.get(i);
             MatchResultWithTeam result2 = matchesWithTeam.get(i + 1);
             try {
-                String imgFile1 = new File(result1.getLogo_equipe()).toURI().toString();
-                String imgFile2 = new File(result2.getLogo_equipe()).toURI().toString();
+                String imgFile1 = new File(result1.getLogo()).toURI().toString();
+                String imgFile2 = new File(result2.getLogo()).toURI().toString();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("MatchComponent.fxml"));
                 Pane root = (Pane) loader.load();
                 MatchComponentController ctrl = loader.getController();
@@ -69,8 +69,8 @@ public class MatchsController implements Initializable {
                 ctrl.setMatchId(result1.getId_match());
                 ctrl.matchTime.setText(result1.getTime().toString());
                 ctrl.matchDate.setText(result1.getDate().toString());
-                ctrl.HomeTeam.setText(result1.getNom_equipe());
-                ctrl.AwayTeam.setText(result2.getNom_equipe());
+                ctrl.HomeTeam.setText(result1.getTeam_name());
+                ctrl.AwayTeam.setText(result2.getTeam_name());
                 ctrl.HomeImage.setImage(new Image(imgFile1));
                 ctrl.AwayImage.setImage(new Image(imgFile2));
 
