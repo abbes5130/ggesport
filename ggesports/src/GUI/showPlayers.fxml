@@ -6,12 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowPlayersController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowPlayersController">
    <children>
-      <ScrollPane prefHeight="600.0" prefWidth="1000.0">
+      <ScrollPane prefHeight="432.0" prefWidth="1000.0">
          <content>
-            <VBox fx:id="playersVBOX" prefHeight="600.0" prefWidth="998.0" style="-fx-background-color: #242933;" />
+            <VBox fx:id="playersVBOX" prefHeight="431.0" prefWidth="998.0" style="-fx-background-color: #242933;" />
          </content>
       </ScrollPane>
+      <Button layoutX="473.0" layoutY="507.0" mnemonicParsing="false" onAction="#onOpenDialog_addplayer" style="-fx-background-color: #A80051;" text="Add new Player" textFill="WHITE" />
    </children>
 </AnchorPane>

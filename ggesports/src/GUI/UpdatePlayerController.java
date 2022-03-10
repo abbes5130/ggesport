@@ -30,11 +30,17 @@ import utils.db;
  */
 public class UpdatePlayerController implements Initializable {
      private ObservableList<Team> appMainObservableList_up;
+     @FXML
      private AnchorPane pt;
+     @FXML
       TextField tmfield_up;
+     @FXML
       TextField tmfield1_up;
+     @FXML
     TextField lgfield_up;
+     @FXML
     TextField plfield_up;
+     @FXML
     TextField dsfield_up;
 int playerId;
     public int getPlayerId(){
@@ -57,8 +63,8 @@ int playerId;
        String sql = "UPDATE player SET firstname=?, lastname=?, description=?, player_tag=?, photo=? WHERE id_player=?";
 
  Player pp = new Player();
- 
- System.out.println(playerId);
+  System.out.println(playerId);
+
  
 PreparedStatement statement;
        try {
@@ -70,7 +76,7 @@ statement.setString(3,lgfield_up.getText());
 statement.setString(4, plfield_up.getText());
 statement.setString(5,dsfield_up.getText());
 
-statement.setInt(5, playerId);
+statement.setInt(6, playerId);
        statement.executeUpdate();
        System.out.println("updated team");
             Stage stage = (Stage) pt.getScene().getWindow();   

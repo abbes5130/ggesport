@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="pt" minHeight="600" minWidth="1100" prefHeight="510.0" prefWidth="778.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UpdateTeamController">
+<AnchorPane fx:id="pt" minHeight="600" minWidth="1100" prefHeight="510.0" prefWidth="778.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UpdatePlayerController">
    <children>
       <VBox prefHeight="600" prefWidth="995.0">
          <children>

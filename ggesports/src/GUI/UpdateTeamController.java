@@ -91,8 +91,6 @@ statement.setInt(5, teamId);
 
     }
 
-    @FXML
-    private void updatePlayer(ActionEvent event) {
-    }
+   
     
 }
