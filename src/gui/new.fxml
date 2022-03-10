@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMousePressed="#click" prefHeight="391.0" prefWidth="415.0" style="-fx-background-radius: 30;" styleClass="NEW" stylesheets="@../style/new.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ActualiteController">
+   <children>
+      <ImageView fx:id="img_bg" fitHeight="423.0" fitWidth="461.0" layoutX="-5.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="contenu" layoutX="14.0" layoutY="195.0" prefHeight="109.0" prefWidth="434.0" style="-fx-font-size: 25;" textFill="WHITE" />
+      <Label fx:id="date" layoutX="295.0" layoutY="87.0" prefHeight="17.0" prefWidth="161.0" textFill="WHITE" />
+      <Label fx:id="nbComs" alignment="CENTER" layoutX="23.0" layoutY="338.0" opacity="0.75" prefHeight="30.0" prefWidth="35.0" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="74.0" layoutY="338.0" opacity="0.75" prefHeight="30.0" prefWidth="123.0" text="commentaires " textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Label>
+      <ImageView fx:id="logo" fitHeight="89.0" fitWidth="230.0" layoutX="23.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pngaaa%201.png" />
+         </image></ImageView>
+      <Label fx:id="v" layoutX="36.0" layoutY="39.0" prefHeight="40.0" prefWidth="139.0" textFill="WHITE" />
+   </children>
+</AnchorPane>

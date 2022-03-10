@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.btn1{
+    -fx-background-color:#242933;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-background-radius: 50px;
+
+}
+.side_ankerpane1{
+     -fx-background-color:#242933;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+        -fx-border-color: #242933;
+
+}
