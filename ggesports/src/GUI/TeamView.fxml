@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="880.0" prefWidth="1700.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TeamViewController">
+   <children>
+      <VBox prefHeight="880.0" prefWidth="1700.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Teams List">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Button mnemonicParsing="false" onAction="#onOpenDialog" style="-fx-background-color: #A80051;" text="Add a new Team" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="22.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onOpenDialog2" style="-fx-background-color: #A80051;" text="Show All Players" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="500.0" top="22.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <ScrollPane prefHeight="802.0" prefWidth="1599.0">
+               <content>
+                  <VBox fx:id="itemlistt" prefHeight="790.0" prefWidth="1697.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</Pane>
