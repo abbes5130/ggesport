@@ -62,6 +62,20 @@ public class ProductCRUD implements IService<Product>{
             System.err.println(ex1.getMessage());
         }
     }
+    
+    public void deleteProductById(int i) {
+        try{
+            String requete4="delete from product where id_product=?";
+            PreparedStatement pst= cnx.prepareStatement(requete4);
+            pst.setInt(1, i);
+            
+            pst.executeUpdate();
+            System.out.println("Product deleted successfully");
+            
+        }catch(SQLException ex1){
+            System.err.println(ex1.getMessage());
+        }
+    }
 
     @Override
     public void update(Product p) {

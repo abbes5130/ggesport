@@ -41,7 +41,7 @@ import javafx.scene.input.DragEvent;
 import javafx.stage.FileChooser;
 
 
-public class MainController implements Initializable {
+public class MainStoreController implements Initializable {
     
     private int col;
     private int row;

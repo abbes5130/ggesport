@@ -20,16 +20,13 @@
             <Image url="@../images/t_shirt.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="D_productNameLabel" layoutX="562.0" layoutY="169.0" style="-fx-text-fill: #ffffff;" text="ESL Tshirt" textFill="#ffffff00">
+      <Label fx:id="ProductNameLabel" layoutX="562.0" layoutY="169.0" style="-fx-text-fill: #ffffff;" text="ESL Tshirt" textFill="#ffffff00">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="562.0" layoutY="230.0" style="-fx-text-fill: #ffffff;" text="169" />
-      <Label layoutX="596.0" layoutY="230.0" style="-fx-text-fill: #ffffff;" text="DT" />
-      <Label layoutX="624.0" layoutY="230.0" style="-fx-text-fill: #ffffff;" text="/" />
-      <Label layoutX="639.0" layoutY="230.0" style="-fx-text-fill: #ffffff;" text="130" />
-      <Label layoutX="672.0" layoutY="230.0" style="-fx-text-fill: #ffffff;" text="DT" />
+      <Label fx:id="productPriceLabel" layoutX="562.0" layoutY="230.0" prefHeight="21.0" prefWidth="51.0" style="-fx-text-fill: #ffffff;" text="169    /" />
+      <Label fx:id="productReducedPriceLabel" layoutX="639.0" layoutY="230.0" style="-fx-text-fill: #ffffff;" text="130" />
       <Label layoutX="562.0" layoutY="270.0" style="-fx-text-fill: #ffffff;" text="Rating: ">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -85,11 +82,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="650.0" layoutY="502.0" style="-fx-text-fill: #ffffff;" text="16" />
+      <Label fx:id="productQuantityLabel" layoutX="650.0" layoutY="502.0" style="-fx-text-fill: #ffffff;" text="16" />
       <Button fx:id="D_updateProductBtn" layoutX="555.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#D_goToUpdateProductPageOnclick" prefHeight="58.0" prefWidth="234.0" style="-fx-background-color: A80051; -fx-text-fill: #ffffff;" text="Update Product" />
       <Button fx:id="D_deleteProductBtn" layoutX="810.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#D_goToDeleteProductPageOnClick" prefHeight="58.0" prefWidth="234.0" style="-fx-background-color: A80051; -fx-text-fill: #ffffff;" text="Delete Product" />
-      <Label layoutX="633.0" layoutY="419.0" style="-fx-text-fill: #ffffff;" text="csgo" />
-      <Label layoutX="623.0" layoutY="382.0" style="-fx-text-fill: #ffffff;" text="black" />
-      <Label layoutX="655.0" layoutY="463.0" style="-fx-text-fill: #ffffff;" text="169" />
+      <Label fx:id="productBrandLabel" layoutX="633.0" layoutY="419.0" style="-fx-text-fill: #ffffff;" text="csgo" />
+      <Label fx:id="productColorLabel" layoutX="623.0" layoutY="382.0" style="-fx-text-fill: #ffffff;" text="black" />
+      <Label fx:id="productCategoryLabel" layoutX="655.0" layoutY="463.0" style="-fx-text-fill: #ffffff;" text="169" />
+      <Label fx:id="AlertLabel" layoutX="376.0" layoutY="68.0" prefHeight="38.0" prefWidth="622.0" style="-fx-text-fill: red;" />
    </children>
 </AnchorPane>

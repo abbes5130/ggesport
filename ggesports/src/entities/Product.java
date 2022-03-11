@@ -8,6 +8,20 @@ public class Product {
     private String name, color, brand, description, image, categorie;
     private Boolean available;
 
+    public Product(int id,  String name, float price,String description,String color, String brand,int discount,Boolean available,String categorie, int quantite_stock, String image  ) {
+        this.id = id;
+        this.discount = discount;
+        this.quantite_stock = quantite_stock;
+        this.price = price;
+        this.name = name;
+        this.color = color;
+        this.brand = brand;
+        this.description = description;
+        this.image = image;
+        this.categorie = categorie;
+        this.available = available;
+    }
+
     public Product(String name, float price,  String description, String color, String brand, int discount,  Boolean available, String categorie, int quantite_stock, String image) {
         this.discount = discount;
         this.quantite_stock = quantite_stock;
@@ -19,6 +33,19 @@ public class Product {
         this.image = image;
         this.categorie = categorie;
         this.available = available;
+    }
+
+    public Product(int id,  String name, float price,String description,String color, String brand,int discount, int quantite_stock,   String image, String categorie) {
+        this.id = id;
+        this.discount = discount;
+        this.quantite_stock = quantite_stock;
+        this.price = price;
+        this.name = name;
+        this.color = color;
+        this.brand = brand;
+        this.description = description;
+        this.image = image;
+        this.categorie = categorie;
     }
     
     

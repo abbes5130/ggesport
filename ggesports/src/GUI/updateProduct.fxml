@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="745.0" prefWidth="1160.0" style="-fx-background-color: #1A1A1C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UpdateProductController">
+<AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1187.0" style="-fx-background-color: #1A1A1C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UpdateProductController">
    <children>
-      <ImageView fitHeight="440.0" fitWidth="567.0" layoutX="48.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/t_shirt.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="642.0" layoutY="107.0" style="-fx-text-fill: #ffffff;" text="Category">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField layoutX="642.0" layoutY="145.0" prefHeight="58.0" prefWidth="411.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="TShirt" />
-      <Label layoutX="642.0" layoutY="221.0" style="-fx-text-fill: #ffffff;" text="Name">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField layoutX="642.0" layoutY="259.0" prefHeight="58.0" prefWidth="411.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="ESL Tshirt" />
-      <Label layoutX="650.0" layoutY="336.0" style="-fx-text-fill: #ffffff;" text="Category">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField layoutX="650.0" layoutY="374.0" prefHeight="58.0" prefWidth="137.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="169" />
-      <Label layoutX="811.0" layoutY="390.0" style="-fx-text-fill: #ffffff;" text="DT">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="654.0" layoutY="446.0" style="-fx-text-fill: #ffffff;" text="Description">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField alignment="TOP_LEFT" layoutX="654.0" layoutY="486.0" prefHeight="96.0" prefWidth="411.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="Start off 20G2 the right way! The official G2 x adidas 2022 Pro Kit Jersey is available now. Proudly made with AEROREADY 100% Recycled Polyester technology, top-tier design and comfort as top priority, this fit will be the center of the #G2ARMY's most memorable year yet." />
-      <Button layoutX="667.0" layoutY="624.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="219.0" style="-fx-text-fill: #ffffff; -fx-background-color: #A80051;" text="Update">
+      <Button fx:id="updateBtn" layoutX="878.0" layoutY="615.0" mnemonicParsing="false" onMouseClicked="#updateProductOnClick" prefHeight="49.0" prefWidth="219.0" style="-fx-text-fill: #ffffff; -fx-background-color: #A80051;" text="Update">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="35.0" layoutY="21.0" prefHeight="45.0" prefWidth="231.0" style="-fx-text-fill: #ffffff;" text="Update Product">
+      <Label layoutX="66.0" layoutY="35.0" prefHeight="45.0" prefWidth="231.0" style="-fx-text-fill: #ffffff;" text="Update Product">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
+      <TextField fx:id="productPriceField" layoutX="688.0" layoutY="145.0" onKeyReleased="#verifPriceOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Price" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+      <TextArea fx:id="productDescriptionField" layoutX="149.0" layoutY="241.0" prefHeight="163.0" prefWidth="409.0" promptText="Description" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-radius: 20; -fx-background-color: #242933; -fx-text-fill: #ffffff;" stylesheets="@../styles/store.css" />
+      <TextField fx:id="productBrandField" layoutX="149.0" layoutY="442.0" onKeyReleased="#verifBrandOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Brand" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+      <TextField fx:id="productColorField" layoutX="688.0" layoutY="241.0" onKeyReleased="#verifPriceOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Color" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+      <TextField fx:id="productQuantityField" layoutX="688.0" layoutY="341.0" onKeyReleased="#verifQuantityOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Quantity" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+      <TextField fx:id="productDiscountField" layoutX="688.0" layoutY="431.0" onKeyReleased="#verifDiscountOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Discount" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+      <TextField fx:id="productNameField" layoutX="149.0" layoutY="145.0" onKeyReleased="#verifNameOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Name of the product" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+      <Label fx:id="productAddImg" layoutX="149.0" layoutY="538.0" prefHeight="52.0" prefWidth="409.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-text-fill: #C0C0C0; -fx-font-size: 13; -fx-background-color: #242933;" text="Add image">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="509.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Add%20Photo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="AlertLabel" layoutX="399.0" layoutY="70.0" prefHeight="38.0" prefWidth="463.0" textFill="WHITE" />
+      <ComboBox fx:id="categoriesCmbx" layoutX="688.0" layoutY="527.0" prefHeight="52.0" prefWidth="409.0" style="-fx-background-color: #242933; -fx-border-color: #ffffff; -fx-border-radius: 10;" />
+      <Label fx:id="nameErrorLabel" layoutX="158.0" layoutY="118.0" prefHeight="21.0" prefWidth="351.0" style="-fx-text-fill: red;" />
+      <Label fx:id="brandErrorLabel" layoutX="158.0" layoutY="415.0" prefHeight="21.0" prefWidth="351.0" style="-fx-text-fill: red;" />
+      <Label fx:id="U_filePath" layoutX="149.0" layoutY="594.0" prefHeight="1.0" prefWidth="351.0" style="-fx-text-fill: red;" visible="false" />
+      <Label fx:id="priceErrorLabel" layoutX="696.0" layoutY="118.0" prefHeight="21.0" prefWidth="351.0" style="-fx-text-fill: red;" />
+      <Label fx:id="colorErrorLabel" layoutX="696.0" layoutY="212.0" prefHeight="21.0" prefWidth="351.0" style="-fx-text-fill: red;" />
+      <Label fx:id="quantityErrorLabel" layoutX="696.0" layoutY="312.0" prefHeight="21.0" prefWidth="351.0" style="-fx-text-fill: red;" />
+      <Label fx:id="discountErrorLabel" layoutX="696.0" layoutY="404.0" prefHeight="21.0" prefWidth="351.0" style="-fx-text-fill: red;" />
    </children>
 </AnchorPane>

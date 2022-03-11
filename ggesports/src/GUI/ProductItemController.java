@@ -22,7 +22,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.ProductCRUD;
 
 /**
@@ -31,7 +34,7 @@ import services.ProductCRUD;
  * @author Firas
  */
 public class ProductItemController implements Initializable {
-
+    
     @FXML
     private ImageView productImage;
     @FXML
@@ -69,37 +72,57 @@ public class ProductItemController implements Initializable {
 
     @FXML
     private void ViewDetailsOnclick(MouseEvent event) throws IOException{
+
+        Object o= event.getSource();
+        System.out.println(o instanceof Label);
+        Label label= (Label)o;
+        VBox vb=(VBox)label.getParent();
+        System.out.println(vb instanceof VBox);        
+        List<Node> nodelist= new ArrayList();
+        nodelist=vb.getChildren();
+        String id = ((Label)nodelist.get(5)).getText();
+        int i= Integer.valueOf(id);
+        System.out.println(id);
+
+        FXMLLoader fxmlloader = new FXMLLoader();
+        fxmlloader.setLocation(getClass().getResource("ProductDetails.fxml"));
+        Pane p;
+        p = fxmlloader.load();
+        ProductDetailsController productDetailsController= fxmlloader.getController();
+        productDetailsController.setValues(i);
+
+                
+        Stage stage = new Stage();
+//        Parent root = FXMLLoader.load(getClass().getResource("ProductDetails.fxml"));     
+        Scene scene = new Scene((Parent)p, 1200, 1000);
+        stage.setScene(scene);
+        stage.show();
+          
 //        System.out.println("helllloooooooo");
 //        System.out.println(productIdLabel.getText());
 //        String productIdStr=productIdLabel.getText();
 //        int productIdInt=Integer.parseInt(productIdStr);
 //        ProductCRUD pcrud= new ProductCRUD();
 //        Product p= new Product();
+
 //        p=pcrud.getProductById(productIdInt);
 //        FXMLLoader mainloader= new FXMLLoader();
 //        mainloader.setLocation(getClass().getResource("main.fxml"));
 //        Node node=mainloader.load();
 //        MainController maincontroller= mainloader.getController();
 //        maincontroller.setProductDetailsView(p);
-        System.out.println("helllloooooooo");            
-        Parent root= FXMLLoader.load(getClass().getResource("main.fxml"));
-        Scene scene = new Scene(root);
-        Node node=(Node)scene.lookup("#ProductDetails");
-        node.setManaged(true);
-        node.setVisible(true);
-        System.out.println("helllloooooooo");
-        System.out.println("helllloooooooo");
-        
-//        Object o= event.getSource();
-//        System.out.println(o instanceof Label);
-//        Label vdLabel= (Label)o;
-//        Pane pane=(Pane)vdLabel.getParent();
-//        System.out.println(pane instanceof Parent);
-//        Pane parentpane=(Pane)pane.getParent();
-//        
-//        List<Node> nodelist= new ArrayList();
-//        nodelist=parentpane.getChildren();
-//        String id = ((Label)nodelist.get(1)).getText();
+
+            
+
+//        System.out.println("helllloooooooo");            
+//        Parent root= FXMLLoader.load(getClass().getResource("main.fxml"));
+//        Scene scene = new Scene(root);
+//        Node node=(Node)scene.lookup("#ProductDetails");
+//        System.out.println((Node)scene.lookup("#ProductDetails"));
+//        node.setManaged(true);
+//        node.setVisible(true);
+//        System.out.println("helllloooooooo");
+//        System.out.println("helllloooooooo");
         
 
 //        String name = ((Label)nodelist.get(2)).getText();
