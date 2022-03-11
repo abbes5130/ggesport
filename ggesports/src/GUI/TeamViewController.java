@@ -6,6 +6,8 @@
 package GUI;
 
 import entities.Team;
+import entities.Users;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -24,7 +26,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.Pane;
@@ -46,9 +50,10 @@ public class TeamViewController implements Initializable {
 
     //onclick modal
 ObservableList<Team> teamL = FXCollections.observableArrayList();
-   @FXML
-    Pane pane;
+   Pane pane;
     private ArrayList<TeamLineController> controllers;
+    @FXML
+    private Button teamadd_button;
 
     public void setScrollpane(ScrollPane scrollpane) {
         System.out.println("SEetting scroll pane to");
@@ -59,6 +64,13 @@ ObservableList<Team> teamL = FXCollections.observableArrayList();
 
     }
 
+    public boolean testuser(){
+    if(Users.current_user.role.getRolename().equals("Responsables")){
+    return true;
+    }else return false;
+    }
+    
+    
     @FXML
     void onOpenDialog(ActionEvent event) throws IOException {
         System.out.println("onOpenDialog clicked");
@@ -123,6 +135,13 @@ ObservableList<Team> teamL = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+      
+        if(testuser()){
+        teamadd_button.setVisible(true);}
+        else {
+         teamadd_button.setVisible(false);
+        }
+        
         TeamCRUD teamCrud = new TeamCRUD();
         List<Team> teamss = teamCrud.Retrieve();
         System.out.println("cnx done");
@@ -139,10 +158,14 @@ ObservableList<Team> teamL = FXCollections.observableArrayList();
       
      TeamLineController tl = loader.getController();
      controllers.add(tl);
+       File imageFile1 = new File(team1.getLogo());
+                   
+                   Image image = new Image(imageFile1.toURI().toString());
      tl.setTeamId(team1.getId_team());
                      tl.team_title.setText(team1.getName())  ;
                      tl.team_desc.setText(team1.getDescription());
                      tl.team_pl.setText(""+team1.getNb_joueur());
+                     tl.teamlph.setImage(image);
                      itemlistt.getChildren().add(root);
                
         }catch(IOException e){

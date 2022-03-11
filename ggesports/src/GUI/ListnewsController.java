@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import entities.actualité;
 import java.awt.Color;
@@ -73,7 +73,7 @@ public class ListnewsController implements Initializable  {
                     //System.out.println(p);
                   try{
                       
-                      fxmlLoader.setLocation(getClass().getResource("/gui/actDetail.fxml"));
+                      fxmlLoader.setLocation(getClass().getResource("actDetail.fxml"));
                       Parent root = fxmlLoader.load();
                       Stage mainStage = new Stage();
                       Scene scene = new Scene(root);
@@ -105,7 +105,7 @@ public class ListnewsController implements Initializable  {
         try {
             for (int i = 0; i < L.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/gui/new.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("new.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 ActualiteController pController = fxmlLoader.getController();
@@ -186,7 +186,7 @@ public class ListnewsController implements Initializable  {
     @FXML
     private void btnAddNew(ActionEvent event) {
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/ajouter news.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ajouter news.fxml"));
              Scene scene = new Scene(loader.load(), 700, 700);
         Stage stage = new Stage();
         stage.setTitle("ajouterpage");

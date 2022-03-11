@@ -7,6 +7,8 @@ package GUI;
 
 import entities.Player;
 import entities.Team;
+import entities.Users;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -30,8 +34,16 @@ import services.PlayerCRUD;
  * @author mohamedabbes
  */
 public class ShowPlayersController implements Initializable {
+
+    @FXML
+    private Button ad;
     
-    
+       public boolean testuser(){
+    if(Users.current_user.role.getRolename().equals("Responsables")){
+    return true;
+    }else return false;
+    }
+       
      
   @FXML
     void onOpenDialog_addplayer(ActionEvent event) throws IOException {
@@ -51,6 +63,7 @@ public class ShowPlayersController implements Initializable {
         
 
     }
+    
     @FXML
     private VBox playersVBOX;
 private ArrayList<PlayerComponentController_1> controllers;
@@ -59,6 +72,15 @@ private ArrayList<PlayerComponentController_1> controllers;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+           if(testuser()){
+        ad.setVisible(true);
+   
+       
+       }
+            else {
+         ad.setVisible(false);
+         
+        }
        PlayerCRUD playerCRUD = new PlayerCRUD();
        PlayerComponentController_1 tl = new PlayerComponentController_1();
         List<Player> players = playerCRUD.Retrieve();
@@ -75,12 +97,26 @@ private ArrayList<PlayerComponentController_1> controllers;
       Pane root = (Pane) loader.load();
       
      PlayerComponentController_1 pc = loader.getController();
+     
+   
+
+
+
+     AddPlayerController apt = new AddPlayerController();
+     
+     
+     
                    controllers.add(pc);
+                   
+                   File imageFile1 = new File(player1.getPhoto());
+                   
+                   Image image = new Image(imageFile1.toURI().toString());
                    pc.setPlayerId(player1.getId_player());
                      pc.first_name.setText(player1.getName());
                      pc.last_name.setText(player1.getSurname());
                      pc.desc_id.setText(player1.getDescription());
                      pc.tag_name.setText(player1.getTag());
+                     pc.image_play.setImage(image);
                      playersVBOX.getChildren().add(root);
                      
                    

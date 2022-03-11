@@ -6,6 +6,7 @@
 package GUI;
 
 import entities.Match;
+import entities.Users;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,6 +36,12 @@ import utils.MyDB;
 public class MatchComponentController implements Initializable {
 
     Connection cnx2;
+    @FXML
+    private Pane pane;
+    @FXML
+    private ImageView imgUpdate;
+    @FXML
+    private ImageView imgDelete;
 
     public MatchComponentController() {
         cnx2 = MyDB.getInstance().getCnx();
@@ -69,12 +76,27 @@ public class MatchComponentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+          if(testuser()){
+        imgUpdate.setVisible(true);
+      imgDelete.setVisible(true);
+   
+       
+       }
+            else {
+         imgUpdate.setVisible(false);
+            imgDelete.setVisible(false);
+   
+        }
     }
 
     public void setScrollpane(ScrollPane scrollpane) {
         this.scrollpane = scrollpane;
     }
-
+   public boolean testuser(){
+    if(Users.current_user.role.getRolename().equals("Responsables")){
+    return true;
+    }else return false;
+    }
     @FXML
     private void MatchDetails(MouseEvent e) {
         try {

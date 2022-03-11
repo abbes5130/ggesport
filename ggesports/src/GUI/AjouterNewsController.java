@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import entities.actualité;
 import java.awt.image.BufferedImage;
@@ -107,7 +107,7 @@ String k =p.getTitre();
     @FXML
     private void Affichage(ActionEvent event) {
             try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Listnews.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Listnews.fxml"));
             Parent root = loader.load();
             Titre.getScene().setRoot(root);
         } catch (IOException ex) {

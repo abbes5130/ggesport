@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import entities.Match;
 import entities.MatchResultWithTeam;
+import entities.Users;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
@@ -34,14 +37,20 @@ import services.MatchService;
 public class MatchsController implements Initializable {
 
     @FXML
+    private Button adm;
+ public boolean testuser(){
+    if(Users.current_user.role.getRolename().equals("Responsables")){
+    return true;
+    }else return false;
+    }
+    @FXML
     VBox vBox;
 
-    @FXML
     Pane pane;
     private ArrayList<MatchComponentController> controllers;
 
     public void setScrollpane(ScrollPane scrollpane) {
-        System.out.println("SEetting scroll pane to");
+        System.out.println("Setting scroll pane to");
         for (MatchComponentController controller : controllers) {
             controller.setScrollpane(scrollpane);
         }
@@ -85,6 +94,16 @@ public class MatchsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+          if(testuser()){
+        adm.setVisible(true);
+     
+   
+       
+       }
+            else {
+         adm.setVisible(false);
+           
+        }
         this.fillList();
     }
 

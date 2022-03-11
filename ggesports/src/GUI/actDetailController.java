@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
+import com.vonage.client.VonageClient;
+import com.vonage.client.sms.MessageStatus;
+import com.vonage.client.sms.SmsSubmissionResponse;
+import com.vonage.client.sms.messages.TextMessage;
 import entities.Commentaire;
 import entities.actualité;
 import java.io.IOException;
@@ -91,7 +95,7 @@ public class actDetailController implements Initializable {
 //                    System.out.println(p);
                   try{
                       
-                      fxmlLoader.setLocation(getClass().getResource("/gui/commentaireDetail.fxml"));
+                      fxmlLoader.setLocation(getClass().getResource("commentaireDetail.fxml"));
                       Parent root = fxmlLoader.load();
                       Stage mainStage = new Stage();
                       Scene scene = new Scene(root);
@@ -176,7 +180,7 @@ LocalDate localdate= date.getValue();
            alertAjout.setTitle("Ajout commentaire");
            alertAjout.setHeaderText(null);
            alertAjout.setContentText("votre commentaire est ajoutée avec succées");
-           sendMail("mohamedtaha.mejdoub@esprit.tn");
+           SendSMS();
 
            alertAjout.showAndWait();
         }
@@ -201,7 +205,7 @@ LocalDate localdate= date.getValue();
         try {
             for (int i = 0; i < C.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/gui/commentaire.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("commentaire.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 CommentaireController CommentaireController = fxmlLoader.getController();
@@ -256,54 +260,21 @@ LocalDate localdate= date.getValue();
         ajoutC.setText("");
     }
 
-public static void sendMail(String recepient) throws Exception {
-        System.out.println("Preparing to send email");
-        Properties properties = new Properties();
+public static void SendSMS() throws Exception {
+VonageClient client = VonageClient.builder().apiKey("fe6595c0").apiSecret("yXNQOoF73SfQ5A4a").build();       
+TextMessage message = new TextMessage("Vonage APIs",
+        "21621254238",
+        "comment is added "
+);
 
-        //Enable authentication
-        properties.put("mail.smtp.auth", "true");
-        //Set TLS encryption enabled
-        properties.put("mail.smtp.starttls.enable", "true");
-        //Set SMTP host
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        //Set smtp port
-        properties.put("mail.smtp.port", "587");
+SmsSubmissionResponse response = client.getSmsClient().submitMessage(message);
 
-        //Your gmail address
-        String myAccountEmail = "mohamedtaha.mejdoub@esprit.tn";
-        //Your gmail password
-        String password = "213JMT0293";
-
-        //Create a session with account credentials
-        Session session = Session.getInstance(properties, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(myAccountEmail, password);
-            }
-        });
-
-        //Prepare email message
-        Message message = prepareMessage(session, myAccountEmail, recepient);
-
-        //Send mail
-        Transport.send(message);
-        System.out.println("Message sent successfully");
-    }
-
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient) {
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(myAccountEmail));
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("My First Email from Java App");
-            String htmlCode = "<h1> comment ajouté </h1> <br/> <h2><b>merci </b></h2>";
-            message.setContent(htmlCode, "text/html");
-            return message;
-        } catch (Exception ex) {
-            Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
+if (response.getMessages().get(0).getStatus() == MessageStatus.OK) {
+    System.out.println("Message sent successfully.");
+} else {
+    System.out.println("Message failed with error: " + response.getMessages().get(0).getErrorText());
+}
+      }
     
 }
     

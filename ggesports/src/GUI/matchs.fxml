@@ -12,14 +12,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MatchsController">
-    <stylesheets>
-        <URL value="@/styles/matchs.css" />
-    </stylesheets>
-=======
 <Pane prefHeight="900.0" prefWidth="1500.0" style="-fx-background: #242933; -fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MatchsController">
->>>>>>> origin/mergee_team
+
    <children>
          <VBox prefHeight="897.0" prefWidth="1503.0">
             <children>
@@ -33,7 +27,7 @@
                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                         </padding>
                      </Label>
-                     <Button mnemonicParsing="false" onAction="#addMatchAction" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #A80051;" text="Add Match" textFill="WHITE">
+                     <Button fx:id="adm" mnemonicParsing="false" onAction="#addMatchAction" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #A80051;" text="Add Match" textFill="WHITE">
                         <font>
                            <Font size="14.0" />
                         </font>

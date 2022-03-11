@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-<<<<<<< HEAD
-package gui;
 
-=======
 package GUI;
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
->>>>>>> origin/mergee_team
+
 
 /**
  *

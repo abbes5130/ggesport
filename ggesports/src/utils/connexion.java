@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author USER
  */
 public class connexion {
-   public String url="jdbc:mysql://localhost:3306/ggsports";
+   public String url="jdbc:mysql://localhost:3306/ggesport";
    public String login="root";
    public String pwd="";
 Connection cnx; 

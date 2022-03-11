@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -21,9 +21,9 @@ public class test extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-           Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+           Parent root = FXMLLoader.load(getClass().getResource("listnews.fxml"));
            // Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ajouter news.fxml"));
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,800,600);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex ) {

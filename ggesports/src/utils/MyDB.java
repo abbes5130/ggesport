@@ -21,7 +21,7 @@ public class MyDB {
     private Connection connection;
     public static MyDB instance;
     
-    private MyDB(){
+    public MyDB(){
     
         try {
             connection =DriverManager.getConnection(url, user, password);

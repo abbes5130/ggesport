@@ -7,6 +7,7 @@ package GUI;
 
 import entities.Player;
 import entities.Team;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -17,6 +18,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -40,6 +43,8 @@ public class TeamDController implements Initializable {
     @FXML
     private VBox myVboxTD;
 private int teamId;
+    @FXML
+    private ImageView iddd;
     public int getTeamId(){
     return teamId;
     }
@@ -48,9 +53,10 @@ private int teamId;
     }
     
      public void loadDetails(int teamId) {
+         
         // Load details from teamId
         PreparedStatement statement;
-        String sql = "SELECT team_name,players_number,description FROM `team` WHERE team.id_team=?";
+        String sql = "SELECT team_name,logo,players_number,description FROM `team` WHERE team.id_team=?";
 
         try {
             statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
@@ -60,8 +66,13 @@ private int teamId;
             rst = statement.executeQuery();
 
             while (rst.next()) {
-                
+                 
+                   String u ;
+                  u = rst.getString("logo");
+                  System.out.println(u);
+                 String imageFile1 = new File(u).toURI().toString();
                 teamTi.setText(rst.getString("team_name"));
+                iddd.setImage(new Image(imageFile1));
                 TeamNb.setText(rst.getString("players_number"));
                 TeamDes.setText(rst.getString("description"));
             
@@ -82,9 +93,10 @@ private int teamId;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
        PlayerCRUD playerCRUD = new PlayerCRUD();
        TeamLineController tl = new TeamLineController();
-        List<Player> players = playerCRUD.RetrieveById(16);
+        List<Player> players = playerCRUD.RetrieveById(1);
         System.out.println("cnx done");
         System.out.println("Players : "+ players.toString());
      myVboxTD.getChildren().clear();

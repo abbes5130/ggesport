@@ -25,11 +25,7 @@
                <children>
                   <HBox prefHeight="142.0" prefWidth="1000.0">
                      <children>
-                        <ImageView fitHeight="124.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/t_photo.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="iddd" fitHeight="124.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" />
                         <VBox prefHeight="124.0" prefWidth="543.0">
                            <children>
                               <Text fx:id="teamTi" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Natus vincere">

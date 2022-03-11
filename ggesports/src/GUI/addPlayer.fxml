@@ -11,31 +11,68 @@
    <children>
       <VBox prefHeight="600" prefWidth="995.0">
          <children>
-            <TextField fx:id="tmfield_upa" layoutX="130.0" layoutY="130.0" prefHeight="27.0" prefWidth="700.0" promptText="player firstname">
+            <TextField fx:id="tmfield_upa" layoutX="130.0" layoutY="130.0" onKeyReleased="#verifPlayername" prefHeight="27.0" prefWidth="700.0" promptText="player firstname">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tmfield1_upa" promptText="player lastname">
+            <Label fx:id="label_firstname" textFill="RED">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tmfield1_upa" onKeyReleased="#verifPlayername1" promptText="player lastname">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TextField>
+            <Label fx:id="label_lastname" textFill="RED">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </Label>
             <TextField fx:id="lgfield_upa" promptText="player description">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TextField>
+            <Label fx:id="label_description" textFill="RED">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </Label>
             <TextField fx:id="plfield_upa" promptText="Player tag">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="dsfield_upa" promptText="photo">
+            <Label fx:id="label_tag" textFill="RED">
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets left="20.0" right="20.0" />
                </VBox.margin>
-            </TextField>
+            </Label>
+            <HBox>
+               <children>
+                  <TextField fx:id="dsfield_upa" prefHeight="31.0" prefWidth="556.0" promptText="photo">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button fx:id="retImage1" mnemonicParsing="false" onAction="#attachImageOnAction1" prefHeight="31.0" prefWidth="186.0" text="ADD PHOTO">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </HBox>
+            <Label fx:id="label_photo" textFill="RED">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </Label>
             <Button mnemonicParsing="false" onAction="#fillTable_player" text="Add Player">
                <VBox.margin>
                   <Insets left="490.0" top="20.0" />

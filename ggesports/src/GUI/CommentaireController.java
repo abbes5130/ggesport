@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import entities.Commentaire;
 import entities.actualité;
@@ -55,7 +55,6 @@ public class CommentaireController implements Initializable {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         String dob = format.format(pub.getDate_commentaire());
         contenu.setText(pub.gettexte());
-       // date.setText(pub.getCreated_at());
        date.setText(dob);
     }
 

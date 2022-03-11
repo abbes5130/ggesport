@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMousePressed="#click" prefHeight="165.0" prefWidth="399.0" styleClass="NEW" stylesheets="@../styles/new.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CommentaireController">
+<AnchorPane id="AnchorPane" onMousePressed="#click" prefHeight="165.0" prefWidth="399.0" styleClass="NEW" stylesheets="@../styles/new.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CommentaireController">
    <children>
       <Label fx:id="contenu" layoutX="139.0" layoutY="29.0" prefHeight="140.0" prefWidth="338.0" textFill="WHITE">
          <font>
@@ -20,7 +25,7 @@
       </Label>
       <ImageView fitHeight="82.0" fitWidth="101.0" layoutX="23.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Avatar%20Background.png" />
+            <Image url="@../images/Group%201.png" />
          </image>
       </ImageView>
    </children>

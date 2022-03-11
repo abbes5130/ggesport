@@ -5,20 +5,15 @@
  */
 package services;
 
+import com.mysql.jdbc.PreparedStatement;
 import entities.Reservation;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import utils.MyDB;
+
 
 /**
  *
@@ -33,15 +28,12 @@ public class ReservationService implements IService<Reservation> {
     }
 
     public void CreateRes(int user_id, int match_id) {
-        String req = "insert into reservation (id_user, "
-                + "id_match) "
-                + "SELECT u.id_user, m.id_match"
-                + "from users u, matchs m where u.id_user=? and m.id_match=?";
+        String req = "INSERT INTO reservation ( id_match, id_user, firstname, lastname, date, time, location, price) SELECT matchs.id_match, users.id_user, users.firstname, users.lastname, matchs.date, matchs.time, matchs.location, matchs.price FROM users, matchs WHERE users.id_user = ? AND matchs.id_match = ?;";
 
         PreparedStatement statement;
 
         try {
-            statement = cnx2.prepareStatement(req);
+            statement = (PreparedStatement) cnx2.prepareStatement(req);
 
             statement.setInt(1, user_id);
             statement.setInt(2, match_id);
@@ -81,14 +73,13 @@ public class ReservationService implements IService<Reservation> {
         }
 
     }*/
-
     @Override
     public void Delete(Reservation t) {
 
         String req = "DELETE FROM matches WHERE id_ticket=?";
         PreparedStatement statement;
         try {
-            statement = cnx2.prepareStatement(req);
+            statement = (PreparedStatement) cnx2.prepareStatement(req);
             statement.setInt(1, t.getId_ticket());
             statement.executeUpdate();
 
@@ -100,26 +91,40 @@ public class ReservationService implements IService<Reservation> {
 
     }
 
-    public List<Reservation> RetrieveRes() {
-        List<Reservation> ListReservation = new ArrayList<Reservation>();
+    public List<Reservation> RetrieveRes(int idUser) {
+        List<Reservation> ListReservation = new ArrayList<>();
         PreparedStatement statement;
-        String req = "Select * From reservation Where id_user =?";
         try {
-            statement = cnx2.prepareStatement(req);
+            String req = "SELECT * FROM reservation WHERE id_user="+idUser;
+                   
+
+            statement = (PreparedStatement) cnx2.prepareStatement(req);
+       
+            
+
 
             ResultSet rst;
             rst = statement.executeQuery(req);
+
             Reservation t = new Reservation();
-            statement.setInt(1, t.getId_user());
+
+            System.out.println(idUser);
+            
 
             while (rst.next()) {
 
                 t.setId_ticket(rst.getInt(1));
                 t.setId_match(rst.getInt(2));
                 t.setId_user(rst.getInt(3));
-
-
+                t.setFirstname(rst.getString("firstname"));
+                t.setLastname(rst.getString("lastname"));
+                t.setDate(rst.getDate("date"));
+                t.setTime(rst.getTime("time"));
+                t.setLocation(rst.getString("location"));
+                t.setPrice(rst.getInt("price"));
+String rr = "                                                                                     ";
                 ListReservation.add(t);
+                
 
             }
 
@@ -136,7 +141,7 @@ public class ReservationService implements IService<Reservation> {
         PreparedStatement statement;
         String req = "Select * From reservation";
         try {
-            statement = cnx2.prepareStatement(req);
+            statement = (PreparedStatement) cnx2.prepareStatement(req);
 
             ResultSet rst;
             rst = statement.executeQuery(req);
@@ -147,8 +152,7 @@ public class ReservationService implements IService<Reservation> {
                 t.setId_ticket(rst.getInt(1));
                 t.setId_match(rst.getInt(2));
                 t.setId_user(rst.getInt(3));
-
-
+                
                 ListReservation.add(t);
 
             }

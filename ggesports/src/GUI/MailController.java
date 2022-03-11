@@ -173,7 +173,7 @@ public class MailController implements Initializable {
                     
                 }
                 
-             //JOptionPane.showMessageDialog(null, "Mail Sent");
+             JOptionPane.showMessageDialog(null, "Mail Sent");
     }
     private Stage stage;
     private Scene scene;

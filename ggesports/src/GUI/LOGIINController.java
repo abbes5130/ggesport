@@ -103,7 +103,7 @@ UtilisateursServices hr = new UtilisateursServices();
                     /*String passdb = Users.current_user.getPassword();
                     String passdecrypted = hr.decrypt(passdb);
                     System.out.println(Users.current_user.getEmail());*/
-                    if (Users.current_user.role.getRolename().equals("Administrateur")&& Users.current_user.getCheck_account().equals("Not_Blocked") || Users.current_user.role.getRolename().equals("Responsables")&& Users.current_user.getCheck_account().equals("Not_Blocked") ) {
+                    if (Users.current_user.role.getRolename().equals("Administrateur")&& Users.current_user.getCheck_account().equals("Not_Blocked")) {
                          JOptionPane.showMessageDialog(null, "login");
                         Parent root = FXMLLoader.load(getClass().getResource("DashAdmin.fxml"));  
                         Stage stage = new Stage();
@@ -112,7 +112,7 @@ UtilisateursServices hr = new UtilisateursServices();
             stage.setScene(scene);
             stage.show();
                         
-                    } else if(Users.current_user.role.getRolename().equals("Membre") && Users.current_user.getCheck_account().equals("Not_Blocked")){
+                    } else if(Users.current_user.role.getRolename().equals("Membre") && Users.current_user.getCheck_account().equals("Not_Blocked") || Users.current_user.role.getRolename().equals("Responsables")&& Users.current_user.getCheck_account().equals("Not_Blocked") ){
                      JOptionPane.showMessageDialog(null, "login");
 
                         Stage primaryStage = new Stage();

@@ -30,15 +30,11 @@ import utils.db;
  */
 public class UpdateTeamController  {
      private ObservableList<Team> appMainObservableList_u;
-    TextField tmfield_u;
-    TextField lgfield_u;
-    TextField plfield_u;
-    TextField dsfield_u;
+ 
     
     private int teamId;
     private AnchorPane ppp;
-    @FXML
-    private AnchorPane pt;
+   
     @FXML
     private TextField tmfield_up;
     @FXML
@@ -67,11 +63,11 @@ PreparedStatement statement;
        try {
             statement = (PreparedStatement) new db().getCnx().prepareStatement(sql);
 
-            statement.setString(1,tmfield_u.getText());
+            statement.setString(1,tmfield_up.getText());
             
-statement.setString(2,lgfield_u.getText());
-statement.setString(3, plfield_u.getText());
-statement.setString(4,dsfield_u.getText());
+statement.setString(2,lgfield_up.getText());
+statement.setString(3, plfield_up.getText());
+statement.setString(4,dsfield_up.getText());
 
 statement.setInt(5, teamId);
        statement.executeUpdate();

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="604.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterNewsController">
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="604.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterNewsController">
      <children>
       <Label fx:id="welcome" layoutX="33.0" layoutY="30.0" />
       <TextField fx:id="Titre" layoutX="41.0" layoutY="140.0" prefHeight="16.0" prefWidth="217.0" promptText="titre" styleClass="content" stylesheets="@../styles/ajouter%20news.css" />

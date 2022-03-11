@@ -13,6 +13,6 @@
             <VBox fx:id="playersVBOX" prefHeight="431.0" prefWidth="998.0" style="-fx-background-color: #242933;" />
          </content>
       </ScrollPane>
-      <Button layoutX="473.0" layoutY="507.0" mnemonicParsing="false" onAction="#onOpenDialog_addplayer" style="-fx-background-color: #A80051;" text="Add new Player" textFill="WHITE" />
+      <Button fx:id="ad" layoutX="473.0" layoutY="507.0" mnemonicParsing="false" onAction="#onOpenDialog_addplayer" style="-fx-background-color: #A80051;" text="Add new Player" textFill="WHITE" />
    </children>
 </AnchorPane>

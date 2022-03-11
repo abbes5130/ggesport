@@ -6,6 +6,7 @@
 package GUI;
 
 import entities.Team;
+import entities.Users;
 import java.io.IOException;
 
 import java.net.URL;
@@ -24,7 +25,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -51,17 +54,37 @@ public class TeamLineController implements Initializable {
    
      ScrollPane scrollpane;
 int teamId;
+    @FXML
+    private Pane teamLL;
+    @FXML
+    private Button linedelete;
+    @FXML
+    private Button lineupdate;
+    @FXML
+     ImageView teamlph;
     public int getTeamId(){
     return teamId;
     }
     public void setTeamId(int teamId){
     this.teamId = teamId;
     }
-   
+     public boolean testuser(){
+    if(Users.current_user.role.getRolename().equals("Responsables")){
+    return true;
+    }else return false;
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
+       if(testuser()){
+        linedelete.setVisible(true);
+       lineupdate.setVisible(true);
+       
+       }
+        else {
+         linedelete.setVisible(false);
+          lineupdate.setVisible(false);
+        }
             
       
     }

@@ -11,22 +11,22 @@
    <children>
       <VBox prefHeight="600" prefWidth="1000">
          <children>
-            <TextField fx:id="tmfield_u" promptText="Team name">
+            <TextField fx:id="tmfield_up" promptText="Team name">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="lgfield_u" promptText="LOGO URL">
+            <TextField fx:id="lgfield_up" promptText="LOGO URL">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="plfield_u" promptText="Players Number">
+            <TextField fx:id="plfield_up" promptText="Players Number">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="dsfield_u" promptText="Description">
+            <TextField fx:id="dsfield_up" promptText="Description">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>

@@ -5,8 +5,18 @@
  */
 package GUI;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
 import entities.Match;
 import entities.Reservation;
+import entities.Users;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,54 +34,7 @@ import javafx.scene.image.ImageView;
 import services.ReservationService;
 import utils.MyDB;
 
-class User {
 
-    public static List<User> Retrieve() {
-        List<User> ListUser = new ArrayList<User>();
-        Connection cnx2;
-
-        cnx2 = MyDB.getInstance().getCnx();
-
-        try {
-            Statement statement;
-            statement = cnx2.createStatement();
-            String req = "SELECT Id_utilisateur FROM `utilisateurs`";
-            ResultSet rst;
-            rst = statement.executeQuery(req);
-
-            while (rst.next()) {
-                User u = new User();
-
-                u.idUser = rst.getInt(1);
-
-                ListUser.add(u);
-
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return ListUser;
-    }
-
-    int idUser;
-
-    public User() {
-    }
-
-    User(int idUser) {
-        this.idUser = idUser;
-
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-}
 
 /**
  * FXML Controller class
@@ -88,6 +51,7 @@ public class MatchDetailsController implements Initializable {
     }
     
     private int matchId;
+    private int id_user;
     @FXML
     Label AwayTeam;
     @FXML
@@ -113,7 +77,7 @@ public class MatchDetailsController implements Initializable {
         
         //get List of USers
         
-        List<User> users = User.Retrieve();
+ 
         
         
         // TODO
@@ -150,16 +114,48 @@ public class MatchDetailsController implements Initializable {
         // Create pane for player details.
     }
 
-    public void BookTicket(ActionEvent e) 
+    public void BookTicket(ActionEvent e) throws DocumentException, IOException 
     {
         ReservationService reservationService = new ReservationService();
+         id_user = Users.current_user.getId_user();
         
        System.out.println(matchId);
 
         
-        //reservationService.CreateRes(id_user, matchId);
-
+        reservationService.CreateRes(id_user, matchId);
+        List test = reservationService.RetrieveRes(id_user);
+        
+        String delim = "\n\n- ";
+ 
+        StringBuilder sb = new StringBuilder();
+ 
+        int i = 0;
+        while (i < test.size() - 1)
+        {
+            sb.append(test.get(i));
+            sb.append(delim);
+            i++;
+        }
+        sb.append(test.get(i));
+ 
+        String res = sb.toString();
+        System.out.println(res);    
+        
+        
+pdfCreation(res);
         
     }
+    
+public void pdfCreation(String it) throws DocumentException, IOException{
 
+Document document = new Document();
+PdfWriter.getInstance(document, new FileOutputStream("C:\\Users\\Ghassene\\Desktop\\hello.pdf"));
+
+document.open();
+ document.add(new Paragraph(it));
+
+// Save document
+document.close();
+
+}
 }

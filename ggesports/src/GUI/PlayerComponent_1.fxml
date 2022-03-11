@@ -13,10 +13,7 @@
    <children>
       <HBox prefHeight="86.0" prefWidth="329.0">
          <children>
-            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/69.png" />
-               </image>
+            <ImageView fx:id="image_play" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets top="3.0" />
                </HBox.margin>
@@ -51,12 +48,12 @@
                   <Insets left="5.0" />
                </HBox.margin>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#UpdateButton" text="U">
+            <Button fx:id="up" mnemonicParsing="false" onAction="#UpdateButton" text="U">
                <HBox.margin>
                   <Insets right="15.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#DeletePllayer" text="D">
+            <Button fx:id="ud" mnemonicParsing="false" onAction="#DeletePllayer" text="D">
                <HBox.margin>
                   <Insets top="25.0" />
                </HBox.margin>

@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import entities.Users;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -15,6 +17,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -37,11 +42,22 @@ public class PlayerComponentController_1 implements Initializable {
     public Text desc_id;
     
 int playerId;
+    @FXML
+    private Button up;
+    @FXML
+    private Button ud;
+    @FXML
+    public ImageView image_play;
     public int getPlayerId(){
     return playerId;
     }
     public void setPlayerId(int playerId){
     this.playerId = playerId;
+    }
+       public boolean testuser(){
+    if(Users.current_user.role.getRolename().equals("Responsables")){
+    return true;
+    }else return false;
     }
     /**
      * Initializes the controller class.
@@ -49,7 +65,20 @@ int playerId;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        TeamLineController ct = new TeamLineController();
+      /*  File imageFile1 = new File(ct.);
+Image image = new Image(imageFile1.toURI().toString());
+image_play.setImage(image);*/
         // TODO
+          if(testuser()){
+        up.setVisible(true);
+       ud.setVisible(true);
+       
+       }
+        else {
+         up.setVisible(false);
+          ud.setVisible(false);
+        }
     }    
     
     
