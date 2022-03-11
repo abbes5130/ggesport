@@ -1,18 +1,26 @@
 
 package GUI;
 
+<<<<<<< HEAD
 import com.jfoenix.controls.JFXSlider;
 import entities.Product;
 import java.io.File;
+=======
+
+import entities.Users;
+>>>>>>> origin/branch_news_mergetest
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+=======
+>>>>>>> origin/branch_news_mergetest
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+<<<<<<< HEAD
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -39,6 +48,13 @@ import services.ProductCRUD;
 import java.util.regex.*;
 import javafx.scene.input.DragEvent;
 import javafx.stage.FileChooser;
+=======
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+>>>>>>> origin/branch_news_mergetest
 
 
 public class MainController implements Initializable {
@@ -52,10 +68,10 @@ public class MainController implements Initializable {
     //productList = pcrud.getAll();
     ObservableList<Product> observableProducts= FXCollections.observableList(productList);
 
-    
     @FXML
     private ScrollPane scrollpane;
     @FXML
+<<<<<<< HEAD
     private GridPane gridpane;
     @FXML
     private AnchorPane updateProductScene;
@@ -166,28 +182,62 @@ public class MainController implements Initializable {
         System.out.println(Category);
     }
     
+=======
+
+    private Label lbluser;
     @FXML
-    public void home(ActionEvent actionEvent)throws IOException{
+    private Label lblrole;
+    @FXML
+    private ImageView setting;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+lbluser.setText(Users.current_user.getLastname());
+lblrole.setText(Users.current_user.role.getRolename());
+    }
+
+>>>>>>> origin/branch_news_mergetest
+    @FXML
+    public void home(ActionEvent actionEvent) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("homePage.fxml"));
+
         scrollpane.setContent(fxml);
     }
 
     @FXML
+
     private void teams(ActionEvent event) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("teams.fxml"));
-        scrollpane.setContent(fxml);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeamView.fxml"));
+        Pane root = (Pane) loader.load();
+        TeamViewController tl = loader.getController();
+        tl.setScrollpane(scrollpane);
+        scrollpane.setContent(root);
+
     }
 
     @FXML
-    private void matchs(ActionEvent event) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getResource("matchs.fxml"));
-        scrollpane.setContent(fxml);
+    private void matchs(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("matchs.fxml"));
+        Pane root = (Pane) loader.load();
+        MatchsController ctrl = loader.getController();
+       ctrl.setScrollpane(scrollpane);
+        
+        scrollpane.setContent(root);
     }
 
     @FXML
+<<<<<<< HEAD
     private void news(ActionEvent event) throws IOException{
         Parent fxml = FXMLLoader.load(getClass().getResource("news.fxml"));
         scrollpane.setContent(fxml);        
+=======
+    private void news(ActionEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("listnews.fxml"));
+
+        scrollpane.setContent(fxml);
+>>>>>>> origin/branch_news_mergetest
     }
     
         
@@ -221,7 +271,9 @@ public class MainController implements Initializable {
     }
     
     @FXML
+
     private void store(ActionEvent event) throws IOException{
+<<<<<<< HEAD
         productListScene.setManaged(true);
         productListScene.setVisible(true);
         updateProductScene.setManaged(false);
@@ -244,6 +296,17 @@ public class MainController implements Initializable {
         productListScene.setVisible(false);
         addProductScene.setManaged(false);
         addProductScene.setVisible(false);
+=======
+        Parent fxml = FXMLLoader.load(getClass().getResource("store.fxml"));
+
+        scrollpane.setContent(fxml);
+    }
+
+    @FXML
+    private void setting(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+        scrollpane.setContent(fxml);
+>>>>>>> origin/branch_news_mergetest
     }
 
     public void setProductDetailsView(Product p) {

@@ -1,0 +1,18 @@
+/*
+    Created on : Feb 22, 2020, 2:39:34 PM
+    Author     : Admin
+*/
+.buttonsign:hover{
+    -fx-background-color:#b80159;
+}
+.buttonsign{
+    -fx-background-color: #A80051;
+    -fx-border-color: #2C313C;
+    -fx-border-width: 0px 0px 0px 0px;
+    -fx-background-radius: 33.5px;
+    -fx-cursor:hand;
+    
+}
+.buttonsign:pressed{
+    -fx-background-color:#A80051;
+}

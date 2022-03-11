@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="478.0" prefWidth="574.0" style="-fx-background-color: #292433;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CommentaireDetailController">
+   <children>
+      <TextField fx:id="contenu" layoutX="145.0" layoutY="79.0" prefHeight="111.0" prefWidth="395.0" />
+      <Button layoutX="32.0" layoutY="305.0" mnemonicParsing="false" onAction="#modifier" prefHeight="46.0" prefWidth="194.0" styleClass="btn1" stylesheets="@../styles/news.css" text="                  Modifier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="supprimer" layoutX="262.0" layoutY="305.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="214.0" styleClass="NEW" stylesheets="@../styles/new.css" text="                  Supprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Label layoutX="252.0" layoutY="14.0" prefHeight="46.0" prefWidth="70.0" text="post" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="id_actualité" layoutX="38.0" layoutY="113.0" prefHeight="38.0" prefWidth="46.0" />
+   </children>
+</AnchorPane>

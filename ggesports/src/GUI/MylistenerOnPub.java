@@ -5,10 +5,14 @@
  */
 package GUI;
 
+import entities.actualité;
+
 /**
  *
- * @author Firas
+ * @author khale
  */
-public class HomeController {
+public interface MylistenerOnPub  {
+
     
+    public void onClickListener(actualité a);
 }

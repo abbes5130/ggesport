@@ -1,6 +1,7 @@
 
 package test;
 
+<<<<<<< HEAD
 import entities.Category;
 import entities.Order;
 import entities.Product;
@@ -12,11 +13,19 @@ import services.OrderCRUD;
 import services.ProductCRUD;
 import services.ProductOrderCRUD;
 
+=======
+
+import entities.Match;
+import utils.MyDB;
+
+import services.Match_Team_Service;
+>>>>>>> origin/branch_news_mergetest
 
 public class Ggesports {
 
 
     public static void main(String[] args) {
+<<<<<<< HEAD
 //        Category c = new Category(3, "software");
 //        Category c1= new Category(2, "accessories");
 //        CategoryCRUD ccrud = new CategoryCRUD();
@@ -65,6 +74,26 @@ public class Ggesports {
 //          pord.delete(po1);
 //          System.out.println(pord.getAll());
           
+=======
+
+
+        MyDB db = MyDB.getInstance();
+        Match match = new Match();
+        Match_Team_Service mts = new Match_Team_Service();
+        
+        mts.Update(3,2,1);
+        System.out.println("reservation added");
+
+
+
+>>>>>>> origin/branch_news_mergetest
     }
+
+    /**
+     *
+     * @param args
+     */
+
+    
     
 }

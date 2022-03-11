@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #242933;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
+
+   <children>
+      <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="639.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="78.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/gg_logo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="35.0" />
+                     </HBox.margin>
+                     <cursor>
+                       
+                     </cursor>
+                  </ImageView>
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Pane layoutX="135.0" layoutY="10.0">
+                     <children>
+                        <TextField style="-fx-border-color: #ffffff; -fx-border-radius: 8;" styleClass="search" stylesheets="@../styles/main.css" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="158.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" style="fx-background-color: #000000;" styleClass="search" translateZ="1.0">
+                           <image>
+                              <Image url="@../images/Search.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="20.0" top="30.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="90.0" prefWidth="34.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="2.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Bell.png" />
+                           </image>
+                           <cursor>
+                              
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="13.0" layoutY="25.0" style="-fx-background-color: red; -fx-text-fill: #ffffff; -fx-label-padding: 3; -fx-background-radius: 100;" text="10">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Pane>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Settings%202.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                     <cursor>
+                        
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="setting" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#setting" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Avatar%20Background_1.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+                     </HBox.margin>
+                     <cursor>
+                     
+                     </cursor>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0">
+                     <children>
+
+                        <Label fx:id="lbluser" prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" />
+                        <Label fx:id="lblrole" style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" />
+
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox prefHeight="547.0" prefWidth="145.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#home" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/home_logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                       
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#teams" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/User%20Group.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                       
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#matchs" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Calendar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                       
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#news" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Internet.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#store" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Shopping%20Bags.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        
+                     </cursor>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="60.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <center>
+            <ScrollPane fx:id="scrollpane" prefHeight="1006.0" prefWidth="1799.0" style="-fx-background-color: #242933; -fx-background: #242933;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

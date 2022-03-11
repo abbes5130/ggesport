@@ -1,0 +1,18 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.dsh_button:hover {
+    -fx-background-color:#cc00cc;
+}
+.dsh_button{
+    
+    -fx-background-color: #1B1F25;
+    -fx-border-color: #7A7A7A;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-cursor:hand;
+}
+.dsh_button:pressed{
+    -fx-background-color:#A80051;
+}

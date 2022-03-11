@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import com.jfoenix.controls.JFXSlider?>
 <?import java.lang.String?>
+=======
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+>>>>>>> origin/branch_news_mergetest
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -21,7 +31,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #242933;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
+=======
+
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #242933;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
+
+>>>>>>> origin/branch_news_mergetest
    <children>
       <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="639.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -35,13 +52,17 @@
                         <Insets left="35.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </ImageView>
                   <Pane HBox.hgrow="ALWAYS" />
                   <Pane layoutX="135.0" layoutY="10.0">
                      <children>
+<<<<<<< HEAD
                         <TextField fx:id="searchField" onKeyReleased="#searchOnKeyReleased" style="-fx-border-color: #ffffff; -fx-border-radius: 8;" styleClass="search" />
+=======
+                        <TextField style="-fx-border-color: #ffffff; -fx-border-radius: 8;" styleClass="search" stylesheets="@../styles/main.css" />
+>>>>>>> origin/branch_news_mergetest
                         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="158.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" style="fx-background-color: #000000;" styleClass="search" translateZ="1.0">
                            <image>
                               <Image url="@../images/Search.png" />
@@ -59,10 +80,10 @@
                               <Image url="@../images/Bell.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              
                            </cursor>
                         </ImageView>
-                        <Label layoutX="13.0" layoutY="25.0" style="-fx-background-color: red; -fx-text-fill: #ffffff; -fx-label-padding: 3; -fx-background-radius: 100;" stylesheets="@../styles/styles.css" text="10">
+                        <Label layoutX="13.0" layoutY="25.0" style="-fx-background-color: red; -fx-text-fill: #ffffff; -fx-label-padding: 3; -fx-background-radius: 100;" text="10">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -80,24 +101,26 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="setting" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#setting" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Avatar%20Background.png" />
+                        <Image url="@../images/Avatar%20Background_1.png" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                     
                      </cursor>
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="200.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" />
-                        <Label style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" />
+
+                        <Label fx:id="lbluser" prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" />
+                        <Label fx:id="lblrole" style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" />
+
                      </children>
                      <HBox.margin>
                         <Insets right="20.0" />
@@ -109,7 +132,7 @@
          <left>
             <VBox prefHeight="547.0" prefWidth="145.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#home" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button mnemonicParsing="false" onAction="#home" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -118,10 +141,10 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#teams" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#teams" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -130,10 +153,10 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#matchs" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#matchs" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -142,10 +165,10 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                       
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#news" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#news" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -154,10 +177,10 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#store" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                  <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#store" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item" stylesheets="@../styles/main.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -166,7 +189,7 @@
                         </ImageView>
                      </graphic>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        
                      </cursor>
                   </Button>
                </children>
@@ -176,6 +199,7 @@
             </VBox>
          </left>
          <center>
+<<<<<<< HEAD
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane id="AnchorPane" fx:id="updateProductScene" prefHeight="745.0" prefWidth="1160.0" style="-fx-background-color: #1A1A1C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
@@ -440,6 +464,9 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
+=======
+            <ScrollPane fx:id="scrollpane" prefHeight="1006.0" prefWidth="1799.0" style="-fx-background-color: #242933; -fx-background: #242933;" BorderPane.alignment="CENTER" />
+>>>>>>> origin/branch_news_mergetest
          </center>
       </BorderPane>
    </children>
