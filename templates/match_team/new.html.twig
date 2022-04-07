@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MatchTeam{% endblock %}
+
+{% block body %}
+    <h1>Create new MatchTeam</h1>
+
+    {{ include('match_team/_form.html.twig') }}
+
+    <a href="{{ path('app_match_team_index') }}">back to list</a>
+{% endblock %}

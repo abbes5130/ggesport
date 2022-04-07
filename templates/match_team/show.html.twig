@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MatchTeam{% endblock %}
+
+{% block body %}
+    <h1>MatchTeam</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdMatchTeam</th>
+                <td>{{ match_team.idMatchTeam }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_match_team_index') }}">back to list</a>
+
+    <a href="{{ path('app_match_team_edit', {'idMatchTeam': match_team.idMatchTeam}) }}">edit</a>
+
+    {{ include('match_team/_delete_form.html.twig') }}
+{% endblock %}

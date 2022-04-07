@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MatchTeam index{% endblock %}
+
+{% block body %}
+    <h1>MatchTeam index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdMatchTeam</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for match_team in match_teams %}
+            <tr>
+                <td>{{ match_team.idMatchTeam }}</td>
+                <td>
+                    <a href="{{ path('app_match_team_show', {'idMatchTeam': match_team.idMatchTeam}) }}">show</a>
+                    <a href="{{ path('app_match_team_edit', {'idMatchTeam': match_team.idMatchTeam}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_match_team_new') }}">Create new</a>
+{% endblock %}
