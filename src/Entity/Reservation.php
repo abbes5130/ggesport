@@ -64,16 +64,6 @@ class Reservation
     private $price;
 
     /**
-     * @var \Matches
-     *
-     * @ORM\ManyToOne(targetEntity="Matches")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_match", referencedColumnName="id_match")
-     * })
-     */
-    private $idMatch;
-
-    /**
      * @var \Users
      *
      * @ORM\ManyToOne(targetEntity="Users")
@@ -82,6 +72,16 @@ class Reservation
      * })
      */
     private $idUser;
+
+    /**
+     * @var \Matches
+     *
+     * @ORM\ManyToOne(targetEntity="Matches")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_match", referencedColumnName="id_match")
+     * })
+     */
+    private $idMatch;
 
     public function getIdTicket(): ?int
     {
@@ -160,18 +160,6 @@ class Reservation
         return $this;
     }
 
-    public function getIdMatch(): ?Matches
-    {
-        return $this->idMatch;
-    }
-
-    public function setIdMatch(?Matches $idMatch): self
-    {
-        $this->idMatch = $idMatch;
-
-        return $this;
-    }
-
     public function getIdUser(): ?Users
     {
         return $this->idUser;
@@ -180,6 +168,18 @@ class Reservation
     public function setIdUser(?Users $idUser): self
     {
         $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    public function getIdMatch(): ?Matches
+    {
+        return $this->idMatch;
+    }
+
+    public function setIdMatch(?Matches $idMatch): self
+    {
+        $this->idMatch = $idMatch;
 
         return $this;
     }

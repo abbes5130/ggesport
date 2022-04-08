@@ -29,16 +29,6 @@ class ProductOrder
     private $quantity;
 
     /**
-     * @var \Orders
-     *
-     * @ORM\ManyToOne(targetEntity="Orders")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_order", referencedColumnName="id_order")
-     * })
-     */
-    private $idOrder;
-
-    /**
      * @var \Product
      *
      * @ORM\ManyToOne(targetEntity="Product")
@@ -47,6 +37,16 @@ class ProductOrder
      * })
      */
     private $idProduct;
+
+    /**
+     * @var \Orders
+     *
+     * @ORM\ManyToOne(targetEntity="Orders")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_order", referencedColumnName="id_order")
+     * })
+     */
+    private $idOrder;
 
     public function getIdProductOrder(): ?int
     {
@@ -65,18 +65,6 @@ class ProductOrder
         return $this;
     }
 
-    public function getIdOrder(): ?Orders
-    {
-        return $this->idOrder;
-    }
-
-    public function setIdOrder(?Orders $idOrder): self
-    {
-        $this->idOrder = $idOrder;
-
-        return $this;
-    }
-
     public function getIdProduct(): ?Product
     {
         return $this->idProduct;
@@ -85,6 +73,18 @@ class ProductOrder
     public function setIdProduct(?Product $idProduct): self
     {
         $this->idProduct = $idProduct;
+
+        return $this;
+    }
+
+    public function getIdOrder(): ?Orders
+    {
+        return $this->idOrder;
+    }
+
+    public function setIdOrder(?Orders $idOrder): self
+    {
+        $this->idOrder = $idOrder;
 
         return $this;
     }

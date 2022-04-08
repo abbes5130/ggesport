@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Matches
  *
- * @ORM\Table(name="matches")
+ * @ORM\Table(name="matches", indexes={@ORM\Index(name="matches_fk0", columns={"id_Team_1"}), @ORM\Index(name="matches_fk1", columns={"id_Team_2"})})
  * @ORM\Entity
  */
 class Matches
@@ -62,6 +62,26 @@ class Matches
      * @ORM\Column(name="link", type="string", length=255, nullable=true)
      */
     private $link;
+
+    /**
+     * @var \Team
+     *
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_Team_2", referencedColumnName="id_team")
+     * })
+     */
+    private $idTeam2;
+
+    /**
+     * @var \Team
+     *
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_Team_1", referencedColumnName="id_team")
+     * })
+     */
+    private $idTeam1;
 
     public function getIdMatch(): ?int
     {
@@ -136,6 +156,30 @@ class Matches
     public function setLink(?string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getIdTeam2(): ?Team
+    {
+        return $this->idTeam2;
+    }
+
+    public function setIdTeam2(?Team $idTeam2): self
+    {
+        $this->idTeam2 = $idTeam2;
+
+        return $this;
+    }
+
+    public function getIdTeam1(): ?Team
+    {
+        return $this->idTeam1;
+    }
+
+    public function setIdTeam1(?Team $idTeam1): self
+    {
+        $this->idTeam1 = $idTeam1;
 
         return $this;
     }

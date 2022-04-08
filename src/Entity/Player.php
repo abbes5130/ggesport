@@ -57,16 +57,6 @@ class Player
     private $photo;
 
     /**
-     * @var \Team
-     *
-     * @ORM\ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_team", referencedColumnName="id_team")
-     * })
-     */
-    private $idTeam;
-
-    /**
      * @var \Game
      *
      * @ORM\ManyToOne(targetEntity="Game")
@@ -75,6 +65,16 @@ class Player
      * })
      */
     private $idGame;
+
+    /**
+     * @var \Team
+     *
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_team", referencedColumnName="id_team")
+     * })
+     */
+    private $idTeam;
 
     public function getIdPlayer(): ?int
     {
@@ -141,18 +141,6 @@ class Player
         return $this;
     }
 
-    public function getIdTeam(): ?Team
-    {
-        return $this->idTeam;
-    }
-
-    public function setIdTeam(?Team $idTeam): self
-    {
-        $this->idTeam = $idTeam;
-
-        return $this;
-    }
-
     public function getIdGame(): ?Game
     {
         return $this->idGame;
@@ -161,6 +149,18 @@ class Player
     public function setIdGame(?Game $idGame): self
     {
         $this->idGame = $idGame;
+
+        return $this;
+    }
+
+    public function getIdTeam(): ?Team
+    {
+        return $this->idTeam;
+    }
+
+    public function setIdTeam(?Team $idTeam): self
+    {
+        $this->idTeam = $idTeam;
 
         return $this;
     }

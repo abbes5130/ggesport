@@ -36,16 +36,6 @@ class Comments
     private $commentDate;
 
     /**
-     * @var \News
-     *
-     * @ORM\ManyToOne(targetEntity="News")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_news", referencedColumnName="id_news")
-     * })
-     */
-    private $idNews;
-
-    /**
      * @var \Users
      *
      * @ORM\ManyToOne(targetEntity="Users")
@@ -54,6 +44,16 @@ class Comments
      * })
      */
     private $idUser;
+
+    /**
+     * @var \News
+     *
+     * @ORM\ManyToOne(targetEntity="News")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_news", referencedColumnName="id_news")
+     * })
+     */
+    private $idNews;
 
     public function getIdComments(): ?int
     {
@@ -84,18 +84,6 @@ class Comments
         return $this;
     }
 
-    public function getIdNews(): ?News
-    {
-        return $this->idNews;
-    }
-
-    public function setIdNews(?News $idNews): self
-    {
-        $this->idNews = $idNews;
-
-        return $this;
-    }
-
     public function getIdUser(): ?Users
     {
         return $this->idUser;
@@ -104,6 +92,18 @@ class Comments
     public function setIdUser(?Users $idUser): self
     {
         $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    public function getIdNews(): ?News
+    {
+        return $this->idNews;
+    }
+
+    public function setIdNews(?News $idNews): self
+    {
+        $this->idNews = $idNews;
 
         return $this;
     }
