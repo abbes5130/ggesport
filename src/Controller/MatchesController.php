@@ -24,7 +24,21 @@ class MatchesController extends AbstractController
             ->getRepository(Matches::class)
             ->findAll();
 
-        return $this->render('matches/index.html.twig', [
+        return $this->render('matches/match_list.html.twig', [
+            'matches' => $matches,
+        ]);
+    }
+
+    /**
+     * @Route("/match", name="app_matches_admin_index", methods={"GET"})
+     */
+    public function indexAdmin(EntityManagerInterface $entityManager): Response
+    {
+        $matches = $entityManager
+            ->getRepository(Matches::class)
+            ->findAll();
+
+        return $this->render('/admin/AllMatchs.html.twig', [
             'matches' => $matches,
         ]);
     }
@@ -61,6 +75,15 @@ class MatchesController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("match/{idMatch}", name="app_matches_detail_show", methods={"GET"})
+     */
+    public function showDetail(Matches $match): Response
+    {
+        return $this->render('/matches/match_detail.html.twig', [
+            'match' => $match,
+        ]);
+    }
     /**
      * @Route("/{idMatch}/edit", name="app_matches_edit", methods={"GET", "POST"})
      */
