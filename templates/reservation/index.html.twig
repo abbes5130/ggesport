@@ -1,4 +1,4 @@
-{% extends 'admin/index.html.twig' %}
+{% extends 'back_base.html.twig' %}
 
 {% block title %}Reservation index{% endblock %}
 
@@ -9,12 +9,10 @@
         <thead>
             <tr>
                 <th>IdTicket</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Location</th>
-                <th>Price</th>
+                <th>User Firstname</th>
+                <th> User Last Name</th>
+                <th>User Email</th>
+                <th>Match Location</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,12 +20,10 @@
         {% for reservation in reservations %}
             <tr>
                 <td>{{ reservation.idTicket }}</td>
-                <td>{{ reservation.firstname }}</td>
-                <td>{{ reservation.lastname }}</td>
-                <td>{{ reservation.date ? reservation.date|date('Y-m-d') : '' }}</td>
-                <td>{{ reservation.time ? reservation.time|date('H:i:s') : '' }}</td>
-                <td>{{ reservation.location }}</td>
-                <td>{{ reservation.price }}</td>
+                <td>{{ reservation.idUser.firstname }}</td>
+                <td>{{ reservation.idUser.lastname }}</td>
+                <td>{{ reservation.idUser.email}}</td>
+                <td>{{ reservation.idMatch.location}}</td>
                 <td>
                     <a href="{{ path('app_reservation_show', {'idTicket': reservation.idTicket}) }}">show</a>
                     <a href="{{ path('app_reservation_edit', {'idTicket': reservation.idTicket}) }}">edit</a>
@@ -35,11 +31,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="2">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_reservation_new') }}">Create new</a>
+   {# <a href="{{ path('app_reservation_new') }}">Create new</a> #}
 {% endblock %}

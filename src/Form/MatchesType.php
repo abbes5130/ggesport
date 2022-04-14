@@ -19,13 +19,13 @@ class MatchesType extends AbstractType
             ->add('nbSeats')
             ->add('price')
             ->add('link')
-            ->add('idTeam2',EntityType::class,
+            ->add('idTeam1',EntityType::class,
 
             [
                 'class'=> Team::class,
                 'choice_label'=>'teamName'
             ])
-            ->add('idTeam1',EntityType::class,
+            ->add('idTeam2',EntityType::class,
 
                 [
                     'class'=> Team::class,

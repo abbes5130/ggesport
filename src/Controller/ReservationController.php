@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Matches;
 use App\Entity\Reservation;
-use App\Form\ReservationType;
+use App\Entity\Users;
+use App\Form\Reservation1Type;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,23 +35,25 @@ class ReservationController extends AbstractController
     /**
      * @Route("/new", name="app_reservation_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager)
     {
         $reservation = new Reservation();
-        $form = $this->createForm(ReservationType::class, $reservation);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        $match= $entityManager->find(Matches::class, $request->get('id_match'));
+        $user= $entityManager->find(Users::class, $request->get('id_user'));
+        $reservation->setIdMatch($match);
+        $reservation->setIdUser($user);
+        if(true) {
             $entityManager->persist($reservation);
             $entityManager->flush();
+            return new JsonResponse(['result'=>'okay']);
+            echo ('success');
+        }else{
 
-            return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
+            return new JsonResponse(['result'=>'boo']);
+            echo ('failed');
         }
+        return"hi";
 
-        return $this->render('reservation/new.html.twig', [
-            'reservation' => $reservation,
-            'form' => $form->createView(),
-        ]);
     }
 
     /**
@@ -66,7 +71,7 @@ class ReservationController extends AbstractController
      */
     public function edit(Request $request, Reservation $reservation, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(ReservationType::class, $reservation);
+        $form = $this->createForm(Reservation1Type::class, $reservation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

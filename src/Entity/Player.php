@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Player
  *
- * @ORM\Table(name="player", indexes={@ORM\Index(name="player_fk0", columns={"id_team"}), @ORM\Index(name="player_fk1", columns={"id_game"})})
+ * @ORM\Table(name="player", indexes={@ORM\Index(name="player_fk1", columns={"id_game"}), @ORM\Index(name="player_fk0", columns={"id_team"})})
  * @ORM\Entity
  */
 class Player
@@ -57,16 +57,6 @@ class Player
     private $photo;
 
     /**
-     * @var \Game
-     *
-     * @ORM\ManyToOne(targetEntity="Game")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_game", referencedColumnName="id_game")
-     * })
-     */
-    private $idGame;
-
-    /**
      * @var \Team
      *
      * @ORM\ManyToOne(targetEntity="Team")
@@ -75,6 +65,16 @@ class Player
      * })
      */
     private $idTeam;
+
+    /**
+     * @var \Game
+     *
+     * @ORM\ManyToOne(targetEntity="Game")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_game", referencedColumnName="id_game")
+     * })
+     */
+    private $idGame;
 
     public function getIdPlayer(): ?int
     {
@@ -141,18 +141,6 @@ class Player
         return $this;
     }
 
-    public function getIdGame(): ?Game
-    {
-        return $this->idGame;
-    }
-
-    public function setIdGame(?Game $idGame): self
-    {
-        $this->idGame = $idGame;
-
-        return $this;
-    }
-
     public function getIdTeam(): ?Team
     {
         return $this->idTeam;
@@ -161,6 +149,18 @@ class Player
     public function setIdTeam(?Team $idTeam): self
     {
         $this->idTeam = $idTeam;
+
+        return $this;
+    }
+
+    public function getIdGame(): ?Game
+    {
+        return $this->idGame;
+    }
+
+    public function setIdGame(?Game $idGame): self
+    {
+        $this->idGame = $idGame;
 
         return $this;
     }

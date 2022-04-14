@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comments
  *
- * @ORM\Table(name="comments", indexes={@ORM\Index(name="comments_fk0", columns={"id_news"}), @ORM\Index(name="comments_fk1", columns={"id_user"})})
+ * @ORM\Table(name="comments", indexes={@ORM\Index(name="comments_fk1", columns={"id_user"}), @ORM\Index(name="comments_fk0", columns={"id_news"})})
  * @ORM\Entity
  */
 class Comments
@@ -36,16 +36,6 @@ class Comments
     private $commentDate;
 
     /**
-     * @var \Users
-     *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
-     * })
-     */
-    private $idUser;
-
-    /**
      * @var \News
      *
      * @ORM\ManyToOne(targetEntity="News")
@@ -54,6 +44,16 @@ class Comments
      * })
      */
     private $idNews;
+
+    /**
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     * })
+     */
+    private $idUser;
 
     public function getIdComments(): ?int
     {
@@ -84,18 +84,6 @@ class Comments
         return $this;
     }
 
-    public function getIdUser(): ?Users
-    {
-        return $this->idUser;
-    }
-
-    public function setIdUser(?Users $idUser): self
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
     public function getIdNews(): ?News
     {
         return $this->idNews;
@@ -104,6 +92,18 @@ class Comments
     public function setIdNews(?News $idNews): self
     {
         $this->idNews = $idNews;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?Users
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?Users $idUser): self
+    {
+        $this->idUser = $idUser;
 
         return $this;
     }

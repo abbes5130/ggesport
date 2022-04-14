@@ -279,7 +279,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-12">
                         <div class="matches-team">
-                            <img src="{{match.idTeam1.logo}}" class="wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image">
+                            <img src="{{ asset('assets/img/')}}{{match.idTeam1.logo}}" class="wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image">
 
                             <div class="content">
                                 <h3>{{ match.idTeam1.teamName }}</h3>
@@ -305,7 +305,7 @@
 
                     <div class="col-lg-5 col-md-12">
                         <div class="matches-team right-image">
-                            <img src="{{match.idTeam2.logo}}" class="wow fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image">
+                            <img src="{{ asset('assets/img/')}}{{match.idTeam2.logo}}" class="wow fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image">
 
                             <div class="content">
                                 <h3>{{ match.idTeam2.teamName }}</h3>
@@ -340,15 +340,49 @@
                             </ul>
                         </div>
                         <h3>{{ match.idTeam1.teamName }} vs {{ match.idTeam2.teamName }}</h3>
-                        <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam eius modi tempora incidunt ut labore et dolore magnam dolor sit amet, consectetur adipisicing.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                        <p>
+                            <b>Location</b>
+                        <br>
+                            {{ match.location}}
+                            <br>
+                            <b>Price</b>
+                            <br>
+                            {{ match.price}}
+                            <br>
+                            <b>Number of Seats Available:</b>
+                            <br>
+                            {{ match.nbSeats}}
+                            <br>
+                            <b>Live link :</b>
+                            <br>
+                           <a href="{{ match.link}}">{{ match.link}}</a>
+
+
+                        </p>
                     </div>
                     <br>
                     <br> <br>
-                <button>Reserver Match </button>
 
 
-            </div>
+                    <button id="reserverMatch" onclick="ReservationOnClick({{ match.idMatch}}, 1)">Reserver Match </button>
+
+                    <script>
+
+                        function ReservationOnClick(matchId, userId){
+
+
+
+                            fetch("{{ path('app_reservation_new') }}",{
+                                method: 'POST',
+                                body:'id_user='+userId+'&id_match='+matchId,
+                                headers:{"Content-Type": "application/x-www-form-urlencoded"}
+                            }).then((response)=>{response.text().then((text)=>{ alert(text)})});
+
+                        }
+                    </script>
+
+
+                </div>
 
 
     </div>

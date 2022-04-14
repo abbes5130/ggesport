@@ -299,7 +299,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-5 col-md-12">
                                     <div class="matches-team">
-                                        <img src="{{match.idTeam1.logo}}" alt="image">
+                                        <img src="{{ asset('assets/img/')}}{{match.idTeam1.logo}}"alt="image">
 
                                         <div class="content">
                                             <h3>{{ match.idTeam1.teamName }}</h3>
@@ -325,7 +325,7 @@
 
                                 <div class="col-lg-5 col-md-12">
                                     <div class="matches-team right-image">
-                                        <img src="{{match.idTeam2.logo}}" alt="image">
+                                        <img src="{{ asset('assets/img/')}}{{match.idTeam2.logo}}"alt="image">
 
                                         <div class="content">
                                             <h3>{{ match.idTeam2.teamName }}</h3>

@@ -1,4 +1,47 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form,{'attr': {'novalidate':'novalidate'}}) }}
+
+<table>
+    <tr>
+        <td>{{ form_label(form.time) }}</td>
+        <td>{{ form_widget(form.time) }}</td>
+        <td>{{ form_errors(form.time) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.date) }}</td>
+        <td>{{ form_widget(form.date) }}</td>
+        <td>{{ form_errors(form.date) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.location) }}</td>
+        <td>{{ form_widget(form.location) }}</td>
+        <td>{{ form_errors(form.location) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.nbSeats) }}</td>
+        <td>{{ form_widget(form.nbSeats) }}</td>
+        <td>{{ form_errors(form.nbSeats) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.price) }}</td>
+        <td>{{ form_widget(form.price) }}</td>
+        <td>{{ form_errors(form.price) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.link) }}</td>
+        <td>{{ form_widget(form.link) }}</td>
+        <td>{{ form_errors(form.link) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.idTeam1) }}</td>
+        <td>{{ form_widget(form.idTeam1) }}</td>
+        <td>{{ form_errors(form.idTeam1) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.idTeam2) }}</td>
+        <td>{{ form_widget(form.idTeam2) }}</td>
+        <td>{{ form_errors(form.idTeam2) }}</td>
+    </tr>
+
+</table>
+<button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Matches
  *
- * @ORM\Table(name="matches", indexes={@ORM\Index(name="matches_fk0", columns={"id_Team_1"}), @ORM\Index(name="matches_fk1", columns={"id_Team_2"})})
+ * @ORM\Table(name="matches", indexes={@ORM\Index(name="matches_fk1", columns={"id_Team_2"}), @ORM\Index(name="matches_fk0", columns={"id_Team_1"})})
  * @ORM\Entity
  */
 class Matches
@@ -39,6 +40,12 @@ class Matches
      * @var string
      *
      * @ORM\Column(name="location", type="string", length=255, nullable=false)
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "Your location must be at least {{ limit }} characters long",
+     *      maxMessage = "Your location cannot be longer than {{ limit }} characters"
+     * )
      */
     private $location;
 
@@ -46,6 +53,7 @@ class Matches
      * @var int|null
      *
      * @ORM\Column(name="nb_seats", type="integer", nullable=true)
+     * @Assert\NotBlank
      */
     private $nbSeats;
 
@@ -53,6 +61,7 @@ class Matches
      * @var int
      *
      * @ORM\Column(name="price", type="integer", nullable=false)
+     * @Assert\NotBlank
      */
     private $price;
 
@@ -60,18 +69,15 @@ class Matches
      * @var string|null
      *
      * @ORM\Column(name="link", type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "Your link must be at least {{ limit }} characters long",
+     *      maxMessage = "Your link cannot be longer than {{ limit }} characters"
+     * )
+
      */
     private $link;
-
-    /**
-     * @var \Team
-     *
-     * @ORM\ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Team_2", referencedColumnName="id_team")
-     * })
-     */
-    private $idTeam2;
 
     /**
      * @var \Team
@@ -82,6 +88,16 @@ class Matches
      * })
      */
     private $idTeam1;
+
+    /**
+     * @var \Team
+     *
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_Team_2", referencedColumnName="id_team")
+     * })
+     */
+    private $idTeam2;
 
     public function getIdMatch(): ?int
     {
@@ -160,6 +176,18 @@ class Matches
         return $this;
     }
 
+    public function getIdTeam1(): ?Team
+    {
+        return $this->idTeam1;
+    }
+
+    public function setIdTeam1(?Team $idTeam1): self
+    {
+        $this->idTeam1 = $idTeam1;
+
+        return $this;
+    }
+
     public function getIdTeam2(): ?Team
     {
         return $this->idTeam2;
@@ -172,17 +200,7 @@ class Matches
         return $this;
     }
 
-    public function getIdTeam1(): ?Team
-    {
-        return $this->idTeam1;
-    }
 
-    public function setIdTeam1(?Team $idTeam1): self
-    {
-        $this->idTeam1 = $idTeam1;
-
-        return $this;
-    }
 
 
 }

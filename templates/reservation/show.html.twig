@@ -1,4 +1,4 @@
-{% extends '/admin/index.html.twig' %}
+{% extends 'back_base.html.twig' %}
 
 {% block title %}Reservation{% endblock %}
 
@@ -12,33 +12,26 @@
                 <td>{{ reservation.idTicket }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
-                <td>{{ reservation.firstname }}</td>
+                <th>User First Name</th>
+                <td>{{ reservation.idUser.firstname}}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
-                <td>{{ reservation.lastname }}</td>
+                <th>User Last Name</th>
+                <td>{{ reservation.idUser.lastname}}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ reservation.date ? reservation.date|date('Y-m-d') : '' }}</td>
+                <th>User Email</th>
+                <td>{{ reservation.idUser.email}}</td>
             </tr>
             <tr>
-                <th>Time</th>
-                <td>{{ reservation.time ? reservation.time|date('H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Location</th>
-                <td>{{ reservation.location }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ reservation.price }}</td>
+                <th>Match Location</th>
+                <td>{{ reservation.idMatch.location}}</td>
             </tr>
         </tbody>
     </table>
 
     <a href="{{ path('app_reservation_index') }}">back to list</a>
+    <br>
 
     <a href="{{ path('app_reservation_edit', {'idTicket': reservation.idTicket}) }}">edit</a>
 

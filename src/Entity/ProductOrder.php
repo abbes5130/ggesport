@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ProductOrder
  *
- * @ORM\Table(name="product_order", indexes={@ORM\Index(name="product_order_fk0", columns={"id_order"}), @ORM\Index(name="product_order_fk1", columns={"id_product"})})
+ * @ORM\Table(name="product_order", indexes={@ORM\Index(name="product_order_fk1", columns={"id_product"}), @ORM\Index(name="product_order_fk0", columns={"id_order"})})
  * @ORM\Entity
  */
 class ProductOrder
@@ -29,16 +29,6 @@ class ProductOrder
     private $quantity;
 
     /**
-     * @var \Product
-     *
-     * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_product", referencedColumnName="id_product")
-     * })
-     */
-    private $idProduct;
-
-    /**
      * @var \Orders
      *
      * @ORM\ManyToOne(targetEntity="Orders")
@@ -47,6 +37,16 @@ class ProductOrder
      * })
      */
     private $idOrder;
+
+    /**
+     * @var \Product
+     *
+     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_product", referencedColumnName="id_product")
+     * })
+     */
+    private $idProduct;
 
     public function getIdProductOrder(): ?int
     {
@@ -65,18 +65,6 @@ class ProductOrder
         return $this;
     }
 
-    public function getIdProduct(): ?Product
-    {
-        return $this->idProduct;
-    }
-
-    public function setIdProduct(?Product $idProduct): self
-    {
-        $this->idProduct = $idProduct;
-
-        return $this;
-    }
-
     public function getIdOrder(): ?Orders
     {
         return $this->idOrder;
@@ -85,6 +73,18 @@ class ProductOrder
     public function setIdOrder(?Orders $idOrder): self
     {
         $this->idOrder = $idOrder;
+
+        return $this;
+    }
+
+    public function getIdProduct(): ?Product
+    {
+        return $this->idProduct;
+    }
+
+    public function setIdProduct(?Product $idProduct): self
+    {
+        $this->idProduct = $idProduct;
 
         return $this;
     }
