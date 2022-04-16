@@ -1,0 +1,91 @@
+{% extends 'Front_base.html.twig' %}
+
+{% block content %}
+
+        <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="Products List">Products List</h1>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title Area -->
+
+        <!-- Start Products Area -->
+        <section class="products-area ptb-100">
+            <div class="container">
+                <div class="zelda-grid-sorting row align-items-center">
+                    <div class="col-lg-6 col-md-6 result-count">
+                        <p>Showing 1–8 of 12 results</p>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 ordering">
+                        <div class="select-box">
+                            <label>Sort By:</label>
+                            <select>
+                                <option>Default</option>
+                                <option>Popularity</option>
+                                <option>Latest</option>
+                                <option>Price: low to high</option>
+                                <option>Price: high to low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                {% for product in products %}
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-products-box">
+                            <div class="products-image">
+                                <a href="single-products.html" class="d-block"><img src="{{ asset('Uploads/' ~ product.getImage()) }}" alt="image"></a>
+
+                                <a href="{{ path('cart_add', {'id': product.idProduct}) }}" class="add-to-cart-btn">Add To Cart</a>
+                            </div>
+
+                            <span class="sale">Sale!</span>
+
+                            <div class="products-content">
+                                <h3><a href="single-products.html">{{ product.productName }}</a></h3>
+                                <span class="price">{{ product.productPrice }} DT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+        
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pagination-area text-center">
+                            <a href="#" class="prev page-numbers"><i class='bx bx-chevrons-left'></i></a>
+                            <span class="page-numbers current" aria-current="page">1</span>
+                            <a href="#" class="page-numbers">2</a>
+                            <a href="#" class="page-numbers">3</a>
+                            <a href="#" class="page-numbers">4</a>
+                            <a href="#" class="next page-numbers"><i class='bx bx-chevrons-right'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Products Area -->
+
+        <!-- Start Subscribe Area -->
+        <section class="subscribe-area pb-100">
+            <div class="container">
+                <div class="subscribe-inner ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+                    <span class="sub-title">Get Updates</span>
+                    <h2>Zelda Newsletter</h2>
+                    <form class="newsletter-form" data-toggle="validator">
+                        <label><i class="flaticon-null-1"></i></label>
+                        <input type="text" class="input-newsletter" placeholder="Enter your email address" name="EMAIL" required autocomplete="off">
+                        <button type="submit" class="default-btn">Subscribe Now</button>
+                        <div id="validator-newsletter" class="form-result"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- End Subscribe Area -->
+
+{% endblock %}
