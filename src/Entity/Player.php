@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Player
@@ -32,6 +33,12 @@ class Player
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Your name cannot contain a number"
+     * )
+     * @Assert\NotBlank
      */
     private $lastname;
 
@@ -39,6 +46,7 @@ class Player
      * @var string
      *
      * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     * @Assert\NotBlank
      */
     private $description;
 
@@ -46,6 +54,7 @@ class Player
      * @var string
      *
      * @ORM\Column(name="player_tag", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
      */
     private $playerTag;
 
@@ -53,6 +62,7 @@ class Player
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
      */
     private $photo;
 

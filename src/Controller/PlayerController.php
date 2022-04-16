@@ -56,7 +56,7 @@ class PlayerController extends AbstractController
      */
     public function show(Player $player): Response
     {
-        return $this->render('player/show.html.twig', [
+        return $this->render('team/single-player.html.twig', [
             'player' => $player,
         ]);
     }

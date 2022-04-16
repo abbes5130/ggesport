@@ -1,8 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Player{% endblock %}
 
-{% block body %}
+{% block content %}
     <h1>Player</h1>
 
     <table class="table">
@@ -34,7 +34,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_player_index') }}">back to list</a>
+    <a href="{{ path('app_admin_allplayer') }}">back to list</a>
 
     <a href="{{ path('app_player_edit', {'idPlayer': player.idPlayer}) }}">edit</a>
 

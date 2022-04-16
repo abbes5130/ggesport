@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Game
@@ -25,13 +26,22 @@ class Game
      * @var string
      *
      * @ORM\Column(name="game_name", type="string", length=255, nullable=false)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 30,
+     *      minMessage = "The Game Name must be at least {{ limit }} characters long",
+     *      maxMessage = "The Game Name characters long must be lower than {{ limit }} characters long"
+     * )
+     * @Assert\NotBlank
      */
+
     private $gameName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="logo", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
      */
     private $logo;
 

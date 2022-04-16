@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Team
@@ -25,6 +26,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="team_name", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
      */
     private $teamName;
 
@@ -32,6 +34,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="logo", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
      */
     private $logo;
 
@@ -39,6 +42,11 @@ class Team
      * @var int
      *
      * @ORM\Column(name="players_number", type="integer", nullable=false)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
+     * @Assert\NotBlank
      */
     private $playersNumber;
 
@@ -46,6 +54,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     * @Assert\NotBlank
      */
     private $description;
 

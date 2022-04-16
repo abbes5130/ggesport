@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Player;
+use App\Entity\Team;
 use App\Entity\Game;
 use App\Form\GameType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,9 +25,19 @@ class GameController extends AbstractController
         $games = $entityManager
             ->getRepository(Game::class)
             ->findAll();
+            $teams = $entityManager
+            ->getRepository(Team::class)
+            ->findAll();
+
+            $players = $entityManager
+            ->getRepository(Player::class)
+            ->findAll();
 
         return $this->render('game/index.html.twig', [
             'games' => $games,
+            'teams' => $teams,
+            'players' => $players,
+
         ]);
     }
 

@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Team;
+use App\Entity\Player;
+
 use App\Form\TeamType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,9 +25,14 @@ class TeamController extends AbstractController
         $teams = $entityManager
             ->getRepository(Team::class)
             ->findAll();
+            $players = $entityManager
+            ->getRepository(Player::class)
+            ->findAll();    
 
         return $this->render('team/index.html.twig', [
             'teams' => $teams,
+            'players' => $players,
+
         ]);
     }
 
@@ -48,16 +55,21 @@ class TeamController extends AbstractController
         return $this->render('team/new.html.twig', [
             'team' => $team,
             'form' => $form->createView(),
+            
         ]);
     }
 
     /**
      * @Route("/{idTeam}", name="app_team_show", methods={"GET"})
      */
-    public function show(Team $team): Response
+    public function show(Team $team, EntityManagerInterface $entityManager): Response
     {
-        return $this->render('team/show.html.twig', [
+        $players = $entityManager
+        ->getRepository(Player::class)
+        ->findAll();    
+        return $this->render('team/single-team.html.twig', [
             'team' => $team,
+            'players' => $players,
         ]);
     }
 
