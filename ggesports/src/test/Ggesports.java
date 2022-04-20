@@ -5,17 +5,34 @@
  */
 package test;
 
+import entities.Match;
+import utils.MyDB;
+
+import services.Match_Team_Service;
+
 /**
  *
- * @author abbes
+ * @author Ghassene
  */
 public class Ggesports {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here        
+
+        MyDB db = MyDB.getInstance();
+        Match match = new Match();
+        Match_Team_Service mts = new Match_Team_Service();
+        
+        mts.Update(3,2,1);
+        System.out.println("reservation added");
+
     }
+
+    /**
+     *
+     * @param args
+     */
+
+    
     
 }
