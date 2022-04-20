@@ -1,0 +1,133 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+  <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="News">New Details</h1>
+                </div>
+            </div>
+        </section>
+        <br><br>        <br><br>
+ <br><br>        <br><br>
+
+ <section class="blog-details-area ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="blog-details-desc">
+<div class="article-image">                
+<img src="{{ asset('uploads/' ~ News.img) }} " alt="{{ News.Title }}" class="img-fluid">
+            </div>
+             <div class="article-content">
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li>
+                                            <i class='bx bx-folder-open'></i>
+                                            <span>Category</span>
+                                            <a href="#">Fashion</a>
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-group'></i>
+                                            <span>View</span>
+                                            <a href="#">813,454</a>
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-calendar'></i>
+                                            <span>Last Updated</span>
+                                            <a href="#"> <h2>{{ News.creationdate ? News.creationdate|date('Y-m-d') : '' }} </h2></a>
+                                        </li>
+                                    </ul>
+                                </div>
+            <div class="col-md-8">
+                <h3 class="mt-4 mt-md-0">{{ News.Title }}</h3>
+               
+                <hr>
+                <b>Description: </b><p>{{ News.description }}</p>
+                  
+               
+
+
+                            
+
+
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    <div class="comments-area">
+
+                                <ol class="comment-list">
+                                <h3 class="comments-title"> Comments:{{ News.comments|length }} </h3>
+
+                                    <li class="comment">
+
+                                             {% for comments in News.comments %}
+
+                                        <article class="comment-body">
+
+                                            <footer class="comment-meta">
+
+                                                <div class="comment-author vcard">
+                                                    <img src="{{ asset('Front/assets/img/user4.jpg') }}" class="avatar" alt="image">
+                                                    <b class="fn"></b>
+                                                    <span class="says">says:</span>
+                                                </div>
+
+                                                <div class="comment-metadata">
+                                                    <a href="#">
+                                                        <span>{{ comments.CommentDate ? comments.CommentDate|date('Y-m-d') : '' }}</span>
+                                                    </a>
+                                                </div>
+                                            </footer>
+
+                                            <div class="comment-content">
+                                                <p>{{ comments.getText() }}</p>
+                                            </div>                                           
+                                    <div class="reply">
+                                                <a href="#" class="comment-reply-link">Reply</a>
+                                            </div>
+                                        </article>
+                                      {% endfor %}
+
+                                        
+            
+                                                
+                                        
+                                    </li>
+
+                                </ol>
+
+                                <div class="comment-respond">
+                                    <h3 class="comment-reply-title">Leave a Reply</h3>
+
+                                    <form class="comment-form" action="{{ path('add_comment') }}" method="post" id="comment">
+
+                                        <p class="comment-notes">
+                                            Required fields are marked 
+                                            <span class="required">*</span>
+                                        </p>
+                                                 <p class="comment-form-comment">
+                                            <label>Comment</label>
+                                            <textarea name="comment" id="comment" cols="45" placeholder="Your Comment..." rows="5" maxlength="65525" required="required"></textarea>
+
+                                        </p>
+                        
+                                  
+                                        <p class="form-submit">
+                                            <input type="submit" name="submit" id="submit" class="submit" value="Post A Comment">
+                                        </p>
+                                    <input type="hidden" name="news_id" value="{{News.id}}">
+                                    </form>
+                                </div>
+                            </div>
+
+      </div>
+      
+ <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+        <div class="zelda-cursor"></div>
+        <div class="zelda-cursor2"></div>
+{% endblock %}

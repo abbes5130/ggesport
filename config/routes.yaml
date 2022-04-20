@@ -1,0 +1,66 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+index:
+    path: /News
+    controller: App\Controller\NewsController::addAction    
+home:
+    path: /home
+    controller: App\Controller\HomeController::index
+update_news:
+    path: /updatenews/{id}
+    controller: App\Controller\NewsController::updatenewsAction 
+delete_news:
+    path: /deletenews/{id}
+    controller: App\Controller\NewsController::deletenewsAction 
+add_comment:
+     path:  /addcomment
+     controller: App\Controller\NewsController::addCommentAction 
+delete_comment:
+    path: /delete_comment/{id}
+    controller: App\Controller\NewsController::deleteCommentAction 
+detailed_News:
+    path: /News/{id}
+    controller : App\Controller\NewsController::showdetailedAction 
+index1:
+    path: /news1
+    controller: App\Controller\News1Controller::index   
+add_news:
+    path: /addNews
+    controller: App\Controller\News1Controller::addNews   
+list_News:
+    path: /liNews
+    controller: App\Controller\News1Controller::ListNews
+show_New:
+    path: /New1/{id}
+    controller: App\Controller\News1Controller::New    
+modify_News:
+    path: /modify-News/{id}
+    controller: App\Controller\News1Controller::modifyNews  
+delete_News:
+    path: /delete-News/{id}
+    controller: App\Controller\News1Controller::deleteNews 
+add_News1:
+    path: /addNews1
+    controller: App\Controller\News1Controller::addNewsAction       
+index2:
+    path: /comments
+    controller: App\Controller\CommentsController::index   
+add_Comments2:
+    path: /addComments2
+    controller: App\Controller\CommentsController::addComment   
+list_Comments:
+    path: /liComment
+    controller: App\Controller\CommentsController::liComment
+show_Comment:
+    path: /Comments/{id}
+    controller: App\Controller\CommentsController::Comment    
+modify_Comments:
+    path: /update1/{id}
+    controller: App\Controller\CommentsController::modifycomment  
+delete_Comments:
+    path: /deletecomments/{id}
+    controller: App\Controller\CommentsController::deletecomments 
+add_Comments1:
+    path: /addcomment1
+    controller: App\Controller\CommentsController::addCommentsAction       

@@ -1,0 +1,59 @@
+{% extends 'template.html.twig' %}
+{% block body %}        
+  <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="News">News</h1>
+                </div>
+            </div>
+        </section>
+<br><br>
+<br>
+<br>
+<div class="container">
+
+<br><br>
+ <div class="magazine-area">
+            <div class="container-fluid">
+                <div class="magazine-items">
+             {% for News in listNews %}
+  
+           <div class="col-lg-9 col-md-11 grid-item">
+                        <div class="single-magazine-box">
+                                                                            
+                    <img   src="{{ asset('uploads/' ~ News.img) }} " alt="{{ News.Title }}" class="card-img-top">
+                    <div class="content">
+                                <ul class="meta">
+                     <img   src="{{ asset('uploads/' ~ News.bgimg) }} " alt="image" class="logo">
+
+                        <li class="card-title">{{ News.Title }}
+                        </li>
+                         <li><span class="h5 mt-auto">{{ News.creationdate ? News.creationdate|date('Y-m-d ') : '' }} </span>
+                         <div class="container"><h8 class="card-text">{{ News.description }}</h8></div></li>
+                         </ul>
+
+                        <div class="d-flex justify-content-between align-item-center">
+<a href="{{ path('detailed_News', {id: News.id}) }}" class="read-more-btn" ><i class="flaticon-null"></i>View details</a>
+                             
+
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <br><br><br>            
+        <br>           
+
+       <div class="container">
+          <a href="{{ path('delete_news',{'id': News.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+      
+        {% endfor %}
+    </div>
+</div>
+ <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+        <div class="zelda-cursor"></div>
+        <div class="zelda-cursor2"></div>
+{% endblock %}

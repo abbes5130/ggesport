@@ -1,0 +1,223 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<body class="hold-transition sidebar-mini">
+    <h1>         
+</h1>
+       
+        
+ <section class="content">
+      <div class="container-fluid">
+ <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+         <div class="card-header">
+          <h3 class="card-title">List News</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          </div>
+
+     
+        <div class="card-body">
+        <div>
+<a href="{{ path('add_news') }}"  data-toggle="modal" data-target="#modal-default">                   
+                 
+                      <button type="button" class="btn btn-block btn-outline-secondary">add News</button>
+</a>
+</div>
+ <div class="row">
+          <div class="col-12">
+            
+            
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                     <th><span class="custom-checkbox">
+									<input type="checkbox" id="selectAll">
+									<label for="selectAll"></label>
+								</span>
+							</th>
+                <th>Title</th>
+                <th>Img</th>
+                <th>Bg_img</th>
+                <th>Creation_date</th>
+                <th>actions</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+             
+                     {% for News in news %}    
+                     <tr   data-widget="expandable-table" aria-expanded="true">     
+                <td>
+								<span class="custom-checkbox">
+									<input type="checkbox" id="checkbox1" name="options[]" value="{{ News.id }}">
+									<label for="checkbox1">{{ News.id }}</label>
+								</span>
+							</td>
+                <td>{{ News.title }}</td>
+                 <td> <div class="filter-container p-1 row">  <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                      <a href="{{ asset('uploads/' ~ News.bgimg) }}" data-toggle="lightbox" data-title="sample 1 - white">
+                         <img   src="{{ asset('uploads/' ~ News.bgimg) }} "  class="logo" alt="white sample"/>
+                      </a>
+                    </div></div></td>
+              <td>    <div class="filter-container p-1 row"> <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                      <a href="{{ asset('uploads/' ~ News.img) }}" data-toggle="lightbox" data-title="sample 1 - white">
+                        <img src="{{ asset('uploads/' ~ News.img) }}" class="img-fluid mb-2" alt="white sample"/>
+                      </a></div></div></td>
+                <td>{{ News.creationDate ? News.creationDate|date('Y-m-d') : '' }}</td>
+                <td><a href="{{ path('New1', {'id': News.id}) }}"><i class="fa fa-info" aria-hidden="true"></i>
+</a>
+       
+       
+        <a href="{{ path('modify_News', {'id': News.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</a>
+                <a href="{{ path('delete_News', {'id': News.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i>
+</a></td>
+
+                </td>
+                    </tr>
+                    <tr class="expandable-body">
+                      <td colspan="5">
+                      <b>description:</b>
+                        <p>
+                    
+                {{ News.description }}
+                        </p>
+                      </td>
+                    </tr>
+                           {% endfor %}
+
+                  </tbody>
+                </table>
+            
+          </div>
+        </div>
+       
+      </div><!-- /.container-fluid -->
+    </section>
+     <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+    <!-- /.content -->
+  </div>           
+
+   
+
+        
+     
+        <!-- /.card-body -->
+        <div class="card-footer">
+         <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+ <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+ <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">add News </h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+<form class="news-form" id="quickForm" action="{{ path('add_News1') }}" method="post" >
+
+
+                          <section class="content">
+     
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputTitle">Title</label>
+                    <input type="Text" name="news1" id="news1" class="form-control"  placeholder="Enter title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputdescription">description</label>
+                    <input type="text" name="news2" class="form-control" id="news2" placeholder="description">
+                  </div>
+  <div class="form-group">
+    <label for="img">img</label>
+    <input type="file" class="form-control-file" id="file" name="file">
+  </div>
+  <div class="form-group">
+    <label for="img">bg-img</label>
+    <input type="file" class="form-control-file" id="file1" name="file1">
+  </div>
+</form>
+                 
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+ <p class="form-submit">
+                                            <input type="submit" name="submit" id="submit" class="submit" value="save">
+                                        </p>                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+            </div><!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->   
+
+    </body>
+{% endblock %}
+
+ {% block j %}
+
+ <script type="text/javascript">
+   $(function () {
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true
+      });
+    });
+
+    $('.filter-container').filterizr({gutterPixels: 3});
+    $('.btn[data-filter]').on('click', function() {
+      $('.btn[data-filter]').removeClass('active');
+      $(this).addClass('active');
+    });
+  })
+   </script>
+ {% endblock %}

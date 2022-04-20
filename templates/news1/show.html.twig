@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+    <h1>News</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ news.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ news.title }}</td>
+            </tr>
+            <tr>
+                <th>Bg_img</th>
+<td><div class="filter-container p-0 row"> <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
+                      <a href="{{ asset('uploads/' ~ news.bgimg) }}" data-toggle="lightbox" data-title="sample 2 - black">
+                         <img   src="{{ asset('uploads/' ~ news.bgimg) }} "  class="logo" alt="white sample"/>
+                      </a>
+                    </div></div></td>
+             </tr>
+            <tr>
+                <th>Img</th>
+ <td>  <div class="filter-container p-0 row">   <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                      <a href="{{ asset('uploads/' ~ news.img) }}" data-toggle="lightbox" data-title="sample 1 - white">
+                        <img src="{{ asset('uploads/' ~ news.img) }}" class="img-fluid mb-2" alt="white sample"/>
+                      </a></div></div></td>           
+                       </tr>            
+            <tr>
+                <th>Description</th>
+                <td>{{ news.description }}</td>
+            </tr>
+            <tr>
+                <th>Creation_date</th>
+                <td>{{ news.creationDate ? news.creationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+  <a href="{{ path('index1') }}"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+</a>
+{% endblock %}
