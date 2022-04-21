@@ -40,7 +40,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-products-box">
                             <div class="products-image">
-                                <a href="single-products.html" class="d-block"><img src="{{ asset('Uploads/' ~ product.getImage()) }}" alt="image"></a>
+                                <a href="{{ path('app_product_user_show', {'idProduct': product.idProduct}) }}" class="d-block"><img src="{{ asset('Uploads/' ~ product.getImage()) }}" alt="image"></a>
 
                                 <a href="{{ path('cart_add', {'id': product.idProduct}) }}" class="add-to-cart-btn">Add To Cart</a>
                             </div>
