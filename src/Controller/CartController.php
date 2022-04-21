@@ -2,19 +2,35 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Services\CartService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Services\CartService;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CartController extends AbstractController
 {
+
+    /**
+     * @Route("/cart/test", name="test_cart")
+     */
+    public function test(CartService $cartService): Response
+    {
+        // dump($cartService->decrease(31));
+        // die();
+        //return new Response($msg);
+    }
+
+
     /**
      * @Route("/cart", name="app_cart")
      */
     public function index(CartService $cartService): Response
     {
+        // dump($cartService->increase(31));
+        // die();
         return $this->render('cart/index.html.twig', [
             'items' => $cartService->getFullCart(),
             'total' => $cartService-> getTotal()
@@ -40,15 +56,40 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/cart/addQuantity", name="increase")
+     * @Route("/cart/increase", name="increase")
      */
-    public function increase(Request $request)
+    public function increase(Request $request, CartService $cartService, SerializerInterface $serializer)
     {
-        $output = $request->request->get('output');
-        //$products = {'name':'product1'};
-        return new JsonResponse($products);
-        return $this->redirectToRoute("app_cart", array(
-            "res" => "Your data here"));
+        $id = $request->request->get('id');
+        $res= $cartService->increase($id);
+        $jsonData= $serializer->serialize($res,'json');
+        return new JsonResponse($jsonData);
+        
     }
 
+    /**
+     * @Route("/cart/decrease", name="decrease")
+     */
+    public function decrease(Request $request, CartService $cartService, SerializerInterface $serializer){
+
+        $id = $request->request->get('id');
+        $res= $cartService->decrease($id);
+        $jsonData= $serializer->serialize($res,'json');
+        return new JsonResponse($jsonData);
+
+
+        // $array = array(
+        //     array(
+        //         'name' => 'name1',
+        //         'address' => 'addres1',
+        //     ),
+        //       array(
+        //         'name' => 'name2',
+        //         'address' => 'addres2',
+        //     ),
+        // );
+        // $jsonData= $serializer->serialize($array,'json');
+        // return new JsonResponse($jsonData);
+
+    }
 }

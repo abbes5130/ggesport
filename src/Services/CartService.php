@@ -42,7 +42,8 @@ class CartService{
         foreach ($panier as $id => $quantity) {
             $panierWithData[]=[
                 'product' => $this->productRepository->find($id),
-                'quantity' => $quantity
+                'quantity' => $quantity,
+                'totalAmount'=>$this->productRepository->find($id)->getProductPrice() * $quantity,
             ];
         }
         return $panierWithData;
@@ -58,6 +59,48 @@ class CartService{
         return $total;
     }
     
+
+    public function increase(int $id)
+    {
+        $panier = $this->session->get('panier', []);
+        if (!empty($panier[$id])) {
+            $panier[$id]++;
+            $product= $this->productRepository->find($id);
+            $totalOneProduct = $panier[$id] * $product->getProductPrice();
+        }
+        $this->session->set('panier', $panier);
+        $total = $this->getTotal();
+
+        $array=array (
+            'totalOneProduct'=> $totalOneProduct,
+            'total'=>$total,
+        );
+        return $array;
+    }
+
+    public function decrease(int $id)
+    {
+        $panier = $this->session->get('panier', []); 
+        if ($panier[$id]==1) {
+            $totalOneProduct=0;
+            unset($panier[$id]);
+            $msg='deleted';
+        }else {
+            $panier[$id]--;
+            $product= $this->productRepository->find($id);
+            $totalOneProduct = $panier[$id] * $product->getProductPrice();
+            $msg='decreased';
+        }
+        $this->session->set('panier', $panier);
+        $total = $this->getTotal();
+        $array=array (
+            'totalOneProduct'=> $totalOneProduct,
+            'total'=>$total,
+            'msg'=>$msg,
+        );
+        return $array;
+    }
+
 
 }
 
