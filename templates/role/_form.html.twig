@@ -1,0 +1,47 @@
+
+
+<div style="display: flex;align-content: center;justify-content: center;margin-top: 150px">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">General Elements</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            {{ form_start(form,{attr:{novalidate:'novalidate'}})}}
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Role</label>
+                        {{ form_widget(form.rolename,{'att':{'class':'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.rolename,{'att':{'class':'text-danger'}}) }}
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+        <div style="display:flex;align-items: center;justify-content: center", class="">
+
+            {{ form_widget(form.agree,{'att':{'class':'btn btn-info'}}) }}
+
+        </div>
+    </div>
+
+
+
+</div>
+
+{{ form_end(form) }}
+</div>
+<!-- /.card-body -->
+</div>
+</div>

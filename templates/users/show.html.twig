@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+
+<div id="global" >
+
+    <h1>Users</h1>
+
+    <table class="table" align="centre">
+        <tbody>
+            <tr>
+                <th>IdUser</th>
+                <td>{{ user.idUser }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>PhoneNumber</th>
+                <td>{{ user.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>IdRole</th>
+                <td>{{ user.idRole.rolename }}</td>
+            </tr>
+            <tr>
+                <th>CheckAccount</th>
+                <td>{{ user.checkAccount }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="row">
+    <button class="button-62" role="button"><a href="{{ path('app_users_index') }}">back to list</a></button>
+
+   <button class="button-62" role="button"> <a href="{{ path('app_users_edit', {'id': user.idUser}) }}">edit</a></button>
+        <button class="button-62" role="button"> <a href="{{ path('app_users_delete', {'id': user.idUser}) }}">delete</a></button>
+    <button class="button-62" role="button"> <a href="{{ path('app_users_block', {'id': user.idUser}) }}">block</a></button>
+    <button class="button-62" role="button"> <a href="{{ path('app_users_deblocker', {'id': user.idUser}) }}">deblock</a></button>
+
+</div>
+</div>
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.2.0
+            </div>
+
+        </footer>
+{% endblock %}

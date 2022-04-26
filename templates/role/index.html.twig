@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Role index{% endblock %}
+
+{% block body %}
+
+    {# Table #}
+<div style="display: flex;align-content: center;justify-content: center;margin-top: 150px;margin-left: 150px">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Role view</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                <tr>
+                    <th>IdRole</th>
+                    <th>Rolename</th>
+                    <th>actions</th>
+                </tr>
+                </tr>
+                </thead>
+                <tbody>
+                {% for role in roles %}
+                    <tr>
+                        <td>{{ role.idRole }}</td>
+                        <td>{{ role.rolename }}</td>
+                        <td>
+                            <a href="{{ path('app_role_show', {'id': role.idRole}) }}">Show</a>
+                            <a href="{{ path('app_role_edit', {'id': role.idRole}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+           <button class="button-62" role="button"><a href="{{ path('app_role_new') }}">ADD ROLE</a></button>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+

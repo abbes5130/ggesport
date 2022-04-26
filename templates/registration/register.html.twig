@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscritpion{% endblock %}
+{% block header %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+
+{% block body %}
+    <div class="register-box">
+        <div class="register-logo">
+            <a href=""><b>REGISTER</b></a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
+
+                {{ form_start(forme,{attr:{novalidate:'novalidate'}})}}
+                    <div class="input-group mb-3">
+                        {{ form_widget(forme.firstname,{'att':{'class':'form-control'}}) }}
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        {{ form_widget(forme.lastname,{'att':{'class':'form-control'}}) }}
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="input-group mb-3">
+                    {{ form_widget(forme.email,{'att':{'class':'form-control'}}) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                    <div class="input-group mb-3">
+                        {{ form_widget(forme.password.first,{'att':{'class':'form-control'}}) }}
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        {{ form_widget(forme.password.second,{'att':{'class':'form-control'}}) }}
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="input-group mb-3">
+                    {{ form_widget(forme.phoneNumber,{'att':{'class':'form-control'}}) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-phone"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    {{ form_widget(forme.idRole,{'att':{'class':'form-control'}}) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-paste"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-4 offset-md-4">
+                        <div class="form-group">
+                            <label for="exempleFormControlInput1">Are you a Robot ?</label>
+                            {{ form_widget(forme.captchaCode,{'att':{'class':'form-control'}}) }}
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms">
+                                    I agree to the <a href="#">terms</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                {{ form_end(forme) }}
+
+
+
+                <a href="{{ path('app_login') }}" class="text-center">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+{% endblock %}

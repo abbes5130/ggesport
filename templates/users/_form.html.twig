@@ -1,0 +1,89 @@
+
+
+
+    <div style="display: flex;align-content: center;justify-content: center;margin-top: 150px">
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title">General Elements</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        {{ form_start(form,{attr:{novalidate:'novalidate'}})}}
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Firstname</label>
+                        {{ form_widget(form.firstname,{'att':{'class':'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.firstname,{'att':{'class':'text-danger'}}) }}
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Lastname</label>
+                        {{ form_widget(form.lastname,{'att':{'class':'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.lastname,{'att':{'class':'text-danger'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+            <div class="form-group">
+                <label>Email</label>
+                {{ form_widget(form.email,{'att':{'class':'form-control'}}) }}
+            </div>
+                    {{ form_errors(form.email,{'att':{'class':'text-danger'}}) }}
+                </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Password</label>
+            {{ form_widget(form.password,{'att':{'class':'form-control'}}) }}
+        </div>
+        {{ form_errors(form.password,{'att':{'class':'text-danger'}}) }}
+    </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- select -->
+                    <div class="form-group">
+                        <label>phoneNumber</label>
+                        {{ form_widget(form.phoneNumber,{'att':{'class':'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.phoneNumber,{'att':{'class':'text-danger'}}) }}
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Role</label>
+                        {{ form_widget(form.idRole,{'att':{'class':'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+        <label>Check</label>
+        {{ form_widget(form.checkAccount,{'att':{'class':'form-control'}}) }}
+    </div>
+    {{ form_errors(form.checkAccount,{'att':{'class':'text-danger'}}) }}
+    <div style="display:flex;align-items: center;justify-content: center", class="">
+
+        {{ form_widget(form.agree,{'att':{'class':'btn btn-info'}}) }}
+
+    </div>
+</div>
+
+
+
+            </div>
+
+{{ form_end(form) }}
+    </div>
+    <!-- /.card-body -->
+</div>
+</div>

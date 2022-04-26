@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Users{% endblock %}
+
+{% block body %}
+
+
+    <h1>Edit Users</h1>
+
+   {{ include('users/_form.html.twig') }}
+
+    <button class="button-62" role="button"><a href="{{ path('app_users_index') }}">Back</a></button>
+
+
+
+{% endblock %}
