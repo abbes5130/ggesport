@@ -26,12 +26,13 @@ class AdminController extends AbstractController
      */
     public function index(EntityManagerInterface $entityManager): Response
     {
-       
+        $this->addFlash('success', 'Please navigate to the sidebar and select Team list or Player list or Game list to take action !');
         return $this->render('admin/index.html.twig', [
 
             'controller_name' => 'AdminController',
             
         ]);
+       
     } 
 
  
@@ -78,6 +79,9 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($team);
             $entityManager->flush();
+             /** @var UploadedFile $uploadedFile */
+             $uploadedFile = $form['logo']->getData();
+             $destination = $this->getParameter('kernel.project_dir').'/public/assets/img';
 
             return $this->redirectToRoute('app_team_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -147,9 +151,17 @@ class AdminController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $file1 = $form->get('photo')->getData();
+ 
+
+            $filename1= md5(uniqid()) . '.' . $file1->guessExtension();
+            $file1->move($this->getParameter('logo_directory'), $filename1);
+         
+
+            $player->setPhoto($filename1);
             $entityManager->persist($player);
             $entityManager->flush();
-
             return $this->redirectToRoute('app_admin_allplayer', [], Response::HTTP_SEE_OTHER);
         }
 

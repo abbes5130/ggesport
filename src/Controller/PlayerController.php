@@ -39,9 +39,18 @@ class PlayerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+           
+            $file1 = $form->get('photo')->getData();
+ 
+
+            $filename1= md5(uniqid()) . '.' . $file1->guessExtension();
+            $file1->move($this->getParameter('logo_directory'), $filename1);
+         
+
+            $player->setPhoto($filename1);
             $entityManager->persist($player);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Player Created!');
             return $this->redirectToRoute('app_player_index', [], Response::HTTP_SEE_OTHER);
         }
 

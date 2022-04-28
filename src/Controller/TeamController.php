@@ -11,6 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Gedmo\Sluggable\Util\Urlizer;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Joli\JoliNotif\NotifierFactory;
+use Joli\JoliNotif\Notification;
+
 
 /**
  * @Route("/team")
@@ -37,7 +43,7 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="app_team_new", methods={"GET", "POST"})
+     * @Route("/new", name="app_team_new", methods={"GET", "POST"}) 
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -46,10 +52,33 @@ class TeamController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+          
+            $file = $form->get('logo')->getData();
+ 
+
+            $filename= md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('logo_directory'), $filename);
+         
+
+            $team->setLogo($filename);
             $entityManager->persist($team);
             $entityManager->flush();
+            
+            $notifier = NotifierFactory::create();
+             
+            $notification =
+                (new Notification())
+                ->setBody('A new Team is created successfully')
+                ->setTitle('Zelda Admin Panel');
+                
+         
+        
+            $notifier->send($notification);
+            return $this->redirectToRoute('app_admin_allteam', [], Response::HTTP_SEE_OTHER);
+           
 
-            return $this->redirectToRoute('app_team_index', [], Response::HTTP_SEE_OTHER);
+             
+              
         }
 
         return $this->render('team/new.html.twig', [
@@ -82,9 +111,19 @@ class TeamController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form->get('logo')->getData();
+ 
+
+            $filename= md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('logo_directory'), $filename);
+         
+
+            $team->setLogo($filename);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_team_index', [], Response::HTTP_SEE_OTHER);
+          
+
+            return $this->redirectToRoute('app_admin_allteam', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('team/edit.html.twig', [
@@ -103,6 +142,6 @@ class TeamController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_team_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_allteam', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -5,7 +5,7 @@
         <section class="page-title-area page-title-bg1">
             <div class="container">
                 <div class="page-title-content">
-                    <img src="assets/img/team-member1.jpg" class="player-image" alt="image">
+                    <img src="{{ asset('assets/img/' ~ player.photo) }}" class="player-image" alt="image">
                     <br>
                     <h1 title="">{{"#{player.firstname} #{player.lastname}" }}</h1>
                     <span class="sub-title">{{player.playerTag}}</span>
