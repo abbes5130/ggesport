@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "6559dc7c4dd7b1497d00b936ecface44",
+=======
+    "content-hash": "4f6b259de2db812e5de45d6cb5000ee6",
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -593,6 +597,7 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
+<<<<<<< HEAD
             "version": "2.6.3",
             "source": {
                 "type": "git",
@@ -603,6 +608,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/527970d22b8ca6472ebd88d7c42e512550bd874e",
                 "reference": "527970d22b8ca6472ebd88d7c42e512550bd874e",
+=======
+            "version": "2.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineBundle.git",
+                "reference": "53cf797feda995299629bed081ffb51776f36e9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/53cf797feda995299629bed081ffb51776f36e9f",
+                "reference": "53cf797feda995299629bed081ffb51776f36e9f",
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
                 "shasum": ""
             },
             "require": {
@@ -687,7 +704,11 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/doctrine/DoctrineBundle/tree/2.6.3"
+=======
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.6.2"
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
             },
             "funding": [
                 {
@@ -703,7 +724,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-04-22T09:59:53+00:00"
+=======
+            "time": "2022-04-07T09:18:26+00:00"
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",

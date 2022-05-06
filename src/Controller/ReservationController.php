@@ -37,9 +37,14 @@ class ReservationController extends AbstractController
     /**
      * @Route("/ticketPDF/{idTicket}", name="app_reservation_showPDF", methods={"GET"})
      */
+<<<<<<< HEAD
     public function showPDF(EntityManagerInterface $entityManager,Reservation $reservation, QrcodeService $qrcodeService)
     {
         $qrCode = null;
+=======
+    public function showPDF(EntityManagerInterface $entityManager,Reservation $reservation)
+    {
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
         // Configure Dompdf according to your needs
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');
@@ -47,12 +52,18 @@ class ReservationController extends AbstractController
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
 
+<<<<<<< HEAD
         $qrCode = $qrcodeService->qrcode("/ticketPDF/{$reservation->getIdTicket()}");
 
         // Retrieve the HTML generated in our twig file
         $html = $this->renderView('reservation/showTicketPDF.html.twig', [
             'reservation' => $reservation,
             'qrCode'=>$qrCode,
+=======
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('reservation/showTicketPDF.html.twig', [
+            'reservation' => $reservation,
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
             'title' => "Your reservation"
         ]);
 
@@ -60,13 +71,21 @@ class ReservationController extends AbstractController
         $dompdf->loadHtml($html);
 
         // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+<<<<<<< HEAD
         $dompdf->setPaper('A4', 'landscape');
+=======
+        $dompdf->setPaper('A4', 'portrait');
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
 
         // Render the HTML as PDF
         $dompdf->render();
 
         // Output the generated PDF to Browser (inline view)
+<<<<<<< HEAD
         $dompdf->stream("reservation.pdf", [
+=======
+        $dompdf->stream("mypdf.pdf", [
+>>>>>>> 6fb82286f5037c0622c1bd973fa69d9104c367ce
             "Attachment" => false
         ]);
     }
