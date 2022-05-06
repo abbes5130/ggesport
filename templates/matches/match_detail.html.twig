@@ -362,8 +362,7 @@
                     </div>
                     <br>
                     <br> <br>
-
-
+                        
                     <button id="reserverMatch" onclick="ReservationOnClick({{ match.idMatch}}, 1)">Reserver Match </button>
 
                     <script>
@@ -376,7 +375,13 @@
                                 method: 'POST',
                                 body:'id_user='+userId+'&id_match='+matchId,
                                 headers:{"Content-Type": "application/x-www-form-urlencoded"}
-                            }).then((response)=>{response.text().then((text)=>{ alert(text)})});
+                            }).then((response)=>{response.json().then((text)=>{
+
+                                window.location.replace("{{ path("app_reservation_showNoIdTicket") }}/"+ text.idTicket)
+                            })});
+
+
+
 
                         }
                     </script>

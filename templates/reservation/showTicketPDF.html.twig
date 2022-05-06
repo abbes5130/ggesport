@@ -1,0 +1,42 @@
+<h1>Reservation</h1>
+
+<table class="table">
+    <tbody>
+    <tr>
+        <th>IdTicket</th>
+        <td>{{ reservation.idTicket }}</td>
+    </tr>
+    <tr>
+        <th>First Name</th>
+        <td>{{ reservation.idUser.firstname }}</td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td>{{ reservation.idUser.lastname }}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{ reservation.idUser.email }}</td>
+    </tr>
+    <tr>
+        <th>Match Location</th>
+        <td>{{ reservation.idMatch.location }}</td>
+    <tr>
+        <th>Team 1</th>
+        <td>{{ reservation.idMatch.idTeam1.teamName }}</td>
+    <tr>
+        <th>Team 2</th>
+        <td>{{ reservation.idMatch.idTeam2.teamName }}</td>
+    </tr>
+    </tr>
+    </tr>
+    </tbody>
+    <br>    <br>    <br>
+
+    <div>
+        {% if qrCode %}
+
+            <img src="{{ qrCode }}" alt="qr-code">
+
+        {% endif %}
+    </div>
