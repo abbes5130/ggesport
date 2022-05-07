@@ -1,0 +1,408 @@
+{% extends 'Front_base.html.twig' %}
+
+{% block specificStyles %}
+    <link rel="stylesheet" href="{{ asset('Back/plugins/ion-rangeslider/css/ion.rangeSlider.min.css')}}">
+    <style>
+    
+    .rating{
+        position: absolute;
+        right:-20%;
+        top:0;
+        z-index: 0;
+        opacity: 0;
+        transition: all 0.5s;
+    }
+
+    .single-products-box:hover .rating{
+        z-index:1;
+        opacity: 1;
+        right:0;
+    }
+
+    .rating .bxs-star{
+        color: #C0C0C0;
+    }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+        <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="Products List">Products List</h1>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title Area -->
+
+        <!-- Start Products Area -->
+        <section class="products-area ptb-100">
+            <div class="container">
+                <div class="zelda-grid-sorting row align-items-center">
+                    <div class="col-lg-3 col-md-3 result-count">
+                        <p>Showing 1–8 of 12 results</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 result-count">
+                        <input class="form-control" type="text" placeholder="search" id="searchBox">
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 result-count">
+                        <input id="range_1" type="text" name="range_1" value="">
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 ordering">
+                        <div class="select-box">
+                            <label>Sort By:</label>
+                            <select id="CategoryFilter">
+                                <option value="ALL" >ALL Products</option>
+                                <option value="Tshirts" >Tshirts</option>
+                                <option value="Sweatshirts">Sweatshirts</option>
+                                <option value="Pants">Pants</option>
+                                <option value="Hardwares">Hardwares</option>
+                                <option value="Accessories">Accessories</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ProductsList">
+                {% for product in products %}
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 singleProduct">
+                        <div class="single-products-box">
+
+                            <div class="rating" id="{{product.idProduct}}">
+                                <a href="{{ path('app_product_review', {'id': product.idProduct}) }}" class="oneStar"><span class="bx bxs-star oneStar {{product.idProduct}}"></span></a>
+                                <a href="{{ path('app_product_review', {'id': product.idProduct}) }}" class="twoStar"><span class="bx bxs-star twoStar {{product.idProduct}}"></span></a>
+                                <a href="{{ path('app_product_review', {'id': product.idProduct}) }}" class="threeStar"><span class="bx bxs-star threeStar {{product.idProduct}}"></span></a>
+                                <a href="{{ path('app_product_review', {'id': product.idProduct}) }}" class="fourStar"><span class="bx bxs-star fourStar {{product.idProduct}}"></span></a>
+                                <a href="{{ path('app_product_review', {'id': product.idProduct}) }}" class="fiveStar"><span class="bx bxs-star fiveStar {{product.idProduct}}"></span></a>
+                            </div>
+
+                            <div class="products-image">
+
+                                <a href="{{ path('app_product_user_show', {'idProduct': product.idProduct}) }}" class="d-block"><img src="{{ asset('Uploads/' ~ product.image) }}" alt="image"></a>
+
+                                <a href="{{ path('cart_add', {'id': product.idProduct}) }}" class="add-to-cart-btn">Add To Cart</a>
+                            </div>
+
+                            <span class="sale">Sale!</span>
+
+                            
+
+                            <div class="products-content">
+                                <h3><a href="single-products.html">{{ product.productName }}</a></h3>
+                                <span class="price">{{ product.productPrice }} DT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+        
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pagination-area text-center">
+                            <a href="#" class="prev page-numbers"><i class='bx bx-chevrons-left'></i></a>
+                            <span class="page-numbers current" aria-current="page">1</span>
+                            <a href="#" class="page-numbers">2</a>
+                            <a href="#" class="page-numbers">3</a>
+                            <a href="#" class="page-numbers">4</a>
+                            <a href="#" class="next page-numbers"><i class='bx bx-chevrons-right'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Products Area -->
+
+        <!-- Start Subscribe Area -->
+        <section class="subscribe-area pb-100">
+            <div class="container">
+                <div class="subscribe-inner ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+                    <span class="sub-title">Get Updates</span>
+                    <h2>GGEsport Newsletter</h2>
+                    <form class="newsletter-form" data-toggle="validator">
+                        <label><i class="flaticon-null-1"></i></label>
+                        <input type="text" class="input-newsletter" placeholder="Enter your email address" name="EMAIL" required autocomplete="off">
+                        <button type="submit" class="default-btn">Subscribe Now</button>
+                        <div id="validator-newsletter" class="form-result"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- End Subscribe Area -->
+
+{% endblock %}
+
+{% block specificScript %}
+<script src="{{ asset('Back/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
+
+<script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+<script>
+
+$(document).ready(function(){
+    console.log("ready");
+    
+    // ***********style review stars**************
+    $("span.oneStar").hover(function(e){
+        $("span.oneStar").css("color", "#FFD700");
+    })
+    $("span.oneStar").mouseleave(function(e){
+        $("span.oneStar").css("color", "#C0C0C0");
+    })
+    
+
+    $("span.twoStar").hover(function(e){
+        $("span.oneStar").css("color", "#FFD700");
+        $("span.twoStar").css("color", "#FFD700");
+    })
+    $("span.twoStar").mouseleave(function(e){
+        $("span.oneStar").css("color", "#C0C0C0");
+        $("span.twoStar").css("color", "#C0C0C0");
+    })
+
+    $("span.threeStar").hover(function(e){
+        $("span.oneStar").css("color", "#FFD700");
+        $("span.twoStar").css("color", "#FFD700");
+        $("span.threeStar").css("color", "#FFD700");
+    })
+    $("span.threeStar").mouseleave(function(e){
+        $("span.oneStar").css("color", "#C0C0C0");
+        $("span.twoStar").css("color", "#C0C0C0");
+        $("span.threeStar").css("color", "#C0C0C0");
+    })
+
+
+    $("span.fourStar").hover(function(e){
+        $("span.oneStar").css("color", "#FFD700");
+        $("span.twoStar").css("color", "#FFD700");
+        $("span.threeStar").css("color", "#FFD700");
+        $("span.fourStar").css("color", "#FFD700");
+    })
+    $("span.fourStar").mouseleave(function(e){
+        $("span.oneStar").css("color", "#C0C0C0");
+        $("span.twoStar").css("color", "#C0C0C0");
+        $("span.threeStar").css("color", "#C0C0C0");
+        $("span.fourStar").css("color", "#C0C0C0");
+    })
+
+
+    $("span.fiveStar").hover(function(e){
+        $("span.oneStar").css("color", "#FFD700");
+        $("span.twoStar").css("color", "#FFD700");
+        $("span.threeStar").css("color", "#FFD700");
+        $("span.fourStar").css("color", "#FFD700");
+        $("span.fiveStar").css("color", "#FFD700");
+    })
+    $("span.fiveStar").mouseleave(function(e){
+        $("span.oneStar").css("color", "#C0C0C0");
+        $("span.twoStar").css("color", "#C0C0C0");
+        $("span.threeStar").css("color", "#C0C0C0");
+        $("span.fourStar").css("color", "#C0C0C0");
+        $("span.fiveStar").css("color", "#C0C0C0");
+    })
+    // ***********end style review stars**************
+
+
+    $("a.oneStar").click(function(event){
+        event.preventDefault();
+        value=1;
+        console.log(value);
+        url = this.href;
+        console.log(url);
+        $.ajax({
+            url : url,
+            type: "POST",
+            data: {value: value},
+            success : function (data) {
+                console.log("success"+ data);
+                array= JSON.stringify(data);
+                console.log(array)
+            },
+            error   : function () {
+                console.log("ERROR");
+            }
+        });
+    });
+
+    $("a.twoStar").click(function(event){
+        event.preventDefault();
+        console.log("hellooooooooo");
+        value=2;
+        url = this.href;
+        console.log(url);
+        $.ajax({
+            url : url,
+            type: "POST",
+            data: {value: value},
+            success : function (data) {
+                console.log("success"+ data);
+                array= JSON.stringify(data);
+                console.log(array)
+            },
+            error   : function () {
+                console.log("ERROR");
+            }
+        });
+    });
+    $("a.threeStar").click(function(event){
+        event.preventDefault();
+        console.log("hellooooooooo");
+        value=3;
+        url = this.href;
+        console.log(url);
+        $.ajax({
+            url : url,
+            type: "POST",
+            data: {value: value},
+            success : function (data) {
+                console.log("success"+ data);
+                array= JSON.stringify(data);
+                console.log(array)
+            },
+            error   : function () {
+                console.log("ERROR");
+            }
+        });
+    });
+    $("a.fourStar").click(function(event){
+        event.preventDefault();
+        console.log("hellooooooooo");
+        value=4;
+        url = this.href;
+        console.log(url);
+        $.ajax({
+            url : url,
+            type: "POST",
+            data: {value: value},
+            success : function (data) {
+                console.log("success"+ data);
+                array= JSON.stringify(data);
+                console.log(array)
+            },
+            error   : function () {
+                console.log("ERROR");
+            }
+        });
+    });
+    $("a.fiveStar").click(function(event){
+        event.preventDefault();
+        console.log("hellooooooooo");
+        value=5;
+        url = this.href;
+        console.log(url);
+        $.ajax({
+            url : url,
+            type: "POST",
+            data: {value: value},
+            success : function (data) {
+                console.log("success"+ data);
+                array= JSON.stringify(data);
+                console.log(array)
+            },
+            error   : function () {
+                console.log("ERROR");
+            }
+        });
+    });
+
+
+    function filterFunction(){
+        searchString=$("#searchBox").val();
+        maxPrice=$(".irs-to").text();
+        minPrice=$(".irs-from").text();
+        categoryName = $("#CategoryFilter").val();
+        values = searchString+","+minPrice+","+maxPrice+","+categoryName;
+        console.log(values);
+        console.log(searchString);
+        console.log(maxPrice);
+        console.log(minPrice);
+        console.log(categoryName);
+        console.log("key presseddddddddddddd on search box");
+        $.ajax({
+            url : Routing.generate('app_product_FilteredProducts'),
+            type: "POST",
+            data: {values: values},
+            success : function (data) {
+                console.log("success"+ data);
+                array= JSON.parse(data);
+                ProductsList= document.querySelector(".ProductsList");
+                ProductsList.innerHTML='';
+                array.forEach(element => {
+                                    a1=document.createElement('a');
+                                    a1.setAttribute("href","{{ path('app_product_user_show', {'idProduct': "+element.idProduct+"}) }}");
+                                    img=document.createElement('img');
+                                    img.src="https://random.imagecdn.app/500/500";
+                                    a1.append(img);
+                                    a2=document.createElement('a');
+                                    a2.classList.add('add-to-cart-btn');
+                                    a2.innerHTML='Add To Cart';
+                                    a2.setAttribute("href","{{ path('cart_add', {'id':"+element.idProduct+"}) }}");
+                                productsImage=document.createElement('div');
+                                productsImage.classList.add('products-image');
+                                productsImage.append(a1,a2);
+
+                                span1=document.createElement('span');
+                                // span1.classList.add('sale');
+                                // span1.innerHTML='sale';
+                                   h3=document.createElement('h3');
+                                    h3.innerHTML=element.productName;
+                                    span2=document.createElement('span');
+                                    span2.classList.add('price');
+                                    span2.innerHTML=element.productPrice;
+                                productsContent=document.createElement('div');
+                                productsContent.append(h3,span2);
+                            singleProductsBox=document.createElement('div');
+                            singleProductsBox.classList.add('single-products-box');
+                            singleProductsBox.append(productsImage, span1,productsContent);
+                        
+                        singleProduct=document.createElement('div');
+                        singleProduct.classList.add('col-lg-3','col-md-4','col-sm-6', 'singleProduct');
+                        singleProduct.append(singleProductsBox);
+
+                    ProductsList.appendChild(singleProduct);
+                });
+            
+                // array.forEach(element => {
+                //     $(".single-products-box").html("Hello <b>"+element.productName+"</b>")
+                // });
+            },
+            error   : function () {
+                console.log("ERROR");
+            }
+        });
+    }
+
+
+    $(".irs-handle.to").mouseup(filterFunction);
+
+    $(".irs-handle.from").mouseup(filterFunction);
+
+    $("#CategoryFilter").on('change',filterFunction);
+
+    $("#searchBox").keyup(filterFunction);
+
+
+})
+
+
+/* ION SLIDER */
+    $('#range_1').ionRangeSlider({
+      min     : 0,
+      max     : 5000,
+      from    : 0,
+      to      : 5000,
+      type    : 'double',
+      step    : 1,
+      prefix  : ' DT ',
+      prettify: false,
+      hasGrid : true
+    })
+</script>
+
+{% endblock %}
