@@ -8,6 +8,75 @@
                 </div>
             </div>
         </section>
+         <div class="album py-5 ">
+        <div class="container">
+
+<h2>Search News</h2>
+<br>
+<hr>
+
+            <div class="sidebar-search">
+
+                <div class="input-group custom-search-form">
+
+                    <input type="text" id="search" class="form-control" placeholder="Search here">
+                </div>
+                <!-- /input-group -->
+            </div>
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="#">Info New <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" id="entitiesNav">
+                    </ul>
+                </li>
+              
+                </div>
+                
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    var searchRequest = null;
+                    $("#search").keyup(function() {
+                        var minlength = 1;
+                        var that = this;
+                        var value = $(this).val();
+                        var entitySelector = $("#entitiesNav").html('');
+                        if (value.length >= minlength ) {
+                            if (searchRequest != null)
+                                searchRequest.abort();
+                            searchRequest = $.ajax({
+                                type: "GET",
+                                url: "{{ path('ajax_search') }}",
+                                data: {
+                                    'q' : value
+                                },
+                                dataType: "text",
+                                success: function(msg){
+                                    //we need to check if the value is the same
+                                    if (value===$(that).val()) {
+                                        var result = JSON.parse(msg);
+                                        $.each(result, function(key, arr) {
+                                            $.each(arr, function(id, value) {
+                                                if (key === 'News') {
+                                                    if (id !== 'error') {
+                                                        console.log(value[1]);
+                                                        entitySelector.append('<li><b>'+'<label for="exampleInput">Title:</label>'+''+value[1]+'<br>'+'<label for="exampleInput">logo:</label>'+value[0]+'<br>'+'<label for="exampleInput">image background:</label>'+value[2]+'<br>'+'<label for="exampleInput">Description:</label>'+value[3]+'</b>'+'br'+'<div><a href="/News/'+id+'">'  +'<img src="{{ asset('uploads/dd.png') }}" alt="logo"> ' +'<label for="exampleInput">views details</label>'+'</a></div></li>');
+                                                    } else {
+                                                        entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+                </div>
+            </ul>
         <br><br>        <br><br>
  <br><br>        <br><br>
 
@@ -40,24 +109,18 @@
                                     </ul>
                                 </div>
             <div class="col-md-8">
-                <h3 class="mt-4 mt-md-0">{{ News.Title }}</h3>
+                <b>Titre:</b><h3 class="mt-4 mt-md-0">{{ News.Title }}</h3>
                
                 <hr>
                 <b>Description: </b><p>{{ News.description }}</p>
-                  
-               
-
-
+                      
                             
 
 
             </div>
             </div>
         </div>
-    </div>
-    </div>
-    </section>
-    <div class="comments-area">
+          <div class="comments-area">
 
                                 <ol class="comment-list">
                                 <h3 class="comments-title"> Comments:{{ News.comments|length }} </h3>
@@ -85,14 +148,31 @@
 
                                             <div class="comment-content">
                                                 <p>{{ comments.getText() }}</p>
-                                            </div>                                           
+                                            </div>     
+                                      
                                     <div class="reply">
-                                                <a href="#" class="comment-reply-link">Reply</a>
-                                            </div>
-                                        </article>
-                                      {% endfor %}
+                                                                                
 
-                                        
+                                                     
+                        <span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;<span id="likes-count">{{ comments.getlikes().count}}   </span>
+                        &nbsp;&nbsp;
+                                         <a href="#" class="comment-reply-link"><form class="comment-form" action="{{ path('add_Like') }}" method="post" id="comment">
+                                          <input type="submit" name="submit" id="submit" value="" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;">like
+
+                                 <input type="hidden" name="comments_id" value="{{comments.id}}">
+                                 </form>
+                                 </a>
+</span></a>
+ 
+                                                <a href="#" class="comment-reply-link">                               
+Reply</a>
+                                            </div>
+                                                                            
+
+                                        </article>
+
+                                                                    {% endfor %}
+   
             
                                                 
                                         
@@ -122,9 +202,89 @@
                                     <input type="hidden" name="news_id" value="{{News.id}}">
                                     </form>
                                 </div>
+                       </div>        
+    </div>
+    <div class="col-lg-4 col-md-12">
+                        <aside class="widget-area">
+                         
+
+                            <section class="widget widget_zelda_posts_thumb">
+                                <h3 class="widget-title">Popular Posts</h3>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg1" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <span>June 10, 2020</span>
+                                        <h4 class="title usmall"><a href="#">The Data Surrounding Higher Education</a></h4>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg2" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <span>June 21, 2020</span>
+                                        <h4 class="title usmall"><a href="#">Conversion Rate the Sales Funnel Optimization</a></h4>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg3" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <span>June 30, 2020</span>
+                                        <h4 class="title usmall"><a href="#">Business Data is changing the world’s Energy</a></h4>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </article>
+                            </section>
+
+                            <section class="widget widget_categories">
+                                <h3 class="widget-title">Categories</h3>
+
+                                <ul>
+                                                                {% for category in categorys  %}
+
+                                    <li><a href="{{ path("public_site_category", {'category': category.name}) }}">{{category.name}} <span class="post-count">{{ category.getNews().count }}</span></a></li>
+                                                                         {% endfor %}  
+
+                                </ul>
+                            </section>
+
+                            <section class="widget widget_tag_cloud">
+                                <h3 class="widget-title">Popular Tags</h3>
+
+                                <div class="tagcloud">
+                                {% for tag in News.tag  %}
+                                    <a href="{{ path("public_site_tag", {'tag': tag.text}) }}">
+                     <b>tags: </b> <p>{{tag.text}}</p>
+
+                     <span class="tag-link-count">{{ News.tag.count }} </span></a>
+                                     {% endfor %}  
+                                </div>
+                            </section>
+
+                            
+                        </aside>
+                    </div>
+    </div>
+    </section>
+    
                             </div>
+                            
+                   
 
       </div>
+      
       
  <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 

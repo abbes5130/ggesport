@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,6 +11,16 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Form\NewsType;
 use App\Entity\Comments;
 use App\Entity\News;
+use App\Entity\Category;
+
+use App\Entity\Likes;
+use Prophecy\Argument\Token\TokenInterface;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\DependencyInjection\TaggedContainerInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
+use Knp\Component\Pager\PaginatorInterface ;
+
 class NewsController extends AbstractController
 {
     /**
@@ -17,6 +28,7 @@ class NewsController extends AbstractController
      */
     public function index(): Response
     {
+        
         return $this->render('news/actualite/index.html.twig', [
             'controller_name' => 'NewsController',
         ]);
@@ -69,7 +81,8 @@ class NewsController extends AbstractController
     $form->handleRequest($request);
     if($form->isSubmitted()){
         //$file = $p->getImg();
-        //$file1 = $p->getBgImg();
+                //$file1 = $p->getBgImg();
+
         $file = $form->get('img')->getData();
         $file1 = $form->get('bg_img')->getData();
         $filename1= md5(uniqid()) . '.' . $file1->guessExtension();
@@ -92,7 +105,7 @@ return $this->render('news/actualite/update.html.twig', array(
     "form"=> $form->createView()
 ));
 }
-public function deletenewsAction(Request $request)
+public function deletenewsAction(Request $request ,TaggedContainerInterface $s)
 {
     $id = $request->get('id');
     $em= $this->getDoctrine()->getManager();
@@ -111,6 +124,7 @@ public function addCommentAction(Request $request)
         ->findPostByid($request->request->get('news_id'));
 
     $comment = new Comments();
+    //$container=$request->request->get('comment');
 
     $comment->setNews($post);
     $comment->setText($request->request->get('comment'));
@@ -118,10 +132,17 @@ public function addCommentAction(Request $request)
     $em = $this->getDoctrine()->getManager();
     $em->persist($comment);
     $em->flush();
+    //$message = new \MartinGeorgiev\SocialPost\Message('your test message');
+       //dd($message); 
+       
+       //dd($container); 
+     // $container->get('social_post')->publish($message);
+  // $user-> $em->getParameter('social_post')->publish($message);
 
     $this->addFlash(
         'info', 'Comment published !.'
     );
+
 
     return $this->redirect($ref);
 }
@@ -137,10 +158,35 @@ $em->flush();
 return $this->redirectToRoute('News/{id}');
 }
 
-public function showdetailedAction($id)
+public function showdetailedAction1($id,$id1)
 {
     $em= $this->getDoctrine()->getManager();
     $p=$em->getRepository(News::class)->find($id);
+    $c=$em->getRepository(Category::class)->find($id);
+
+    $a=$em->getRepository(Comments::class)->find($id1);
+
+    return $this->render('news/details/detail.html.twig', array(  
+        'title'=>$p->getTitle(),
+        'bg_img'=>$p->getBgImg(),
+        'img'=>$p->getImg(),
+        'descripion'=>$p->getDescription(),
+        'creation_date'=>$p->getCreationDate(),
+        'News'=>$p,   
+        'id'=>$a->getId(),
+        'comments'=>$a,
+        'Likes'=>$a,
+        'category'=>$c,
+
+    ));
+}
+public function showdetailedAction($id)
+{
+    
+    $em= $this->getDoctrine()->getManager();
+    $p=$em->getRepository(News::class)->find($id);
+    $category = $this->getDoctrine()->getRepository(Category::class)->findAll();
+
     return $this->render('news/details/detail.html.twig', array(
         'title'=>$p->getTitle(),
         'bg_img'=>$p->getBgImg(),
@@ -149,7 +195,76 @@ public function showdetailedAction($id)
         'creation_date'=>$p->getCreationDate(),
         'News'=>$p,
         'Comments'=>$p,
-        'id'=>$p->getId()
+        'tag'=>$p,
+        'id'=>$p->getId(),
+        'id1'=>$p->getComments(),
+        "categorys" => $category
+
+
+        
     ));
 }
+public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+        $posts =  $em->getRepository('App:News')->findEntitiesByString($requestString);
+        if(!$posts) {
+            $result['News']['error'] = "News Not found :( ";
+        } else {
+            $result['News'] = $this->getRealEntities($posts);
+        }
+        return new Response(json_encode($result));
+    }
+    public function getRealEntities($posts){
+        // 
+       // 
+        //
+        //
+        
+        // //$file = $p->getImg();
+        //$file1 = $p->getBgImg();
+        //
+        foreach ($posts as $posts){
+            //$file = $posts->get('img')->getData();
+           // $file1 = $posts->get('bg_img')->getData()
+           
+            //$file1->move($this->getParameter('news_directory'), $filename1);
+            //$file->move($this->getParameter('news_directory'), $filename);
+            $realEntities[$posts->getId()] = [$posts->getImg(),$posts->getTitle(), $posts->getBgImg(),$posts->getDescription()];
+
+        }
+        return $realEntities;
+    }
+  
+      /**
+     * @Route("/addlike")
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function likeAction(Request $request)
+    {
+        $ref = $request->headers->get('referer');
+
+        $comment = $this->getDoctrine()
+        ->getRepository(Comments::class)
+        ->findPostByid($request->request->get('comments_id'));
+       // $comment = $this->getDoctrine()->getRepository(Comments::class)->find(Request::createFromGlobals()->request->get('id'));
+
+        
+       //if (!$this->getDoctrine()->getRepository(Likes::class)->findOneBy(['Comments' => $comment->getId()])) {
+            $like = new Likes();
+            $like->setComments($comment);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($like);
+            $em->flush();
+
+            return $this->redirect($ref);
+
+       // }
+    }
+     
+    
+
+   
 }

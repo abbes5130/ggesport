@@ -64,13 +64,13 @@
 								</span>
 							</td>
                 <td>{{ News.title }}</td>
-                 <td> <div class="filter-container p-1 row">  <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="{{ asset('uploads/' ~ News.bgimg) }}" data-toggle="lightbox" data-title="sample 1 - white">
+                 <td> <div class="container p-1 row">  <div class="filtr-item col-sm-2" data-category="" data-sort="">
+                      <a href="{{ asset('uploads/' ~ News.bgimg) }}" data-toggle="" data-title="sample 1 - white">
                          <img   src="{{ asset('uploads/' ~ News.bgimg) }} "  class="logo" alt="white sample"/>
                       </a>
                     </div></div></td>
-              <td>    <div class="filter-container p-1 row"> <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="{{ asset('uploads/' ~ News.img) }}" data-toggle="lightbox" data-title="sample 1 - white">
+              <td>    <div class="container p-1 row"> <div class="filtr-item col-sm-2" data-category="" data-sort="">
+                      <a href="{{ asset('uploads/' ~ News.img) }}" data-toggle="" data-title="sample 1 - white">
                         <img src="{{ asset('uploads/' ~ News.img) }}" class="img-fluid mb-2" alt="white sample"/>
                       </a></div></div></td>
                 <td>{{ News.creationDate ? News.creationDate|date('Y-m-d') : '' }}</td>
@@ -97,8 +97,20 @@
                            {% endfor %}
 
                   </tbody>
+       
                 </table>
-            
+                         <!-- /.card-body -->
+        <div class="card-footer">
+         <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
        
@@ -114,18 +126,7 @@
 
         
      
-        <!-- /.card-body -->
-        <div class="card-footer">
-         <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
+      
         </div>
         <!-- /.card-footer-->
       </div>

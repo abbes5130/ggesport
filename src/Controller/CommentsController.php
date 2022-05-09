@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 use App\Entity\News;
+use App\Entity\Likes;
+
 use App\Form\NewsType;
 
 use App\Entity\Comments;
@@ -13,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Knp\Component\Pager\PaginatorInterface ;
 /**
  * @Route("/comments")
  */
@@ -22,11 +24,19 @@ class CommentsController extends AbstractController
     /**
      * @Route("/comments", name="index2", methods={"GET"})
      */
-    public function index(CommentsRepository $commentsRepository,NewsRepository $NewsRepository): Response
+    public function index(CommentsRepository $commentsRepository,Request $request, PaginatorInterface $paginator,NewsRepository $NewsRepository ): Response
     {
+        $search = $request->query->get('search');
+        $queryBuilder = $commentsRepository->getWithSearchQueryBuilder($search);
+        $pagination = $paginator->paginate(
+            $queryBuilder, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
         return $this->render('comments/index.html.twig', [
             'comments' => $commentsRepository->findAll(),
             'news' => $NewsRepository->findAll(),
+            'pagination' => $pagination,
 
         ]);
     }
@@ -89,7 +99,7 @@ class CommentsController extends AbstractController
     
             $this->addFlash(
                 'info', 'News added !.' );
-    
+               
                 return $this->redirect($ref);
     
     }
@@ -166,5 +176,49 @@ public function ListNews()
     return $this->render('news1/index.html.twig', [
     ]);
 }
+   /**
+     * @Route("/Comments/like")
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function likeAction()
+    {
 
+        $comment = $this->getDoctrine()->getRepository(Comments::class)->find(Request::createFromGlobals()->request->get('id'));
+
+        
+        if (!$this->getDoctrine()->getRepository(Likes::class)->findOneBy(['Comments' => $comment->getId()])) {
+            $like = new Likes();
+            $like->setComments($comment);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($like);
+            $em->flush();
+
+            return $this->json([
+                'success' => true,
+                'likesCount' => $comment->getLikes()->count()
+            ]);
+        }
+    }
+
+    /**
+     * @Route("/Comments/unlike")
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function unlikeAction()
+    {
+
+        $id = Request::createFromGlobals()->request->get('id');
+
+        if ($like = $this->getDoctrine()->getRepository(Likes::class)->findOneBy(['Comments' => $id])) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($like);
+            $em->flush();
+
+            return $this->json([
+                'success' => true,
+                'likesCount' => $this->getDoctrine()->getRepository(Comments::class)->find($id)->getLikes()->count()
+            ]);
+        }
+    }
 }

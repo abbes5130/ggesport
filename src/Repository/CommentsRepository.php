@@ -7,7 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Doctrine\ORM\QueryBuilder;
 /**
  * @method Comments|null find($id, $lockMode = null, $lockVersion = null)
  * @method Comments|null findOneBy(array $criteria, array $orderBy = null)
@@ -43,7 +43,54 @@ class CommentsRepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+      
     }
+    public function getWithSearchQueryBuilder(?string $term): QueryBuilder
+    {
+        $q = $this->createQueryBuilder('c')
+            ->innerJoin('c.News', 'a')
+            ->addSelect('a');
+
+        if($term) {
+            $q->andWhere('c.text  LIKE :term OR a.title LIKE :term')
+                ->setParameter('term', '%'.$term.'%')
+            ;
+        }
+        return $q
+            ->orderBy('c.comment_date', 'DESC');
+    }
+    public function findPostByid($id)
+    {
+        try {
+            return $this->getEntityManager()
+                ->createQuery(
+                    "SELECT c
+                FROM App:Comments
+                c WHERE c.id =:id"
+                )
+                ->setParameter('id', $id)
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+        }
+    }
+    public function findnewsByid($id)
+    {
+        try {
+            return $this->getEntityManager()
+                ->createQuery(
+                    "SELECT a.id
+                FROM App:News
+                a WHERE a.id =:id"
+                )
+                ->setParameter('id', $id)
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+        }
+    }
+
+   
+
+    
 
     // /**
     //  * @return Comments[] Returns an array of Comments objects

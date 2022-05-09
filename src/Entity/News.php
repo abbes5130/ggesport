@@ -7,6 +7,7 @@ use App\Repository\NewsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=NewsRepository::class)
@@ -19,10 +20,11 @@ class News
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
-    /**
+    /** 
      * @ORM\Column(type="string")
      *  @Assert\Length(
      *      min = 2,
@@ -31,6 +33,7 @@ class News
      *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
      * )
      * @Assert\NotNull
+     * @Groups("post:read")
      */
     private $title;
 
@@ -38,17 +41,19 @@ class News
      * @ORM\Column(type="string", length=500, nullable=true)
       * @Assert\File(maxSize="500k", mimeTypes={"image/jpeg", "image/jpg", "image/png", "image/GIF"})
       *@Assert\NotNull
+      *@Groups("post:read")
       */
     private $bg_img;
 
     /**
      * @ORM\Column(type="string", length=500)
      * @Assert\File(maxSize="500k", mimeTypes={"image/jpeg", "image/jpg", "image/png", "image/GIF"})
+     * @Groups("post:read")
       */
     private $img;
 
     /**
-     * @ORM\Column(type="string")
+* @ORM\Column(type="string")
       * @Assert\Length(
      *      min = 2,
      *      max = 50,
@@ -57,20 +62,31 @@ class News
      * 
      * )
      * @Assert\NotNull
+     * @Groups("post:read")
      */
     private $description;
 
     /**
      *@var \DateTime
      * @ORM\Column(type="date",name="creation_date")
+     * @Groups("post:read")
      */
     private $creation_date;
 
-    /**
+  /**
      * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="News")
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="News")
+     */
+    private $tag;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="News")
+     */
+    private $category;
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -178,4 +194,43 @@ class News
 
         return $this;
     }
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTag(): Collection
+    {
+        return $this->tag;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tag->contains($tag)) {
+            $this->tag[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        if ($this->tag->contains($tag)) {
+            $this->tag->removeElement($tag);
+        }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+
 }

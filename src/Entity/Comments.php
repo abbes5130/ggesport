@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\CommentsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=CommentsRepository::class)
@@ -15,18 +18,21 @@ class Comments
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @var string
      * @ORM\Column(type="text", unique=false)
+     * @Groups("post:read")
      */
     private $text;
 
     /**
      * @var \DateTime
      * @ORM\Column(type="date",name="comment_date")
+     * @Groups("post:read")
      */
     private $comment_date;
 
@@ -35,6 +41,10 @@ class Comments
      * @ORM\JoinColumn(name="news_id", referencedColumnName="id")
      */
     private $News;
+     /**
+     * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="comments", cascade={"persist", "remove"})
+     */
+    private $likes;
 
     public function getId(): ?int
     {
@@ -88,4 +98,35 @@ class Comments
 {
     return (string) $this->getNews();
 }
+ /**
+     * @return Collection|Likes[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Likes $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setComments($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Likes $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getComments() === $this) {
+                $like->setComments(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

@@ -7,6 +7,9 @@ index:
 home:
     path: /home
     controller: App\Controller\HomeController::index
+home1:
+    path: "/tag/{id}"
+    controller: App\Controller\NewsController::tagAction
 update_news:
     path: /updatenews/{id}
     controller: App\Controller\NewsController::updatenewsAction 
@@ -19,9 +22,16 @@ add_comment:
 delete_comment:
     path: /delete_comment/{id}
     controller: App\Controller\NewsController::deleteCommentAction 
+add_Like:
+    path: /addlike
+    controller: App\Controller\NewsController::likeAction
+
 detailed_News:
     path: /News/{id}
     controller : App\Controller\NewsController::showdetailedAction 
+detailed_comment:
+    path: /News/{id}/
+    controller : App\Controller\NewsController::showdetailedAction1 
 index1:
     path: /news1
     controller: App\Controller\News1Controller::index   
@@ -64,3 +74,22 @@ delete_Comments:
 add_Comments1:
     path: /addcomment1
     controller: App\Controller\CommentsController::addCommentsAction       
+ajax_search:
+    path:     /search
+    controller: App\Controller\NewsController::searchAction 
+tag_index:
+    path: /tag
+    controller: App\Controller\TagController::index   
+tag_new:
+    path: /newtag
+    controller: App\Controller\TagController::new   
+tags_show:
+    path: /Tagss/{id}
+    controller: App\Controller\TagController::show    
+tags_edit:
+    path: /Tagsss/{id}
+    controller: App\Controller\TagController::edit  
+tags_delete:
+    path: /Tagss/{id}
+    controller: App\Controller\TagController::delete 
+

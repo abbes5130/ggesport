@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Repository;
+use App\Entity\Tag;
+use App\Entity\Category;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use App\Entity\News;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Doctrine\ORM\Tools\Pagination\Paginator;
 /**
  * @method News|null find($id, $lockMode = null, $lockVersion = null)
  * @method News|null findOneBy(array $criteria, array $orderBy = null)
@@ -87,4 +90,89 @@ class NewsRepository extends ServiceEntityRepository
         } catch (NonUniqueResultException $e) {
         }
     }
+    public function findEntitiesByString($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT n
+                FROM App:News n
+                WHERE n.title LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }  
+     /**
+     * @param int $page
+     * @param int $max
+     * @param null $tag
+     * @return Paginator
+     */
+    public function findByPage($page = 1, $max = 2, $tag = null)
+    {
+        $dql = $this->createQueryBuilder('News');
+        if (!$tag) {
+            $dql->orderBy('News.creation_date', 'DESC');
+        } else {
+            $matchedTag = $this->getEntityManager()->getRepository(Tag::class)->findOneBy(["text" => $tag]);
+            $dql->innerJoin("News.tag", "tag")
+                ->orderBy('News.creation_date', 'DESC')
+                ->Where("tag.id = '" . $matchedTag->getId() . "'");
+        }
+        $firstResult = ($page - 1) * $max;
+
+        $query = $dql->getQuery();
+        $query->setFirstResult($firstResult);
+        $query->setMaxResults($max);
+
+        $paginator = new Paginator($query);
+
+        if (($paginator->count() <= $firstResult) && $page != 1) {
+            throw new NotFoundHttpException('Page not found');
+        }
+
+        return $paginator;
+    }
+
+    public function findArticlesByCategoryQuery($id)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->join('a.category', 'c')
+            ->where('c.id = :category_id')
+            ->orderBy('a.creation_date', 'DESC')
+            ->setParameter('category_id', $id)
+            ->getQuery()
+            ;
+    }
+    /**
+     * @param int $page
+     * @param int $max
+     * @param null $category
+     * @return Paginator
+     */
+    public function findByPage1($page = 1, $max = 2, $category = null)
+    {
+        $dql = $this->createQueryBuilder('News');
+        if (!$category) {
+            $dql->orderBy('News.creation_date', 'DESC');
+        } else {
+            $matchedTag = $this->getEntityManager()->getRepository(Category::class)->findOneBy(["name" => $category]);
+            $dql->innerJoin("News.category", "category")
+                ->orderBy('News.creation_date', 'DESC')
+                ->Where("category.id = '" . $matchedTag->getId() . "'");
+        }
+        $firstResult = ($page - 1) * $max;
+
+        $query = $dql->getQuery();
+        $query->setFirstResult($firstResult);
+        $query->setMaxResults($max);
+
+        $paginator = new Paginator($query);
+
+        if (($paginator->count() <= $firstResult) && $page != 1) {
+            throw new NotFoundHttpException('Page not found');
+        }
+
+        return $paginator;
+    }
+
 }
