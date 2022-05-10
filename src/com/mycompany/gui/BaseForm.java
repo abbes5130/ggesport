@@ -84,6 +84,7 @@ public class BaseForm extends Form {
         
         tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
         tb.addMaterialCommandToSideMenu("Teams", FontImage.MATERIAL_PEOPLE, e -> new TeamForm().show());
+             tb.addMaterialCommandToSideMenu("Matches", FontImage.MATERIAL_CALENDAR_TODAY, e -> new HomeForm().show());
         tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res).show());
         tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
     }
