@@ -11,7 +11,11 @@ JAR files manifest file (MANIFEST.MF).
 To run the project from the command line, go to the dist folder and
 type the following:
 
+<<<<<<< HEAD
 java -jar "PidDev.jar" 
+=======
+java -jar "WorkshopParsingJson.jar" 
+>>>>>>> b1acb714e695e1213b4575a74644f184e3f6b791
 
 To distribute this project, zip up the dist folder (including the lib folder)
 and distribute the ZIP file.

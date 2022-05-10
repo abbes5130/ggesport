@@ -19,7 +19,11 @@ is divided into following sections:
   - cleanup
 
         -->
+<<<<<<< HEAD
 <project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="PidDev-impl">
+=======
+<project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="WorkshopOarsingJson-impl">
+>>>>>>> b1acb714e695e1213b4575a74644f184e3f6b791
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>
@@ -443,7 +447,11 @@ is divided into following sections:
                     </fileset>
                 </union>
                 <taskdef classname="org.testng.TestNGAntTask" classpath="${run.test.classpath}" name="testng"/>
+<<<<<<< HEAD
                 <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="PidDev" testname="TestNG tests" workingDir="${work.dir}">
+=======
+                <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="WorkshopOarsingJson" testname="TestNG tests" workingDir="${work.dir}">
+>>>>>>> b1acb714e695e1213b4575a74644f184e3f6b791
                     <xmlfileset dir="${build.test.classes.dir}" includes="@{testincludes}"/>
                     <propertyset>
                         <propertyref prefix="test-sys-prop."/>
@@ -594,7 +602,11 @@ is divided into following sections:
                 <condition else="-testclass @{testClass}" property="test.class.or.method" value="-methods @{testClass}.@{testMethod}">
                     <isset property="test.method"/>
                 </condition>
+<<<<<<< HEAD
                 <condition else="-suitename PidDev -testname @{testClass} ${test.class.or.method}" property="testng.cmd.args" value="@{testClass}">
+=======
+                <condition else="-suitename WorkshopOarsingJson -testname @{testClass} ${test.class.or.method}" property="testng.cmd.args" value="@{testClass}">
+>>>>>>> b1acb714e695e1213b4575a74644f184e3f6b791
                     <matches pattern=".*\.xml" string="@{testClass}"/>
                 </condition>
                 <delete dir="${build.test.results.dir}" quiet="true"/>
@@ -886,7 +898,11 @@ is divided into following sections:
         <delete file="${built-jar.properties}" quiet="true"/>
     </target>
     <target if="already.built.jar.${basedir}" name="-warn-already-built-jar">
+<<<<<<< HEAD
         <echo level="warn" message="Cycle detected: PidDev was already built"/>
+=======
+        <echo level="warn" message="Cycle detected: WorkshopOarsingJson was already built"/>
+>>>>>>> b1acb714e695e1213b4575a74644f184e3f6b791
     </target>
     <target depends="init,-deps-jar-init" name="deps-jar" unless="no.deps">
         <mkdir dir="${build.dir}"/>
@@ -1371,7 +1387,11 @@ is divided into following sections:
         <delete file="${built-clean.properties}" quiet="true"/>
     </target>
     <target if="already.built.clean.${basedir}" name="-warn-already-built-clean">
+<<<<<<< HEAD
         <echo level="warn" message="Cycle detected: PidDev was already built"/>
+=======
+        <echo level="warn" message="Cycle detected: WorkshopOarsingJson was already built"/>
+>>>>>>> b1acb714e695e1213b4575a74644f184e3f6b791
     </target>
     <target depends="init,-deps-clean-init" name="deps-clean" unless="no.deps">
         <mkdir dir="${build.dir}"/>

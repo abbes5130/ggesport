@@ -3,7 +3,11 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>PidDev</name>
+=======
+            <name>WorkshopParsingJson</name>
+>>>>>>> b1acb714e695e1213b4575a74644f184e3f6b791
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
