@@ -24,6 +24,7 @@
     <title>GGesports - eSports & Gaming Template</title>
 
     <link rel="icon" type="image/png" href="{{ asset('Front/assets/img/favicon.png') }}">
+
 </head>
 
 <body>
@@ -33,10 +34,12 @@
     <div class="zelda-responsive-nav">
         <div class="container">
             <div class="zelda-responsive-menu">
+
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{ path('hom') }}">
                         <img src="{{ asset('Front/assets/img/logo.png') }}" alt="logo">
                     </a>
+
                 </div>
             </div>
         </div>
@@ -53,7 +56,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="#" class="nav-link active">Home <i class="flaticon-down-arrow"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="index.html" class="nav-link active">Main Home</a></li>
+                                <li class="nav-item"><a href="{{ path('hom') }}" class="nav-link active">Main Home</a></li>
 
                                 <li class="nav-item"><a href="index-2.html" class="nav-link">Esports Home</a></li>
 
@@ -109,7 +112,7 @@
 
                                 <li class="nav-item"><a href="single-products.html" class="nav-link">Products Details</a></li>
 
-                                <li class="nav-item"><a href="my-account.html" class="nav-link">My Account</a></li>
+                                <li class="nav-item"><a href="{{ path('app_login') }}" class="nav-link">My Account</a></li>
                             </ul>
                         </li>
 
@@ -137,7 +140,15 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Profile</a>
+                        <ul class="dropdown-menu">
+                            {% if app.user !=null %}
+                                <li class="nav-item"><a href="#" class="nav-link">{{ app.user.firstname }}</a></li>
+
+
+                            {% endif %}
+                        </ul>
+                </li>
                     </ul>
 
                     <div class="others-option d-flex align-items-center">

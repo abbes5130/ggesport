@@ -107,7 +107,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return new RedirectResponse($this->urlGenerator->generate('app_users_index'));
         }
         elseif (in_array('Membre',$user->getRoles(),true)&&($user->getSalt()=='Not_blocked')){
-        return new RedirectResponse($this->urlGenerator->generate('app_role_index'));
+        return new RedirectResponse($this->urlGenerator->generate('hom'));
         }
         return new RedirectResponse($this->urlGenerator->generate('error'));
     }

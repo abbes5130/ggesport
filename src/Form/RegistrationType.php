@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Role;
 use App\Entity\Users;
+use App\Repository\RoleRepository;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -28,9 +30,23 @@ class RegistrationType extends AbstractType
                 'second_options'=>['label'=>'confirm Password']
         ])
             ->add('phoneNumber')
-            ->add('idRole',EntityType::class,['class'=>Role::class,'choice_label'=>'rolename'])
+           // ->add('idRole',EntityType::class,['class'=>Role::class,'choice_label'=>'rolename']);
+            ->add('idRole', EntityType::class,[
+                        'class' => Role::class,
+                        'choice_label' => 'rolename',
+                       'query_builder' => function(EntityRepository $repository){
+                            return $repository->createQueryBuilder('r')->where('r.rolename LIKE ?1') ->setParameter('1', 'Membre');
+
+                       }
+                                ])
+
             ->add('captchaCode', CaptchaType::class, array(
-                'captchaConfig' => 'ExampleCaptcha'
+                'captchaConfig' => 'ExampleCaptchaUserRegistration',
+                'constraints' => [
+                    new ValidCaptcha([
+                        'message' => 'Invalid captcha, please try again',
+                    ]),
+                ],
             ));
 
     }

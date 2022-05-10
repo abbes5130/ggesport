@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Users;
 use App\Form\UsersType;
 use App\Repository\UsersRepository;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
+use Doctrine\DBAL\Driver\PDO\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -12,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
  * @Route("/Users")
@@ -122,30 +125,37 @@ class UsersController extends AbstractController
 
     }
 
-    /**
-     *
-     * @Route("/recherche", name="recherche")
-     *
-     *
-     *
-     */
-    public function recherche(UsersRepository $repository,Request $request){
-        $data=$request->get('search');
-        $user=$repository->findBy(['lastname'=>$data]);
-        return $this->render('users/index.html.twig',['users'=>$user]);
 
-    }
 
     /**
 
      * @Route ("/Block/{id}", name="app_users_block")
      */
-    public function blocker($id,UsersRepository $repository){
+    public function blocker($id,UsersRepository $repository,\Swift_Mailer $mailer){
         $user =$repository->find($id);
         $user ->setCheckAccount('Blocked');
         $em=$this->getDoctrine()->getManager();
 
         $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $u= $user ->getEmail();
+
+
+
+        $message = (new \Swift_Message('New'))
+            ->setFrom('ggesporttn@gmail.com')
+            ->setTo($u)
+            ->setSubject('[Etat du compte]')
+            ->setBody(
+                $this->renderView(
+                    'mail/sendi.html.twig',['user'=>$user]),
+
+                'text/html'
+            );
+
+
+
+        $mailer->send($message);
 
         return $this->redirectToRoute('app_users_index');
 
@@ -166,14 +176,35 @@ class UsersController extends AbstractController
     }
 
 
-    /**
 
-     * @Route ("/home", name="home")
+    /**
+     * @Route("/bot/{id}", name="botzakazikou")
      */
-    public function home_page(){
-        return $this->render('users/home.html.twig', [
-            'users' => $this->getUser(),
-        ]);
+    public function bot( \Swift_Mailer $mailer, UsersRepository $repository, Users $users,$id): Response
+    {
+
+        $users = $repository->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $u= $users ->getEmail();
+
+
+
+        $message = (new \Swift_Message('New'))
+            ->setFrom('ggesporttn@gmail.com')
+            ->setTo($u)
+            ->setSubject('[Votre Conge expire dans 3 jours]')
+            ->setBody(
+                $this->renderView(
+                    'mail/sendi.html.twig',['user'=>$users]),
+
+                'text/html'
+            );
+
+
+
+        $mailer->send($message);
+        return $this->render('mail/request.html.twig',['user'=>$users]);
     }
+
 }
 

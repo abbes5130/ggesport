@@ -1,12 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'OnlyNavBar.html.twig' %}
 
 {% block title %}Reset your password{% endblock %}
 
 {% block body %}
+<section class="page-title-area page-title-bg1">
+    <div class="container">
+        <div class="page-title-content">
+            <h1 title="MY ACCOUNT">RESET PASSWORD</h1>
+        </div>
+    </div>
+</section>
+<section class="profile-authentication-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="login-form">
+
     <h1>Reset your password</h1>
 
     {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}
         <button class="btn btn-primary">Reset password</button>
     {{ form_end(resetForm) }}
+                </div></div></div></div></section>
 {% endblock %}

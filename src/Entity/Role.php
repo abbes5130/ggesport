@@ -5,6 +5,7 @@ namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +23,9 @@ class Role
      * @ORM\Column(name="id_role", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *  @Groups ("Users")
+
+
      */
     private $idRole;
 
@@ -30,10 +34,13 @@ class Role
      *  @Assert\NotBlank(message="veuillez rentrez vos données")
      * @Assert\Type("string")
      * @ORM\Column(name="rolename", type="string", length=255, nullable=false)
+     * @Groups ("Users")
      */
     private $rolename;
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Users", mappedBy="Role")
+
+
      */
     private $utilisateur;
 
@@ -48,6 +55,16 @@ class Role
     {
         return $this->idRole;
     }
+
+    /**
+     * @param int $idRole
+     */
+    public function setIdRole(int $idRole): void
+    {
+        $this->idRole = $idRole;
+    }
+
+
 
     public function getRolename(): ?string
     {

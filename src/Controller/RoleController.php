@@ -104,4 +104,5 @@ class RoleController extends AbstractController
 
         return $this->redirectToRoute('app_role_index');
     }
+
 }
