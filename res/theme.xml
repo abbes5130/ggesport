@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="11" useXmlUI="false">
+    <image name="0b7db72acf78ee7489881406be9cc656.png"  />
+    <image name="1afa426deb15fcf6940514869b429ad4.png"  />
+    <image name="1f7357f5862b54b80853258ec72c6665.png"  />
+    <image name="1f9b767da6e0bafe9f7206c028717c37.png"  />
+    <image name="2a962c8be012d90f5cd79fe40050c6aa.png"  />
+    <image name="2b3ab8b510e7352dd2c9bdf0bce9a3fe.png"  />
+    <image name="3c01fdd6de4aa426ef7e29c91e09f2e0.png"  />
+    <image name="3e641c946bb0567a46fef378104cdd62.png"  />
+    <image name="3e738fdb3e05fed1af0e47d440e0e2bf.png"  />
+    <image name="4a3f3ca2bc45e59f1acd0654490088f1.png"  />
+    <image name="4d7b74654f240503c3733718d1d9e2bb.png"  />
+    <image name="5a67ef46cfe19291d2a9c569a813f2f6.png"  />
+    <image name="6cd3a1e6e711270a1592e33168916c8f.png"  />
+    <image name="6d2e1832131e894f892d1f9a5c376b63.png"  />
+    <image name="6dd052b1edf6c878785cd26def0cd39d.png"  />
+    <image name="6ffd190ad4a58cd5c1bf3c404579ce40.png"  />
+    <image name="7ba1f8b3b535c79727540f3208fe5b2d.png"  />
+    <image name="801fb73b4307462751a84d6fd1b1eb80.png"  />
+    <image name="e061b7144fd012f5c38d917978b05d8f.png"  />
+    <image name="e14f3cd28539646380092fa578bf82f3.png"  />
+    <image name="e235fdcde8599d845953f29b86db8c34.png"  />
+    <image name="e36c1e9d0187a81e1f580e5f31969add.png"  />
+    <image name="e7117f970cb00b9a71fb0c3bb55192d5.png"  />
+    <image name="e8080c311ce2f14efef6c70eb0b2c509.png"  />
+    <image name="e8d37474cb34fe99ef7bb7db2ed2684b.png"  />
+    <image name="ea702fcda9e17441fe9fdeac0f724756.png"  />
+    <image name="f0883d1412cdd2dceef51a79e82bf5e7.png"  />
+    <image name="fafbe76f42a00529871445c601a0b4eb.png"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+    </theme>
+    <theme name="Theme 1">
+    </theme>
+</resource>
