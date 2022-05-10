@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Matches
@@ -19,6 +21,7 @@ class Matches
      * @ORM\Column(name="id_match", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("matches")
      */
     private $idMatch;
 
@@ -26,6 +29,7 @@ class Matches
      * @var \DateTime
      *
      * @ORM\Column(name="time", type="time", nullable=false)
+     * @Groups("matches")
      */
     private $time;
 
@@ -33,6 +37,7 @@ class Matches
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="date", nullable=false)
+     * @Groups("matches")
      */
     private $date;
 
@@ -46,6 +51,7 @@ class Matches
      *      minMessage = "Your location must be at least {{ limit }} characters long",
      *      maxMessage = "Your location cannot be longer than {{ limit }} characters"
      * )
+     * @Groups("matches")
      */
     private $location;
 
@@ -54,6 +60,7 @@ class Matches
      *
      * @ORM\Column(name="nb_seats", type="integer", nullable=true)
      * @Assert\NotBlank
+     * @Groups("matches")
      */
     private $nbSeats;
 
@@ -62,6 +69,7 @@ class Matches
      *
      * @ORM\Column(name="price", type="integer", nullable=false)
      * @Assert\NotBlank
+     * @Groups("matches")
      */
     private $price;
 
@@ -75,6 +83,7 @@ class Matches
      *      minMessage = "Your link must be at least {{ limit }} characters long",
      *      maxMessage = "Your link cannot be longer than {{ limit }} characters"
      * )
+     * @Groups("matches")
 
      */
     private $link;
@@ -86,6 +95,7 @@ class Matches
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Team_1", referencedColumnName="id_team")
      * })
+     * @Groups("matches")
      */
     private $idTeam1;
 
@@ -96,6 +106,7 @@ class Matches
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Team_2", referencedColumnName="id_team")
      * })
+     * @Groups("matches")
      */
     private $idTeam2;
 
