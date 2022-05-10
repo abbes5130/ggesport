@@ -64,7 +64,7 @@ public class ActivateForm extends BaseForm {
         
         add(BorderLayout.NORTH, 
                 BoxLayout.encloseY(
-                        new Label(res.getImage("oublie.png"), "LogoLabel"),
+                        new Label(res.getImage(""), "LogoLabel"),
                         new Label("Awsome Thanks!", "LogoLabel")
                 )
         );
