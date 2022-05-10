@@ -2,12 +2,18 @@
 
 namespace App\Controller;
 
+use DateTime;
+use App\Entity\Users;
+use App\Entity\Orders;
 use App\Services\CartService;
+use App\Repository\userRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CartController extends AbstractController
@@ -92,4 +98,36 @@ class CartController extends AbstractController
         // return new JsonResponse($jsonData);
 
     }
+
+    /**
+     * @Route("/checkout", name="checkout")
+     */
+    public function checkout(CartService $cartService)
+    {
+        // dd($cartService->getFullCart());
+
+        return $this->render('cart/checkout.html.twig', [
+            'items' => $cartService->getFullCart(),
+            'total' => $cartService-> getTotal()
+        ]);
+    }
+
+    /**
+     * @Route("/order", name="order", methods={"GET"})
+     */
+    public function order(Request $request, CartService $cartService, EntityManagerInterface $em, userRepository $userRepo)
+    {
+        $orders=$cartService->getFullCart();
+        $user=$userRepo->find(1);
+        $order = new Orders();
+        $order->setIdUser($user);
+        $order->setOrderDate(new DateTime('now'));
+        $order->setOrderTime(new DateTime('now'));
+        $order->setState(true);
+        dd($request->query->get("items"));
+        $em->persist($order);
+        $em->flush();
+        // dd($order);
+    }
+
 }
