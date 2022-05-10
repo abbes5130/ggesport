@@ -15,9 +15,9 @@ import com.codename1.ui.layouts.BorderLayout;
 
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
-import com.mycompany.gui.entities.Team;
+import com.mycompany.entites.Team;
 
-import com.mycompany.gui.services.ServiceTeam;
+import com.mycompany.services.ServiceTeam;
 import java.util.ArrayList;
 
 /**

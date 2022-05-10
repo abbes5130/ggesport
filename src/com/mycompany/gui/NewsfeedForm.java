@@ -71,7 +71,7 @@ public class NewsfeedForm extends BaseForm {
         swipe.setUIID("Container");
         swipe.getContentPane().setUIID("Container");
         swipe.hideTabs();
-        
+        System.out.println("current user : "+SessionManager.getId());       
         ButtonGroup bg = new ButtonGroup();
         int size = Display.getInstance().convertToPixels(1);
         Image unselectedWalkthru = Image.createImage(size, size, 0);

@@ -18,9 +18,10 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.Picker;
-import com.mycompany.myapp.entities.ComboTeam;
-import com.mycompany.myapp.entities.Matches;
-import com.mycompany.myapp.services.MatchesServices;
+import com.mycompany.entites.ComboTeam;
+import com.mycompany.entites.Matches;
+import com.mycompany.services.MatchesServices;
+
 import java.util.ArrayList;
 import java.util.Date;
 

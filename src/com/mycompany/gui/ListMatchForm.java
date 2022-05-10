@@ -19,8 +19,8 @@ import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
-import com.mycompany.myapp.entities.Matches;
-import com.mycompany.myapp.services.MatchesServices;
+import com.mycompany.entites.Matches;
+import com.mycompany.services.MatchesServices;
 import java.util.ArrayList;
 
 

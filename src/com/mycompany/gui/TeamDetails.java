@@ -9,7 +9,7 @@ import com.codename1.ui.Container;
 import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
-import com.mycompany.gui.entities.Team;
+import com.mycompany.entites.Team;
 
 /**
  *

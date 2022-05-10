@@ -19,9 +19,13 @@
 
 package com.mycompany.gui;
 
+import com.codename1.components.FloatingHint;
 import com.codename1.components.ScaleImageLabel;
+import com.codename1.ui.Button;
 import com.codename1.ui.CheckBox;
 import com.codename1.ui.Component;
+import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
@@ -34,6 +38,7 @@ import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
+import com.mycompany.services.UsersServices;
 
 /**
  * The user profile form
@@ -53,7 +58,8 @@ public class ProfileForm extends BaseForm {
         super.addSideMenu(res);
         
         tb.addSearchCommand(e -> {});
-        
+         
+       
         
         Image img = res.getImage("profile-background.jpg");
         if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
@@ -62,14 +68,16 @@ public class ProfileForm extends BaseForm {
         ScaleImageLabel sl = new ScaleImageLabel(img);
         sl.setUIID("BottomPad");
         sl.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
-
+        Button Update = new Button("Update");
         Label facebook = new Label("786 followers", res.getImage("facebook-logo.png"), "BottomPad");
         Label twitter = new Label("486 followers", res.getImage("twitter-logo.png"), "BottomPad");
         facebook.setTextPosition(BOTTOM);
         twitter.setTextPosition(BOTTOM);
         
         add(LayeredLayout.encloseIn(
+                
                 sl,
+                
                 BorderLayout.south(
                     GridLayout.encloseIn(3, 
                             facebook,
@@ -78,19 +86,82 @@ public class ProfileForm extends BaseForm {
                             twitter
                     )
                 )
+                
         ));
 
-        TextField username = new TextField("sandeep");
-        username.setUIID("TextFieldBlack");
-        addStringValue("Username", username);
+        add(LayeredLayout.encloseIn(
+                
+              Update       
+        ));
 
-        TextField email = new TextField("sandeep@gmail.com", "E-Mail", 20, TextField.EMAILADDR);
-        email.setUIID("TextFieldBlack");
-        addStringValue("E-Mail", email);
-        
-        TextField password = new TextField("sandeep", "Password", 20, TextField.PASSWORD);
-        password.setUIID("TextFieldBlack");
-        addStringValue("Password", password);
+       
+           
+            
+            
+             TextField firstname = new TextField(SessionManager.getFirstname(),"firstname",20, TextField.ANY);
+            firstname.setUIID("TextFieldBlack");
+            addStringValue("FirstName", firstname);
+            
+            
+            
+            TextField lastname = new TextField(SessionManager.getLastname(),"lastname",20, TextField.ANY);
+            lastname.setUIID("TextFieldBlack");
+            addStringValue("LastName", lastname);
+           
+            TextField email = new TextField(SessionManager.getEmail(), "E-Mail", 20, TextField.EMAILADDR);
+            email.setUIID("TextFieldBlack");
+            addStringValue("E-Mail", email);
+            
+            
+             TextField password = new TextField(SessionManager.getPassowrd(), "Password", 20, TextField.PASSWORD);
+            password.setUIID("TextFieldBlack");
+            addStringValue("Password", password);
+            
+            TextField phone_number = new TextField ("","phone_number",8, TextField.NUMERIC);
+            phone_number.setUIID("TextFieldBlack");
+            addStringValue("Telephone", phone_number);
+       
+            
+            
+            
+            
+             
+           /*  Label alreadHaveAnAccount = new Label("cacaca");
+             
+             
+             
+             
+             
+             
+                Container contente = BoxLayout.encloseY(
+               
+               new FloatingHint(id),
+                createLineSeparator(),
+                new FloatingHint(FirstName),
+                createLineSeparator(),
+                 new FloatingHint(LastName),
+                createLineSeparator(),
+                new FloatingHint(email),
+                createLineSeparator(),
+                new FloatingHint(password),
+                createLineSeparator(),
+               
+                new FloatingHint(Telephone),
+                createLineSeparator()
+        );
+        contente.setScrollableY(true);
+        add(BorderLayout.CENTER, contente);
+        add(BorderLayout.SOUTH, BoxLayout.encloseY(
+                Update,
+                FlowLayout.encloseCenter(alreadHaveAnAccount)
+        ));
+             */
+             
+      
+            
+           
+       
+            
 
         CheckBox cb1 = CheckBox.createToggle(res.getImage("on-off-off.png"));
         cb1.setUIID("Label");
@@ -101,6 +172,15 @@ public class ProfileForm extends BaseForm {
         
         addStringValue("Facebook", FlowLayout.encloseRightMiddle(cb1));
         addStringValue("Twitter", FlowLayout.encloseRightMiddle(cb2));
+         TextField idUser = new TextField(SessionManager.getId());
+            idUser.setUIID("TextFieldBlack");
+            addStringValue("id", idUser);
+            
+         
+          Update.addActionListener(e -> {
+            UsersServices.getInstance().edit(idUser,firstname, lastname,email ,password,phone_number);
+           new NewsfeedForm(res).show();
+        });
     }
     
     private void addStringValue(String s, Component v) {

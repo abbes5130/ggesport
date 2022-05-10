@@ -13,8 +13,8 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
-import com.mycompany.gui.entities.Team;
-import com.mycompany.gui.services.ServiceTeam;
+import com.mycompany.entites.Team;
+import com.mycompany.services.ServiceTeam;
 
 /**
  *
