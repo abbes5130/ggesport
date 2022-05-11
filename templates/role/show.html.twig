@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Role{% endblock %}
+
+{% block body %}
+    <h1>Role</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdRole</th>
+                <td>{{ role.idRole }}</td>
+            </tr>
+            <tr>
+                <th>Rolename</th>
+                <td>{{ role.rolename }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+    <button class="button-62" role="button"><a href="{{ path('app_role_index') }}">Back</a></button>
+
+
+    <button class="button-62" role="button"> <a href="{{ path('app_role_edit', {'id': role.idRole}) }}">Update</a></button>
+   <button class="button-62" role="button"> <a href="{{ path('app_role_delete', {'id': role.idRole}) }}">Delete</a></button>
+        </div></div></div>
+{% endblock %}

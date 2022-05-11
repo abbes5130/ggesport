@@ -18,7 +18,10 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+<<<<<<< HEAD
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+=======
+>>>>>>> 432918105252aebc6928f1b0a75b4ed6a09bca2c

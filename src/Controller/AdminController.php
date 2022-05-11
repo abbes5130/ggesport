@@ -15,6 +15,7 @@ use App\Entity\Team;
 use App\Entity\Player;
 use App\Entity\Game;
 use App\Entity\Matches;
+use App\Repository\UsersRepository;
 
 
 
@@ -405,6 +406,20 @@ class AdminController extends AbstractController
 
 
 
-    
+    //KHEDMET RIDHA
+
+    /**
+     * @Route("/userlist", name="app_users_index")
+     */
+    public function indexUser(UsersRepository $repository): Response
+    {
+        $users = $repository
+
+            ->findAll();
+
+        return $this->render('users/index.html.twig', [
+            'users' => $users,
+        ]);
+    }
 
 }
