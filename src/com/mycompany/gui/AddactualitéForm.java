@@ -58,7 +58,7 @@ public class AddactualitéForm extends Form{
             }
         });
         
-        addAll(tfName,tfStatus,tfimg2,btnValider,tfimg);
+        addAll(tfName,tfStatus,tfimg2,tfimg,btnValider);
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e-> pre.showBack());
                 
     }

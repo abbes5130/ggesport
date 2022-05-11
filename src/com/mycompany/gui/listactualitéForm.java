@@ -147,7 +147,8 @@ public class listactualitéForm extends Form{
         
         
         add(cnt);
-        
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> res.showBack());
+
     
  /*
 
