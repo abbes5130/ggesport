@@ -150,27 +150,17 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>add user</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>update user</p>
-                </a>
-              </li>
+              
+             
               <li class="nav-item">
                 <a href="{{path('app_users_index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>liste users</p>
+                  <p>list users</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item menu">
+<li class="nav-item menu">
             <a href="#" class="nav-link active">
               <i class="fa fa-newspaper" aria-hidden="true"></i>
               <p>
@@ -180,21 +170,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{ path('index1_news') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>add</p>
+                  <p>list of news</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="{{ path('index2') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>update</p>
+                  <p>List of Comments</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{ path('app_new_categorie_index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>list</p>
+                  <p>List of category</p>
                 </a>
               </li>
             </ul>

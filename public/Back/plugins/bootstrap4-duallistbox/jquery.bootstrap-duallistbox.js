@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 /*
  *  Bootstrap Duallistbox - v4.0.2
  *  A responsive dual listbox widget optimized for Twitter Bootstrap. It works on all modern browsers and on touch devices.
@@ -7,6 +10,7 @@
  *  Made by István Ujj-Mészáros
  *  Under Apache License v2.0 License
  */
+<<<<<<< HEAD
 =======
 /*
  *  Bootstrap Duallistbox - v4.0.2
@@ -17,6 +21,8 @@
  *  Under Apache License v2.0 License
  */
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);

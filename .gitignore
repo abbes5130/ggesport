@@ -19,9 +19,15 @@
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+<<<<<<< HEAD
 =======
 >>>>>>> 432918105252aebc6928f1b0a75b4ed6a09bca2c
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf

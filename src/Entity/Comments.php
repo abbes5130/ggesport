@@ -1,81 +1,55 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use App\Repository\CommentsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
- * Comments
- *
- * @ORM\Table(name="comments", indexes={@ORM\Index(name="comments_fk1", columns={"id_user"}), @ORM\Index(name="comments_fk0", columns={"id_news"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=CommentsRepository::class)
+ *@ORM\Table(name="Comments")
  */
 class Comments
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_comments", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
-    private $idComments;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_news", type="integer", nullable=false)
-     */
-    private $idNews;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer", nullable=false)
-     */
-    private $idUser;
+    private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="text", type="text", length=65535, nullable=false)
+     * @ORM\Column(type="text", unique=false)
+     * @Groups("post:read")
      */
     private $text;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="comment_date", type="date", nullable=false)
+     * @ORM\Column(type="date",name="comment_date")
+     * @Groups("post:read")
      */
-    private $commentDate;
+    private $comment_date;
 
-    public function getIdComments(): ?int
+    /**
+     * @ORM\ManyToOne(targetEntity=News::class, inversedBy="comments")
+     * @ORM\JoinColumn(name="news_id", referencedColumnName="id")
+     * @Groups("comment")
+     */
+    private $News;
+     /**
+     * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="comments", cascade={"persist", "remove"})
+     */
+    private $likes;
+
+    public function getId(): ?int
     {
-        return $this->idComments;
-    }
-
-    public function getIdNews(): ?int
-    {
-        return $this->idNews;
-    }
-
-    public function setIdNews(int $idNews): self
-    {
-        $this->idNews = $idNews;
-
-        return $this;
-    }
-
-    public function getIdUser(): ?int
-    {
-        return $this->idUser;
-    }
-
-    public function setIdUser(int $idUser): self
-    {
-        $this->idUser = $idUser;
-
-        return $this;
+        return $this->id;
     }
 
     public function getText(): ?string
@@ -89,18 +63,71 @@ class Comments
 
         return $this;
     }
-
+/**
+     * @return \DateTime comment_date
+     */
     public function getCommentDate(): ?\DateTimeInterface
     {
-        return $this->commentDate;
+        return $this->comment_date;
     }
-
-    public function setCommentDate(\DateTimeInterface $commentDate): self
+ /**
+     * Set comment_date
+     *
+     * @param \DateTime $comment_date
+     *
+     * @return MisesEnPlace
+     */
+    public function setCommentDate(\DateTimeInterface $comment_date): self
     {
-        $this->commentDate = $commentDate;
+        $this->comment_date = $comment_date;
 
         return $this;
     }
 
+    public function getNews()
+    {
+        return $this->News;
+    }
+
+    public function setNews($News)
+    {
+        $this->News = $News;
+
+        return $this;
+    }
+    public function __toString()
+{
+    return (string) $this->getNews();
+}
+ /**
+     * @return Collection|Likes[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Likes $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setComments($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Likes $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getComments() === $this) {
+                $like->setComments(null);
+            }
+        }
+
+        return $this;
+    }
 
 }

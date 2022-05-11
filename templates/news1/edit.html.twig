@@ -1,0 +1,13 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block content %}
+
+{% block title %}Edit News{% endblock %}
+
+
+    <h1>Edit News</h1>
+
+    {{ include('news1/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+{% endblock %}

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 /*!
  * OverlayScrollbars
  * https://github.com/KingSora/OverlayScrollbars
@@ -5576,6 +5579,7 @@
         }
         return PLUGIN;
     }
+<<<<<<< HEAD
 =======
 /*!
  * OverlayScrollbars
@@ -11155,4 +11159,6 @@
         return PLUGIN;
     }
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 ));

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 /*!
  * jQuery Validation Plugin v1.19.3
  *
@@ -17,6 +20,7 @@
 	}
 }(function( $ ) {
 
+<<<<<<< HEAD
 =======
 /*!
  * jQuery Validation Plugin v1.19.3
@@ -37,6 +41,8 @@
 }(function( $ ) {
 
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
+=======
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 $.extend( $.fn, {
 
 	// https://jqueryvalidation.org/validate/
@@ -1639,10 +1645,14 @@ $.extend( $.validator, {
 
 } );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
+=======
+
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 // Ajax mode: abort
 // usage: $.ajax({ mode: "abort"[, port: "uniqueport"]});
 // if mode:"abort" is used, the previous request on that port (port can be undefined) is aborted via XMLHttpRequest.abort()
@@ -1679,8 +1689,12 @@ if ( $.ajaxPrefilter ) {
 	};
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 return $;
 =======
 return $;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
+=======
+return $;
+>>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
 }));

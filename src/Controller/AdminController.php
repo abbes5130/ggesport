@@ -16,7 +16,8 @@ use App\Entity\Player;
 use App\Entity\Game;
 use App\Entity\Matches;
 use App\Repository\UsersRepository;
-
+use App\Repository\NewsRepository;
+use App\Repository\NewcategorieRepository;
 
 
 
@@ -419,6 +420,18 @@ class AdminController extends AbstractController
 
         return $this->render('users/index.html.twig', [
             'users' => $users,
+        ]);
+    }
+
+    /**
+     * @Route("/newsss", name="index1_news", methods={"GET"})
+     */
+    public function index15(NewsRepository $newsRepository,NewcategorieRepository $newcateRepository): Response
+    {
+        return $this->render('news1/index.html.twig', [
+            'news' => $newsRepository->findAll(),
+            'Newcategorie' => $newcateRepository->findAll(),
+
         ]);
     }
 
