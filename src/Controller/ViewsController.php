@@ -30,7 +30,7 @@ class ViewsController extends AbstractController
      */
     public function hom()
     {
-        return $this->render('base2.html.twig');
+        return $this->redirectToRoute("app_matches_index");
     }
 
     /**
