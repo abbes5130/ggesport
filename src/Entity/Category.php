@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Category
@@ -21,6 +22,8 @@ class Category
      * @ORM\Column(name="id_category", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("product")
+     * @Groups("category")
      */
     private $idCategory;
 
@@ -28,6 +31,8 @@ class Category
      * @var string
      *
      * @ORM\Column(name="category_name", type="string", length=255, nullable=false)
+     * @Groups("product")
+     * @Groups("category")
      */
     private $categoryName;
 

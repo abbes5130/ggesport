@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Entity\Category;
 use App\Repository\productRepository;
+use App\Repository\categoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,16 +22,25 @@ class RestController extends AbstractController
     /**
      * @Route("/test", name="app_test", methods={"GET", "POST"})
      */
-    public function test(): Response
+    public function test(categoryRepository $categoryRepository): Response
     {
         
-        dump($productRepository->getFilteredProducts('pant', 0, 150, 'ALL'));
-        die();
+        dd($categoryRepository->findAll());
 
     }
 
     /**
-     * @Route("/productsList", name="api_productsList", methods={"GET"})
+     * @Route("/product/getListCategories", name="api_getListCategories")
+     */
+    public function CategoriesList(categoryRepository $categoryRepository)
+    {
+        
+        return $this->json($categoryRepository->findAll(), 200, [], ['groups' => 'category']);
+    }
+
+
+    /**
+     * @Route("/productsList", name="api_productsList")
      */
     public function ProductsList(productRepository $productRepository)
     {
@@ -38,7 +49,7 @@ class RestController extends AbstractController
 
 
     /**
-     * @Route("/DetailProduct", name="api_DetailProduct", methods={"GET"})
+     * @Route("/DetailProduct", name="api_DetailProduct")
      */
     public function DetailProduct(Request $request, productRepository $productRepository){
         $id= $request->get("idProduct");
@@ -51,8 +62,15 @@ class RestController extends AbstractController
      */
     public function PostProduct(Request $request, SerializerInterface $serializer, EntityManagerInterface $em){
         try{
-            $jsonRecu=$request->getContent();
-            $product=$serializer->deserialize($jsonRecu, Product::class, 'json');
+            $product = new Product();
+            $product->setProductName($request->get('name'));
+            $product->setProductPrice($request->get('price'));
+            $product->setDescription($request->get('description'));
+            $product->setColor($request->get('color'));
+            $product->setMark($request->get('mark'));
+            $product->setStockQuantity($request->get('quantity'));
+            $idCategory = $em->find(Category::class, $request->get('idCategory'));
+            $product->setCategory($idCategory);
             $em->persist($product);
             $em->flush();
             return $this->json($product, 201, [], ['groups' => 'product']);
@@ -66,7 +84,7 @@ class RestController extends AbstractController
     }
 
     /**
-     * @Route("/DeleteProduct", name="api_DeleteProduct", methods={"DELETE"})
+     * @Route("/DeleteProduct", name="api_DeleteProduct")
      */
     public function DeleteProduct(Request $request, productRepository $productRepository, SerializerInterface $serializer, EntityManagerInterface $em){
         try{
@@ -85,29 +103,23 @@ class RestController extends AbstractController
     }
 
     /**
-    * @Route("/UpdateProduct", name="api_UpdateProduct", methods={"PUT"})
+    * @Route("/UpdateProduct", name="api_UpdateProduct")
     */
     public function UpdateProduct(Request $request, productRepository $productRepository, SerializerInterface $serializer, EntityManagerInterface $em){
         try{
-            $jsonRecu=$request->getContent();
-            $productReceived=$serializer->deserialize($jsonRecu, Product::class, 'json');
-
             $id=$request->get("id");
-            $productToUpdate=$productRepository->find($id);
-
-            $productToUpdate->setProductName($productReceived->getProductName());
-            $productToUpdate->setImage($productReceived->getImage());
-            $productToUpdate->setProductPrice($productReceived->getProductPrice());
-            $productToUpdate->setDescription($productReceived->getDescription());
-            $productToUpdate->setColor($productReceived->getColor());
-            $productToUpdate->setMark($productReceived->getMark());
-            $productToUpdate->setDiscount($productReceived->getDiscount());
-            $productToUpdate->setDisponibility($productReceived->getDisponibility());
-            $productToUpdate->setStockQuantity($productReceived->getStockQuantity());
-            // dd($id,$productToUpdate);
-            $em->persist($productToUpdate);
+            $product = $productRepository->find($id);
+            $product->setProductName($request->get('name'));
+            $product->setProductPrice($request->get('price'));
+            $product->setDescription($request->get('description'));
+            $product->setColor($request->get('color'));
+            $product->setMark($request->get('mark'));
+            $product->setStockQuantity($request->get('quantity'));
+            $idCategory = $em->find(Category::class, $request->get('idCategory'));
+            $product->setCategory($idCategory);
+    
             $em->flush();
-            return $this->json($productToUpdate, 201, [], ['groups' => 'product']);
+            return $this->json($product, 201, [], ['groups' => 'product']);
         }catch(NotEncodableValueException $e){
             return $this->json([
                'status' => 400,
