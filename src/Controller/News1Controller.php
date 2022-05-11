@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\Newcategorie;
 
 use App\Entity\News;
 use App\Form\NewsType;
@@ -9,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\NewcategorieRepository;
 
 /**
  * @Route("/news1")
@@ -18,10 +20,12 @@ class News1Controller extends AbstractController
     /**
      * @Route("/", name="index1", methods={"GET"})
      */
-    public function index(NewsRepository $newsRepository): Response
+    public function index(NewsRepository $newsRepository,NewcategorieRepository $newcateRepository): Response
     {
         return $this->render('news1/index.html.twig', [
             'news' => $newsRepository->findAll(),
+            'Newcategorie' => $newcateRepository->findAll(),
+
         ]);
     }
 
@@ -71,11 +75,14 @@ class News1Controller extends AbstractController
 
         $ref = $request->headers->get('referer');
        
-       
+        $post = $this->getDoctrine()
+            ->getRepository(Newcategorie::class)
+            ->findPostByid($request->request->get('news_id'));
 
         $News = new News();
         $News->setTitle($request->request->get('news1'));
-  
+        $News->setNewcategorie($post);
+
         $News->setDescription($request->request->get('news2'));
         $News->setCreationDate(new \DateTime('now'));
         
@@ -99,9 +106,11 @@ class News1Controller extends AbstractController
 public function ListNews()
 {
     $News = $this->getDoctrine()->getRepository(News::class)->findAll();
+    $post = $this->getDoctrine()->getRepository(Newcategorie::class)->findAll();
 
     return $this->render('news1/index.html.twig', [
         "news" => $News,
+        "Newcategorie"=>$post
     ]);
 }
   /**

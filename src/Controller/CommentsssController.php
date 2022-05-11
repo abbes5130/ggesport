@@ -96,6 +96,18 @@ $jsonContent = $Normalizer->normalize($News, 'json', ['groups'=>'post:read']);
 
 return new Response(json_encode($jsonContent));
 }
+  /** 
+    * @Route("/api/CommentsJson/{id}/view", name="NewsJSON" ,methods={"GET"})
+*/
+public function CommentsIdJson(Request $request ,$id ,NormalizerInterface $Normalizer){
+
+    $em = $this->getDoctrine()->getManager();
+    $Comment = $em->getRepository(Comments::class)->find($id);
+    
+    $jsonContent = $Normalizer->normalize($Comment, 'json', ['groups'=>'post:read']);
+    
+    return new Response(json_encode($jsonContent));
+    }
  /**
     * @Route("/listcommentJson", name="list_commentsJson")
     *Method("GET")
@@ -169,5 +181,16 @@ return new Response(json_encode($jsonContent));
             $jsonContent = $Normalizer->normalize($like, 'json', ['groups'=>'post:read']);
             return new Response(json_encode($jsonContent)); 
        // }
+    }
+      /**
+     * @Route("/apiJSon/News/{id}", methods={"GET"})
+     */
+    public function JsonJsonlistAction(Request $request,NormalizerInterface $Normalizer, PaginatorInterface $paginator, int $id)
+    {
+
+        $query = $this->getDoctrine()->getRepository(Comments::class)->findCommentsByArticleQuery($id);
+$s=$this->getDoctrine()->getRepository(Comments::class)->findAll();
+        $jsonContent = $Normalizer->normalize($query, 'json', ['groups'=>'post:read','comment']);
+        return new Response(json_encode($jsonContent)); 
     }
 }

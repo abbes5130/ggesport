@@ -88,7 +88,21 @@ class CommentsRepository extends ServiceEntityRepository
         }
     }
 
-   
+    public function findCommentsByArticleQuery($id)
+    {
+        try {
+            return $this->getEntityManager()
+                ->createQuery(
+                    "SELECT c
+                FROM App:Comments
+                c WHERE c.News =:id"
+                )
+                ->setParameter('id', $id)
+                ->getResult();
+    }
+    catch (NonUniqueResultException $e) {
+    }
+}
 
     
 

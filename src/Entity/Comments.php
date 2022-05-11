@@ -39,6 +39,7 @@ class Comments
     /**
      * @ORM\ManyToOne(targetEntity=News::class, inversedBy="comments")
      * @ORM\JoinColumn(name="news_id", referencedColumnName="id")
+     * @Groups("comment")
      */
     private $News;
      /**

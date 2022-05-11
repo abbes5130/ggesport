@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 use App\Entity\Tag;
-use App\Entity\Category;
+use App\Entity\Newcategorie;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use App\Entity\News;
@@ -136,29 +136,29 @@ class NewsRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->select('a')
-            ->join('a.category', 'c')
-            ->where('c.id = :category_id')
+            ->join('a.Newcategorie', 'c')
+            ->where('c.id = :newcategory_id')
             ->orderBy('a.creation_date', 'DESC')
-            ->setParameter('category_id', $id)
+            ->setParameter('newcategory_id', $id)
             ->getQuery()
             ;
     }
     /**
      * @param int $page
      * @param int $max
-     * @param null $category
+     * @param null $Newcategorie
      * @return Paginator
      */
-    public function findByPage1($page = 1, $max = 2, $category = null)
+    public function findByPage1($page = 1, $max = 2, $Newcategorie = null)
     {
         $dql = $this->createQueryBuilder('News');
-        if (!$category) {
+        if (!$Newcategorie) {
             $dql->orderBy('News.creation_date', 'DESC');
         } else {
-            $matchedTag = $this->getEntityManager()->getRepository(Category::class)->findOneBy(["name" => $category]);
-            $dql->innerJoin("News.category", "category")
+            $matchedTag = $this->getEntityManager()->getRepository(Newcategorie::class)->findOneBy(["name" => $Newcategorie]);
+            $dql->innerJoin("News.newcategorie", "newcategorie")
                 ->orderBy('News.creation_date', 'DESC')
-                ->Where("category.id = '" . $matchedTag->getId() . "'");
+                ->Where("newcategorie.id = '" . $matchedTag->getId() . "'");
         }
         $firstResult = ($page - 1) * $max;
 

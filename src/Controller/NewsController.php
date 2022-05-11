@@ -11,7 +11,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Form\NewsType;
 use App\Entity\Comments;
 use App\Entity\News;
-use App\Entity\Category;
+use App\Entity\Newcategorie;
+use App\Repository\NewcategorieRepository;
 
 use App\Entity\Likes;
 use Prophecy\Argument\Token\TokenInterface;
@@ -162,7 +163,7 @@ public function showdetailedAction1($id,$id1)
 {
     $em= $this->getDoctrine()->getManager();
     $p=$em->getRepository(News::class)->find($id);
-    $c=$em->getRepository(Category::class)->find($id);
+    $c=$em->getRepository(Newcategorie::class)->find($id);
 
     $a=$em->getRepository(Comments::class)->find($id1);
 
@@ -185,7 +186,7 @@ public function showdetailedAction($id)
     
     $em= $this->getDoctrine()->getManager();
     $p=$em->getRepository(News::class)->find($id);
-    $category = $this->getDoctrine()->getRepository(Category::class)->findAll();
+    $category = $this->getDoctrine()->getRepository(Newcategorie::class)->findAll();
 
     return $this->render('news/details/detail.html.twig', array(
         'title'=>$p->getTitle(),

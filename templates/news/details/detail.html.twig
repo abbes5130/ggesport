@@ -252,9 +252,9 @@ Reply</a>
                                 <h3 class="widget-title">Categories</h3>
 
                                 <ul>
-                                                                {% for category in categorys  %}
+                                                                {% for Newcategorie in categorys  %}
 
-                                    <li><a href="{{ path("public_site_category", {'category': category.name}) }}">{{category.name}} <span class="post-count">{{ category.getNews().count }}</span></a></li>
+                                    <li><a href="{{ path("public_site_Newcategorie", {'Newcategorie': Newcategorie.name}) }}">{{Newcategorie.name}} <span class="post-count">{{ Newcategorie.getNews().count }}</span></a></li>
                                                                          {% endfor %}  
 
                                 </ul>

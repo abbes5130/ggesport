@@ -2,17 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
+use App\Repository\NewcategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
-
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass=NewcategorieRepository::class)
+ * @ORM\Table(name="newcategorie")
  */
-class Category
+class Newcategorie
 {
     /**
      * @ORM\Id
@@ -22,13 +21,12 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $name;
 
     /**
-
-     * @ORM\OneToMany(targetEntity=News::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=News::class, mappedBy="newcategorie")
      */
     private $News;
 
@@ -47,7 +45,7 @@ class Category
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -66,7 +64,7 @@ class Category
     {
         if (!$this->News->contains($news)) {
             $this->News[] = $news;
-            $news->setCategory($this);
+            $news->setNewcategorie($this);
         }
 
         return $this;
@@ -76,8 +74,8 @@ class Category
     {
         if ($this->News->removeElement($news)) {
             // set the owning side to null (unless already changed)
-            if ($news->getCategory() === $this) {
-                $news->setCategory(null);
+            if ($news->getNewcategorie() === $this) {
+                $news->setNewcategorie(null);
             }
         }
 

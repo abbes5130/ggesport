@@ -170,6 +170,12 @@
     <label for="img">bg-img</label>
     <input type="file" class="form-control-file" id="file1" name="file1">
   </div>
+                           <select type="option" name="news_id" >
+                         {% for Newcategorie in Newcategorie %}
+                         <option value="{{Newcategorie.id}}">{{Newcategorie.name}}</option>
+                                                    {% endfor %}
+
+</select>
 </form>
                  
                 </div>

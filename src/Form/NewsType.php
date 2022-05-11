@@ -7,6 +7,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Newcategorie;
 
 use App\Entity\News;
 use Symfony\Component\Form\AbstractType;
@@ -22,8 +24,17 @@ class NewsType extends AbstractType
         ->add('bg_img',FileType::class, array('data_class'=>null, 'required'=>false))
         ->add('img',FileType::class, array('data_class'=>null, 'required'=>false))
         ->add('description', TextareaType::class)
-        ->add('Submit', SubmitType::class);
+        ->add('Submit', SubmitType::class)
+        ->add('Newcategorie', EntityType::class, [
+            'attr' => [
+                'class' => 'form-control form-group'
+            ],
+            'class' => Newcategorie::class,
+            'choice_label' => 'name'
+        ])
+        ->add('save', SubmitType::class, ['label' => 'Create Task'])
 
+    ;
     
 }
 /**

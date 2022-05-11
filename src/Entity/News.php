@@ -82,11 +82,12 @@ class News
      * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="News")
      */
     private $tag;
+ 
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="News")
+     * @ORM\ManyToOne(targetEntity=Newcategorie::class, inversedBy="News")
      */
-    private $category;
+    private $newcategorie;
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -219,15 +220,14 @@ class News
 
         return $this;
     }
-
-    public function getCategory(): ?Category
+      public function getNewcategorie(): ?Newcategorie
     {
-        return $this->category;
+        return $this->newcategorie;
     }
 
-    public function setCategory(?Category $category): self
+    public function setNewcategorie(?Newcategorie $newcategorie): self
     {
-        $this->category = $category;
+        $this->newcategorie = $newcategorie;
 
         return $this;
     }

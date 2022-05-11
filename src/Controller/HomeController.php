@@ -4,10 +4,11 @@ namespace App\Controller;
 use App\Entity\Tag;
 use App\Entity\News;
 use App\Services\QrcodeService;
+use App\Repository\NewcategorieRepository;
 
 use App\Repository\NewsRepository;
 use ContainerJ3jiLHD\PaginatorInterface_82dac15;
-use App\Entity\Category;
+use App\Entity\Newcategorie;
 use MartinGeorgiev\SocialPost\Message as Message;
 use MartinGeorgiev\SocialPost\Publisher;
 
@@ -70,13 +71,13 @@ return $this->render('news/home/index.html.twig', [
         ]);
     }
       /**
-     * @Route("/category/{category}", name="public_site_category")
+     * @Route("/Newcategorie/{Newcategorie}", name="public_site_Newcategorie")
      */
-    public function bycategory(string $category, Request $request)
+    public function bycategory(string $Newcategorie, Request $request)
     {
         $db = $this->getDoctrine()->getManager();
 
-        $listNews = $db->getRepository(News::class)->findByPage1($request->query->getInt('page', 1), 2, $category);
+        $listNews = $db->getRepository(News::class)->findByPage1($request->query->getInt('page', 1), 2, $Newcategorie);
 
         return $this->render('news/home/category.html.twig', [
             'listNews' => $listNews,
