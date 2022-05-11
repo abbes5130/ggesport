@@ -22,6 +22,14 @@
         "phpdocumentor/reflection-docblock": "^5.3",
         "sensio/framework-extra-bundle": "^6.2",
         "stof/doctrine-extensions-bundle": "^1.7",
+        "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "^2.5",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.11",
+        "friendsofsymfony/jsrouting-bundle": "*",
+        "knplabs/knp-paginator-bundle": "^5.8",
+        "phpdocumentor/reflection-docblock": "^5.3",
+        "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
         "symfony/dotenv": "4.4.*",
@@ -32,6 +40,7 @@
         "symfony/google-mailer": "4.4.*",
         "symfony/http-client": "4.4.*",
         "symfony/http-foundation": "4.4.*",
+        "symfony/http-client": "4.4.*",
         "symfony/intl": "4.4.*",
         "symfony/mailer": "4.4.*",
         "symfony/monolog-bundle": "^3.1",
@@ -53,6 +62,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "4.4.*",
         "symfony/css-selector": "4.4.*",
@@ -69,13 +79,15 @@
         "symfony/phpunit-bridge": "^6.0",
         "symfony/stopwatch": "4.4.*",
         "symfony/web-profiler-bundle": "4.4.*",
-        "symfony/web-server-bundle": "4.4.*"
+        "symfony/web-server-bundle": "4.4.*",
+        "symfony/web-profiler-bundle": "4.4.*"
     },
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
             "endroid/installer": true
+
         },
         "preferred-install": {
             "*": "dist"

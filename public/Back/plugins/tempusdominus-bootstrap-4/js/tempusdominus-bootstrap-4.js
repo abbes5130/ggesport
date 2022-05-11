@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /*!@preserve
  * Tempus Dominus Bootstrap4 v5.39.0 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
@@ -31,6 +34,7 @@ if ((version[0] <= 2 && version[1] < 17) || (version[0] >= 3)) {
 
 +function () {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /*!@preserve
@@ -65,6 +69,8 @@ if ((version[0] <= 2 && version[1] < 17) || (version[0] >= 3)) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3459,12 +3465,16 @@ var TempusDominusBootstrap4 = function ($) {
   }(DateTimePicker);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
   * ------------------------------------------------------------------------
   * jQuery
   * ------------------------------------------------------------------------
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -3474,6 +3484,8 @@ var TempusDominusBootstrap4 = function ($) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   */
 
 
@@ -3553,6 +3565,7 @@ var TempusDominusBootstrap4 = function ($) {
   return TempusDominusBootstrap4;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }(jQuery);
 
 }();
@@ -3566,3 +3579,8 @@ var TempusDominusBootstrap4 = function ($) {
 
 }();
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+}(jQuery);
+
+}();
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b

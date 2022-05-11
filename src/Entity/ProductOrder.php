@@ -22,53 +22,35 @@ class ProductOrder
     private $idProductOrder;
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="id_order", type="integer", nullable=false)
+     * @ORM\Column(name="quantity", type="integer", nullable=true)
      */
-    private $idOrder;
+    private $quantity;
 
     /**
-     * @var int
+     * @var \Product
      *
-     * @ORM\Column(name="id_product", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_product", referencedColumnName="id_product")
+     * })
      */
     private $idProduct;
 
     /**
-     * @var int
+     * @var \Orders
      *
-     * @ORM\Column(name="quantity", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Orders")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_order", referencedColumnName="id_order")
+     * })
      */
-    private $quantity;
+    private $idOrder;
 
     public function getIdProductOrder(): ?int
     {
         return $this->idProductOrder;
-    }
-
-    public function getIdOrder(): ?int
-    {
-        return $this->idOrder;
-    }
-
-    public function setIdOrder(int $idOrder): self
-    {
-        $this->idOrder = $idOrder;
-
-        return $this;
-    }
-
-    public function getIdProduct(): ?int
-    {
-        return $this->idProduct;
-    }
-
-    public function setIdProduct(int $idProduct): self
-    {
-        $this->idProduct = $idProduct;
-
-        return $this;
     }
 
     public function getQuantity(): ?int
@@ -76,9 +58,33 @@ class ProductOrder
         return $this->quantity;
     }
 
-    public function setQuantity(int $quantity): self
+    public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getIdProduct(): ?Product
+    {
+        return $this->idProduct;
+    }
+
+    public function setIdProduct(?Product $idProduct): self
+    {
+        $this->idProduct = $idProduct;
+
+        return $this;
+    }
+
+    public function getIdOrder(): ?Orders
+    {
+        return $this->idOrder;
+    }
+
+    public function setIdOrder(?Orders $idOrder): self
+    {
+        $this->idOrder = $idOrder;
 
         return $this;
     }

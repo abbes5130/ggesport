@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 (function(jsGrid) {
 
     jsGrid.locales.ja = {
@@ -47,6 +50,7 @@
         }
     };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 (function(jsGrid) {
@@ -97,4 +101,6 @@
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 }(jsGrid, jQuery));

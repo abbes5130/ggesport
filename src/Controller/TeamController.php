@@ -35,7 +35,7 @@ class TeamController extends AbstractController
             ->getRepository(Player::class)
             ->findAll();    
 
-        return $this->render('team/index.html.twig', [
+        return $this->render('team/team.html.twig', [
             'teams' => $teams,
             'players' => $players,
 

@@ -7,6 +7,7 @@ parameters:
  locale: 'en'
  logo_directory: '%kernel.project_dir%/public/assets/img'
  news_directory: '%kernel.project_dir%/public/uploads'
+ uploads_directory: '%kernel.project_dir%/public/uploads_directory'
  
 services:
     # default configuration for services in *this* file

@@ -209,7 +209,7 @@ public function searchAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $requestString = $request->get('q');
-        $posts =  $em->getRepository('App:News')->findEntitiesByString($requestString);
+        $posts =  $em->getRepository(News::Class)->findEntitiesByString($requestString);
         if(!$posts) {
             $result['News']['error'] = "News Not found :( ";
         } else {

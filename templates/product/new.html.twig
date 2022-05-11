@@ -1,0 +1,31 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block content %}
+
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Create new Product</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+                {{ include('product/_form.html.twig') }}
+
+                <br/>
+                <a href="{{ path('app_product_index') }}" class="btn btn-GG">back to list</a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>
+</section>
+   
+{% endblock %}

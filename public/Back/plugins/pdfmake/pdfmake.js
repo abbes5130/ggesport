@@ -14789,6 +14789,7 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 PDFAbstractReference - abstract class for PDF reference
 =======
@@ -14799,6 +14800,10 @@ PDFAbstractReference - abstract class for PDF reference
 /*
 PDFAbstractReference - abstract class for PDF reference
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/*
+PDFAbstractReference - abstract class for PDF reference
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 */
 
 
@@ -15129,6 +15134,7 @@ var PDFReference = /*#__PURE__*/function (_PDFAbstractReference) {
 }(PDFAbstractReference);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 PDFPage - represents a single page in the PDF document
 By Devon Govett
@@ -15142,6 +15148,11 @@ By Devon Govett
 PDFPage - represents a single page in the PDF document
 By Devon Govett
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/*
+PDFPage - represents a single page in the PDF document
+By Devon Govett
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 */
 
 
@@ -15342,13 +15353,17 @@ var PDFNameTree = /*#__PURE__*/function (_PDFTree) {
 }(PDFTree);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * Check if value is in a range group.
  * @param {number} value
  * @param {number[]} rangeGroup
  * @returns {boolean}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -15359,6 +15374,8 @@ var PDFNameTree = /*#__PURE__*/function (_PDFTree) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -15389,6 +15406,7 @@ function inRange(value, rangeGroup) {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * A.1 Unassigned code points in Unicode 3.2
  * @link https://tools.ietf.org/html/rfc3454#appendix-A.1
@@ -15402,6 +15420,11 @@ function inRange(value, rangeGroup) {
  * A.1 Unassigned code points in Unicode 3.2
  * @link https://tools.ietf.org/html/rfc3454#appendix-A.1
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * A.1 Unassigned code points in Unicode 3.2
+ * @link https://tools.ietf.org/html/rfc3454#appendix-A.1
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -15413,6 +15436,7 @@ var isUnassignedCodePoint = function isUnassignedCodePoint(character) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * B.1 Commonly mapped to nothing
  * @link https://tools.ietf.org/html/rfc3454#appendix-B.1
@@ -15426,6 +15450,11 @@ var isUnassignedCodePoint = function isUnassignedCodePoint(character) {
  * B.1 Commonly mapped to nothing
  * @link https://tools.ietf.org/html/rfc3454#appendix-B.1
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * B.1 Commonly mapped to nothing
+ * @link https://tools.ietf.org/html/rfc3454#appendix-B.1
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -15437,6 +15466,7 @@ var isCommonlyMappedToNothing = function isCommonlyMappedToNothing(character) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.1.2 Non-ASCII space characters
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.1.2
@@ -15450,6 +15480,11 @@ var isCommonlyMappedToNothing = function isCommonlyMappedToNothing(character) {
  * C.1.2 Non-ASCII space characters
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.1.2
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.1.2 Non-ASCII space characters
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.1.2
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -15497,6 +15532,7 @@ var isNonASCIISpaceCharacter = function isNonASCIISpaceCharacter(character) {
 var non_ASCII_controls_characters = [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.2.2 Non-ASCII control characters
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.2.2
@@ -15510,6 +15546,11 @@ var non_ASCII_controls_characters = [
  * C.2.2 Non-ASCII control characters
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.2.2
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.2.2 Non-ASCII control characters
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.2.2
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0x0080, 0x009f
 /* [CONTROL CHARACTERS] */
@@ -15547,6 +15588,7 @@ var non_ASCII_controls_characters = [
 var non_character_codepoints = [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.4 Non-character code points
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.4
@@ -15560,6 +15602,11 @@ var non_character_codepoints = [
  * C.4 Non-character code points
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.4
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.4 Non-character code points
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.4
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0xfdd0, 0xfdef
 /* [NONCHARACTER CODE POINTS] */
@@ -15598,8 +15645,11 @@ var non_character_codepoints = [
 ];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * 2.3.  Prohibited Output
  */
@@ -15608,6 +15658,7 @@ var prohibited_characters = [
 /**
  * C.2.1 ASCII control characters
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.2.1
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -15621,6 +15672,8 @@ var prohibited_characters = [
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0, 0x001f
 /* [CONTROL CHARACTERS] */
@@ -15629,6 +15682,7 @@ var prohibited_characters = [
 ,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.8 Change display properties or are deprecated
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.8
@@ -15642,6 +15696,11 @@ var prohibited_characters = [
  * C.8 Change display properties or are deprecated
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.8
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.8 Change display properties or are deprecated
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.8
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0x0340, 0x0340
 /* COMBINING GRAVE TONE MARK */
@@ -15676,6 +15735,7 @@ var prohibited_characters = [
 ,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.7 Inappropriate for canonical representation
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.7
@@ -15689,14 +15749,22 @@ var prohibited_characters = [
  * C.7 Inappropriate for canonical representation
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.7
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.7 Inappropriate for canonical representation
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.7
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0x2ff0, 0x2ffb
 /* [IDEOGRAPHIC DESCRIPTION CHARACTERS] */
 ,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * C.5 Surrogate codes
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.5
@@ -15705,6 +15773,7 @@ var prohibited_characters = [
 /**
  * C.3 Private use
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.3
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -15718,12 +15787,15 @@ var prohibited_characters = [
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0xe000, 0xf8ff
 /* [PRIVATE USE, PLANE 0] */
 ,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.6 Inappropriate for plain text
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.6
@@ -15737,6 +15809,11 @@ var prohibited_characters = [
  * C.6 Inappropriate for plain text
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.6
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.6 Inappropriate for plain text
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.6
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0xfff9, 0xfff9
 /* INTERLINEAR ANNOTATION ANCHOR */
@@ -15751,6 +15828,7 @@ var prohibited_characters = [
 ,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.9 Tagging characters
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.9
@@ -15764,6 +15842,11 @@ var prohibited_characters = [
  * C.9 Tagging characters
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.9
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.9 Tagging characters
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.9
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0xe0001, 0xe0001
 /* LANGUAGE TAG */
@@ -15772,6 +15855,7 @@ var prohibited_characters = [
 ,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * C.3 Private use
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.3
@@ -15785,6 +15869,11 @@ var prohibited_characters = [
  * C.3 Private use
  * @link https://tools.ietf.org/html/rfc3454#appendix-C.3
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * C.3 Private use
+ * @link https://tools.ietf.org/html/rfc3454#appendix-C.3
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 0xf0000, 0xffffd
 /* [PRIVATE USE, PLANE 15] */
@@ -15798,6 +15887,7 @@ var isProhibitedCharacter = function isProhibitedCharacter(character) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * D.1 Characters with bidirectional property "R" or "AL"
  * @link https://tools.ietf.org/html/rfc3454#appendix-D.1
@@ -15811,6 +15901,11 @@ var isProhibitedCharacter = function isProhibitedCharacter(character) {
  * D.1 Characters with bidirectional property "R" or "AL"
  * @link https://tools.ietf.org/html/rfc3454#appendix-D.1
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * D.1 Characters with bidirectional property "R" or "AL"
+ * @link https://tools.ietf.org/html/rfc3454#appendix-D.1
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -15822,6 +15917,7 @@ var isBidirectionalRAL = function isBidirectionalRAL(character) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * D.2 Characters with bidirectional property "L"
  * @link https://tools.ietf.org/html/rfc3454#appendix-D.2
@@ -15835,6 +15931,11 @@ var isBidirectionalRAL = function isBidirectionalRAL(character) {
  * D.2 Characters with bidirectional property "L"
  * @link https://tools.ietf.org/html/rfc3454#appendix-D.2
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * D.2 Characters with bidirectional property "L"
+ * @link https://tools.ietf.org/html/rfc3454#appendix-D.2
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -15845,6 +15946,7 @@ var isBidirectionalL = function isBidirectionalL(character) {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * non-ASCII space characters [StringPrep, C.1.2] that can be
  * mapped to SPACE (U+0020)
@@ -15858,12 +15960,18 @@ var isBidirectionalL = function isBidirectionalL(character) {
  * non-ASCII space characters [StringPrep, C.1.2] that can be
  * mapped to SPACE (U+0020)
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * non-ASCII space characters [StringPrep, C.1.2] that can be
+ * mapped to SPACE (U+0020)
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
 var mapping2space = isNonASCIISpaceCharacter;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * the "commonly mapped to nothing" characters [StringPrep, B.1]
  * that can be mapped to nothing.
@@ -15877,6 +15985,11 @@ var mapping2space = isNonASCIISpaceCharacter;
  * the "commonly mapped to nothing" characters [StringPrep, B.1]
  * that can be mapped to nothing.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * the "commonly mapped to nothing" characters [StringPrep, B.1]
+ * that can be mapped to nothing.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var mapping2nothing = isCommonlyMappedToNothing; // utils
@@ -15894,14 +16007,18 @@ var last = function last(x) {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * Convert provided string into an array of Unicode Code Points.
  * Based on https://stackoverflow.com/a/21409165/1556249
  * and https://www.npmjs.com/package/code-point-at.
  * @param {string} input
  * @returns {number[]}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -15913,6 +16030,8 @@ var last = function last(x) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -15940,14 +16059,18 @@ function toCodePoints(input) {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * SASLprep.
  * @param {string} input
  * @param {Object} opts
  * @param {boolean} opts.allowUnassigned
  * @returns {string}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -15959,6 +16082,8 @@ function toCodePoints(input) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -16010,12 +16135,16 @@ function saslprep(input) {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * 4.2 If a string contains any RandALCat character, a RandALCat
    * character MUST be the first character of the string, and a
    * RandALCat character MUST be the last character of the string.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -16025,6 +16154,8 @@ function saslprep(input) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
 
 
@@ -16811,6 +16942,7 @@ var Gradient = {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 PDF tiling pattern support. Uncolored only.
 =======
@@ -16821,6 +16953,10 @@ PDF tiling pattern support. Uncolored only.
 /*
 PDF tiling pattern support. Uncolored only.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/*
+PDF tiling pattern support. Uncolored only.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var underlyingColorSpaces = ['DeviceCMYK', 'DeviceRGB'];
@@ -20460,6 +20596,7 @@ var OutlineMixin = {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 PDFStructureContent - a reference to a marked structure content
 By Ben Schmidt
@@ -20473,6 +20610,11 @@ By Ben Schmidt
 PDFStructureContent - a reference to a marked structure content
 By Ben Schmidt
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/*
+PDFStructureContent - a reference to a marked structure content
+By Ben Schmidt
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 */
 
 var PDFStructureContent = /*#__PURE__*/function () {
@@ -21008,6 +21150,7 @@ var FORMAT_DEFAULT = {
 var AcroFormMixin = {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Must call if adding AcroForms to a document. Must also call font() before
    * this method to set the default font.
@@ -21021,6 +21164,11 @@ var AcroFormMixin = {
    * Must call if adding AcroForms to a document. Must also call font() before
    * this method to set the default font.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Must call if adding AcroForms to a document. Must also call font() before
+   * this method to set the default font.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   initForm: function initForm() {
     if (!this._font) {
@@ -21048,6 +21196,7 @@ var AcroFormMixin = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Called automatically by document.js
 =======
@@ -21058,6 +21207,10 @@ var AcroFormMixin = {
   /**
    * Called automatically by document.js
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Called automatically by document.js
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   endAcroForm: function endAcroForm() {
     var _this = this;
@@ -21096,14 +21249,18 @@ var AcroFormMixin = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Creates and adds a form field to the document. Form fields are intermediate
    * nodes in a PDF form that are used to specify form name heirarchy and form
    * value defaults.
    * @param {string} name - field name (T attribute in field dictionary)
    * @param {object} options  - other attributes to include in field dictionary
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -21115,6 +21272,8 @@ var AcroFormMixin = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   formField: function formField(name) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -21130,8 +21289,11 @@ var AcroFormMixin = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Creates and adds a Form Annotation to the document. Form annotations are
    * called Widget annotations internally within a PDF file.
@@ -21142,6 +21304,7 @@ var AcroFormMixin = {
    * @param {number} w
    * @param {number} h
    * @param {object} options
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -21157,6 +21320,8 @@ var AcroFormMixin = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   formAnnotation: function formAnnotation(name, type, x, y, w, h) {
     var options = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : {};
@@ -21440,8 +21605,11 @@ var AcroFormMixin = {
 var AttachmentsMixin = {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Embed contents of `src` in PDF
    * @param {Buffer | ArrayBuffer | string} src input Buffer, ArrayBuffer, base64 encoded string or path to file
@@ -21453,6 +21621,7 @@ var AttachmentsMixin = {
    *  * options.creationDate: override creation date
    *  * options.modifiedDate: override modified date
    * @returns filespec reference
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -21469,6 +21638,8 @@ var AttachmentsMixin = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   file: function file(src) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -56847,12 +57018,16 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * This decorator caches the results of a getter or method such that
  * the results are lazily computed once, and then cached.
  * @private
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -56862,6 +57037,8 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -57147,6 +57324,7 @@ var maxp = new r.Struct({
 });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Gets an encoding name from platform, encoding, and language ids.
  * Returned encoding names can be used in iconv-lite to decode text.
@@ -57160,6 +57338,11 @@ var maxp = new r.Struct({
  * Gets an encoding name from platform, encoding, and language ids.
  * Returned encoding names can be used in iconv-lite to decode text.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Gets an encoding name from platform, encoding, and language ids.
+ * Returned encoding names can be used in iconv-lite to decode text.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 function getEncoding(platformID, encodingID, languageID) {
@@ -58615,6 +58798,7 @@ var ChainingContext = new r.VersionedStruct(r.uint16, {
 });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*******************
  * Variation Store *
 =======
@@ -58625,6 +58809,10 @@ var ChainingContext = new r.VersionedStruct(r.uint16, {
 /*******************
  * Variation Store *
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/*******************
+ * Variation Store *
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  *******************/
 
 var F2DOT14 = new r.Fixed(16, 'BE', 14);
@@ -58664,6 +58852,7 @@ var ItemVariationStore = new r.Struct({
 });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**********************
  * Feature Variations *
 =======
@@ -58674,6 +58863,10 @@ var ItemVariationStore = new r.Struct({
 /**********************
  * Feature Variations *
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**********************
+ * Feature Variations *
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  **********************/
 
 var ConditionTable = new r.VersionedStruct(r.uint16, {
@@ -61182,8 +61375,11 @@ var KernProcessor = /*#__PURE__*/function () {
 }();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * This class is used when GPOS does not define 'mark' or 'mkmk' features
  * for positioning marks relative to base glyphs. It uses the unicode
@@ -61191,6 +61387,7 @@ var KernProcessor = /*#__PURE__*/function () {
  *
  * Based on code from Harfbuzz, thanks!
  * https://github.com/behdad/harfbuzz/blob/master/src/hb-ot-shape-fallback.cc
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -61203,6 +61400,8 @@ var KernProcessor = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -61480,6 +61679,7 @@ var UnicodeLayoutEngine = /*#__PURE__*/function () {
 }();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents a glyph bounding box
 =======
@@ -61490,6 +61690,10 @@ var UnicodeLayoutEngine = /*#__PURE__*/function () {
 /**
  * Represents a glyph bounding box
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Represents a glyph bounding box
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -61513,8 +61717,11 @@ var BBox = /*#__PURE__*/function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * The minimum X position in the bounding box
      * @type {number}
@@ -61535,6 +61742,7 @@ var BBox = /*#__PURE__*/function () {
     /**
      * The maxmimum Y position in the bounding box
      * @type {number}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -61560,12 +61768,15 @@ var BBox = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
     this.maxY = maxY;
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The width of the bounding box
    * @type {number}
@@ -61579,6 +61790,11 @@ var BBox = /*#__PURE__*/function () {
    * The width of the bounding box
    * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * The width of the bounding box
+   * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
 
 
@@ -61617,6 +61833,7 @@ var BBox = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The height of the bounding box
      * @type {number}
@@ -61630,6 +61847,11 @@ var BBox = /*#__PURE__*/function () {
      * The height of the bounding box
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The height of the bounding box
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -61896,6 +62118,7 @@ function direction(script) {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents a run of Glyph and GlyphPosition objects.
  * Returned by the font layout method.
@@ -61909,6 +62132,11 @@ function direction(script) {
  * Represents a run of Glyph and GlyphPosition objects.
  * Returned by the font layout method.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Represents a run of Glyph and GlyphPosition objects.
+ * Returned by the font layout method.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -61916,8 +62144,11 @@ var GlyphRun = /*#__PURE__*/function () {
   function GlyphRun(glyphs, features, script, language, direction$1) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * An array of Glyph objects in the run
      * @type {Glyph[]}
@@ -61953,6 +62184,7 @@ var GlyphRun = /*#__PURE__*/function () {
      * The features requested during shaping. This is a combination of user
      * specified features and features chosen by the shaper.
      * @type {object}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -61993,6 +62225,8 @@ var GlyphRun = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
     this.features = {}; // Convert features to an object
@@ -62008,6 +62242,7 @@ var GlyphRun = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The total advance width of the run.
    * @type {number}
@@ -62021,6 +62256,11 @@ var GlyphRun = /*#__PURE__*/function () {
    * The total advance width of the run.
    * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * The total advance width of the run.
+   * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
 
 
@@ -62038,6 +62278,7 @@ var GlyphRun = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The total advance height of the run.
      * @type {number}
@@ -62051,6 +62292,11 @@ var GlyphRun = /*#__PURE__*/function () {
      * The total advance height of the run.
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The total advance height of the run.
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -62067,6 +62313,7 @@ var GlyphRun = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The bounding box containing all glyphs in the run.
      * @type {BBox}
@@ -62080,6 +62327,11 @@ var GlyphRun = /*#__PURE__*/function () {
      * The bounding box containing all glyphs in the run.
      * @type {BBox}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The bounding box containing all glyphs in the run.
+     * @type {BBox}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -62107,6 +62359,7 @@ var GlyphRun = /*#__PURE__*/function () {
 }();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents positioning information for a glyph in a GlyphRun.
 =======
@@ -62117,6 +62370,10 @@ var GlyphRun = /*#__PURE__*/function () {
 /**
  * Represents positioning information for a glyph in a GlyphRun.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Represents positioning information for a glyph in a GlyphRun.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -62139,8 +62396,11 @@ var GlyphPosition = function GlyphPosition(xAdvance, yAdvance, xOffset, yOffset)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * The amount to move the virtual pen in the X direction after rendering this glyph.
    * @type {number}
@@ -62161,6 +62421,7 @@ var GlyphPosition = function GlyphPosition(xAdvance, yAdvance, xOffset, yOffset)
   /**
    * The offset from the pen position in the Y direction at which to render this glyph.
    * @type {number}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -62186,6 +62447,8 @@ var GlyphPosition = function GlyphPosition(xAdvance, yAdvance, xOffset, yOffset)
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
 
   this.yOffset = yOffset;
@@ -62959,6 +63222,7 @@ var AATStateMachine = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Performs a depth-first traversal of the glyph strings
    * represented by the state machine.
@@ -62972,6 +63236,11 @@ var AATStateMachine = /*#__PURE__*/function () {
    * Performs a depth-first traversal of the glyph strings
    * represented by the state machine.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Performs a depth-first traversal of the glyph strings
+   * represented by the state machine.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -63561,8 +63830,11 @@ var AATLayoutEngine = /*#__PURE__*/function () {
 }();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * ShapingPlans are used by the OpenType shapers to store which
  * features should by applied, and in what order to apply them.
@@ -63571,6 +63843,7 @@ var AATLayoutEngine = /*#__PURE__*/function () {
  * specific glyphs.
  *
  * @private
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -63584,6 +63857,8 @@ var AATLayoutEngine = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -63598,6 +63873,7 @@ var ShapingPlan = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Adds the given features to the last stage.
    * Ignores features that have already been applied.
@@ -63611,6 +63887,11 @@ var ShapingPlan = /*#__PURE__*/function () {
    * Adds the given features to the last stage.
    * Ignores features that have already been applied.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Adds the given features to the last stage.
+   * Ignores features that have already been applied.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
 
 
@@ -63635,6 +63916,7 @@ var ShapingPlan = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Add features to the last stage
 =======
@@ -63645,6 +63927,10 @@ var ShapingPlan = /*#__PURE__*/function () {
   /**
    * Add features to the last stage
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Add features to the last stage
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -63673,6 +63959,7 @@ var ShapingPlan = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Add a new stage
 =======
@@ -63683,6 +63970,10 @@ var ShapingPlan = /*#__PURE__*/function () {
   /**
    * Add a new stage
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Add a new stage
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -63713,6 +64004,7 @@ var ShapingPlan = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Assigns the global features to the given glyphs
 =======
@@ -63723,6 +64015,10 @@ var ShapingPlan = /*#__PURE__*/function () {
   /**
    * Assigns the global features to the given glyphs
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Assigns the global features to the given glyphs
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -63737,6 +64033,7 @@ var ShapingPlan = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Executes the planned stages using the given OTProcessor
 =======
@@ -63747,6 +64044,10 @@ var ShapingPlan = /*#__PURE__*/function () {
   /**
    * Executes the planned stages using the given OTProcessor
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Executes the planned stages using the given OTProcessor
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -63873,8 +64174,11 @@ var STATE_TABLE = [//   Non_Joining,        Left_Joining,       Right_Joining,  
 [[NONE, NONE, 0], [NONE, ISOL, 2], [NONE, ISOL, 1], [NONE, ISOL, 2], [NONE, FIN3, 5], [NONE, ISOL, 6]]];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * This is a shaper for Arabic, and other cursive scripts.
  * It uses data from ArabicShaping.txt in the Unicode database,
@@ -63882,6 +64186,7 @@ var STATE_TABLE = [//   Non_Joining,        Left_Joining,       Right_Joining,  
  *
  * The shaping state machine was ported from Harfbuzz.
  * https://github.com/behdad/harfbuzz/blob/master/src/hb-ot-shape-complex-arabic.cc
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -63894,6 +64199,8 @@ var STATE_TABLE = [//   Non_Joining,        Left_Joining,       Right_Joining,  
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var ArabicShaper = /*#__PURE__*/function (_DefaultShaper) {
@@ -64626,8 +64933,11 @@ var GlyphInfo = /*#__PURE__*/function () {
 }();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * This is a shaper for the Hangul script, used by the Korean language.
  * It does the following:
@@ -64649,6 +64959,7 @@ var GlyphInfo = /*#__PURE__*/function () {
  * This logic is based on the following documents:
  *   - http://www.microsoft.com/typography/OpenTypeDev/hangul/intro.htm
  *   - http://ktug.org/~nomos/harfbuzz-hangul/hangulshaper.pdf
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -64675,6 +64986,8 @@ var GlyphInfo = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -65224,6 +65537,7 @@ var trie$1 = new UnicodeTrie(Buffer("AAARAAAAAABg2AAAAWYPmfDtnXuMXFUdx+/uzs7M7sz
 var stateMachine = new StateMachine(indicMachine);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * The IndicShaper supports indic scripts e.g. Devanagari, Kannada, etc.
  * Based on code from Harfbuzz: https://github.com/behdad/harfbuzz/blob/master/src/hb-ot-shape-complex-indic.cc
@@ -65237,6 +65551,11 @@ var stateMachine = new StateMachine(indicMachine);
  * The IndicShaper supports indic scripts e.g. Devanagari, Kannada, etc.
  * Based on code from Harfbuzz: https://github.com/behdad/harfbuzz/blob/master/src/hb-ot-shape-complex-indic.cc
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * The IndicShaper supports indic scripts e.g. Devanagari, Kannada, etc.
+ * Based on code from Harfbuzz: https://github.com/behdad/harfbuzz/blob/master/src/hb-ot-shape-complex-indic.cc
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var IndicShaper = /*#__PURE__*/function (_DefaultShaper3) {
@@ -66143,12 +66462,16 @@ var trie$2 = new UnicodeTrie(Buffer("AAACAAAAAAAQugAAAQUO+vHtnHuMX0UVx2d3u/t7bXe
 var stateMachine$1 = new StateMachine(useData);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * This shaper is an implementation of the Universal Shaping Engine, which
  * uses Unicode data to shape a number of scripts without a dedicated shaping engine.
  * See https://www.microsoft.com/typography/OpenTypeDev/USE/intro.htm.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -66158,6 +66481,8 @@ var stateMachine$1 = new StateMachine(useData);
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var UniversalShaper = /*#__PURE__*/function (_DefaultShaper4) {
@@ -67470,13 +67795,17 @@ var SVG_COMMANDS = {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * Path objects are returned by glyphs and represent the actual
  * vector outlines for each glyph in the font. Paths can be converted
  * to SVG path data strings, or to functions that can be applied to
  * render the path to a graphics context.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -67487,6 +67816,8 @@ var SVG_COMMANDS = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var Path = /*#__PURE__*/function () {
@@ -67497,12 +67828,16 @@ var Path = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Compiles the path to a JavaScript function that can be applied with
    * a graphics context in order to render the path.
    * @return {string}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -67512,6 +67847,8 @@ var Path = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
 
 
@@ -67528,6 +67865,7 @@ var Path = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Converts the path to an SVG path data string
    * @return {string}
@@ -67541,6 +67879,11 @@ var Path = /*#__PURE__*/function () {
    * Converts the path to an SVG path data string
    * @return {string}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Converts the path to an SVG path data string
+   * @return {string}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -67555,8 +67898,11 @@ var Path = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Gets the "control box" of a path.
    * This is like the bounding box, but it includes all points including
@@ -67570,6 +67916,7 @@ var Path = /*#__PURE__*/function () {
    * Applies a mapping function to each point in the path.
    * @param {function} fn
    * @return {Path}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -67588,6 +67935,8 @@ var Path = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   _proto31.mapPoints = function mapPoints(fn) {
     var path = new Path();
@@ -67611,6 +67960,7 @@ var Path = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Transforms the path by the given matrix.
 =======
@@ -67621,6 +67971,10 @@ var Path = /*#__PURE__*/function () {
   /**
    * Transforms the path by the given matrix.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Transforms the path by the given matrix.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -67633,6 +67987,7 @@ var Path = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Translates the path by the given offset.
 =======
@@ -67643,6 +67998,10 @@ var Path = /*#__PURE__*/function () {
   /**
    * Translates the path by the given offset.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Translates the path by the given offset.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -67651,6 +68010,7 @@ var Path = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Rotates the path by the given angle (in radians).
 =======
@@ -67661,6 +68021,10 @@ var Path = /*#__PURE__*/function () {
   /**
    * Rotates the path by the given angle (in radians).
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Rotates the path by the given angle (in radians).
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -67671,6 +68035,7 @@ var Path = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Scales the path.
 =======
@@ -67681,6 +68046,10 @@ var Path = /*#__PURE__*/function () {
   /**
    * Scales the path.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Scales the path.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -67713,12 +68082,16 @@ var Path = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * Gets the exact bounding box of the path by evaluating curve segments.
      * Slower to compute than the control box, but more accurate.
      * @type {BBox}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -67728,6 +68101,8 @@ var Path = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -67881,8 +68256,11 @@ var StandardNames = ['.notdef', '.null', 'nonmarkingreturn', 'space', 'exclam', 
 var _class$3;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * Glyph objects represent a glyph in the font. They have various properties for accessing metrics and
  * the actual vector path the glyph represents, and methods for rendering the glyph to a graphics context.
@@ -67890,6 +68268,7 @@ var _class$3;
  * You do not create glyph objects directly. They are created by various methods on the font object.
  * There are several subclasses of the base Glyph class internally that may be returned depending
  * on the font format, but they all inherit from this class.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -67902,6 +68281,8 @@ var _class$3;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -67909,8 +68290,11 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
   function Glyph(id, codePoints, font) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * The glyph id in the font
      * @type {number}
@@ -67921,6 +68305,7 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
      * There can be multiple code points in the case of ligatures and other glyphs
      * that represent multiple visual characters.
      * @type {number[]}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -67936,6 +68321,8 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
     this.codePoints = codePoints;
@@ -68016,8 +68403,11 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * The glyph’s control box.
    * This is often the same as the bounding box, but is faster to compute.
@@ -68035,6 +68425,7 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
    * Returns a path scaled to the given font size.
    * @param {number} size
    * @return {Path}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -68057,6 +68448,8 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   _proto32.getScaledPath = function getScaledPath(size) {
     var scale = 1 / this._font.unitsPerEm * size;
@@ -68064,6 +68457,7 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The glyph's advance width.
    * @type {number}
@@ -68077,6 +68471,11 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
    * The glyph's advance width.
    * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * The glyph's advance width.
+   * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -68109,8 +68508,11 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * The glyph's name
    * @type {string}
@@ -68121,6 +68523,7 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
    * Renders the glyph to the given graphics context, at the specified font size.
    * @param {CanvasRenderingContext2d} ctx
    * @param {number} size
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -68136,6 +68539,8 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   _proto32.render = function render(ctx, size) {
     ctx.save();
@@ -68154,12 +68559,16 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * The glyph’s bounding box, i.e. the rectangle that encloses the
      * glyph outline as tightly as possible.
      * @type {BBox}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -68169,6 +68578,8 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -68178,6 +68589,7 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * A vector Path object representing the glyph outline.
      * @type {Path}
@@ -68191,6 +68603,11 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
      * A vector Path object representing the glyph outline.
      * @type {Path}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * A vector Path object representing the glyph outline.
+     * @type {Path}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -68207,6 +68624,7 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The glyph's advance height.
      * @type {number}
@@ -68220,6 +68638,11 @@ var Glyph = (_class$3 = /*#__PURE__*/function () {
      * The glyph's advance height.
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The glyph's advance height.
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -68298,6 +68721,7 @@ var Component = function Component(glyphID, dx, dy) {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents a TrueType glyph.
 =======
@@ -68308,6 +68732,10 @@ var Component = function Component(glyphID, dx, dy) {
 /**
  * Represents a TrueType glyph.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Represents a TrueType glyph.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -68659,6 +69087,7 @@ var TTFGlyph = /*#__PURE__*/function (_Glyph) {
 }(Glyph);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents an OpenType PostScript glyph, in the Compact Font Format.
 =======
@@ -68669,6 +69098,10 @@ var TTFGlyph = /*#__PURE__*/function (_Glyph) {
 /**
  * Represents an OpenType PostScript glyph, in the Compact Font Format.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Represents an OpenType PostScript glyph, in the Compact Font Format.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -69353,6 +69786,7 @@ var SBIXImage = new r.Struct({
 });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents a color (e.g. emoji) glyph in Apple's SBIX format.
 =======
@@ -69363,6 +69797,10 @@ var SBIXImage = new r.Struct({
 /**
  * Represents a color (e.g. emoji) glyph in Apple's SBIX format.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Represents a color (e.g. emoji) glyph in Apple's SBIX format.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var SBIXGlyph = /*#__PURE__*/function (_TTFGlyph) {
@@ -69376,8 +69814,11 @@ var SBIXGlyph = /*#__PURE__*/function (_TTFGlyph) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Returns an object representing a glyph image at the given point size.
    * The object has a data property with a Buffer containing the actual image data,
@@ -69385,6 +69826,7 @@ var SBIXGlyph = /*#__PURE__*/function (_TTFGlyph) {
    *
    * @param {number} size
    * @return {object}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -69397,6 +69839,8 @@ var SBIXGlyph = /*#__PURE__*/function (_TTFGlyph) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   _proto36.getImageForSize = function getImageForSize(size) {
     for (var i = 0; i < this._font.sbix.imageTables.length; i++) {
@@ -69447,12 +69891,16 @@ var COLRLayer = function COLRLayer(glyph, color) {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * Represents a color (e.g. emoji) glyph in Microsoft's COLR format.
  * Each glyph in this format contain a list of colored layers, each
  * of which  is another vector glyph.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -69462,6 +69910,8 @@ var COLRLayer = function COLRLayer(glyph, color) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -69488,12 +69938,16 @@ var COLRGlyph = /*#__PURE__*/function (_Glyph3) {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Returns an array of objects containing the glyph and color for
    * each layer in the composite color glyph.
    * @type {object[]}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -69503,6 +69957,8 @@ var COLRGlyph = /*#__PURE__*/function (_Glyph3) {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -69586,8 +70042,11 @@ var DELTAS_ARE_WORDS = 0x40;
 var DELTA_RUN_COUNT_MASK = 0x3f;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /**
  * This class is transforms TrueType glyphs according to the data from
  * the Apple Advanced Typography variation tables (fvar, gvar, and avar).
@@ -69598,6 +70057,7 @@ var DELTA_RUN_COUNT_MASK = 0x3f;
  * Freetype project for figuring much of this out.
  *
  * @private
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /**
@@ -69613,6 +70073,8 @@ var DELTA_RUN_COUNT_MASK = 0x3f;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var GlyphVariationProcessor = /*#__PURE__*/function () {
@@ -70175,6 +70637,7 @@ var Glyf = new r.Struct({
 });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Encodes TrueType glyph outlines
 =======
@@ -70185,6 +70648,10 @@ var Glyf = new r.Struct({
 /**
  * Encodes TrueType glyph outlines
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Encodes TrueType glyph outlines
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 var TTFGlyphEncoder = /*#__PURE__*/function () {
@@ -70636,6 +71103,7 @@ var CFFSubset = /*#__PURE__*/function (_Subset2) {
 var _class$4;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * This is the base class for all SFNT-based font formats in fontkit.
  * It supports TrueType, and PostScript glyphs, and several color glyph formats.
@@ -70649,6 +71117,11 @@ var _class$4;
  * This is the base class for all SFNT-based font formats in fontkit.
  * It supports TrueType, and PostScript glyphs, and several color glyph formats.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * This is the base class for all SFNT-based font formats in fontkit.
+ * It supports TrueType, and PostScript glyphs, and several color glyph formats.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -70737,12 +71210,16 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Gets a string from the font's `name` table
    * `lang` is a BCP-47 language code.
    * @return {string}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -70752,6 +71229,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -70772,8 +71251,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * The unique PostScript name for this font, e.g. "Helvetica-Bold"
    * @type {string}
@@ -70785,6 +71267,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    *
    * @param {number} codePoint
    * @return {boolean}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -70801,20 +71284,26 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   _proto43.hasGlyphForCodePoint = function hasGlyphForCodePoint(codePoint) {
     return !!this._cmapProcessor.lookup(codePoint);
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Maps a single unicode code point to a Glyph object.
    * Does not perform any advanced substitutions (there is no context to do so).
    *
    * @param {number} codePoint
    * @return {Glyph}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -70826,6 +71315,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -70834,8 +71325,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Returns an array of Glyph objects for the given string.
    * This is only a one-to-one mapping from characters to glyphs.
@@ -70844,6 +71338,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    *
    * @param {string} string
    * @return {Glyph[]}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -70857,6 +71352,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -70907,8 +71404,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Returns a GlyphRun object, which includes an array of Glyphs and GlyphPositions for the given string.
    *
@@ -70918,6 +71418,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    * @param {string} [language]
    * @param {string} [direction]
    * @return {GlyphRun}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -70932,12 +71433,15 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   _proto43.layout = function layout(string, userFeatures, script, language, direction) {
     return this._layoutEngine.layout(string, userFeatures, script, language, direction);
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Returns an array of strings that map to the given glyph id.
    * @param {number} gid - glyph id
@@ -70951,6 +71455,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    * Returns an array of strings that map to the given glyph id.
    * @param {number} gid - glyph id
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Returns an array of strings that map to the given glyph id.
+   * @param {number} gid - glyph id
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -70959,8 +71468,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * An array of all [OpenType feature tags](https://www.microsoft.com/typography/otspec/featuretags.htm)
    * (or mapped AAT tags) supported by the font.
@@ -70968,6 +71480,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    * If this is an AAT font, the OpenType feature tags are mapped to AAT features.
    *
    * @type {string[]}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -70980,6 +71493,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -71004,8 +71519,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Returns a glyph object for the given glyph id.
    * You can pass the array of code points this glyph represents for
@@ -71014,6 +71532,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    * @param {number} glyph
    * @param {number[]} characters
    * @return {Glyph}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -71027,6 +71546,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -71049,6 +71570,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Returns a Subset for this font.
    * @return {Subset}
@@ -71062,6 +71584,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    * Returns a Subset for this font.
    * @return {Subset}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+  /**
+   * Returns a Subset for this font.
+   * @return {Subset}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   ;
 
@@ -71074,8 +71601,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
   /**
    * Returns an object describing the available variation axes
    * that this font supports. Keys are setting tags, and values
@@ -71092,6 +71622,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
    *
    * @param {object} settings
    * @return {TTFFont}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   /**
@@ -71113,6 +71644,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
    */
   _proto43.getVariation = function getVariation(settings) {
     if (!(this.directory.tables.fvar && (this.directory.tables.gvar && this.directory.tables.glyf || this.directory.tables.CFF2))) {
@@ -71156,6 +71689,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font's full name, e.g. "Helvetica Bold"
      * @type {string}
@@ -71169,6 +71703,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font's full name, e.g. "Helvetica Bold"
      * @type {string}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font's full name, e.g. "Helvetica Bold"
+     * @type {string}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71178,6 +71717,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font's family name, e.g. "Helvetica"
      * @type {string}
@@ -71191,6 +71731,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font's family name, e.g. "Helvetica"
      * @type {string}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font's family name, e.g. "Helvetica"
+     * @type {string}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71200,6 +71745,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font's sub-family, e.g. "Bold".
      * @type {string}
@@ -71213,6 +71759,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font's sub-family, e.g. "Bold".
      * @type {string}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font's sub-family, e.g. "Bold".
+     * @type {string}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71222,6 +71773,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font's copyright information
      * @type {string}
@@ -71235,6 +71787,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font's copyright information
      * @type {string}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font's copyright information
+     * @type {string}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71244,6 +71801,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font's version number
      * @type {string}
@@ -71257,6 +71815,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font's version number
      * @type {string}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font's version number
+     * @type {string}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71266,6 +71829,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font’s [ascender](https://en.wikipedia.org/wiki/Ascender_(typography))
      * @type {number}
@@ -71279,6 +71843,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font’s [ascender](https://en.wikipedia.org/wiki/Ascender_(typography))
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font’s [ascender](https://en.wikipedia.org/wiki/Ascender_(typography))
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71288,6 +71857,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font’s [descender](https://en.wikipedia.org/wiki/Descender)
      * @type {number}
@@ -71301,6 +71871,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font’s [descender](https://en.wikipedia.org/wiki/Descender)
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font’s [descender](https://en.wikipedia.org/wiki/Descender)
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71310,6 +71885,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The amount of space that should be included between lines
      * @type {number}
@@ -71323,6 +71899,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The amount of space that should be included between lines
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The amount of space that should be included between lines
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71332,6 +71913,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The offset from the normal underline position that should be used
      * @type {number}
@@ -71345,6 +71927,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The offset from the normal underline position that should be used
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The offset from the normal underline position that should be used
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71354,6 +71941,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The weight of the underline that should be used
      * @type {number}
@@ -71367,6 +71955,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The weight of the underline that should be used
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The weight of the underline that should be used
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71376,6 +71969,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * If this is an italic font, the angle the cursor should be drawn at to match the font design
      * @type {number}
@@ -71389,6 +71983,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * If this is an italic font, the angle the cursor should be drawn at to match the font design
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * If this is an italic font, the angle the cursor should be drawn at to match the font design
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71398,12 +71997,16 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * The height of capital letters above the baseline.
      * See [here](https://en.wikipedia.org/wiki/Cap_height) for more details.
      * @type {number}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -71413,6 +72016,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71423,12 +72028,16 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * The height of lower case letters in the font.
      * See [here](https://en.wikipedia.org/wiki/X-height) for more details.
      * @type {number}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -71438,6 +72047,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71448,6 +72059,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The number of glyphs in the font.
      * @type {number}
@@ -71461,6 +72073,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The number of glyphs in the font.
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The number of glyphs in the font.
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71470,6 +72087,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The size of the font’s internal coordinate grid
      * @type {number}
@@ -71483,6 +72101,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The size of the font’s internal coordinate grid
      * @type {number}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The size of the font’s internal coordinate grid
+     * @type {number}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71492,6 +72115,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The font’s bounding box, i.e. the box that encloses all glyphs in the font.
      * @type {BBox}
@@ -71505,6 +72129,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * The font’s bounding box, i.e. the box that encloses all glyphs in the font.
      * @type {BBox}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * The font’s bounding box, i.e. the box that encloses all glyphs in the font.
+     * @type {BBox}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71519,6 +72148,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * An array of all of the unicode code points supported by the font.
      * @type {number[]}
@@ -71532,6 +72162,11 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
      * An array of all of the unicode code points supported by the font.
      * @type {number[]}
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+    /**
+     * An array of all of the unicode code points supported by the font.
+     * @type {number[]}
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71572,14 +72207,18 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
     /**
      * Returns an object describing the named variation instances
      * that the font designer has specified. Keys are variation names
      * and values are the variation settings for this instance.
      *
      * @type {object}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     /**
@@ -71591,6 +72230,8 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
      */
 
   }, {
@@ -71722,6 +72363,7 @@ var WOFFFont = /*#__PURE__*/function (_TTFFont) {
 }(TTFFont);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents a TrueType glyph in the WOFF2 format, which compresses glyphs differently.
 =======
@@ -71732,6 +72374,10 @@ var WOFFFont = /*#__PURE__*/function (_TTFFont) {
 /**
  * Represents a TrueType glyph in the WOFF2 format, which compresses glyphs differently.
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Represents a TrueType glyph in the WOFF2 format, which compresses glyphs differently.
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -71830,6 +72476,7 @@ WOFF2Directory.process = function () {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Subclass of TTFFont that represents a TTF/OTF font compressed by WOFF2
  * See spec here: http://www.w3.org/TR/WOFF2/
@@ -71843,6 +72490,11 @@ WOFF2Directory.process = function () {
  * Subclass of TTFFont that represents a TTF/OTF font compressed by WOFF2
  * See spec here: http://www.w3.org/TR/WOFF2/
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+/**
+ * Subclass of TTFFont that represents a TTF/OTF font compressed by WOFF2
+ * See spec here: http://www.w3.org/TR/WOFF2/
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
  */
 
 
@@ -74095,8 +74747,11 @@ else
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 // Internet Explorer polyfills
@@ -74185,6 +74840,7 @@ URLBrowserResolver.prototype.resolved = function () {
 }
 
 module.exports = URLBrowserResolver;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -74278,6 +74934,8 @@ module.exports = URLBrowserResolver;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -74289,8 +74947,11 @@ module.exports = URLBrowserResolver;
 /* provided dependency */ var Buffer = __webpack_require__(8823)["Buffer"];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isFunction = (__webpack_require__(6225).isFunction);
@@ -74578,6 +75239,7 @@ module.exports = {
 		);
 	}
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -74870,6 +75532,8 @@ module.exports = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -74882,8 +75546,11 @@ var __dirname = "/";
 /* provided dependency */ var Buffer = __webpack_require__(8823)["Buffer"];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 function VirtualFileSystem() {
@@ -74939,6 +75606,7 @@ function fixFilename(filename) {
 }
 
 module.exports = new VirtualFileSystem();
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -74999,6 +75667,8 @@ module.exports = new VirtualFileSystem();
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -75009,8 +75679,11 @@ module.exports = new VirtualFileSystem();
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isString = (__webpack_require__(6225).isString);
@@ -75147,6 +75820,7 @@ module.exports = {
 	isAutoColumn: isAutoColumn,
 	isStarColumn: isStarColumn
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -75288,6 +75962,8 @@ module.exports = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -75298,8 +75974,11 @@ module.exports = {
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /*eslint no-unused-vars: ["error", {"args": "none"}]*/
 
 
@@ -76107,6 +76786,7 @@ DocMeasure.prototype.measureQr = function (node) {
 };
 
 module.exports = DocMeasure;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /*eslint no-unused-vars: ["error", {"args": "none"}]*/
@@ -76919,6 +77599,8 @@ module.exports = DocMeasure;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -76930,8 +77612,11 @@ module.exports = DocMeasure;
 /* provided dependency */ var Buffer = __webpack_require__(8823)["Buffer"];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isString = (__webpack_require__(6225).isString);
@@ -77187,6 +77872,7 @@ DocPreprocessor.prototype._getNodeForNodeRef = function (node) {
 }
 
 module.exports = DocPreprocessor;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -77447,6 +78133,8 @@ module.exports = DocPreprocessor;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -77457,8 +78145,11 @@ module.exports = DocPreprocessor;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var TraversalTracker = __webpack_require__(8537);
@@ -77773,6 +78464,7 @@ function bottomMostContext(c1, c2) {
 }
 
 module.exports = DocumentContext;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -78092,6 +78784,8 @@ module.exports = DocumentContext;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -78102,8 +78796,11 @@ module.exports = DocumentContext;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var Line = __webpack_require__(4775);
@@ -78426,6 +79123,7 @@ ElementWriter.prototype.getCurrentPositionOnPage = function () {
 
 
 module.exports = ElementWriter;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -78753,6 +79451,8 @@ module.exports = ElementWriter;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -78763,8 +79463,11 @@ module.exports = ElementWriter;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isArray = (__webpack_require__(6225).isArray);
@@ -78833,6 +79536,7 @@ FontProvider.prototype.provideFont = function (familyName, bold, italics) {
 };
 
 module.exports = FontProvider;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -78906,6 +79610,8 @@ module.exports = FontProvider;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -78916,8 +79622,11 @@ module.exports = FontProvider;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 function isString(variable) {
@@ -79044,6 +79753,7 @@ module.exports = {
 	isPattern: isPattern,
 	getPattern: getPattern
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -79175,6 +79885,8 @@ module.exports = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -79186,8 +79898,11 @@ module.exports = {
 /* provided dependency */ var Buffer = __webpack_require__(8823)["Buffer"];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var fs = __webpack_require__(3857);
@@ -79239,6 +79954,7 @@ ImageMeasure.prototype.measureImage = function (src) {
 };
 
 module.exports = ImageMeasure;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -79295,6 +80011,8 @@ module.exports = ImageMeasure;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -79305,8 +80023,11 @@ module.exports = ImageMeasure;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var TraversalTracker = __webpack_require__(8537);
@@ -80114,6 +80835,7 @@ LayoutBuilder.prototype.processQr = function (node) {
 };
 
 module.exports = LayoutBuilder;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -80926,6 +81648,8 @@ module.exports = LayoutBuilder;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -80936,8 +81660,11 @@ module.exports = LayoutBuilder;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /**
@@ -81029,6 +81756,7 @@ Line.prototype.getHeight = function () {
 };
 
 module.exports = Line;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -81125,6 +81853,8 @@ module.exports = Line;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -81135,8 +81865,11 @@ module.exports = Line;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isUndefined = (__webpack_require__(6225).isUndefined);
@@ -81311,6 +82044,7 @@ PageElementWriter.prototype.context = function () {
 };
 
 module.exports = PageElementWriter;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -81490,6 +82224,8 @@ module.exports = PageElementWriter;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -81500,8 +82236,11 @@ module.exports = PageElementWriter;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 function _interopDefault(ex) {
@@ -81523,6 +82262,7 @@ module.exports = {
 	getEngineInstance: getEngineInstance,
 	createPdfDocument: createPdfDocument
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -81549,6 +82289,8 @@ module.exports = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -81559,8 +82301,11 @@ module.exports = {
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /*eslint no-unused-vars: ["error", {"args": "none"}]*/
 
 
@@ -82266,6 +83011,7 @@ function createPatterns(patternDefinitions, pdfKitDoc) {
 }
 
 module.exports = PdfPrinter;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /*eslint no-unused-vars: ["error", {"args": "none"}]*/
@@ -82976,6 +83722,8 @@ module.exports = PdfPrinter;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -82986,8 +83734,11 @@ module.exports = PdfPrinter;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 /*eslint no-unused-vars: ["error", {"args": "none"}]*/
 /*eslint no-redeclare: "off"*/
 
@@ -83776,6 +84527,7 @@ function measure(node) {
 
 module.exports = {
 	measure: measure
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /*eslint no-unused-vars: ["error", {"args": "none"}]*/
@@ -84569,6 +85321,8 @@ module.exports = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 };
 
 /***/ }),
@@ -84579,8 +85333,11 @@ module.exports = {
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 module.exports = {
@@ -84635,6 +85392,7 @@ module.exports = {
 	LETTER: [612.00, 792.00],
 	TABLOID: [792.00, 1224.00]
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -84694,6 +85452,8 @@ module.exports = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -84704,8 +85464,11 @@ module.exports = {
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isString = (__webpack_require__(6225).isString);
@@ -84885,6 +85648,7 @@ StyleContextStack.prototype.getProperty = function (property) {
 };
 
 module.exports = StyleContextStack;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -85069,6 +85833,8 @@ module.exports = StyleContextStack;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -85079,8 +85845,11 @@ module.exports = StyleContextStack;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var xmldoc = __webpack_require__(6513);
@@ -85151,6 +85920,7 @@ SVGMeasure.prototype.writeDimensions = function (svgString, dimensions) {
 };
 
 module.exports = SVGMeasure;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -85226,6 +85996,8 @@ module.exports = SVGMeasure;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -85236,8 +86008,11 @@ module.exports = SVGMeasure;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var ColumnCalculator = __webpack_require__(4498);
@@ -85799,6 +86574,7 @@ TableProcessor.prototype.endRow = function (rowIndex, writer, pageBreaks) {
 };
 
 module.exports = TableProcessor;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -86365,6 +87141,8 @@ module.exports = TableProcessor;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -86375,8 +87153,11 @@ module.exports = TableProcessor;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isArray = (__webpack_require__(6225).isArray);
@@ -86534,6 +87315,7 @@ module.exports = {
 	drawBackground: drawBackground,
 	drawDecorations: drawDecorations
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -86696,6 +87478,8 @@ module.exports = {
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -86706,8 +87490,11 @@ module.exports = {
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 var isString = (__webpack_require__(6225).isString);
@@ -87081,6 +87868,7 @@ function widthOfString(text, font, fontSize, characterSpacing, fontFeatures) {
 }
 
 module.exports = TextTools;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -87459,6 +88247,8 @@ module.exports = TextTools;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),
@@ -87469,8 +88259,11 @@ module.exports = TextTools;
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 function TraversalTracker() {
@@ -87518,6 +88311,7 @@ TraversalTracker.prototype.auto = function (event, callback, innerFunction) {
 };
 
 module.exports = TraversalTracker;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -87570,6 +88364,8 @@ module.exports = TraversalTracker;
 >>>>>>> db32c5d3a89231169680865c51535ba001d54206
 =======
 >>>>>>> 14ea9e9ee446f59047905bbd7171ade951dbe2bf
+=======
+>>>>>>> 96694dec22c6358c815deb304388d78de8ef774b
 
 
 /***/ }),

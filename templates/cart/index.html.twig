@@ -1,0 +1,166 @@
+{% extends 'Front_base.html.twig' %}
+
+{% block title %}My Cart{% endblock %}
+
+{% block content %}
+
+    <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="Cart">Cart</h1>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title Area -->
+
+        <!-- Start Cart Area -->
+		<section class="cart-area ptb-100">
+            <div class="container">
+                <form>
+                    <div class="cart-table table-responsive">
+                        <table class="table table-bordered">
+                        {% if items | length > 0 %}
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Unit Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                            {% for item in items %}
+                                <tr id="{{ item.product.idProduct }}">
+                                    <td class="product-thumbnail">
+                                        <a href="#">
+                                            <img src="{{ asset('Uploads/' ~ item.product.getImage()) }}" alt="item">
+                                        </a>
+                                    </td>
+
+                                    <td class="product-name">
+                                        <a href="#">{{ item.product.productName }}</a>
+                                    </td>
+
+                                    <td class="product-price">
+                                        <span class="unit-amount">{{ item.product.productPrice }} DT</span>
+                                    </td>
+
+                                    <td class="product-quantity">
+                                        <div class="input-counter">
+                                            <span class="minus-btn" onclick='decrease({{ item.product.idProduct }})'><i class='bx bx-minus'></i></span>
+                                            <input type="text" min="1" value={{ item.quantity }}>
+                                            <span class="plus-btn" onclick='increase({{ item.product.idProduct }})'><i class='bx bx-plus'></i></span>
+                                        </div>
+                                    </td>
+
+                                    <td class="product-subtotal">
+                                        <span class="subtotal-amount">{{ item.totalAmount}} DT</span>
+                                        <a href="{{ path('cart_remove', {'id': item.product.idProduct}) }}" class="remove"><i class='bx bx-trash'></i></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        {% else %}
+                                <p>your cart is empty !</p>
+                        {% endif %}   
+                        </table>
+                    </div>
+
+                    <div class="cart-buttons">
+                        <div class="row align-items-center">
+                            <div class="col-lg-7 col-sm-7 col-md-7">
+                                <div class="shopping-coupon-code">
+                                    <input type="text" class="form-control" placeholder="Coupon code" name="coupon-code" id="coupon-code">
+                                    <button type="submit">Apply Coupon</button>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-sm-5 col-md-5 text-right">
+                                <a href="{{path('app_cart')}}" class="default-btn">Update Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-totals">
+                        <h3>Cart Totals</h3>
+                        <ul>
+                            <li>Subtotal <span class="Subtotal">{{total}} DT</span></li>
+                            <li>TVA <span class="TVA">{{total / 10}} DT</span></li>
+                            <li>Total <span class="Total">{{total + total / 10}} DT</span></li>
+                        </ul>
+                        <a href="{{path('checkout')}}" class="default-btn">Proceed to Checkout</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+		<!-- End Cart Area -->
+
+{% endblock %}
+
+{% block specificScript %}
+<script>
+    $( document ).ready(function() {
+        console.log( "ready!" );
+    });
+
+
+
+    function increase(id){
+        console.log(id);
+        $.ajax({
+            url : '/cart/increase',
+            type: "POST",
+            data: {id: id},
+            success : function (data) {
+                jsondata= JSON.parse(data);
+                document.querySelector(".Subtotal").textContent = jsondata.total + ' DT';
+                document.querySelector(".TVA").textContent = jsondata.total / 10 + ' DT';
+                document.querySelector(".Total").textContent = jsondata.total + jsondata.total / 10 +' DT';
+                product= document.getElementById(id);
+                subtotalAmount= product.querySelector('.subtotal-amount');
+                subtotalAmount.textContent = jsondata.totalOneProduct +' DT';
+                
+            },
+            error   : function () {
+                console.log("ERROR");
+            }
+        });
+    }
+
+
+
+
+    function decrease(id){
+        console.log(id);
+        $.ajax({
+            url : '/cart/decrease',
+            type: "POST",
+            data: {id: id},
+            success : function (data) {
+                jsondata= JSON.parse(data);
+                if(jsondata.msg=='deleted'){
+                    document.querySelector(".Subtotal").textContent = jsondata.total + ' DT';
+                    document.querySelector(".TVA").textContent = jsondata.total / 10 + ' DT';
+                    document.querySelector(".Total").textContent = jsondata.total + jsondata.total / 10 +' DT';
+                    document.getElementById(id).remove();
+                }else if(jsondata.msg=='decreased'){
+                    document.querySelector(".Subtotal").textContent = jsondata.total + ' DT';
+                    document.querySelector(".TVA").textContent = jsondata.total / 10 + ' DT';
+                    document.querySelector(".Total").textContent = jsondata.total + jsondata.total / 10 +' DT';
+                    product= document.getElementById(id);
+                    subtotalAmount= product.querySelector('.subtotal-amount');
+                    subtotalAmount.textContent = jsondata.totalOneProduct +' DT';
+                }
+            },
+            error : function () {
+                console.log("ERROR");
+            }
+        });
+    }
+        
+    
+</script>
+{% endblock %}
