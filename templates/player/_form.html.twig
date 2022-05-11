@@ -1,0 +1,56 @@
+{{ form_start(form,{'attr': {'novalidate':'novalidate'}}) }}
+  
+<table>
+    <tr >
+        <td >{{ form_label(form.firstname) }}</td>
+        <td>{{ form_widget(form.firstname) }}</td>
+        <td>{{ form_errors(form.firstname) }}</td>
+    </tr>
+	   <tr >
+        <td >{{ form_label(form.lastname) }}</td>
+        <td>{{ form_widget(form.lastname) }}</td>
+        <td>{{ form_errors(form.lastname) }}</td>
+    </tr>
+	   <tr >
+        <td >{{ form_label(form.description) }}</td>
+        <td>{{ form_widget(form.description) }}</td>
+        <td>{{ form_errors(form.description) }}</td>
+    </tr>
+	   <tr >
+        <td >{{ form_label(form.playerTag) }}</td>
+        <td>{{ form_widget(form.playerTag) }}</td>
+        <td>{{ form_errors(form.playerTag) }}</td>
+    </tr>
+	   <tr >
+        <td >{{ form_label(form.photo) }}</td>
+        <td>{{ form_widget(form.photo) }}</td>
+        <td>{{ form_errors(form.photo) }}</td>
+    </tr>
+	   <tr >
+        <td >{{ form_label(form.idTeam) }}</td>
+        <td>{{ form_widget(form.idTeam) }}</td>
+        <td>{{ form_errors(form.idTeam) }}</td>
+    </tr>
+	   <tr >
+        <td >{{ form_label(form.idGame) }}</td>
+        <td>{{ form_widget(form.idGame) }}</td>
+        <td>{{ form_errors(form.idGame) }}</td>
+    </tr>
+	</table>
+    <button style="box-shadow:inset 0px 1px 0px 0px #a4e271;
+    margin-left:160px;
+    margin-top : 20px;
+	background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+	background-color:#89c403;
+	border-radius:6px;
+	border:1px solid #74b807;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528009;" class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

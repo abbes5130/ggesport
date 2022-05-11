@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+        <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <img src="{{ asset('assets/img/' ~ player.photo) }}" class="player-image" alt="image">
+                    <br>
+                    <h1 title="">{{"#{player.firstname} #{player.lastname}" }}</h1>
+                    <span class="sub-title">{{player.playerTag}}</span>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title Area -->
+
+        <!-- Start Player Details Area -->
+        <section class="player-details-area ptb-100">
+            <div class="container">
+                <div class="player-details-desc">
+                    <span class="sub-title">{{player.idGame.gameName}}</span>
+                    <h3>About the player</h3>
+                    <p>{{player.description}}</p>
+
+                    <ul class="player-meta">
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-3d"></i>
+                            </div>
+                            TRN RATING
+                            <span>3204.5</span>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-network"></i>
+                            </div>
+                            WINS / 1201 MATCHES
+                            <span>617</span>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-fall"></i>
+                            </div>
+                            FRAGS / 2401 MATCHES
+                            <span>00</span>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-game-computer"></i>
+                            </div>
+                            WIN RATIO
+                            <span>74.8%</span>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-network"></i>
+                            </div>
+                            Follow
+                            <div class="social">
+                                <a href="#" target="_blank"><i class="bx bxl-facebook"></i></a>
+                                <a href="#" target="_blank"><i class="bx bxl-twitch"></i></a>
+                                <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>
+                                <a href="#" target="_blank"><i class="bx bxl-youtube"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+
+                
+                </div>
+            </div>
+        </section>
+        <!-- End Player Details Area -->
+
+{% endblock %}

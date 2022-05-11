@@ -1,0 +1,51 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Player index{% endblock %}
+
+{% block content %}
+    <h1>Player index</h1>
+{% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdPlayer</th>
+                <th>Team</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Description</th>
+                <th>PlayerTag</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for player in players %}
+            <tr>
+                <td>{{ player.idPlayer }}</td>
+                <td>{{ player.idTeam.teamName }}</td>
+                <td>{{ player.firstname }}</td>
+                <td>{{ player.lastname }}</td>
+                <td>{{ player.description }}</td>
+                <td>{{ player.playerTag }}</td>
+                <td>{{ player.photo }}</td>
+
+                
+                <td>
+                    <a href="{{ path('app_player_show_admin', {'idPlayer': player.idPlayer}) }}">show</a>
+                    <a href="{{ path('app_player_edit_admin', {'idPlayer': player.idPlayer}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_player_new_admin') }}">Create new</a>
+{% endblock %}

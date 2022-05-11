@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+        <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <img src="{{ asset('assets/img/' ~ team.logo) }}" alt="image">
+                    <br>
+                    <h1 title="FIERCE">{{team.teamName}}</h1>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title Area -->
+
+        <!-- Start Team Details -->
+        <section class="team-details-area ptb-100">
+            <div class="container">
+                <div class="team-details-desc">
+                    <span class="sub-title"></span>
+                    <h3>About the Team</h3>
+                    <p>{{team.description}}</p>
+
+               
+
+                    <div class="player-list">
+                    
+                    
+                        <h3>Gamestar</h3>
+                        {% for player in players %}
+                        {% if player.idTeam.idTeam == team.idTeam %}
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="single-team-member">
+                                    <img src="{{ asset('assets/img/' ~ player.photo) }}" alt="image">
+        
+                                    <div class="content">
+                                        <h3>{{"#{player.firstname} #{player.lastname}" }}</h3>
+                                        <span>{{player.playerTag}}</span>
+                                    </div>
+        
+                                    <a href="{{path('app_player_show', {'idPlayer': player.idPlayer})}}" class="link-btn"></a>
+                                </div>
+                            </div>
+                        </div>
+{% endif %}
+{% endfor %}
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- End Team Details -->
+
+ {% endblock %}

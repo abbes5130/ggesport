@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+        <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="Team">Team</h1>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title Area -->
+
+        <!-- Start Team Area -->
+        <section class="team-area ptb-100">
+            <div class="container">
+             {% for team in teams %}
+                <div class="column">
+                    <div class="col-lg-6 col-md-1 col-sm-1">
+                        <div class="single-team-member">
+                            <img src="{{ asset('assets/img/' ~ team.logo) }}" alt="image">
+
+                            <div class="content">
+                                <h3>{{ team.teamName }}</h3>
+                                <span>{{ team.description }}</span>
+                            <span>Players Available :    {% for player in players %}
+                        {% if player.idTeam.idTeam == team.idTeam %}
+                              {{ loop.index }} - {{ player.playerTag }} <br/>
+                                {% endif %}
+                                {% endfor %}  
+                                
+                                </span>
+                            </div>
+
+                            <a href="{{path('app_team_show', {'idTeam': team.idTeam})}}" class="link-btn"></a>
+                        </div>
+                    </div>
+
+                </div>
+                 {% endfor %}
+            </div>
+        </section>
+        <!-- End Team Area -->
+{% endblock %}
