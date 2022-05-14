@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/.idea/PiDev.iml" filepath="$PROJECT_DIR$/.idea/PiDev.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/.idea/GGesport.iml" filepath="$PROJECT_DIR$/.idea/GGesport.iml" />
->>>>>>> 432918105252aebc6928f1b0a75b4ed6a09bca2c
+      <module fileurl="file://$PROJECT_DIR$/.idea/ggesport.iml" filepath="$PROJECT_DIR$/.idea/ggesport.iml" />
     </modules>
   </component>
 </project>

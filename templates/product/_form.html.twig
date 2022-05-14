@@ -12,7 +12,7 @@
 	<div class="wrapper">
         <div class="imageContainer" id="display_image">
         {% if product.image %}
-            <img src="{{ asset('Uploads/' ~ product.getImage()) }}">
+            <img src="{{ asset('uploads_directory/' ~ product.getImage()) }}">
         {% else %}
 			<span class="img_icon">
 				<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-card-image" viewbox="0 0 16 16">
