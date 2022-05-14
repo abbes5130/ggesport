@@ -1,0 +1,8 @@
+
+
+
+
+.chart-pie-label { /*this is what you need for labels*/
+    -fx-fill: white;
+    -fx-font-size: 1em;
+} 

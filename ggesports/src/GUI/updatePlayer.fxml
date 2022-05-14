@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pt" minHeight="600" minWidth="1100" prefHeight="510.0" prefWidth="778.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UpdatePlayerController">
+   <children>
+      <VBox prefHeight="600" prefWidth="995.0">
+         <children>
+            <TextField fx:id="tmfield_up" layoutX="130.0" layoutY="130.0" prefHeight="27.0" prefWidth="700.0" promptText="player firstname">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="tmfield1_up" promptText="player lastname">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="lgfield_up" promptText="player description">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="plfield_up" promptText="Player tag">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="dsfield_up" promptText="photo">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#updatePlayer" text="Update Item">
+               <VBox.margin>
+                  <Insets left="490.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

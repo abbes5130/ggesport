@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="967.0" style="-fx-background-color: #1B1F25;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML1Controller">
+   <children>
+      <VBox layoutX="28.0" layoutY="55.0" prefHeight="200.0" prefWidth="70.0" spacing="14.0">
+         <children>
+            <Label text="Nom">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Prenom">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Email">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Numéro">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Role">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="112.0" layoutY="55.0" prefHeight="200.0" prefWidth="100.0" spacing="8.0">
+         <children>
+            <TextField fx:id="tfNom" />
+            <TextField fx:id="tfPrenom" />
+            <TextField fx:id="tfEmail" />
+            <TextField fx:id="tfPassword" />
+            <TextField fx:id="tfNumero" />
+            <TextField fx:id="tfRole" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvUser" layoutX="354.0" layoutY="55.0" onMouseClicked="#selectdl" prefHeight="298.0" prefWidth="555.0" stylesheets="@../styles/fxml_1.css">
+        <columns>
+          <TableColumn fx:id="colNom" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="colPrenom" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="colEmail" prefWidth="174.0" text="Email" />
+            <TableColumn fx:id="colNumero" prefWidth="74.0" text="Numero" />
+            <TableColumn fx:id="colRoleName" prefWidth="70.0" text="RoleName" />
+            <TableColumn fx:id="colPassword" prefWidth="97.0" text="Password" visible="false" />
+            <TableColumn fx:id="colID" prefWidth="75.0" text="ID" visible="false" />
+            <TableColumn fx:id="colRole" prefWidth="54.0" text="Role" visible="false" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAjouter" layoutX="14.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleButtonActionajouter" text="Ajouter" />
+      <Button fx:id="btnSupprimer" layoutX="152.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleButtonActionsupprimer" text="Supprimer" />
+      <Button fx:id="brnModifier" layoutX="82.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleButtonActionmodifier" text="Modifier" />
+      <TextField fx:id="tfID" editable="false" layoutX="78.0" layoutY="412.0" visible="false" />
+   </children>
+</AnchorPane>

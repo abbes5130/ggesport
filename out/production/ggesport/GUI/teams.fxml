@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TeamsController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="1200.0">
+         <children>
+            <HBox prefHeight="2.0" prefWidth="1200.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Teams List">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Text>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #242933;" text="Add a new Team" textFill="#a80051">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="7.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="studentsTable" layoutX="34.0" layoutY="157.0" prefHeight="265.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="idCol" maxWidth="70.0" prefWidth="70.0" style="-fx-alignment: center;" text="ID" />
+          <TableColumn fx:id="nameCol" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="NAME" />
+            <TableColumn fx:id="birthCol" maxWidth="85.0" prefWidth="85.0" style="-fx-alignment: center;" text="BIRTH DATE" />
+            <TableColumn fx:id="adressCol" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="ADRESS" />
+            <TableColumn fx:id="emailCol" maxWidth="140.0" prefWidth="140.0" style="-fx-alignment: center;" text="EMAIL" />
+            <TableColumn fx:id="editCol" maxWidth="64.0" prefWidth="64.0" style="-fx-alignment: center;" text="NAME" />
+        </columns>
+      </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

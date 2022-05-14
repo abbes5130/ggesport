@@ -1,0 +1,45 @@
+/*color codes
+#242933 black
+#1D222C black*/
+
+.avatar_label{
+    -fx-background-color:  #242933;
+    -fx-text-fill:  #ffffff;
+}
+
+.imgBox{
+    -fx-background-radius: 20;
+    -fx-background-radius: 20;
+}
+
+.icon-margin{
+    -fx-padding: 20%;
+}
+
+.bell-icon{
+    
+}
+.notif{
+    -fx-background-radius: 20;
+}
+
+.navbar_item{
+    -fx-border-width: 0;
+    -fx-border-color: #242933;
+    -fx-background-color: #242933;
+}
+.navbar_item:hover{
+    -fx-border-width: 0 4 0 0;
+    -fx-border-color: #FF0078;
+}
+
+.navbar_item:focused, .navbar_item:active{
+    -fx-border-width: 0 4 0 0;
+    -fx-border-color: #FF0078;
+    -fx-background-color: #FF0078;   
+}
+
+.search{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1D222C;
+}
