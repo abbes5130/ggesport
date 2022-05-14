@@ -1,0 +1,36 @@
+/*color codes
+#242933 black
+#1D222C black*/
+
+.avatar_label{
+    -fx-background-color:  #242933;
+    -fx-text-fill:  #ffffff;
+}
+
+.imgBox{
+    -fx-background-radius: 20;
+    -fx-background-radius: 20;
+}
+
+.icon-margin{
+    -fx-padding: 20%;
+}
+
+.bell-icon{
+    
+}
+.notif{
+    -fx-background-radius: 20;
+}
+
+.navbar_item{
+    -fx-background-color: #242933;
+}
+.navbar_item:hover{
+   -fx-background-color: #FF0078;   
+}
+
+.search{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1D222C;
+}

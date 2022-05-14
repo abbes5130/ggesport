@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="contentArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DashbordController">
+   <top>
+      <Pane prefHeight="77.0" prefWidth="1200.0" style="-fx-background-color: #1B1F25;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView disable="true" fitHeight="143.0" fitWidth="123.0" layoutX="18.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/ridha/Documents/NetBeansProjects/ggesport/ggesport/ggesports/src/images/2-removebg-preview_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="18.0" fitWidth="19.0" layoutX="1168.0" layoutY="13.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Clear%20Circle.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblnomuser" layoutX="969.0" layoutY="30.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblprenomuser" layoutX="1030.0" layoutY="30.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="906.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/User.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="572.0" prefWidth="149.0" style="-fx-background-color: #1B1F25;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnhome" layoutY="107.0" mnemonicParsing="false" onAction="#Home" prefHeight="25.0" prefWidth="148.0" styleClass="dsh_button" stylesheets="@../styles/fxml.css" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="24.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/ridha/Documents/NetBeansProjects/ggesport/ggesport/ggesports/src/images/Home%203.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnusers" layoutY="180.0" mnemonicParsing="false" onAction="#Users_page" prefWidth="148.0" styleClass="dsh_button" stylesheets="@../styles/fxml.css" text="Users" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnrole" layoutY="251.0" mnemonicParsing="false" onAction="#Roles_page" prefWidth="148.0" styleClass="dsh_button" stylesheets="@../styles/fxml.css" text="Roles" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnstats" layoutY="323.0" mnemonicParsing="false" onAction="#Stats_page" prefWidth="148.0" styleClass="dsh_button" stylesheets="@../styles/fxml.css" text="Stats" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="24.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/User%20Circle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="24.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/List%20Clipboard.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="24.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Graph.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane fx:id="bp" style="-fx-background-color: #2C313C;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
