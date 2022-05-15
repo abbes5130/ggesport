@@ -1,0 +1,5 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1> LISTE DES USERS JSON</h1>
+    {{ data|json_encode() }}
+{% endblock %}

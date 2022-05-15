@@ -6,6 +6,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Users
@@ -16,6 +17,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     fields= {"email"},
  *     message= "l'email que vous avez indiqué est déja utilisé"
  * )
+ *
  */
 class Users implements UserInterface
 {
@@ -25,6 +27,7 @@ class Users implements UserInterface
      * @ORM\Column(name="id_user", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups ("Users")
      */
     private $idUser;
 
@@ -42,6 +45,7 @@ class Users implements UserInterface
      *     match=false,
      *     message="le nom ne doit pas contenir des chiffres"
      * )
+     * @Groups ("Users")
 
      */
     private $firstname;
@@ -57,6 +61,7 @@ class Users implements UserInterface
      *     match=false,
      *     message="le prenom name cannot contain a number"
      *)
+     * @Groups ("Users")
      */
     private $lastname;
 
@@ -68,6 +73,7 @@ class Users implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     * @Groups ("Users")
      */
     private $email;
 
@@ -83,6 +89,7 @@ class Users implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     * @Groups ("Users")
      */
     private $password;
 
@@ -97,17 +104,19 @@ class Users implements UserInterface
      * @var int
      *
      * @ORM\Column(name="phone_number", type="integer", nullable=false)
+     * @Groups ("Users")
      */
     private $phoneNumber;
 
     /**
-     *
+
      * @var \Role
-     *
-     * @ORM\ManyToOne(targetEntity="Role", inversedBy="Users")
+
+     * @ORM\ManyToOne(targetEntity="Role", inversedBy="Users" )
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_role", referencedColumnName="id_role")
      * })
+     * @Groups ("Users")
      */
     private $idRole;
 
@@ -116,6 +125,7 @@ class Users implements UserInterface
      * @var string
      *
      * @ORM\Column(name="check_account", type="string", length=20, nullable=false)
+     * @Groups ("Users")
      */
     private $checkAccount;
     protected $captchaCode;

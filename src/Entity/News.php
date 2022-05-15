@@ -1,64 +1,87 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
+use App\Repository\NewsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * News
- *
- * @ORM\Table(name="news")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=NewsRepository::class)
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="News")
  */
 class News
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_news", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
-    private $idNews;
+    private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string")
+     *  @Assert\Length(
+     *      min = 2,
+     *      max = 11,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
+     * @Assert\NotNull
+     * @Groups("post:read")
      */
     private $title;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="bg_img", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=500, nullable=true)
+     * @Assert\File(maxSize="500k", mimeTypes={"image/jpeg", "image/jpg", "image/png", "image/GIF"})
+     *@Assert\NotNull
+     *@Groups("post:read")
      */
-    private $bgImg;
+    private $bg_img;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="img", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=500)
+     * @Assert\File(maxSize="500k", mimeTypes={"image/jpeg", "image/jpg", "image/png", "image/GIF"})
+     * @Groups("post:read")
      */
     private $img;
 
     /**
-     * @var string
+     * @ORM\Column(type="string")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * )
+     * @Assert\NotNull
+     * @Groups("post:read")
      */
     private $description;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="creation_date", type="date", nullable=false)
+     *@var \DateTime
+     * @ORM\Column(type="date",name="creation_date")
+     * @Groups("post:read")
      */
-    private $creationDate;
+    private $creation_date;
 
-    public function getIdNews(): ?int
+
+    public function __construct()
     {
-        return $this->idNews;
+        $this->comments = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getTitle(): ?string
@@ -75,12 +98,12 @@ class News
 
     public function getBgImg(): ?string
     {
-        return $this->bgImg;
+        return $this->bg_img;
     }
 
-    public function setBgImg(?string $bgImg): self
+    public function setBgImg(string $bg_img): self
     {
-        $this->bgImg = $bgImg;
+        $this->bg_img = $bg_img;
 
         return $this;
     }
@@ -90,7 +113,7 @@ class News
         return $this->img;
     }
 
-    public function setImg(?string $img): self
+    public function setImg(string $img): self
     {
         $this->img = $img;
 
@@ -108,18 +131,27 @@ class News
 
         return $this;
     }
-
+    /**
+     * @return \DateTime creation_date
+     */
     public function getCreationDate(): ?\DateTimeInterface
     {
-        return $this->creationDate;
+        return $this->creation_date;
     }
-
-    public function setCreationDate(\DateTimeInterface $creationDate): self
+    /**
+     * Set creation_date
+     *
+     * @param \DateTime $creation_date
+     *
+     * @return MisesEnPlace
+     */
+    public function setCreationDate(\DateTimeInterface $creation_date): self
     {
-        $this->creationDate = $creationDate;
+        $this->creation_date = $creation_date;
 
         return $this;
     }
+
 
 
 }

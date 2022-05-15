@@ -4,7 +4,17 @@
 
 {% block body %}
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 
 
 <div style="display: flex;align-content: center;justify-content: center;margin-top: 150px;margin-left: 150px">
@@ -13,14 +23,14 @@
         <div class="card-header">
             <h3 class="card-title">Users view</h3>
         </div>
-        <form method="post" action="{{ path('recherche') }}">
-            <label>Recherche</label>
-            <input type="text" name="search"><input type="submit" value="Recherche">
-        </form>
+        <p>
+        <input id="myInput" type="text" placeholder="Search.." >
+        <img src="https://img.icons8.com/nolan/344/google-web-search.png
+" style="width:50px;height:50px;"/></p>
         <!-- /.card-header -->
         <div class="card-body p-0">
 
-            <table class="table table-striped">
+            <table id="myTable" class="table table-striped">
                 <thead>
                {# <a href="{{ path('trieU',{'id': user.idUser}) }}">TRIE ASC</a>#}
                 <tr>
@@ -63,6 +73,7 @@
                 </tbody>
             </table>
             <button class="button-62" role="button"><a href="{{ path('app_users_new') }}">ADD USER</a></button>
+            <button class="button-62" role="button"><a href="{{ path('stat') }}">Statistics</a></button>
         </div>
         <!-- /.card-body -->
     </div>

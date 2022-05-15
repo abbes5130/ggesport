@@ -3,12 +3,18 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\productRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Product
  *
  * @ORM\Table(name="product", indexes={@ORM\Index(name="product_fk0", columns={"category"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\productRepository")
  */
 class Product
 {
@@ -18,48 +24,105 @@ class Product
      * @ORM\Column(name="id_product", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("product")
      */
     private $idProduct;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="product_name", type="string", length=255, nullable=false)
+     * @var string|null
+     * 
+     * @Assert\NotBlank{
+     *      message = "The Product name cannot be null"
+     * }
+     * 
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 20,
+     *      minMessage = "The Product name must be at least {{ limit }} characters long",
+     *      maxMessage = "The Product name cannot be longer than {{ limit }} characters"
+     * )
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="The Product name cannot contain a number"
+     * )
+     * @Assert\Regex(
+     *     pattern="/\W/",
+     *     match=false,
+     *     message="The Product name cannot contain special characters"
+     * )
+     * 
+     * @ORM\Column(name="product_name", type="string", length=255, nullable=true)
+     * @Groups("product")
      */
     private $productName;
 
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Groups("product")
      */
     private $image;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="product_price", type="float", precision=10, scale=0, nullable=false)
+     * @var float|null
+     * 
+     * @Assert\NotBlank{
+     *      message = "The Product price cannot be null"
+     * }
+     * 
+     * @Assert\GreaterThan(
+     *     value = 0,
+     *     message="The Product price cannot be less than or equal to 0 DT"
+     * )
+     * @ORM\Column(name="product_price", type="float", precision=10, scale=0, nullable=true)
+     * @Groups("product")
      */
     private $productPrice;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     * @var string|null
+     * 
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 250,
+     *      minMessage = "The Product description must be at least {{ limit }} characters long",
+     *      maxMessage = "The Product description cannot be longer than {{ limit }} characters"
+     * )
+     * 
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
+     * @Groups("product")
      */
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="color", type="string", length=255, nullable=false)
+     * @var string|null
+     * 
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 15,
+     *      minMessage = "The Product color must be at least {{ limit }} characters long",
+     *      maxMessage = "The Product color cannot be longer than {{ limit }} characters"
+     * )
+     * 
+     * @ORM\Column(name="color", type="string", length=255, nullable=true)
+     * @Groups("product")
      */
     private $color;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mark", type="string", length=255, nullable=false)
+     * @var string|null
+     * 
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 15,
+     *      minMessage = "The Product mark must be at least {{ limit }} characters long",
+     *      maxMessage = "The Product mark cannot be longer than {{ limit }} characters"
+     * )
+     * 
+     * @ORM\Column(name="mark", type="string", length=255, nullable=true)
+     * @Groups("product")
      */
     private $mark;
 
@@ -67,29 +130,42 @@ class Product
      * @var int|null
      *
      * @ORM\Column(name="discount", type="integer", nullable=true)
+     * @Groups("product")
      */
     private $discount;
 
     /**
-     * @var bool
+     * @var bool|null
      *
-     * @ORM\Column(name="disponibility", type="boolean", nullable=false)
+     * @ORM\Column(name="disponibility", type="boolean", nullable=true)
+     * @Groups("product")
      */
     private $disponibility;
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="category", type="integer", nullable=false)
+     * @Assert\NotBlank{
+     *      message = "The Product quantity cannot be null"
+     * }
+     * 
+     * @ORM\Column(name="stock_quantity", type="integer", nullable=true)
+     * @Groups("product")
+     */
+    private $stockQuantity;
+
+    /**
+     * @var \Category
+     *
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id_category")
+     * @Groups("product")
      */
     private $category;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="stock_quantity", type="integer", nullable=false)
-     */
-    private $stockQuantity;
+
+
+
 
     public function getIdProduct(): ?int
     {
@@ -101,7 +177,7 @@ class Product
         return $this->productName;
     }
 
-    public function setProductName(string $productName): self
+    public function setProductName(?string $productName): self
     {
         $this->productName = $productName;
 
@@ -113,7 +189,7 @@ class Product
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
@@ -125,7 +201,7 @@ class Product
         return $this->productPrice;
     }
 
-    public function setProductPrice(float $productPrice): self
+    public function setProductPrice(?float $productPrice): self
     {
         $this->productPrice = $productPrice;
 
@@ -137,7 +213,7 @@ class Product
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -149,7 +225,7 @@ class Product
         return $this->color;
     }
 
-    public function setColor(string $color): self
+    public function setColor(?string $color): self
     {
         $this->color = $color;
 
@@ -161,7 +237,7 @@ class Product
         return $this->mark;
     }
 
-    public function setMark(string $mark): self
+    public function setMark(?string $mark): self
     {
         $this->mark = $mark;
 
@@ -185,21 +261,9 @@ class Product
         return $this->disponibility;
     }
 
-    public function setDisponibility(bool $disponibility): self
+    public function setDisponibility(?bool $disponibility): self
     {
         $this->disponibility = $disponibility;
-
-        return $this;
-    }
-
-    public function getCategory(): ?int
-    {
-        return $this->category;
-    }
-
-    public function setCategory(int $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
@@ -209,12 +273,29 @@ class Product
         return $this->stockQuantity;
     }
 
-    public function setStockQuantity(int $stockQuantity): self
+    public function setStockQuantity(?int $stockQuantity): self
     {
         $this->stockQuantity = $stockQuantity;
 
         return $this;
     }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+
+
+
+
 
 
 }
