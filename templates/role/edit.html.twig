@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Role{% endblock %}
+
+{% block body %}
+    <h1>Edit Role</h1>
+
+    {{ include('role/_form.html.twig') }}
+
+   <button class="button-62" role="button"> <a href="{{ path('app_role_index') }}">Back</a></button>
+
+
+{% endblock %}

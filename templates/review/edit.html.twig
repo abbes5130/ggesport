@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Review{% endblock %}
+
+{% block body %}
+    <h1>Edit Review</h1>
+
+    {{ include('review/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_review_index') }}">back to list</a>
+
+    {{ include('review/_delete_form.html.twig') }}
+{% endblock %}

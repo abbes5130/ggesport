@@ -1,0 +1,23 @@
+social_post:
+    publish_on: [facebook, linkedin, twitter]         # List which Social networks you will be publishing to and configure your access to them as shown below
+    providers:
+        facebook:
+            app_id: "290626856449837"
+            app_secret: "edfb662e44e46b360a117b136cbcc64f"
+            default_access_token: "EAAEIUtaKdy0BAIpJhcWVpZBtk617Nfw5QTmZBsYfyJAZA5nnJGxw2ZBbJnpsJZAhSlpP8FMXdXfHbNKFuy1rGcxTvlHGLhi0fZBU3lwsE2cENvFpBkrCnpXgYWKu1nW82CiYZBqikVyneYfMiSAl9xZBZASoOeQ3PFiJv3mx8mU5GYoLZCCO7BguDEjfblnrqkjpGku7Lqb6hlQ0TiwcVHD1lFv9rhmZAxT9PwBBOXSWiMZB5qeccoYNqX6R"
+            page_id: "5626021420760902"
+            enable_beta_mode: true
+            default_graph_version: "v2.8"             # Optional, also supports "mcrypt" and "urandom". Default uses the latest graph version.
+            persistent_data_handler: "memory"         # Optional, also supports "session". Default is "memory".
+            pseudo_random_string_generator: "openssl" # Optional, also supports "mcrypt" and "urandom". Default is "openssl".
+            http_client_handler: "curl"               # Optional, also supports "stream" and "guzzle". Default is "curl".
+        linkedin:
+            client_id: "YOUR-LINKEDIN-APP-CLIENT-ID"
+            client_secret: "YOUR-LINKEDIN-APP-CLIENT-SECRET"
+            access_token: "YOUR-LINKEDIN-60-DAYS-LONG-USER-ACCESS-TOKEN"
+            company_page_id: "YOUR-LINKEDIN-COMPANY-PAGE-ID"
+        twitter:
+            consumer_key: "YOUR-TWITTER-APP-CONSUMER-KEY"
+            consumer_secret: "YOUR-TWITTER-APP-CONSUMER-SECRET"
+            access_token: "YOUR-TWITTER-ACCESS-TOKEN"
+            access_token_secret: "YOUR-TWITTER-ACCESS-TOKEN-SECRET"

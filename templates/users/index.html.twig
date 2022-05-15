@@ -1,0 +1,82 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Users index{% endblock %}
+
+{% block content %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+<div style="display: flex;align-content: center;justify-content: center;margin-top: 150px;margin-left: 150px">
+    <div class="card">
+
+        <div class="card-header">
+            <h3 class="card-title">Users view</h3>
+        </div>
+        <p>
+        <input id="myInput" type="text" placeholder="Search.." >
+        <img src="https://img.icons8.com/nolan/344/google-web-search.png
+" style="width:50px;height:50px;"/></p>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+
+            <table id="myTable" class="table table-striped">
+                <thead>
+               {# <a href="{{ path('trieU',{'id': user.idUser}) }}">TRIE ASC</a>#}
+                <tr>
+                <tr>
+                    <th>IdUser</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>PhoneNumber</th>
+                    <th>IdRole</th>
+                    <th>CheckAccount</th>
+                    <th>actions</th>
+                </tr>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.idUser }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.phoneNumber }}</td>
+                        <td>{{ user.idRole.rolename }}</td>
+                        <td>{{ user.checkAccount }}</td>
+                        <td>
+                            <a href="{{ path('app_users_show', {'id': user.idUser}) }}">show</a>
+                            <a href="{{ path('app_users_edit', {'id': user.idUser}) }}">edit</a>
+
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+            <button class="button-62" role="button"><a href="{{ path('app_users_new') }}">ADD USER</a></button>
+            <button class="button-62" role="button"><a href="{{ path('stat') }}">Statistics</a></button>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>
+    </div>
+{% endblock %}

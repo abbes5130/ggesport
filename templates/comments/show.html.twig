@@ -1,0 +1,24 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Comments{% endblock %}
+
+{% block content %}
+    <h1>Comments</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Text</th>
+                <td>{{ Comments.text }}</td>
+            </tr>
+            <tr>
+                <th>Comment_date</th>
+                <td>{{ Comments.commentDate ? Comments.commentDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('index1') }}">back to list</a>
+
+
+{% endblock %}

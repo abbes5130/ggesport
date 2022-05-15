@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matches index{% endblock %}
+
+{% block content %}
+    <h1>Matches index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdMatch</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>NbSeats</th>
+                <th>Price</th>
+                <th>Link</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for match in matches %}
+            <tr>
+                <td>{{ match.idMatch }}</td>
+                <td>{{ match.time ? match.time|date('H:i:s') : '' }}</td>
+                <td>{{ match.date ? match.date|date('Y-m-d') : '' }}</td>
+                <td>{{ match.location }}</td>
+                <td>{{ match.nbSeats }}</td>
+                <td>{{ match.price }}</td>
+                <td>{{ match.link }}</td>
+                <td>
+                    <a href="{{ path('app_matches_show', {'idMatch': match.idMatch}) }}">show</a>
+                    <a href="{{ path('app_matches_edit', {'idMatch': match.idMatch}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_matches_new') }}">Create new</a>
+{% endblock %}

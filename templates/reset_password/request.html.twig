@@ -1,0 +1,36 @@
+{% extends 'OnlyNavBar.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <section class="page-title-area page-title-bg1">
+        <div class="container">
+            <div class="page-title-content">
+                <h1 title="MY ACCOUNT">RESET PASSWORD</h1>
+            </div>
+        </div>
+    </section>
+<section class="profile-authentication-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="login-form">
+                    <h2>Reset Password</h2>
+    {% for flash_error in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    <h1>Reset your password</h1>
+
+    {{ form_start(requestForm) }}
+        {{ form_row(requestForm.email) }}
+        <div>
+            <small>
+                Enter your email address and we will send you a
+                link to reset your password.
+            </small>
+        </div>
+
+        <button class="btn btn-primary">Send password reset email</button>
+    {{ form_end(requestForm) }}
+                </div></div></div></div></section>
+{% endblock %}

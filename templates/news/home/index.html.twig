@@ -1,0 +1,137 @@
+{% extends 'Front_base.html.twig' %}
+{% block content %}  
+      
+  <!-- Start Page Title Area -->
+        <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="News">News</h1>
+                </div>
+            </div>
+        </section>
+
+<br><br>
+ <div class="album py-5 ">
+        <div class="container">
+
+<h2>Search News</h2>
+<br>
+<hr>
+
+            <div class="sidebar-search">
+
+                <div class="input-group custom-search-form">
+
+                    <input type="text" id="search" class="form-control" placeholder="Search here">
+                </div>
+                <!-- /input-group -->
+            </div>
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="#">Info New <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" id="entitiesNav">
+                    </ul>
+                </li>
+              
+                </div>
+                
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    var searchRequest = null;
+                    $("#search").keyup(function() {
+                        var minlength = 1;
+                        var that = this;
+                        var value = $(this).val();
+                        var entitySelector = $("#entitiesNav").html('');
+                        if (value.length >= minlength ) {
+                            if (searchRequest != null)
+                                searchRequest.abort();
+                            searchRequest = $.ajax({
+                                type: "GET",
+                                url: "{{ path('ajax_search') }}",
+                                data: {
+                                    'q' : value
+                                },
+                                dataType: "text",
+                                success: function(msg){
+                                    //we need to check if the value is the same
+                                    if (value===$(that).val()) {
+                                        var result = JSON.parse(msg);
+                                        $.each(result, function(key, arr) {
+                                            $.each(arr, function(id, value) {
+                                                if (key === 'News') {
+                                                    if (id !== 'error') {
+                                                        console.log(value[1]);
+                                                        entitySelector.append('<li><b>'+'<label for="exampleInput">Title:</label>'+''+value[1]+'<br>'+'<label for="exampleInput">logo:</label>'+value[0]+'<br>'+'<label for="exampleInput">image background:</label>'+value[2]+'<br>'+'<label for="exampleInput">Description:</label>'+value[3]+'</b>'+'br'+'<div><a href="/News/'+id+'">'  +'<img src="{{ asset('uploads/dd.png') }}" alt="logo"> ' +'<label for="exampleInput">views details</label>'+'</a></div></li>');
+                                                    } else {
+                                                        entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+                </div>
+            </ul>
+
+           
+<br>
+
+<div class="container">
+
+<br><br>
+ <div class="magazine-area">
+            <div class="container-fluid">
+                <div class="magazine-items">
+             {% for News in listNews %}
+  
+           <div class="col-lg-9 col-md-11 grid-item">
+                        <div class="single-magazine-box">
+                                                                            
+                    <img   src="{{ asset('uploads/' ~ News.img) }} " alt="{{ News.Title }}" class="card-img-top">
+                    <div class="content">
+                                <ul class="meta">
+                     <img   src="{{ asset('uploads/' ~ News.bgimg) }} " alt="image" class="logo">
+
+                        <li class="card-title">{{ News.Title }}
+                        </li>
+                         <li><span class="h5 mt-auto">{{ News.creationdate ? News.creationdate|date('Y-m-d ') : '' }} </span>
+                         <div class="container"><h8 class="card-text">{{ News.description }}</h8></div></li>
+                         </ul>
+
+                        <div class="d-flex justify-content-between align-item-center">
+<a href="{{ path('detailed_News', {id: News.id}) }}" class="read-more-btn" ><i class="flaticon-null"></i>View details</a>
+
+                                                 <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Tag:{{ News.tag.count }}
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <br><br><br>            
+        <br>           
+
+       <div class="container">
+          <a href="{{ path('delete_news',{'id': News.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+
+        {% endfor %}
+                            {{ knp_pagination_render(listNews) }}
+
+    </div>
+</div>
+ <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+        <div class="zelda-cursor"></div>
+        <div class="zelda-cursor2"></div>
+
+           
+{% endblock %}
+ 

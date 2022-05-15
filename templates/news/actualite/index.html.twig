@@ -1,0 +1,36 @@
+{% extends 'Front_base.html.twig' %}
+
+{% block content %}
+  <section class="page-title-area page-title-bg1">
+            <div class="container">
+                <div class="page-title-content">
+                    <h1 title="News">News//Create</h1>
+                </div>
+            </div>
+        </section>
+        <br><br>        <br><br>
+ <br><br>        <br><br>
+    <div class="form-group has-error">
+    {{ form_start(Form) }}
+
+        {{ form_widget(Form.title,{'attr':{'type':'text','class':'form-control','placeholder':'Title...'}}) }}
+        <br> <br> <br>
+        {{ form_widget(Form.description,{'attr':{'type':'textarea','class':'form-control','placeholder':'Description...'}}) }}
+        <br> <br> <br>
+        {{ form_widget(Form.img,{'attr':{'type':'text','class':'form-control','placeholder':'img...'}}) }}
+        <br> <br> <br>
+        {{ form_widget(Form.bg_img,{'attr':{'type':'text','class':'form-control','placeholder':'logo...'}}) }}
+        <br> <br> <br>
+   <center> {{ form_widget(Form.Submit,{'attr':{'type':'text','class':'btn btn-common','placeholder':'Submit...'}}) }}        </center>
+        <br> <br> <br>
+       
+        {{ form_end(Form) }}
+    </div>
+    
+
+   <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+        <div class="zelda-cursor"></div>
+        <div class="zelda-cursor2"></div>      
+   
+{% endblock %}

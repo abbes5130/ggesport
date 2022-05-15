@@ -1,0 +1,112 @@
+
+
+<!doctype html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Links of CSS files -->
+    <link rel
+="stylesheet" href="{{ asset('Front/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/boxicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/meanmenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/magnific-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/assets/css/responsive.css') }}">
+    <title>Zelda - eSports & Gaming Template</title>
+
+    <link rel="icon" type="image/png" href="{{ asset('Front/assets/img/favicon.png') }}">
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<section class="profile-authentication-area ptb-100" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="login-form">
+                    <h2>Login</h2>
+
+
+            <form action="" method="post">
+                <div class="form-group">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+                    <label>Username or email</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-6 remember-me-wrap">
+                        <p>
+                            <input type="checkbox" id="test2">
+                            <label for="test2">Remember me</label>
+                        </p>
+                    </div>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 lost-your-password-wrap">
+                        <a href="{{ path('app_forgot_password_request') }}">Lost your password?</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 lost-your-password-wrap">
+                        <a href="{{ path('registration') }}" class="text-center">Register a new membership</a>
+                    </div>
+                </div>
+
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+        </div></div></section>
+
+<div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+<div class="zelda-cursor"></div>
+<div class="zelda-cursor2"></div>
+
+<!-- Links of JS files -->
+<script src="{{ asset('Front/assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/magnific-popup.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/parallax.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/meanmenu.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/cursor.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/fancybox.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/wow.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/form-validator.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/contact-form-script.js') }}"></script>
+<script src="{{ asset('Front/assets/js/ajaxchimp.min.js') }}"></script>
+<script src="{{ asset('Front/assets/js/main.js') }}"></script>
+</body>
+</html>

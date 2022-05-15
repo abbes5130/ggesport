@@ -1,0 +1,14 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Edit Matches{% endblock %}
+
+{% block content %}
+    <h1>Edit Matches</h1>
+
+    {{ include('matches/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_match_index') }}">back to list</a>
+    <br>
+
+    {{ include('matches/_delete_form.html.twig') }}
+{% endblock %}

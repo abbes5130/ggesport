@@ -1,0 +1,175 @@
+{% extends 'Front_base.html.twig' %}
+
+{% block content %}
+
+<!-- Start Page Title Area -->
+<section class="page-title-area page-title-bg1">
+    <div class="container">
+        <div class="page-title-content">
+            <div class="single-matches-box">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-12">
+                        <div class="matches-team">
+                            <img src="{{ asset('assets/img/')}}{{match.idTeam1.logo}}" class="wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image">
+
+                            <div class="content">
+                                <h3>{{ match.idTeam1.teamName }}</h3>
+                                <ul class="watch-list">
+                                    <li><span>Watch</span></li>
+                                    <li><a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on YouTube"><i class='bx bxl-youtube'></i></a></li>
+                                    <li><a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on Twitch"><i class='bx bxl-twitch'></i></a></li>
+                                    <li><a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on Vimeo"><i class='bx bxl-vimeo'></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-12">
+                        <div class="matches-result">
+                            <ul>
+                                <li>-</li>
+                                <li>-</li>
+                            </ul>
+                            <span class="date-time">{{match.date|date('d-m-Y')}}, {{ match.time|date('H:i') }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-12">
+                        <div class="matches-team right-image">
+                            <img src="{{ asset('assets/img/')}}{{match.idTeam2.logo}}" class="wow fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image">
+
+                            <div class="content">
+                                <h3>{{ match.idTeam2.teamName }}</h3>
+                                <ul class="watch-list">
+                                    <li><a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on YouTube"><i class='bx bxl-youtube'></i></a></li>
+                                    <li><a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on Twitch"><i class='bx bxl-twitch'></i></a></li>
+                                    <li><a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on Vimeo"><i class='bx bxl-vimeo'></i></a></li>
+                                    <li><span>Watch</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Page Title Area -->
+
+<!-- Start Match Details Area -->
+
+
+<section class="match-details-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="match-details-desc">
+                    <div class="article-content">
+                        <div class="entry-meta">
+                            <ul>
+                                <li>{{match.date|date('d-m-Y')}} ,{{ match.time|date('H:i') }}</li>
+                            </ul>
+                        </div>
+                        <h3>{{ match.idTeam1.teamName }} vs {{ match.idTeam2.teamName }}</h3>
+                        <p>
+                            <b>Location</b>
+                        <br>
+                            {{ match.location}}
+                            <br>
+                            <b>Price</b>
+                            <br>
+                            {{ match.price}}
+                            <br>
+                            <b>Number of Seats Available:</b>
+                            <br>
+                            {{ match.nbSeats}}
+                            <br>
+                            <b>Live link :</b>
+                            <br>
+                           <a href="{{ match.link}}">{{ match.link}}</a>
+
+
+                        </p>
+                    </div>
+                    <br>
+                    <br> <br>
+                    <button id="reserverMatch" onclick="ReservationOnClick({{ match.idMatch}}, 1)">Reserver Match </button>
+
+                    <script>
+
+                        function ReservationOnClick(matchId, userId){
+
+
+
+                            fetch("{{ path('app_reservation_new') }}",{
+                                method: 'POST',
+                                body:'id_user='+userId+'&id_match='+matchId,
+                                headers:{"Content-Type": "application/x-www-form-urlencoded"}
+                            }).then((response)=>{response.json().then((text)=>{
+
+                                window.location.replace("{{ path("app_reservation_showNoIdTicket") }}/"+ text.idTicket)
+                            })});
+
+
+
+
+                        }
+                    </script>
+
+
+                </div>
+
+
+    </div>
+        </div>
+    </div>
+</section>
+
+<!-- End Match Details Area -->
+
+<!-- Start Footer Area -->
+<footer class="footer-area bg-1b060a ptb-70">
+    <div class="container">
+        <div class="footer-content">
+            <div class="logo">
+                <a href="#" class="d-inline-block"><img src="assets/img/logo.png" alt="image"></a>
+                <ul class="footer-menu">
+                    <li class="nav-item"><a class="nav-link" href="#">Legal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Terms of Use</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy policy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Cockie setting</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Support center</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="copyright-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-5">
+                <p><i class='bx bx-copyright'></i>2020 <a href="#">Zelda</a> games Pty Ltd.</p>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-7">
+                <div class="lang-switcher">
+                    <span>Select your language</span>
+                    <select>
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                        <option>Portuguese</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Footer Area -->
+
+<div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+<div class="zelda-cursor"></div>
+<div class="zelda-cursor2"></div>
+{% endblock %}

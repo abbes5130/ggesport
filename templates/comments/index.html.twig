@@ -1,0 +1,216 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block content %}
+
+<body class="hold-transition sidebar-mini">
+    <h1>         
+</h1>
+       
+      
+ <section class="content">
+
+      <div class="container-fluid">
+ <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+         <div class="card-header">
+          <h3 class="card-title">List Comments</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          </div>
+
+
+        <div class="card-body">
+        <div>
+         <form>
+            <div class="input-group mb-3">
+                <input type="text" name="search" class="form-control" value="{{ app.request.query.get('search') }}" placeholder="Search">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary"><span class="fa fa-search"></span> </button>
+                </div>
+            </div>
+        </form>    
+        <a href="{{ path('add_Comments1') }}"  data-toggle="modal" data-target="#modal-default">                   
+                 
+                      <button type="button" class="btn btn-block btn-outline-secondary">add comment</button>
+</a>
+</div>
+ <div class="row">
+          <div class="col-12">
+            
+                  {% for comment in pagination %}
+
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                     <th><span class="custom-checkbox">
+									<input type="checkbox" id="selectAll">
+									<label for="selectAll"></label>
+								</span>
+							</th>
+                <th>Comment_date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+         <tr   data-widget="expandable-table" aria-expanded="true">     
+                <td>
+								<span class="custom-checkbox">
+									<input type="checkbox" id="checkbox1" name="options[]" value="{{ comment.id }}">
+									<label for="checkbox1">{{ comment.id }}</label>
+								</span>
+							</td>                          
+                <td>{{ comment.commentDate ? comment.commentDate|date('Y-m-d') : '' }}</td>
+                <td><a href="{{ path('Comments', {'id': comment.id}) }}"><i class="fa fa-info" aria-hidden="true"></i>
+</a>
+       
+       
+        <a href="{{ path('modify_Comments', {'id': comment.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</a>
+                <a href="{{ path('delete_Comments', {'id': comment.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i>
+</a></td>
+
+                </td>
+                    </tr>
+                    <tr class="expandable-body">
+                      <td colspan="5">
+                      <b>comment:</b>
+                        <p>
+                    
+                {{ comment.text }}
+                        </p>
+                      </td>
+                    </tr>
+
+                                             </tbody>
+
+  </table>
+          {% endfor %}
+      
+          </div>
+        </div>
+                                  <div class="card-footer">
+         <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">  {{ knp_pagination_render(pagination) }}
+</a></li>
+                </ul>
+              </div>
+            </div>
+                           
+      </div><!-- /.container-fluid -->
+    </section>
+     <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+    <!-- /.content -->
+  </div>           
+
+   
+
+        
+     
+        <!-- /.card-body -->
+    
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+ <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+ <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">add comments </h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+
+<form class="news-form" id="quickForm" action="{{ path('add_Comments1') }}" method="post" >
+
+  <section class="content">
+     
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputTitle">text</label>
+                    <input type="text" name="comment" id="comment" class="form-control"  placeholder="Enter title">
+                  </div>
+
+                                     <select type="option" name="news_id" >
+                         {% for news in news %}
+                         <option value="{{news.id}}">{{news.title}}</option>
+                                                    {% endfor %}
+
+</select>
+</form>                           
+
+                 
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+ <p class="form-submit">
+                                            <input type="submit" name="submit" id="submit" class="submit" value="save">
+                                        </p>                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+            </div><!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->   
+
+    </body>
+{% endblock %}
+
+ {% block j %}
+
+ <script type="text/javascript">
+   $(function () {
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true
+      });
+    });
+
+    $('.filter-container').filterizr({gutterPixels: 3});
+    $('.btn[data-filter]').on('click', function() {
+      $('.btn[data-filter]').removeClass('active');
+      $(this).addClass('active');
+    });
+  })
+   </script>
+ {% endblock %}
+
+           
+

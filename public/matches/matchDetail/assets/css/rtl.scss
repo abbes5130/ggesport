@@ -1,0 +1,1856 @@
+body {
+    direction: rtl;
+    text-align: right;
+}
+.form-control {
+    padding: {
+        right: 15px;
+        left: 0;
+    };
+}
+
+.zelda-nav {
+    .navbar {
+        .navbar-nav {
+            margin: {
+                left: 0;
+                right: auto;
+            };
+            .nav-item {
+                .dropdown-menu {
+                    text-align: right;
+                    left: auto;
+                    right: 0;
+
+                    li {
+                        a {
+                            &::before {
+                                left: auto;
+                                right: 0;
+                                transform: rotate(90deg);
+                            }
+                            i {
+                                right: auto;
+                                left: 0;
+                            }
+                            &:hover, &.active {
+                                padding: {
+                                    left: 0;
+                                    right: 18px;
+                                };
+                            }
+                        }
+                        .dropdown-menu {
+                            left: auto;
+                            right: -210px;
+
+                            li {
+                                .dropdown-menu {
+                                    left: auto;
+                                    right: 210px;
+
+                                    li {
+                                        .dropdown-menu {
+                                            left: auto;
+                                            right: -210px;
+
+                                            li {
+                                                .dropdown-menu {
+                                                    left: auto;
+                                                    right: 210px;
+
+                                                    li {
+                                                        .dropdown-menu {
+                                                            left: auto;
+                                                            right: -210px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .others-option {
+            margin: {
+                left: 0;
+                right: 17px;
+            };
+            .option-item {
+                margin: {
+                    left: 0;
+                    right: 37px;
+                };
+                &:first-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+.search-overlay {
+    .search-overlay-close {
+        right: auto;
+        left: 40px;
+    }
+    .search-overlay-form {
+        form {
+            .input-search {
+                padding: {
+                    left: 0;
+                    right: 30px;
+                };
+            }
+            button {
+                right: auto;
+                left: 5px;
+            }
+        }
+    }
+}
+.sidebarModal {
+    &.modal {
+        .modal-body {
+            .social-list {
+                li {
+                    margin: {
+                        right: 0;
+                        left: 8px;
+                    };
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mean-container {
+    .mean-bar {
+        float: right;
+    }
+    a.meanmenu-reveal {
+        right: auto !important;
+        left: 0 !important;
+    }
+    .mean-nav {
+        float: right;
+        text-align: right;
+
+        ul {
+            li {
+                float: right;
+
+                a {
+                    float: right;
+                    text-align: right;
+
+                    &.mean-expand {
+                        text-align: left;
+                        right: auto;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.others-option-for-responsive {
+    .dot-menu {
+        right: auto;
+        left: 60px;
+    }
+    .option-inner {
+        .others-option {
+            .option-item {
+                margin: {
+                    right: 30px;
+                    left: 0;
+                };
+                &:first-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.main-banner-content {
+    .btn-box {
+        .optional-btn {
+            margin: {
+                right: 15px;
+                left: 0;
+            };
+        }
+    }
+}
+.home-slides {
+    .main-banner-content {
+        text-align: right;
+        padding: {
+            right: 0;
+            left: 50px;
+        };
+        .btn-box {
+            .default-btn {
+                margin: {
+                    right: 0;
+                    left: 0;
+                };
+            }
+        }
+    }
+}
+.hero-banner-image {
+    margin: {
+        right: 0;
+        left: -80px;
+    };
+}
+.hero-banner-content {
+    margin: {
+        left: 0;
+        right: -80px;
+    };
+    .btn-box {
+        .video-btn {
+            margin: {
+                left: 0;
+                right: 20px;
+            };
+            i {
+                margin: {
+                    right: 0;
+                    left: 5px;
+                };
+            }
+        }
+    }
+}
+
+.single-matches-box {
+    .matches-team {
+        padding: {
+            left: 0;
+            right: 100px;
+        };
+        img {
+            left: auto;
+            right: 0;
+        }
+        .content {
+            text-align: left;
+
+            h3 {
+                background-position: left center;
+                padding: {
+                    left: 55px;
+                    right: 0;
+                };
+            }
+            .watch-list {
+                padding: {
+                    right: 0;
+                    left: 54px;
+                };
+                li {
+                    margin: {
+                        right: 0;
+                        left: 8px;
+                    };
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+        &.right-image {
+            padding: {
+                right: 0;
+                left: 100px;
+            };
+            img {
+                right: auto;
+                left: 0;
+            }
+            .content {
+                text-align: right;
+
+                h3 {
+                    background-position: right center;
+                    padding: {
+                        left: 0;
+                        right: 55px;
+                    };
+                }
+                ul {
+                    padding: {
+                        left: 0;
+                        right: 54px;
+                    };
+                    li {
+                        margin: {
+                            left: 0;
+                            right: 8px;
+                        };
+                        &:last-child {
+                            margin: {
+                                right: 8px;
+                                left: 0;
+                            };
+                        }
+                        &:first-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .matches-result {
+        ul {
+            padding-right: 0;
+
+            li {
+                margin: {
+                    left: 28px;
+                    right: 28px;
+                };
+                &:first-child {
+                    margin: {
+                        left: 28px;
+                        right: 0;
+                    };
+                }
+                &:last-child {
+                    margin: {
+                        left: 0;
+                        right: 28px;
+                    };
+                }
+                &::before {
+                    left: auto;
+                    right: -33px;
+                }
+            }
+        }
+    }
+}
+.matches-tabs {
+    .nav-tabs {
+        padding-right: 0;
+
+        .nav-item {
+            .nav-link {
+                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+                padding: {
+                    right: 30px;
+                    left: 45px;
+                };
+            }
+        }
+    }
+}
+
+.live-stream-tabs {
+    .nav-tabs {
+        padding-right: 0;
+
+        .nav-item {
+            .nav-link {
+                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+                padding: {
+                    right: 30px;
+                    left: 45px;
+                };
+            }
+        }
+    }
+}
+.single-live-stream-box {
+    .content {
+        h3 {
+            i {
+                margin: {
+                    left: 0;
+                    right: 10px;
+                };
+            }
+        }
+    }
+}
+
+.team-area {
+    .section-title {
+        text-align: right;
+    }
+}
+.single-team-member {
+    .content {
+        text-align: right;
+    }
+}
+
+.services-area {
+    .section-title {
+        text-align: right;
+    }
+}
+
+.single-magazine-box {
+    .content {
+        .read-more-btn {
+            left: auto;
+            right: 30px;
+        }
+        .meta {
+            padding-right: 0;
+
+            li {
+                margin: {
+                    right: 0;
+                    left: 23px;
+                };
+                &:last-child {
+                    margin-left: 0;
+                }
+                &::before {
+                    left: -15.5px;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+
+.single-popular-leagues-box {
+    .popular-leagues-box {
+        .popular-leagues-content {
+            .content {
+                .info {
+                    padding-right: 0;
+
+                    li {
+                        margin: {
+                            right: 0;
+                            left: 25px;
+                        };
+                        padding: {
+                            right: 28px;
+                            left: 0;
+                        };
+                        i {
+                            left: auto;
+                            right: 0;
+                        }
+                        &:last-child {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.single-tournaments-box {
+    .tournaments-content {
+        .content {
+            .date {
+                sub {
+                    left: auto;
+                    right: -5px;
+                }
+                sup {
+                    left: auto;
+                    right: -49px;
+                }
+            }
+            .meta {
+                padding-right: 0;
+            }
+            .info {
+                padding-right: 0;
+
+                li {
+                    margin: {
+                        right: 0;
+                        left: 25px;
+                    };
+                    padding: {
+                        right: 28px;
+                        left: 0;
+                    };
+                    i {
+                        left: auto;
+                        right: 0;
+                    }
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.featured-games-content {
+    .owl-theme {
+        .owl-dots {
+            right: auto;
+            left: 45px;
+        }
+        .owl-nav {
+            left: auto;
+            right: 45px;
+
+            [class*=owl-] {
+                &.owl-next {
+                    margin: {
+                        left: 0;
+                        right: 20px;
+                    };
+                }
+            }
+        }
+    }
+}
+
+.single-live-stream-item {
+    .content {
+        .meta {
+            padding-right: 0;
+
+            li {
+                margin: {
+                    right: 0;
+                    left: 23px;
+                };
+                &:last-child {
+                    margin-left: 0;
+                }
+                &::before {
+                    left: -15.5px;
+                    right: auto;
+                }
+            }
+        }
+    }
+    .video-btn {
+        right: auto;
+        left: 30px;
+    }
+}
+
+.single-top-team-item {
+    ul {
+        padding-right: 0;
+    }
+}
+.single-top-team-box {
+    ul {
+        padding-right: 0;
+    }
+}
+
+.single-games-box {
+    .content {
+        .btn-box {
+            .playstore-btn {
+                text-align: right;
+                padding: {
+                    left: 22px;
+                    right: 65px;
+                };
+                margin: {
+                    right: 0;
+                    left: 10px;
+                };
+                img {
+                    left: auto;
+                    right: 22px;
+                }
+            }
+            .applestore-btn {
+                text-align: right;
+                padding: {
+                    left: 22px;
+                    right: 70px;
+                };
+                margin: {
+                    left: 0;
+                    right: 10px;
+                };
+                img {
+                    left: auto;
+                    right: 22px;
+                }
+            }
+        }
+    }
+}
+
+.single-feedback-item {
+    &::before {
+        left: auto;
+        right: 40px;
+    }
+    span {
+        padding: {
+            left: 0;
+            right: 25px;
+        };
+        &::before {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+.single-stream-schedule-box {
+    padding: {
+        left: 50px;
+        right: 100px;
+    };
+    .date {
+        left: auto;
+        right: 35px;
+    }
+    .content {
+        border: {
+            right: 1px solid #1d1b1b;
+            left: none;
+        };
+    }
+}
+
+.contact-info {
+    ul {
+        padding-right: 0;
+
+        li {
+            padding: {
+                left: 0;
+                right: 100px;
+            };
+            .icon {
+                left: auto;
+                right: 0;
+            }
+            .social-box {
+                a {
+                    margin: {
+                        right: 0;
+                        left: 7px;
+                    };
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.contact-form {
+    form {
+        input, textarea {
+            padding: {
+                left: 0;
+                right: 15px;
+            };
+        }
+        .help-block {
+            ul {
+                padding-right: 0;
+            }
+        }
+        .text-left {
+            text-align: right !important;
+        }
+    }
+}
+
+.faq-accordion-tab {
+    .tabs {
+        padding-right: 0;
+    }
+}
+.faq-accordion {
+    .accordion {
+        padding-right: 0;
+
+        .accordion-title {
+            padding: {
+                left: 25px;
+                right: 60px;
+            };
+            i {
+                left: auto;
+                right: 25px;
+            }
+        }
+        .accordion-content {
+            padding: {
+                left: 25px;
+                right: 60px;
+            };
+        }
+    }
+}
+
+.coming-soon-content {
+    form {
+        .form-group {
+            .input-newsletter {
+                padding: {
+                    left: 0;
+                    right: 20px;
+                };
+            }
+        }
+    }
+}
+
+.tournament-details-desc {
+    .tournament-meta {
+        padding-right: 0;
+
+        li {
+            padding: {
+                left: 0;
+                right: 62px;
+            };
+            margin: {
+                left: 40px;
+                right: 0;
+            };
+            &:last-child {
+                margin-left: 0;
+            }
+            .icon {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}
+
+.team-details-desc {
+    .team-meta {
+        padding-right: 0;
+
+        li {
+            padding: {
+                left: 0;
+                right: 62px;
+            };
+            margin: {
+                left: 40px;
+                right: 0;
+            };
+            &:last-child {
+                margin-left: 0;
+            }
+            .icon {
+                left: auto;
+                right: 0;
+            }
+            .social {
+                a {
+                    margin: {
+                        right: 0;
+                        left: 10px;
+                    };
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.player-details-desc {
+    .player-meta {
+        padding-right: 0;
+
+        li {
+            padding: {
+                left: 0;
+                right: 62px;
+            };
+            margin: {
+                left: 40px;
+                right: 0;
+            };
+            &:last-child {
+                margin-left: 0;
+            }
+            .icon {
+                left: auto;
+                right: 0;
+            }
+            .social {
+                a {
+                    margin: {
+                        right: 0;
+                        left: 10px;
+                    };
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.zelda-grid-sorting {
+    .ordering {
+        text-align: left;
+
+        label {
+            margin: {
+                right: 0;
+                left: 15px;
+            };
+        }
+    }
+}
+
+.cart-table {
+    table {
+        tbody {
+            tr {
+                td {
+                    &.product-subtotal {
+                        .remove {
+                            float: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.cart-buttons {
+    .text-right {
+        text-align: left!important;
+    }
+    .shopping-coupon-code {
+        button {
+            right: auto;
+            left: 0;
+        }
+    }
+}
+.cart-totals {
+    ul {
+        padding-right: 0;
+
+        li {
+            span {
+                float: left;
+            }
+        }
+    }
+}
+
+.single-blog-post-box {
+    .post-content {
+        .post-meta {
+            padding-right: 0;
+
+            li {
+                margin: {
+                    right: 0;
+                    left: 20px;
+                };
+                &:last-child {
+                    margin-left: 0;
+                }
+                &::before {
+                    right: auto;
+                    left: -12px;
+                }
+            }
+        }
+    }
+}
+
+.match-details-desc {
+    .article-content {
+        .entry-meta {
+            ul {
+                padding-right: 0;
+
+                li {
+                    margin: {
+                        right: 0;
+                        left: 20px;
+                    };
+                    &::before {
+                        right: auto;
+                        left: -12px;
+                    }
+                }
+            }
+        }
+        .wp-block-gallery.columns-3 {
+            padding-right: 0;
+        }
+    }
+    .article-footer {
+        .article-share {
+            .social {
+                text-align: left;
+                padding-right: 0;
+
+                li {
+                    span {
+                        margin: {
+                            right: 0;
+                            left: 3px;
+                        };
+                    }
+                }
+            }
+        }
+    }
+}
+.comments-area {
+    .comment-body {
+        padding: {
+            left: 0;
+            right: 70px;
+        };
+    }
+    .comment-author {
+        .avatar {
+            left: auto;
+            right: -65px;
+        }
+    }
+    .comment-respond {
+        input[type="date"], input[type="time"], input[type="datetime-local"], input[type="week"], input[type="month"], input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="tel"], input[type="number"], textarea {
+            padding: {
+                left: 0;
+                right: 15px;
+            };
+        }
+        .comment-form-cookies-consent {
+            padding: {
+                left: 0;
+                right: 20px;
+            };
+            input {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}
+blockquote, .blockquote {
+    &::after {
+        left: auto;
+        right: 0;
+    }
+}
+
+.widget-area {
+    padding: {
+        left: 0;
+        right: 15px;
+    };
+    &.widget-left-sidebar {
+        padding: {
+            right: 0;
+            left: 15px;
+        };
+    }
+    .widget {
+        .widget-title {
+            &::before {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+    .widget_search {
+        form {
+            .search-field {
+                padding: {
+                    left: 0;
+                    right: 15px;
+                };
+            }
+            button {
+                right: auto;
+                left: 5px;
+            }
+        }
+    }
+    .widget_zelda_posts_thumb {
+        .item {
+            .thumb {
+                float: right;
+                margin: {
+                    left: 15px;
+                    right: 0;
+                };
+            }
+        }
+    }
+    .widget_categories {
+        ul {
+            padding-right: 0;
+
+            li {
+                padding: {
+                    left: 0;
+                    right: 18px;
+                };
+                &::before {
+                    left: auto;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .tagcloud {
+        a {
+            margin: {
+                right: 0;
+                left: 4px;
+            };
+        }
+    }
+    .widget_instagram {
+        ul {
+            padding-right: 0;
+        }
+    }
+    .widget_match_list {
+        .single-match-list {
+            img {
+                &.team-1 {
+                    left: auto;
+                    right: 15px;
+                }
+                &.team-2 {
+                    right: auto;
+                    left: 15px;
+                }
+            }
+            ul {
+                padding-right: 0;
+
+                li {
+                    &:first-child {
+                        margin: {
+                            right: 0;
+                            left: 15px;
+                        };
+                    }
+                    &:last-child {
+                        margin: {
+                            left: 0;
+                            right: 15px;
+                        };
+                    }
+                    &::before {
+                        right: auto;
+                        left: -20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.blog-details-desc {
+    .article-content {
+        .entry-meta {
+            ul {
+                padding-right: 0;
+
+                li {
+                    margin: {
+                        right: 0;
+                        left: 20px;
+                    };
+                    padding: {
+                        left: 20px;
+                        right: 45px;
+                    };
+                    border: {
+                        right: none;
+                        left: 1px solid #22152c;
+                    };
+                    i {
+                        left: auto;
+                        right: 0;
+                    }
+                    &:last-child {
+                        border-left: none;
+                        padding: {
+                            right: 45px;
+                            left: 0;
+                        };
+                    }
+                }
+            }
+        }
+        .wp-block-gallery.columns-3 {
+            padding-right: 0;
+        }
+        .features-list {
+            padding-right: 0;
+
+            li {
+                padding: {
+                    left: 0;
+                    right: 26px;
+                };
+                i {
+                    left: auto;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .article-footer {
+        .article-share {
+            .social {
+                text-align: left;
+                padding-right: 0;
+
+                li {
+                    span {
+                        margin: {
+                            right: 0;
+                            left: 3px;
+                        };
+                    }
+                }
+            }
+        }
+    }
+}
+.prev-link-wrapper {
+    padding: {
+        left: 15px;
+        right: 0;
+    };
+    .image-prev {
+        margin: {
+            right: 0;
+            left: 20px;
+        };
+    }
+}
+.next-link-wrapper {
+    text-align: left;
+    padding: {
+        right: 15px;
+        left: 0;
+    };
+    .image-next {
+        margin: {
+            left: 0;
+            right: 20px;
+        };
+    }
+}
+
+.billing-details {
+    .title {
+        &::before {
+            left: auto;
+            right: 0;
+        }
+    }
+    .form-group {
+        select {
+            padding: {
+                left: 0;
+                right: 15px;
+            };
+        }
+    }
+    .form-check {
+        padding: {
+            left: 0;
+            right: 1.25rem;
+        };
+        .form-check-input {
+            margin: {
+                right: -1.25rem;
+                left: 0;
+            };
+        }
+    }
+}
+.order-details {
+    .title {
+        &::before {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+.order-details .payment-box .payment-method p [type="radio"]:checked + label, .order-details .payment-box .payment-method p [type="radio"]:not(:checked) + label {
+    padding: {
+        left: 0;
+        right: 27px;
+    };
+}
+.order-details .payment-box .payment-method p [type="radio"]:checked + label::before, .order-details .payment-box .payment-method p [type="radio"]:not(:checked) + label::before {
+    left: auto;
+    right: 0;
+}
+.order-details .payment-box .payment-method p [type="radio"]:checked + label::after, .order-details .payment-box .payment-method p [type="radio"]:not(:checked) + label::after {
+    left: auto;
+    right: 3px;
+}
+
+.products-details-desc {
+    padding: {
+        left: 0;
+        right: 30px;
+    };
+    .products-share {
+        .social {
+            padding-right: 0;
+
+            li {
+                span {
+                    margin: {
+                        left: 3px;
+                        right: 0;
+                    };
+                }
+            }
+        }
+    }
+}
+.products-details-tabs {
+    .nav {
+        padding-right: 0;
+    }
+    .tab-content {
+        .tab-pane {
+            ul {
+                padding-right: 0;
+
+                li {
+                    padding: {
+                        left: 0;
+                        right: 15px;
+                    };
+                    &::before {
+                        left: auto;
+                        right: 0;
+                    }
+                }
+            }
+            .products-reviews {
+                h3 {
+                    margin: {
+                        right: 0;
+                        left: 15px;
+                    };
+                }
+                .side {
+                    float: right;
+                }
+                .right {
+                    text-align: left;
+                }
+            }
+            .products-review-comments {
+                .user-review {
+                    padding: {
+                        left: 0;
+                        right: 110px;
+                    };
+                    .review-rating {
+                        span {
+                            margin: {
+                                left: 0;
+                                right: 5px;
+                            };
+                        }
+                    }
+                    img {
+                        left: auto;
+                        right: 0;
+                    }
+                }
+            }
+            .review-form-wrapper {
+                form {
+                    .comment-form-cookies-consent {
+                        text-align: right;
+
+                        [type="checkbox"]:checked + label, [type="checkbox"]:not(:checked) + label {
+                            padding: {
+                                left: 0;
+                                right: 28px;
+                            };
+                        }
+                        [type="checkbox"]:checked + label:before, [type="checkbox"]:not(:checked) + label:before {
+                            left: auto;
+                            right: 0;
+                        }
+                        [type="checkbox"]:checked + label:after, [type="checkbox"]:not(:checked) + label:after {
+                            left: auto;
+                            right: 6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.login-form {
+    form {
+        .lost-your-password-wrap {
+            text-align: left;
+        }
+        .remember-me-wrap {
+            [type="checkbox"]:checked + label, [type="checkbox"]:not(:checked) + label {
+                padding: {
+                    left: 0;
+                    right: 28px;
+                };
+            }
+            [type="checkbox"]:checked + label:before, [type="checkbox"]:not(:checked) + label:before {
+                left: auto;
+                right: 0;
+            }
+            [type="checkbox"]:checked + label:after, [type="checkbox"]:not(:checked) + label:after {
+                left: auto;
+                right: 6px;
+            }
+        }
+    }
+}
+
+.subscribe-inner {
+    .newsletter-form {
+        label {
+            left: auto;
+            right: 20px;
+        }
+        .default-btn {
+            right: auto;
+            left: 0;
+        }
+        .input-newsletter {
+            padding: {
+                left: 0;
+                right: 58px;
+            };
+        }
+    }
+}
+.section-title {
+    .newsletter-form {
+        label {
+            left: auto;
+            right: 20px;
+        }
+        .default-btn {
+            right: auto;
+            left: 0;
+        }
+        .input-newsletter {
+            padding: {
+                left: 0;
+                right: 58px;
+            };
+        }
+    }
+}
+
+.footer-content {
+    .footer-menu {
+        padding-right: 0;
+
+        li {
+            &:last-child {
+                margin: {
+                    left: 0;
+                    right: 20px;
+                };
+            }
+            &:first-child {
+                margin: {
+                    left: 20px;
+                    right: 0;
+                };
+            }
+        }
+    }
+}
+.copyright-area {
+    .lang-switcher {
+        text-align: left;
+
+        &::before {
+            right: auto;
+            left: 15px;
+        }
+        span {
+            margin: {
+                right: 0;
+                left: 15px;
+            };
+        }
+    }
+}
+.single-footer-widget {
+    .footer-links-list {
+        padding-right: 0;
+    }
+    .footer-contact-info {
+        padding-right: 0;
+
+        li {
+            padding: {
+                left: 0;
+                right: 24px;
+            };
+            i {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+    .social-link {
+        padding-right: 0;
+
+        li {
+            margin: {
+                right: 0;
+                left: 5px;
+            };
+            &:last-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+.footer-bottom-area {
+    ul {
+        text-align: left;
+        padding-right: 0;
+
+        li {
+            margin: {
+                right: 0;
+                left: 20px;
+            };
+            &:last-child {
+                margin-left: 0;
+            }
+            &::before {
+                right: auto;
+                left: -12px;
+                top: 4.5px;
+            }
+        }
+    }
+}
+
+.go-top {
+    right: auto;
+    left: 20px;
+}
+
+@media only screen and (max-width: 767px){
+
+    .main-banner-content {
+        .btn-box {
+            .optional-btn {
+                margin-right: 8px;
+            }
+        }
+    }
+    .home-slides {
+        .main-banner-content {
+            text-align: center;
+            padding-left: 0;
+        }
+    }
+    .hero-banner-image {
+        margin-right: 0;
+    }
+    .hero-banner-content {
+        margin-right: 0;
+
+        .btn-box {
+            .video-btn {
+                margin: {
+                    left: 0;
+                    right: 10px;
+                };
+            }
+        }
+    }
+
+    .single-matches-box {
+        .matches-team {
+            padding-right: 68px;
+
+            .content {
+                h3 {
+                    padding-left: 20px;
+                }
+                .watch-list {
+                    padding-left: 20px;
+                }
+            }
+            &.right-image {
+                padding-left: 68px;
+
+                .content {
+                    h3 {
+                        padding-right: 20px;
+                    }
+                    ul {
+                        padding-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .services-area {
+        .section-title {
+            text-align: center;
+        }
+    }
+
+    .featured-games-content {
+        .owl-theme {
+            .owl-dots {
+                left: 20px;
+            }
+            .owl-nav {
+                right: 20px;
+            }
+        }
+    }
+
+    .team-area {
+        .section-title {
+            text-align: center;
+        }
+    }
+
+    .subscribe-inner {
+        .newsletter-form {
+            label {
+                right: 10px;
+            }
+            .input-newsletter {
+                padding-right: 40px;
+            }
+        }
+    }
+    .section-title {
+        .newsletter-form {
+            label {
+                right: 10px;
+            }
+            .input-newsletter {
+                padding-right: 40px;
+            }
+        }
+    }
+
+    .single-popular-leagues-box {
+        .popular-leagues-box {
+            .popular-leagues-content {
+                .content {
+                    .info {
+                        li {
+                            margin-left: 15px;
+                            padding-right: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .single-tournaments-box {
+        .tournaments-content {
+            .content {
+                .info {
+                    li {
+                        margin-left: 15px;
+                        padding-right: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+    .single-stream-schedule-box {
+        padding: {
+            left: 20px;
+            right: 20px;
+        };
+        .date {
+            right: 0;
+        }
+        .content {
+            border-right: none;
+        }
+    }
+
+    .single-feedback-item {
+        &::before {
+            right: 20px;
+        }
+    }
+
+    .contact-info {
+        ul {
+            li {
+                padding-right: 0;
+            }
+        }
+    }
+    .contact-form {
+        form {
+            text-align: right;
+        }
+    }
+
+    .single-games-box {
+        .content {
+            .btn-box {
+                .playstore-btn {
+                    margin-left: 0;
+                }
+                .applestore-btn {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    .faq-accordion {
+        .accordion {
+            .accordion-title {
+                padding: {
+                    left: 15px;
+                    right: 40px;
+                };
+                i {
+                    right: 10px;
+                }
+            }
+            .accordion-content {
+                padding: {
+                    left: 10px;
+                    right: 40px;
+                };
+            }
+        }
+    }
+
+    .tournament-details-desc {
+        .tournament-meta {
+            li {
+                padding-right: 50px;
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .team-details-desc {
+        .team-meta {
+            li {
+                padding-right: 50px;
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .player-details-desc {
+        .player-meta {
+            li {
+                padding-right: 50px;
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .match-details-desc {
+        .article-footer {
+            .article-share {
+                .social {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .blog-details-desc {
+        .article-footer {
+            .article-share {
+                .social {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .comments-area {
+        .comment-author {
+            .avatar {
+                right: 0;
+            }
+        }
+        .comment-body {
+            padding-right: 0;
+        }
+    }
+
+    .products-details-desc {
+        padding-right: 0;
+    }
+    .products-details-tabs .tab-content .tab-pane .products-review-comments .user-review {
+        padding-right: 0;
+    }
+
+    .widget-area {
+        padding-right: 0;
+
+        &.widget-left-sidebar {
+            padding-left: 0;
+        }
+        .widget_match_list {
+            .single-match-list {
+                ul {
+                    li {
+                        &:first-child {
+                            margin-left: 12px;
+                        }
+                        &:last-child {
+                            margin-right: 12px;
+                        }
+                        &::before {
+                            left: -15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-content {
+        .footer-menu {
+            li {
+                &:first-child {
+                    margin-left: 9px;
+                }
+                &last-child {
+                    margin-right: 9px;
+                }
+            }
+        }
+    }
+    .copyright-area {
+        .lang-switcher {
+            text-align: center;
+        }
+    }
+    .footer-bottom-area {
+        ul {
+            text-align: center;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px){
+
+    .home-slides {
+        .main-banner-content {
+            text-align: center;
+        }
+    }
+    .hero-banner-image {
+        margin-left: 0;
+    }
+    .hero-banner-content {
+        margin-right: 0;
+    }
+
+    .team-area {
+        .section-title {
+            text-align: center;
+        }
+    }
+    
+    .services-area {
+        .section-title {
+            text-align: center;
+        }
+    }
+
+    .single-games-box {
+        .content {
+            .btn-box {
+                .playstore-btn {
+                    margin-left: 0;
+                }
+                .applestore-btn {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px){
+
+    .home-slides {
+        .main-banner-content {
+            padding-left: 0;
+        }
+    }
+
+    .single-matches-box {
+        .matches-result {
+            ul {
+                li {
+                    &:last-child {
+                        margin-right: 20px;
+                    }
+                    &:first-child {
+                        margin-left: 20px;
+                    }
+                    &::before {
+                        right: -25px;
+                    }
+                }
+            }
+        }
+    }
+
+}

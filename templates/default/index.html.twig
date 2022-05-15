@@ -1,0 +1,23 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+
+    
+<br><br><br><br><br><br>
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_start(form) }}
+                {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Recherche'}}) }}
+                <hr>
+                <button type="submit" class="btn btn-success btn-block">get code QCR</button>
+            {{ form_end(form) }}
+ 
+        </div>
+        <div class="col-md-6">
+            {% if qrCode %}
+                <img src="{{ qrCode }}" alt="qr-code">
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
