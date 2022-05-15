@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="86.0" prefWidth="329.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PlayerComponentController">
+   <children>
+      <HBox prefHeight="86.0" prefWidth="329.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/69.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="3.0" />
+               </HBox.margin>
+            </ImageView>
+            <VBox prefHeight="86.0" prefWidth="238.0">
+               <children>
+                  <HBox prefHeight="21.0" prefWidth="234.0">
+                     <children>
+                        <Text fx:id="first_name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghassene" />
+                        <Text fx:id="tag_name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fx:id="last_name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Text fx:id="desc_id" fill="#bcbbbb" strokeType="OUTSIDE" strokeWidth="0.0" text="AK47 Rifler" wrappingWidth="242.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Text>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>

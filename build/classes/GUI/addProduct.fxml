@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="1121.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddProductController">
+   <children>
+      <Label layoutX="139.0" layoutY="65.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="Add Product">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField layoutX="678.0" layoutY="144.0" prefHeight="52.0" prefWidth="409.0" promptText="Price" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933;" />
+      <TextArea layoutX="139.0" layoutY="231.0" prefHeight="163.0" prefWidth="409.0" promptText="Descriiption" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-radius: 20; -fx-background-color: #242933;" stylesheets="@../styles/store.css" />
+      <TextField layoutX="139.0" layoutY="421.0" prefHeight="52.0" prefWidth="409.0" promptText="Brand" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933;" />
+      <TextField layoutX="678.0" layoutY="231.0" prefHeight="52.0" prefWidth="409.0" promptText="Color" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933;" />
+      <TextField layoutX="678.0" layoutY="331.0" prefHeight="52.0" prefWidth="409.0" promptText="Quantity" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933;" />
+      <TextField layoutX="678.0" layoutY="421.0" prefHeight="52.0" prefWidth="409.0" promptText="Discount" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933;" />
+      <TextField layoutX="139.0" layoutY="144.0" prefHeight="52.0" prefWidth="409.0" promptText="Name of the product" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933;" />
+      <Button layoutX="873.0" layoutY="499.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="214.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #A80051; -fx-text-fill: #ffffff;" text="Add Product">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="139.0" layoutY="499.0" prefHeight="52.0" prefWidth="409.0" />
+      <Label layoutX="139.0" layoutY="499.0" prefHeight="52.0" prefWidth="409.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-text-fill: #C0C0C0; -fx-font-size: 13;" text="Add image">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="499.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Add%20Photo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

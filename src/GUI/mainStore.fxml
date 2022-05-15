@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXSlider?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #242933;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainStoreController">
+   <children>
+      <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="639.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="78.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/gg_logo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="35.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Pane layoutX="135.0" layoutY="10.0">
+                     <children>
+                        <TextField fx:id="searchField" onKeyReleased="#searchOnKeyReleased" style="-fx-border-color: #ffffff; -fx-border-radius: 8;" styleClass="search" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="158.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" style="fx-background-color: #000000;" styleClass="search" translateZ="1.0">
+                           <image>
+                              <Image url="@../images/Search.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="20.0" top="30.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="90.0" prefWidth="34.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="2.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Bell.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="13.0" layoutY="25.0" style="-fx-background-color: red; -fx-text-fill: #ffffff; -fx-label-padding: 3; -fx-background-radius: 100;" stylesheets="@../styles/styles.css" text="10">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Pane>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Settings%202.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Avatar%20Background.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="111.0" style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="avatar_label" text="Mansouri Firas" />
+                        <Label style="-fx-font-size: 12;" styleClass="avatar_label" text="Admin of GGEsports" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox prefHeight="547.0" prefWidth="145.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/home_logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/User%20Group.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="75.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Calendar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Internet.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#store" prefHeight="65.0" prefWidth="149.0" styleClass="navbar_item">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Shopping%20Bags.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                     </cursor>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="60.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane id="AnchorPane" fx:id="updateProductScene" prefHeight="745.0" prefWidth="1160.0" style="-fx-background-color: #1A1A1C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fx:id="U_productImg" fitHeight="440.0" fitWidth="567.0" layoutX="48.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/t_shirt.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="642.0" layoutY="107.0" style="-fx-text-fill: #ffffff;" text="Category">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="U_productCategoryLabel" layoutX="642.0" layoutY="145.0" prefHeight="58.0" prefWidth="411.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="TShirt" />
+                        <Label layoutX="642.0" layoutY="221.0" style="-fx-text-fill: #ffffff;" text="Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="U_productNameLabel" layoutX="642.0" layoutY="259.0" prefHeight="58.0" prefWidth="411.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="ESL Tshirt" />
+                        <Label layoutX="650.0" layoutY="336.0" style="-fx-text-fill: #ffffff;" text="Price">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="U_productPriceLabel" layoutX="650.0" layoutY="374.0" prefHeight="58.0" prefWidth="137.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="169" />
+                        <Label layoutX="811.0" layoutY="390.0" style="-fx-text-fill: #ffffff;" text="DT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="654.0" layoutY="446.0" style="-fx-text-fill: #ffffff;" text="Description">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="U_productDescriptionLabel" alignment="TOP_LEFT" layoutX="654.0" layoutY="486.0" prefHeight="96.0" prefWidth="411.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="Start off 20G2 the right way! The official G2 x adidas 2022 Pro Kit Jersey is available now. Proudly made with AEROREADY 100% Recycled Polyester technology, top-tier design and comfort as top priority, this fit will be the center of the #G2ARMY's most memorable year yet." />
+                        <Button fx:id="U_updateBtn" layoutX="667.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#U_updateProductOnClick" prefHeight="49.0" prefWidth="219.0" style="-fx-text-fill: #ffffff; -fx-background-color: #A80051;" text="Update">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label layoutX="35.0" layoutY="21.0" prefHeight="45.0" prefWidth="231.0" style="-fx-text-fill: #ffffff;" text="Update Product">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="AnchorPane" fx:id="addProductScene" prefHeight="990.0" prefWidth="1772.0" style="-fx-background-color: #242933;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="139.0" layoutY="65.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" text="Add Product">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="A_productPriceField" layoutX="678.0" layoutY="144.0" onKeyReleased="#A_verifPriceOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Price" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+                        <TextArea fx:id="A_productDescriptionField" layoutX="139.0" layoutY="231.0" prefHeight="163.0" prefWidth="409.0" promptText="Description" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-radius: 20; -fx-background-color: #242933; -fx-text-fill: #ffffff;" stylesheets="@../styles/store.css" />
+                        <TextField fx:id="A_productBrandField" layoutX="139.0" layoutY="421.0" onKeyReleased="#A_verifBrandOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Brand" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+                        <TextField fx:id="A_productColorField" layoutX="678.0" layoutY="231.0" prefHeight="52.0" prefWidth="409.0" promptText="Color" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+                        <TextField fx:id="A_productQuantityField" layoutX="678.0" layoutY="331.0" onKeyReleased="#A_verifQuantityOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Quantity" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+                        <TextField fx:id="A_productDiscountField" layoutX="678.0" layoutY="421.0" onKeyReleased="#A_verifDiscountOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Discount" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+                        <TextField fx:id="A_productNameField" layoutX="139.0" layoutY="144.0" onKeyReleased="#A_verifNameOnKeyReleased" prefHeight="52.0" prefWidth="409.0" promptText="Name of the product" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #242933; -fx-text-fill: #ffffff;" />
+                        <Button fx:id="A_AddBtn" disable="true" layoutX="883.0" layoutY="617.0" mnemonicParsing="false" onMouseClicked="#A_addProductOnClick" prefHeight="52.0" prefWidth="214.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #A80051; -fx-text-fill: #ffffff;" text="Add Product">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label layoutX="139.0" layoutY="499.0" prefHeight="52.0" prefWidth="409.0" />
+                        <Label fx:id="A_productImgField" layoutX="139.0" layoutY="499.0" onMouseClicked="#A_addProductImg" prefHeight="52.0" prefWidth="409.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10; -fx-text-fill: #C0C0C0; -fx-font-size: 13;" text="Add image">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="499.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Add%20Photo.png" />
+                           </image>
+                        </ImageView>
+                        <ComboBox fx:id="A_categoriesCbx" layoutX="678.0" layoutY="510.0" prefHeight="48.0" prefWidth="406.0" promptText="TShirt" style="-fx-background-color: #242933; -fx-border-color: #ffffff; -fx-border-radius: 10; -fx-text-fill: #ffffff;" />
+                        <Label fx:id="A_nameErrorLabel" layoutX="142.0" layoutY="123.0" prefHeight="21.0" prefWidth="394.0" style="-fx-text-fill: red;" />
+                        <Label fx:id="A_brandErrorLabel" layoutX="142.0" layoutY="400.0" prefHeight="21.0" prefWidth="394.0" style="-fx-text-fill: red;" />
+                        <Label fx:id="A_imgErrorLabel" layoutX="140.0" layoutY="478.0" prefHeight="21.0" prefWidth="394.0" style="-fx-text-fill: red;" />
+                        <Label fx:id="A_priceErrorLabel" layoutX="678.0" layoutY="123.0" prefHeight="21.0" prefWidth="394.0" style="-fx-text-fill: red;" />
+                        <Label fx:id="A_quantityErrorLabel" layoutX="679.0" layoutY="308.0" prefHeight="21.0" prefWidth="394.0" style="-fx-text-fill: red;" />
+                        <Label fx:id="A_discountErrorLabel" layoutX="678.0" layoutY="400.0" prefHeight="21.0" prefWidth="394.0" style="-fx-text-fill: red;" />
+                        <Label fx:id="A_filePath" layoutX="142.0" layoutY="558.0" prefHeight="21.0" prefWidth="0.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="ProductDetails" fx:id="productDetailsScene" prefHeight="722.0" prefWidth="1095.0" style="-fx-background-color: #1A1A1C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="185.0" layoutY="115.0" style="-fx-text-fill: #ffffff;" text="Product Details">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="410.0" fitWidth="510.0" layoutX="165.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/t_shirt.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="D_productNameLabel" layoutX="694.0" layoutY="211.0" style="-fx-text-fill: #ffffff;" text="ESL Tshirt" textFill="#ffffff00">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="D_productPriceLabel" layoutX="694.0" layoutY="272.0" style="-fx-text-fill: #ffffff;" text="169" />
+                        <Label layoutX="728.0" layoutY="272.0" style="-fx-text-fill: #ffffff;" text="DT" />
+                        <Label layoutX="756.0" layoutY="272.0" style="-fx-text-fill: #ffffff;" text="/" />
+                        <Label fx:id="D_productPriceReducedLabel" layoutX="771.0" layoutY="272.0" style="-fx-text-fill: #ffffff;" text="130" />
+                        <Label layoutX="804.0" layoutY="272.0" style="-fx-text-fill: #ffffff;" text="DT" />
+                        <Label layoutX="694.0" layoutY="312.0" style="-fx-text-fill: #ffffff;" text="Rating: ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="D_productRatingPane" layoutX="752.0" layoutY="306.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="146.0">
+                           <children>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="43.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="73.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="103.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Star.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Label layoutX="694.0" layoutY="353.0" style="-fx-text-fill: #ffffff;" text="Description:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="D_productDescriptionLabel" alignment="TOP_LEFT" layoutX="694.0" layoutY="387.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="447.0" style="-fx-text-fill: #ffffff;" text="Start off 20G2 the right way! The official G2 x adidas 2022 " />
+                        <Label layoutX="693.0" layoutY="419.0" style="-fx-text-fill: #ffffff;" text="Color:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="694.0" layoutY="456.0" style="-fx-text-fill: #ffffff;" text="Brand:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="693.0" layoutY="499.0" style="-fx-text-fill: #ffffff;" text="Category:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="695.0" layoutY="539.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" style="-fx-text-fill: #ffffff;" text="Quantity:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="D_productQuantityLabel" layoutX="782.0" layoutY="544.0" onDragDetected="#Label" style="-fx-text-fill: #ffffff;" text="16" />
+                        <Button fx:id="D_updateBtn" layoutX="687.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#D_goToUpdateProductPageOnclick" prefHeight="58.0" prefWidth="234.0" style="-fx-background-color: A80051; -fx-text-fill: #ffffff;" text="Update Product" />
+                        <Button fx:id="D_deleteBtn" layoutX="942.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#D_goToDeleteProductPageOnClick" prefHeight="58.0" prefWidth="234.0" style="-fx-background-color: A80051; -fx-text-fill: #ffffff;" text="Delete Product" />
+                        <Label fx:id="D_productBrandLabel" layoutX="765.0" layoutY="461.0" style="-fx-text-fill: #ffffff;" text="csgo" />
+                        <Label fx:id="D_productColorLabel" layoutX="755.0" layoutY="424.0" style="-fx-text-fill: #ffffff;" text="black" />
+                        <Label fx:id="D_productCategoryLabel" layoutX="787.0" layoutY="505.0" style="-fx-text-fill: #ffffff;" text="accessories" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="productListScene" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #242933;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox layoutX="50.0" layoutY="50.0">
+                           <children>
+                              <Label style="-fx-text-fill: #ffffff;" text="Shopping Store">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" right="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="L_addProductBtn" mnemonicParsing="false" onMouseClicked="#L_goToAddProductOnclick" prefHeight="50.0" prefWidth="220.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #A80051; -fx-text-fill: #ffffff;" text="Add Product" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="1699.0" style="-fx-background-color: #242933;">
+                           <children>
+                              <Button fx:id="F_tshirtsBtn" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#getTshirtsOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="TShirts">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="F_sweatshirtsBtn" alignment="CENTER" layoutX="10.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#getSweatshirtsOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="Sweatshirts">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="F_pantsBtn" alignment="CENTER" layoutX="150.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#getPantsOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="Pants">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="F_accessoriesBtn" alignment="CENTER" layoutX="290.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#getAccessoriesOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="Accessories">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="F_HardwaresBtn" alignment="CENTER" layoutX="430.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#getHardwaresOnclick" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" stylesheets="@../styles/store.css" text="Hardwares">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="filter_btn" />
+                                    <String fx:value="filter_btn_f" />
+                                 </styleClass>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Pane prefHeight="95.0" prefWidth="398.0">
+                                 <children>
+                                    <Label layoutX="19.0" layoutY="37.0" style="-fx-text-fill: #ffffff;" text="Price range" />
+                                    <JFXSlider fx:id="F_minPrice" blockIncrement="0.0" layoutX="119.0" layoutY="41.0" majorTickUnit="15.0" max="500.0" onMouseReleased="#getMinPrice" stylesheets="@../styles/store.css" />
+                                    <JFXSlider fx:id="F_maxPrice" blockIncrement="0.0" layoutX="251.0" layoutY="41.0" majorTickUnit="15.0" max="1000.0" min="500.0" stylesheets="@../styles/store.css" value="500.0" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="600.0" />
+                                 </HBox.margin>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <ScrollPane fx:id="scrollpane" layoutX="7.0" layoutY="215.0" prefHeight="467.0" prefWidth="1734.0" style="-fx-background: #242933;" stylesheets="@../styles/store.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="215.0">
+                           <content>
+                              <GridPane fx:id="gridpane" prefHeight="25.0" prefWidth="822.0" stylesheets="@../styles/store.css">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

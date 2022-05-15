@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TeamDController">
+   <children>
+      <VBox prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team details">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <VBox prefHeight="134.0" prefWidth="1000.0">
+               <children>
+                  <HBox prefHeight="142.0" prefWidth="1000.0">
+                     <children>
+                        <ImageView fx:id="iddd" fitHeight="124.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox prefHeight="124.0" prefWidth="543.0">
+                           <children>
+                              <Text fx:id="teamTi" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Natus vincere">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="TeamDes" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sounds like you're doing the right thing opening it directly into SceneBuilder.Can you post the FXML content? Pastebin or a code block and we can try and help from there?" wrappingWidth="450.0">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/User%20Group.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text fx:id="TeamNb" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="1.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="534.0" prefWidth="1127.0">
+               <children>
+                  <Pane prefHeight="534.0" prefWidth="1915.0">
+                     <children>
+                        <VBox prefHeight="534.0" prefWidth="1508.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Players belongs to the team">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#bab8b8bc" layoutX="10.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="players list" />
+                              <Pane prefHeight="480.0" prefWidth="1149.0" style="-fx-background-color: #2B323C;">
+                                 <children>
+                                    <ScrollPane prefHeight="518.0" prefWidth="1578.0" style="-fx-background-color: #2B323C;">
+                                       <content>
+                                          <VBox fx:id="myVboxTD" prefHeight="516.0" prefWidth="1575.0" style="-fx-background-color: #242933;" />
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="500.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

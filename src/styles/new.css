@@ -1,0 +1,12 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.NEW{
+      -fx-background-color:#1B1F25;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+     -fx-border-style: solid;
+    -fx-border-color: #1B1F25;
+}

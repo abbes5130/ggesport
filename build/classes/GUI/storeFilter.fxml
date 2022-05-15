@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="1274.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="TShirt">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="10.0" layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="Sweatshirts">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="150.0" layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="Pants">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="290.0" layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" styleClass="filter_btn" stylesheets="@../styles/store.css" text="Accessories">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="430.0" layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-text-fill: #ffffff; -fx-background-color: #242933;" stylesheets="@../styles/store.css" text="Hardware">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="filter_btn" />
+            <String fx:value="filter_btn_f" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Pane prefHeight="95.0" prefWidth="352.0">
+         <children>
+            <Slider layoutX="155.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="165.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Slider>
+            <Label layoutX="36.0" layoutY="37.0" style="-fx-text-fill: #ffffff;" text="Price range" />
+         </children>
+         <HBox.margin>
+            <Insets left="200.0" />
+         </HBox.margin>
+      </Pane>
+   </children>
+</HBox>

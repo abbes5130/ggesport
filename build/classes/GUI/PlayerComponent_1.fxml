@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="86.0" prefWidth="329.0" style="-fx-background-color: #242933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PlayerComponentController_1">
+   <children>
+      <HBox prefHeight="86.0" prefWidth="329.0">
+         <children>
+            <ImageView fx:id="image_play" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets top="3.0" />
+               </HBox.margin>
+            </ImageView>
+            <VBox prefHeight="86.0" prefWidth="158.0">
+               <children>
+                  <HBox prefHeight="21.0" prefWidth="157.0">
+                     <children>
+                        <Text fx:id="first_name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghassene" />
+                        <Text fx:id="tag_name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fx:id="last_name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Text fx:id="desc_id" fill="#bcbbbb" strokeType="OUTSIDE" strokeWidth="0.0" text="AK47 Rifler" wrappingWidth="144.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Text>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+            <Button fx:id="up" mnemonicParsing="false" onAction="#UpdateButton" text="U">
+               <HBox.margin>
+                  <Insets right="15.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="ud" mnemonicParsing="false" onAction="#DeletePllayer" text="D">
+               <HBox.margin>
+                  <Insets top="25.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</Pane>
